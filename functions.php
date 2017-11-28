@@ -243,7 +243,6 @@ function odin_enqueue_scripts() {
 		// Grunt main file with Bootstrap, FitVids and others libs.
 		wp_enqueue_script( 'odin-main-min', $template_url . '/assets/js/main.min.js', array(), null, true );
 	}
-
 	// Grunt watch livereload in the browser.
 	// wp_enqueue_script( 'odin-livereload', 'http://localhost:35729/livereload.js?snipver=1', array(), null, true );
 
@@ -254,6 +253,18 @@ function odin_enqueue_scripts() {
 }
 
 add_action( 'wp_enqueue_scripts', 'odin_enqueue_scripts', 1 );
+
+/**
+ * Load admin (dashboard/customizer) scripts
+ */
+function odin_admin_enqueue_scripts() {
+	$template_url = get_template_directory_uri();
+
+	wp_enqueue_script( 'jquery' );
+	wp_enqueue_script( 'odin-admin', $template_url . '/assets/js/admin.min.js', array(), null, true );
+}
+
+add_action( 'admin_enqueue_scripts', 'odin_admin_enqueue_scripts', 1 );
 
 /**
  * Odin custom stylesheet URI.

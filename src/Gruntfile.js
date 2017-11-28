@@ -39,7 +39,13 @@ module.exports = function( grunt ) {
 						'<%= dirs.js %>/src/*.js', // External libs/plugins
 						'<%= dirs.js %>/libs/*.js', // External libs/plugins
 						'<%= dirs.js %>/main.js'    // Custom JavaScript
+					],
+					'<%= dirs.js %>/admin.min.js': [
+						'<%= dirs.js %>/admin_src/*.js', // External libs/plugins
+						'<%= dirs.js %>/admin_libs/*.js', // External libs/plugins
+						'<%= dirs.js %>/admin.js'    // Custom JavaScript
 					]
+
 				}
 			},
 			bootstrap: {
@@ -85,7 +91,10 @@ module.exports = function( grunt ) {
 			js: {
 				files: [
 					'<%= jshint.all %>',
-					'<%= dirs.js %>/src/*.js'
+					'<%= dirs.js %>/src/*.js',
+					'<%= dirs.js %>/admin_src/*.js',
+					'<%= dirs.js %>/libs/*.js',
+					'<%= dirs.js %>/admin_libs/*.js'
 				],
 				tasks: ['jshint', 'uglify']
 			},
