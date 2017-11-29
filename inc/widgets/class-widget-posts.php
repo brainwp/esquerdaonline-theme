@@ -14,7 +14,7 @@ class EOL_Posts_Widget extends WP_Widget {
 	 */
 	public function __construct() {
 		$widget_ops = array('classname' => 'widget_eol_posts', 'description' => 'Widget de posts com repetidor' );
-		$control_ops = array('width' => 400, 'height' => 350);
+		$control_ops = array('width' => 400, 'height' => 700);
 		parent::__construct('widget_eol_posts', __('Widget de Posts'), $widget_ops, $control_ops);
 	}
 
@@ -97,7 +97,7 @@ class EOL_Posts_Widget extends WP_Widget {
 		$title = sanitize_text_field( $instance['title'] );
 		?>
 		<script type="text/template" id="eol-posts-widget-<?php echo $this->get_field_id('title'); ?>">
-			<div class="each-repeater">
+			<li class="each-repeater" style="border:1px solid #e3e3e3;">
 				<p>
 					<label>Titulo do post</label>
 					<input class="widefat post-title" type="text" name="<?php echo $this->get_field_name( 'posts' ); ?>[]['title']">
@@ -114,12 +114,12 @@ class EOL_Posts_Widget extends WP_Widget {
 						Remover post
 					</a>
 				</p>
-			</div><!-- .each-repeater -->
+			</li><!-- .each-repeater -->
 		</script>
 		<div class="form-container">
-			<div class="posts">
+			<ul class="posts">
 
-			</div><!-- .posts -->
+			</ul><!-- .posts -->
 			<a href="#eol-posts-widget-<?php echo $this->get_field_id('title'); ?>" class="add-new-row">
 				(+) Adicionar post
 			</a>
