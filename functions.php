@@ -260,7 +260,11 @@ add_action( 'wp_enqueue_scripts', 'odin_enqueue_scripts', 1 );
 function odin_admin_enqueue_scripts() {
 	$template_url = get_template_directory_uri();
 
+
 	wp_enqueue_script( 'jquery' );
+	wp_enqueue_script( 'jquery-ui-sortable' );
+	wp_enqueue_script( 'wp-api' );
+
 	wp_enqueue_script( 'odin-admin', $template_url . '/assets/js/admin.min.js', array(), null, true );
 }
 
@@ -340,3 +344,11 @@ require_once get_template_directory() . '/inc/customizer.php';
  */
 require_once get_template_directory() . '/inc/acf/acf.php';
 require_once get_template_directory() . '/inc/fields.php';
+
+/**
+ * Load Widgets
+ */
+ $widgets_dir = get_template_directory() . '/inc/widgets/';
+ foreach ( glob( $widgets_dir . '*.php' ) as $filename ){
+ 	include $filename;
+ }

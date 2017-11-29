@@ -13,13 +13,7 @@
 get_header(); ?>
 
 	<main id="content" class="<?php echo odin_classes_page_full(); ?>" tabindex="-1" role="main">
-			<?php
-				// Start the Loop.
-				while ( have_posts() ) : the_post();
-					the_content();
-				endwhile;
-			?>
-
+		<?php dynamic_sidebar( 'main-sidebar' );?>
 	</main><!-- #main -->
 
 <?php
