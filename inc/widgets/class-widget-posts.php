@@ -68,8 +68,6 @@ class EOL_Posts_Widget extends WP_Widget {
 	 * @return array Settings to save or bool false to cancel saving.
 	 */
 	public function update( $new_instance, $old_instance ) {
-		var_dump( $new_instance ) . '<br>';
-		var_dump( $old_instance );
 		$instance = $old_instance;
 		$instance['title'] = sanitize_text_field( $new_instance['title'] );
 		if ( current_user_can('unfiltered_html') )
@@ -111,7 +109,7 @@ class EOL_Posts_Widget extends WP_Widget {
 		 */
 		?>
 		<script type="text/template" id="eol-posts-widget-<?php echo $this->get_field_id('title'); ?>">
-			<li class="each-repeater" style="border:1px solid #e3e3e3;">
+			<li class="each-repeater open" style="border:1px solid #e3e3e3;">
 				<p>
 					<label>Titulo do post</label>
 					<input class="widefat post-title" type="text" name="<?php echo $this->get_field_name( 'post_title[]' ); ?>">
@@ -127,7 +125,13 @@ class EOL_Posts_Widget extends WP_Widget {
 					<a href="#" class="remove-row">
 						Remover post
 					</a>
+					|
+					<a href="#" class="close-row">
+						Fechar
+					</a>
+
 				</p>
+
 			</li><!-- .each-repeater -->
 		</script>
 		<div class="form-container">
@@ -161,6 +165,10 @@ class EOL_Posts_Widget extends WP_Widget {
 							<p>
 								<a href="#" class="remove-row">
 									Remover post
+								</a>
+								|
+								<a href="#" class="close-row">
+									Fechar
 								</a>
 							</p>
 						</li><!-- .each-repeater -->

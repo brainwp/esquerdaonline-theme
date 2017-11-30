@@ -255,7 +255,7 @@ function odin_enqueue_scripts() {
 add_action( 'wp_enqueue_scripts', 'odin_enqueue_scripts', 1 );
 
 /**
- * Load admin (dashboard/customizer) scripts
+ * Load admin (dashboard/customizer) scripts and styles
  */
 function odin_admin_enqueue_scripts() {
 	$template_url = get_template_directory_uri();
@@ -266,6 +266,10 @@ function odin_admin_enqueue_scripts() {
 	wp_enqueue_script( 'wp-api' );
 
 	wp_enqueue_script( 'odin-admin', $template_url . '/assets/js/admin.min.js', array(), null, true );
+
+	// Loads Odin main stylesheet.
+	wp_enqueue_style( 'odin-admin-css', $template_url . '/assets/css/style-admin.css', array(), null, 'all' );
+
 }
 
 add_action( 'admin_enqueue_scripts', 'odin_admin_enqueue_scripts', 1 );

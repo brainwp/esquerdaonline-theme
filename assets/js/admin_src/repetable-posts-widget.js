@@ -75,4 +75,32 @@ jQuery(document).ready(function($) {
 		$input_title.val( $elem.html() );
 		$elem.parent( 'span' ).html( '' );
 	});
+	/**
+	 *
+	 * Abre o box de post para edição dos campos
+	 *
+	*/
+	$( document ).on( 'click', '.each-repeater', function( e ){
+		if ( $( e.target ).is( 'a' ) ) {
+			return;
+		}
+		if ( ! $( this ).hasClass( 'open' ) ) {
+			$( this ).addClass( 'open' );
+		}
+	});
+	$( document ).on( 'click', '.each-repeater .close-row', function( e ){
+		e.preventDefault();
+		$( this ).parent( 'p' ).parent( '.each-repeater' ).removeClass( 'open' );
+	});
+	/**
+	 *
+	 * Remove um determinado box de post conforme click no botão "Remover post"
+	 *
+	*/
+	$( document ).on( 'click', '.each-repeater .remove-row', function( e ){
+		e.preventDefault();
+		$( this ).parent( 'p' ).parent( '.each-repeater' ).fadeOut( 2000 ).remove();
+		$( '.widget.open .form-container .force-change' ).val( Math.random() ).trigger( 'change' );
+	});
+
 });

@@ -1,0 +1,18 @@
+.ui-sortable {
+	.each-repeater:not(.open) {
+		opacity: 0.60;
+		height: 60px;
+		overflow: hidden;
+		cursor: pointer;
+		transition:500ms ease all;
+	}
+	.each-repeater.open {
+		opacity: 1;
+		transition:500ms ease all;
+		cursor: inherit;
+		height: auto;
+	}
+	.each-repeater {
+		padding:15px;
+	}
+}
