@@ -1,14 +1,27 @@
 jQuery(document).ready(function($) {
+	/**
+	 *
+	 * Inicia o jquery.ui.sortable
+	 *
+	*/
 	if ( $( 'body.wp-customizer' ).length > 0 || $( 'body.widgets-php' ).length > 0 ) {
 		var init_sortable_each = function() {
-			if ( $( '.form-container .posts' ).length > 0 ) {
-				$( '.form-container .posts' ).each( function(){
-					$( this ).sortable();
-				});
-			}
+			$( '.form-container .posts' ).each( function(){
+				$( this ).sortable();
+			});
 		}
-		setTimeout(function(){ init_sortable_each(); }, 2000);
+		$( document ).on( 'click', function(){
+			init_sortable_each();
+		});
 	}
+	/**
+	 *
+	 * Força um update num campo escondido quando uma re-ordenação é feita via jquery.ui
+	 *
+	*/
+	$( document ).on( 'sortstop', '.form-container .posts', function( event, ui ) {
+		$( this ).parent( '.form-container' ).find( '.force-change' ).val( Math.random() ).trigger( 'change' );
+	});
 	/**
 	 *
 	 * Botão para adicionar um novo (grupo) de campos
@@ -27,10 +40,11 @@ jQuery(document).ready(function($) {
 	 * Campo de busca de posts utilizando a REST API
 	 *
 	*/
-	$( document ).on( 'change', '.widget-content .post-search', function( e ){
+	$( document ).on( 'keyup', '.widget-content .post-search', function( e ){
 		var $elem = $( this );
 		var $container = $elem.parent( 'p' ).children( '.posts-search-list' );
 		var html = '';
+		$container.html( 'Buscando posts...' );
 		$.ajax( {
 			url: wpApiSettings.root + 'wp/v2/posts',
 			method: 'GET',
@@ -59,5 +73,6 @@ jQuery(document).ready(function($) {
 		var $input_title = $elem.parent( 'span' ).parent( 'p' ).parent( '.each-repeater' ).find( '.post-title' );
 		$input.val( $( this ).attr( 'href' ).replace( '#', '' ) );
 		$input_title.val( $elem.html() );
+		$elem.parent( 'span' ).html( '' );
 	});
 });

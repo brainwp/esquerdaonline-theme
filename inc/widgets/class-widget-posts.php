@@ -68,6 +68,8 @@ class EOL_Posts_Widget extends WP_Widget {
 	 * @return array Settings to save or bool false to cancel saving.
 	 */
 	public function update( $new_instance, $old_instance ) {
+		var_dump( $new_instance ) . '<br>';
+		var_dump( $old_instance );
 		$instance = $old_instance;
 		$instance['title'] = sanitize_text_field( $new_instance['title'] );
 		if ( current_user_can('unfiltered_html') )
@@ -75,6 +77,16 @@ class EOL_Posts_Widget extends WP_Widget {
 		else
 			$instance['text'] = wp_kses_post( stripslashes( $new_instance['text'] ) );
 		$instance['filter'] = ! empty( $new_instance['filter'] );
+		$instance[ 'posts' ] = array();
+		$index = 0;
+		foreach ( $new_instance[ 'post_title'] as $key => $value ) {
+			if ( ! isset( $new_instance[ 'post_id'][ $index ] ) ) {
+				continue;
+			}
+			$instance[ 'posts' ][ $index ][ 'post_title' ] = esc_attr( $value );
+			$instance[ 'posts' ][ $index ][ 'post_id' ] = absint( $new_instance[ 'post_id'][ $index ] );
+			$index++;
+		}
 		return $instance;
 	}
 
@@ -93,18 +105,20 @@ class EOL_Posts_Widget extends WP_Widget {
 				'posts' => array(),
 			)
 		);
-		$filter = isset( $instance['filter'] ) ? $instance['filter'] : 0;
-		$title = sanitize_text_field( $instance['title'] );
+		/**
+		 * Template HTML para o repetidor de campos
+		 * Quando clicado em adicionar post, o conteúdo dessa tag é copiado para dentro da div.posts
+		 */
 		?>
 		<script type="text/template" id="eol-posts-widget-<?php echo $this->get_field_id('title'); ?>">
 			<li class="each-repeater" style="border:1px solid #e3e3e3;">
 				<p>
 					<label>Titulo do post</label>
-					<input class="widefat post-title" type="text" name="<?php echo $this->get_field_name( 'posts' ); ?>[]['title']">
+					<input class="widefat post-title" type="text" name="<?php echo $this->get_field_name( 'post_title[]' ); ?>">
 				</p>
 					<p>
 						<label>Buscar post / ID do post</label>
-						<input class="widefat post-search" type="text" name="<?php echo $this->get_field_name( 'posts' ); ?>[]['post_id']">
+						<input class="widefat post-search" type="text" name="<?php echo $this->get_field_name( 'post_id[]' ); ?>">
 						<span class="posts-search-list">
 
 						</span>
@@ -117,23 +131,47 @@ class EOL_Posts_Widget extends WP_Widget {
 			</li><!-- .each-repeater -->
 		</script>
 		<div class="form-container">
-			<ul class="posts">
+			<?php
+			// campo de titulo "global"
+			$widget_title = sanitize_text_field( $instance['title'] );
+			?>
+			<p>
+				<label>Titulo do widget</label>
+				<input class="widefat post-title" type="text" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo esc_attr($widget_title); ?>">
+				<input type="text" class="force-change" name="<?php echo $this->get_field_name( 'force_change' );?>" style="display:none;"/>
+			</p>
 
+			<ul class="posts">
+				<?php
+				/**
+				 * Adiciona a lista de campos já criado anteriormente e que já contem registro no banco do WP
+				 */
+				if ( ! empty( $instance[ 'posts'] ) ) : ?>
+					<?php foreach ( $instance[ 'posts' ] as $post ) : ?>
+						<li class="each-repeater" style="border:1px solid #e3e3e3;">
+							<p>
+								<label>Titulo do post</label>
+								<input class="widefat post-title" type="text" name="<?php echo $this->get_field_name( 'post_title[]' ); ?>" value="<?php echo esc_attr( $post[ 'post_title'] );?>">
+							</p>
+							<p>
+								<label>Buscar post / ID do post</label>
+								<input class="widefat post-search" type="text" name="<?php echo $this->get_field_name( 'post_id[]' ); ?>" value="<?php echo esc_attr( $post[ 'post_id' ] );?>">
+								<span class="posts-search-list"></span>
+							</p>
+							<p>
+								<a href="#" class="remove-row">
+									Remover post
+								</a>
+							</p>
+						</li><!-- .each-repeater -->
+					<?php endforeach;?>
+				<?php endif;?>
 			</ul><!-- .posts -->
 			<a href="#eol-posts-widget-<?php echo $this->get_field_id('title'); ?>" class="add-new-row">
 				(+) Adicionar post
 			</a>
 		</div><!-- .form-container -->
-		<?php /**
-		<p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label>
-		<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" /></p>
-
-		<p><label for="<?php echo $this->get_field_id( 'text' ); ?>"><?php _e( 'Content:' ); ?></label>
-		<textarea class="widefat" rows="16" cols="20" id="<?php echo $this->get_field_id('text'); ?>" name="<?php echo $this->get_field_name('text'); ?>"><?php echo esc_textarea( $instance['text'] ); ?></textarea></p>
-
-		<p><input id="<?php echo $this->get_field_id('filter'); ?>" name="<?php echo $this->get_field_name('filter'); ?>" type="checkbox"<?php checked( $filter ); ?> />&nbsp;<label for="<?php echo $this->get_field_id('filter'); ?>"><?php _e('Automatically add paragraphs'); ?></label></p>
 		<?php
-		*/
 	}
 }
 
