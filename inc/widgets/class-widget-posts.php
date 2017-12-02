@@ -70,12 +70,9 @@ class EOL_Posts_Widget extends WP_Widget {
 	public function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
 		$instance['title'] = sanitize_text_field( $new_instance['title'] );
-		if ( current_user_can('unfiltered_html') )
-			$instance['text'] =  $new_instance['text'];
-		else
-			$instance['text'] = wp_kses_post( stripslashes( $new_instance['text'] ) );
-		$instance['filter'] = ! empty( $new_instance['filter'] );
 		$instance[ 'posts' ] = array();
+		$instance['classes_widget'] = esc_attr( sanitize_text_field( $new_instance['classes_widget'] ) );
+
 		$index = 0;
 		foreach ( $new_instance[ 'post_title'] as $key => $value ) {
 			if ( ! isset( $new_instance[ 'post_id'][ $index ] ) ) {
@@ -83,6 +80,15 @@ class EOL_Posts_Widget extends WP_Widget {
 			}
 			$instance[ 'posts' ][ $index ][ 'post_title' ] = esc_attr( $value );
 			$instance[ 'posts' ][ $index ][ 'post_id' ] = absint( $new_instance[ 'post_id'][ $index ] );
+			if ( 0 === $instance[ 'posts' ][ $index ][ 'post_id' ] ) {
+				$instance[ 'posts' ][ $index ][ 'post_id' ] = '';
+			}
+			if ( isset( $new_instance[ 'image_id'][ $index ] ) && ! empty( $new_instance[ 'image_id'][ $index ] ) ) {
+				$image_id = absint( $new_instance[ 'image_id'][ $index ] );
+				if ( wp_attachment_is_image( $image_id ) ) {
+					$instance[ 'posts' ][ $index ][ 'image_id' ] = $image_id;
+				}
+			}
 			$index++;
 		}
 		return $instance;
@@ -100,6 +106,7 @@ class EOL_Posts_Widget extends WP_Widget {
 		$instance = wp_parse_args( (array) $instance,
 			array(
 				'title' => '',
+				'classes_widget' => '',
 				'posts' => array(),
 			)
 		);
@@ -114,13 +121,27 @@ class EOL_Posts_Widget extends WP_Widget {
 					<label>Titulo do post</label>
 					<input class="widefat post-title" type="text" name="<?php echo $this->get_field_name( 'post_title[]' ); ?>">
 				</p>
-					<p>
-						<label>Buscar post / ID do post</label>
-						<input class="widefat post-search" type="text" name="<?php echo $this->get_field_name( 'post_id[]' ); ?>">
-						<span class="posts-search-list">
+				<p>
+					<label>Buscar post / ID do post</label>
+					<input class="widefat post-search" type="text" name="<?php echo $this->get_field_name( 'post_id[]' ); ?>">
+					<span class="posts-search-list">
 
-						</span>
-					</p>
+					</span>
+				</p>
+				<p class="image-selector">
+					<a href="#" class="image-selector-link">
+						Selecione uma imagem para ser exibida.
+						<small> ( Caso nenhuma seja selecionada a imagem destacada do post será utilizada )
+						</small>
+					</a>
+					<input type="hidden" name="<?php echo $this->get_field_name( 'image_id[]' ); ?>" class="input-image">
+					<span class="image-selected" style="display: none;">
+						<a href="#" class="btn-delete-image">
+							Remover imagem
+						</a>
+					</span>
+				</p>
+
 				<p>
 					<a href="#" class="remove-row">
 						Remover post
@@ -144,6 +165,18 @@ class EOL_Posts_Widget extends WP_Widget {
 				<input class="widefat post-title" type="text" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo esc_attr($widget_title); ?>">
 				<input type="text" class="force-change" name="<?php echo $this->get_field_name( 'force_change' );?>" style="display:none;"/>
 			</p>
+			<?php
+			// campo de classes "global"
+			$classes = sanitize_text_field( $instance['classes_widget'] );
+			?>
+			<p>
+				<label>
+					Classes CSS do widget<br>
+					<small>Coloque cada classe separado por uma barra de espaço</small>
+				</label>
+				<input class="widefat classes-css" type="text" name="<?php echo $this->get_field_name( 'classes_widget' ); ?>" value="<?php echo esc_attr($classes); ?>">
+			</p>
+
 
 			<ul class="posts">
 				<?php
@@ -161,6 +194,37 @@ class EOL_Posts_Widget extends WP_Widget {
 								<label>Buscar post / ID do post</label>
 								<input class="widefat post-search" type="text" name="<?php echo $this->get_field_name( 'post_id[]' ); ?>" value="<?php echo esc_attr( $post[ 'post_id' ] );?>">
 								<span class="posts-search-list"></span>
+							</p>
+							<?php $image_id = '';?>
+							<?php if ( isset( $post[ 'image_id' ] ) && wp_attachment_is_image( $post[ 'image_id' ] ) ) {
+								$image_id = $post[ 'image_id' ];
+							}?>
+							<p class="image-selector">
+								<?php // Esconde o link de seleção de imagem caso uma imagem já tenha sido selecionada ?>
+								<?php $image_selector_link_style = '';?>
+								<?php if ( '' != $image_id ) {
+									$image_selector_link_style = 'display:none;';
+								}?>
+								<a href="#" class="image-selector-link" style="<?php echo $image_selector_link_style;?>">
+									Selecione uma imagem para ser exibida.
+									<small> ( Caso nenhuma seja selecionada a imagem destacada do post será utilizada )
+									</small>
+								</a>
+								<input type="hidden" name="<?php echo $this->get_field_name( 'image_id[]' ); ?>" class="input-image" value="<?php echo $image_id;?>">
+								<?php // Exibe o botão de remover imagem quando uma imagem estiver sido selecionada ?>
+								<?php $image_selected_style = 'display:none;';?>
+								<?php if ( '' != $image_id ) {
+									$image_selected_style = '';
+								}?>
+								<span class="image-selected" style="<?php echo $image_selected_style;?>">
+									<?php if ( '' != $image_id ) {
+										$image = wp_get_attachment_image_src( $image_id, 'thumbnail', false );
+										printf( '<img src="%s" width="64" height="64">', $image[0] );
+									}?>
+									<a href="#" class="btn-delete-image">
+										Remover imagem
+									</a>
+								</span>
 							</p>
 							<p>
 								<a href="#" class="remove-row">

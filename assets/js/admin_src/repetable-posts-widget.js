@@ -102,5 +102,61 @@ jQuery(document).ready(function($) {
 		$( this ).parent( 'p' ).parent( '.each-repeater' ).fadeOut( 2000 ).remove();
 		$( '.widget.open .form-container .force-change' ).val( Math.random() ).trigger( 'change' );
 	});
+	/**
+	 *
+	 * Javascript do botão de selecionar imagem
+	 * Quando clicado, abre um modal de mídia padrão do WP
+	 *
+	*/
+	$( document ).on( 'click', '.image-selector-link', function( e ) {
+		e.preventDefault();
+		var uploadFrame,
+			uploadInput = $(this).siblings( '.input-image' ),
+			imageSelector = $( this ).parent( '.image-selector' ).find( '.image-selected' ),
+			elemLink = $( this );
 
+		// If the media frame already exists, reopen it.
+		if ( uploadFrame ) {
+			uploadFrame.open();
+			return;
+		}
+
+		// Create the media frame.
+		uploadFrame = wp.media.frames.downloadable_file = wp.media({
+			multiple: false,
+			library: {
+				type: 'image'
+			}
+		});
+		uploadFrame.on( 'select', function () {
+			var attachment = uploadFrame.state().get( 'selection' ).first().toJSON();
+			imageSelector.prepend( '<img src="'+ attachment.url + '" width="64" height="64">' );
+			imageSelector.fadeIn( 'slow' );
+			elemLink.fadeOut( 'slow' );
+			uploadInput.val( attachment.id );
+			$( '.widget.open .form-container .force-change' ).val( Math.random() ).trigger( 'change' );
+		});
+
+		// Finally, open the modal.
+		uploadFrame.open();
+
+	});
+	/**
+	 *
+	 * Remove a imagem selecionada e exibe novamente o botão de selecionar imagem
+	 *
+	*/
+	$( document ).on( 'click', '.btn-delete-image', function( e ){
+		e.preventDefault();
+		var uploadInput = $(this).parent( '.image-selected' ).parent( '.image-selector' ).find( '.input-image' ),
+			imageTag = $(this).parent( '.image-selected' ).find( 'img' ),
+			imageSelected = $( this ).parent( '.image-selected' ),
+			imgLink = $( this ).parent( '.image-selected' ).parent( '.image-selector' ).find( '.image-selector-link' );
+		uploadInput.val( '' );
+		imageTag.fadeOut( 'slow' ).remove();
+		imageSelected.fadeOut( 'slow' );
+		imgLink.fadeIn( 'slow' );
+
+		$( '.widget.open .form-container .force-change' ).val( Math.random() ).trigger( 'change' );
+	});
 });
