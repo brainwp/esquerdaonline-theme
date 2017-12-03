@@ -72,22 +72,38 @@ class EOL_Posts_Widget extends WP_Widget {
 		$instance['title'] = sanitize_text_field( $new_instance['title'] );
 		$instance[ 'posts' ] = array();
 		$instance['classes_widget'] = esc_attr( sanitize_text_field( $new_instance['classes_widget'] ) );
-
+		$instance['readmore'] = sanitize_text_field( $new_instance['readmore'] );
 		$index = 0;
 		foreach ( $new_instance[ 'post_title'] as $key => $value ) {
-			if ( ! isset( $new_instance[ 'post_id'][ $index ] ) ) {
-				continue;
-			}
 			$instance[ 'posts' ][ $index ][ 'post_title' ] = esc_attr( $value );
 			$instance[ 'posts' ][ $index ][ 'post_id' ] = absint( $new_instance[ 'post_id'][ $index ] );
 			if ( 0 === $instance[ 'posts' ][ $index ][ 'post_id' ] ) {
 				$instance[ 'posts' ][ $index ][ 'post_id' ] = '';
 			}
+			// Verifica se o campo de imagem foi preenchido e valida se o ID é de fato uma imagem
 			if ( isset( $new_instance[ 'image_id'][ $index ] ) && ! empty( $new_instance[ 'image_id'][ $index ] ) ) {
 				$image_id = absint( $new_instance[ 'image_id'][ $index ] );
 				if ( wp_attachment_is_image( $image_id ) ) {
 					$instance[ 'posts' ][ $index ][ 'image_id' ] = $image_id;
 				}
+			}
+			// Verifica se o campo de texto "classes css" está preenchido, se sim, seta o valor no novo array, se não, seta um valor vazio
+			if ( isset( $new_instance[ 'classes_css' ][ $index ] ) ) {
+				$instance[ 'posts' ][ $index ][ 'classes_css' ] = esc_attr( sanitize_text_field( $new_instance[ 'classes_css'][ $index ] ) );
+			} else {
+				$instance[ 'posts' ][ $index ][ 'classes_css' ] = '';
+			}
+			// Verifica se o campo de texto "author" está preenchido, se sim, seta o valor no novo array, se não, seta um valor vazio
+			if ( isset( $new_instance[ 'author' ][ $index ] ) ) {
+				$instance[ 'posts' ][ $index ][ 'author' ] = esc_attr( sanitize_text_field( $new_instance[ 'author'][ $index ] ) );
+			} else {
+				$instance[ 'posts' ][ $index ][ 'author' ] = '';
+			}
+			// Verifica se o campo de texto "sub titulo" está preenchido, se sim, seta o valor no novo array, se não, seta um valor vazio
+			if ( isset( $new_instance[ 'sub_title' ][ $index ] ) ) {
+				$instance[ 'posts' ][ $index ][ 'sub_title' ] = esc_attr( sanitize_text_field( $new_instance[ 'sub_title'][ $index ] ) );
+			} else {
+				$instance[ 'posts' ][ $index ][ 'sub_title' ] = '';
 			}
 			$index++;
 		}
@@ -107,6 +123,7 @@ class EOL_Posts_Widget extends WP_Widget {
 			array(
 				'title' => '',
 				'classes_widget' => '',
+				'readmore' => '',
 				'posts' => array(),
 			)
 		);
@@ -118,8 +135,12 @@ class EOL_Posts_Widget extends WP_Widget {
 		<script type="text/template" id="eol-posts-widget-<?php echo $this->get_field_id('title'); ?>">
 			<li class="each-repeater open" style="border:1px solid #e3e3e3;">
 				<p>
-					<label>Titulo do post</label>
+					<label>Título do post</label>
 					<input class="widefat post-title" type="text" name="<?php echo $this->get_field_name( 'post_title[]' ); ?>">
+				</p>
+				<p>
+					<label>Sub-título</label>
+					<input class="widefat" type="text" name="<?php echo $this->get_field_name( 'sub_title[]' ); ?>">
 				</p>
 				<p>
 					<label>Buscar post / ID do post</label>
@@ -127,6 +148,14 @@ class EOL_Posts_Widget extends WP_Widget {
 					<span class="posts-search-list">
 
 					</span>
+				</p>
+				<p>
+					<label>Classes CSS do post</label>
+					<input class="widefat" type="text" name="<?php echo $this->get_field_name( 'classes_css[]' ); ?>">
+				</p>
+				<p>
+					<label>Autor</label>
+					<input class="widefat" type="text" name="<?php echo $this->get_field_name( 'author[]' ); ?>">
 				</p>
 				<p class="image-selector">
 					<a href="#" class="image-selector-link">
@@ -176,7 +205,16 @@ class EOL_Posts_Widget extends WP_Widget {
 				</label>
 				<input class="widefat classes-css" type="text" name="<?php echo $this->get_field_name( 'classes_widget' ); ?>" value="<?php echo esc_attr($classes); ?>">
 			</p>
-
+			<?php
+			// campo de classes "global"
+			$readmore = sanitize_text_field( $instance['readmore'] );
+			?>
+			<p>
+				<label>
+					Link LEIA-MAIS
+				</label>
+				<input class="widefat classes-css" type="text" name="<?php echo $this->get_field_name( 'readmore' ); ?>" value="<?php echo esc_attr($readmore); ?>">
+			</p>
 
 			<ul class="posts">
 				<?php
@@ -191,9 +229,22 @@ class EOL_Posts_Widget extends WP_Widget {
 								<input class="widefat post-title" type="text" name="<?php echo $this->get_field_name( 'post_title[]' ); ?>" value="<?php echo esc_attr( $post[ 'post_title'] );?>">
 							</p>
 							<p>
+								<label>Sub-título</label>
+								<input class="widefat" type="text" name="<?php echo $this->get_field_name( 'sub_title[]' ); ?>" value="<?php echo esc_attr( $post[ 'sub_title'] );?>">
+							</p>
+
+							<p>
 								<label>Buscar post / ID do post</label>
 								<input class="widefat post-search" type="text" name="<?php echo $this->get_field_name( 'post_id[]' ); ?>" value="<?php echo esc_attr( $post[ 'post_id' ] );?>">
 								<span class="posts-search-list"></span>
+							</p>
+							<p>
+								<label>Classes CSS do post</label>
+								<input class="widefat" type="text" name="<?php echo $this->get_field_name( 'classes_css[]' ); ?>" value="<?php echo esc_attr( $post[ 'classes_css' ] );?>">
+							</p>
+							<p>
+								<label>Autor</label>
+								<input class="widefat" type="text" name="<?php echo $this->get_field_name( 'author[]' ); ?>" value="<?php echo esc_attr( $post[ 'author' ] );?>">
 							</p>
 							<?php $image_id = '';?>
 							<?php if ( isset( $post[ 'image_id' ] ) && wp_attachment_is_image( $post[ 'image_id' ] ) ) {
