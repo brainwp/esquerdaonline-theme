@@ -45,9 +45,7 @@
 			</div><!-- .col-md-12 text-center -->
 		</div><!-- .col-md-10 center-container -->
 	</header><!-- .entry-header -->
-	<div class="single-thumbnail">
-		<?php eol_single_thumbnail();?>
-	</div><!-- .single-thumbnail -->
+	<?php eol_single_thumbnail();?>
 	<div class="col-md-12 clear"></div><!-- .col-md-12 clear -->
 
 	<?php if ( is_search() ) : ?>
