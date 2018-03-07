@@ -21,10 +21,8 @@ get_header(); ?>
 					 */
 					get_template_part( '/content/content', 'single' );
 
-					// If comments are open or we have at least one comment, load up the comment template.
-					if ( comments_open() || get_comments_number() ) :
-						comments_template();
-					endif;
+					// Social area (share button, comments, etc )
+					get_template_part( '/parts/social-area' );
 				endwhile;
 			?>
 		</main><!-- #main -->

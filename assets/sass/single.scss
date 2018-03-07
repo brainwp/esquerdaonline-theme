@@ -71,3 +71,28 @@ body.single {
 		font-weight: 500;
 	}
 }
+.social-area {
+	background: $social_bg;
+	padding-top: 40px;
+	.red-line {
+		background: $red_main;
+		width: 18%;
+		height: 3px;
+		display: inline-block;
+		position: absolute;
+		left: 15px;
+		margin-top: 31px;
+	}
+	.comments-title {
+		text-transform: uppercase;
+		color: $red_main;
+		font-weight: bold;
+		span.fb_comments_count {
+			color:$main_content_color;
+		}
+	}
+	.share-buttons {
+		padding-top: 20px;
+		text-align: right;
+	}
+}
