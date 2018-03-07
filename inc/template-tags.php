@@ -101,7 +101,10 @@ if ( ! function_exists( 'odin_the_custom_logo' ) ) {
 		}
 	}
 }
-
+/**
+ * Output the single thumbnail if it's exists
+ * If not, return the default get_post_thumbnail()
+ */
 function eol_single_thumbnail() {
 	echo '<div class="single-thumbnail">';
 	if ( $single_thumbnail = get_post_meta( get_the_ID(), 'thumbnail_single', true ) ) {
