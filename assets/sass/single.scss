@@ -37,11 +37,13 @@ body.single {
 	.single-thumbnail {
 		padding-top: 15px;
 		clear: both;
+		img {
+			width:100%;
+		}
 	}
 	.image-author {
 		margin-top: -35px;
 		display: block;
-		padding-bottom: 40px;
 		color:$white_main;
 		font-size:$caption_author_size;
 		padding-left:15px;
@@ -51,6 +53,7 @@ body.single {
 		}
 	}
 	.entry-content {
+		padding-top: 35px;
 		color: $main_content_color;
 		font-size:$content_body_size;
 		font-weight: 500;
