@@ -6,6 +6,12 @@ body.single {
 	header.entry-header {
 		display: flex;
 		justify-content: center;
+		@media screen and (max-width:720px ) {
+			div {
+				padding-left:0;
+				padding-right: 0;
+			}
+		}
 	}
 	.editoria {
 		a {
