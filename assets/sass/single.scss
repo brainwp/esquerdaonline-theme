@@ -1,0 +1,58 @@
+body.single {
+	.entry-content {
+		width:100%;
+		clear:both;
+	}
+	header.entry-header {
+		display: flex;
+		justify-content: center;
+	}
+	.editoria {
+		a {
+			font-weight: bold;
+			text-transform: uppercase;
+			color:$editoria_main;
+			border-bottom:2px solid $red_main;
+		}
+	}
+	.entry-title {
+		font-weight: bold;
+	}
+	.sub-title {
+		padding-top: 10px;
+		font-weight: 300;
+		font-size:$sub_title_size;
+	}
+	.author {
+		padding-top: 10px;
+		color: $main_content_color;
+		font-weight: 500;
+	}
+	.entry-meta {
+		padding-top: 5px;
+		color: $main_content_color;
+		font-weight: 500;
+		color: $entry_meta_color;
+	}
+	.single-thumbnail {
+		padding-top: 15px;
+		clear: both;
+	}
+	.image-author {
+		margin-top: -35px;
+		display: block;
+		padding-bottom: 40px;
+		color:$white_main;
+		font-size:$caption_author_size;
+		padding-left:15px;
+		span {
+			padding-left: 5px;
+			font-weight: 400;
+		}
+	}
+	.entry-content {
+		color: $main_content_color;
+		font-size:$content_body_size;
+		font-weight: 500;
+	}
+}

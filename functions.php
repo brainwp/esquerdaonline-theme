@@ -225,7 +225,7 @@ function odin_enqueue_scripts() {
 	$template_url = get_template_directory_uri();
 
 	// Loads fonts
-	wp_enqueue_style( 'google-font-roboto', 'https://fonts.googleapis.com/css?family=Roboto', array(), null, 'all' );
+	wp_enqueue_style( 'google-font-roboto', 'https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i', array(), null, 'all' );
 	// Loads Odin main stylesheet.
 	wp_enqueue_style( 'odin-style', get_stylesheet_uri(), array(), null, 'all' );
 
@@ -351,3 +351,8 @@ require_once get_template_directory() . '/inc/fields.php';
  foreach ( glob( $widgets_dir . '*.php' ) as $filename ){
  	include $filename;
  }
+
+/**
+ * Load custom taxonomies
+ */
+require_once get_template_directory() . '/inc/custom-taxonomies.php';
