@@ -63,7 +63,12 @@ if ( ! function_exists( 'odin_setup_features' ) ) {
 		 */
 		register_nav_menus(
 			array(
-				'main-menu' => __( 'Main Menu', 'odin' )
+				'main-menu' => __( 'Main Menu', 'eol' ),
+				'menu-top' => __( 'Menu no topo', 'eol' ),
+				'menu-footer-1' => __( 'Menu Rodapé 1', 'eol' ),
+				'menu-footer-2' =>  __( 'Menu Rodapé 2', 'eol' ),
+				'menu-footer-3' =>  __( 'Menu Rodapé 3', 'eol' ),
+				'menu-footer-4' =>  __( 'Menu Rodapé 4', 'eol' ),
 			)
 		);
 
@@ -190,8 +195,8 @@ function odin_widgets_init() {
 			'name' => __( 'Main Sidebar', 'odin' ),
 			'id' => 'main-sidebar',
 			'description' => __( 'Site Main Sidebar', 'odin' ),
-			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-			'after_widget' => '</aside>',
+			'before_widget' => '',
+			'after_widget' => '',
 			'before_title' => '<h3 class="widgettitle widget-title">',
 			'after_title' => '</h3>',
 		)
@@ -219,6 +224,8 @@ add_action( 'after_switch_theme', 'odin_flush_rewrite' );
 function odin_enqueue_scripts() {
 	$template_url = get_template_directory_uri();
 
+	// Loads fonts
+	wp_enqueue_style( 'google-font-roboto', 'https://fonts.googleapis.com/css?family=Roboto', array(), null, 'all' );
 	// Loads Odin main stylesheet.
 	wp_enqueue_style( 'odin-style', get_stylesheet_uri(), array(), null, 'all' );
 
@@ -229,20 +236,8 @@ function odin_enqueue_scripts() {
 	wp_enqueue_script( 'html5shiv', $template_url . '/assets/js/html5.js' );
 	wp_script_add_data( 'html5shiv', 'conditional', 'lt IE 9' );
 
-	// General scripts.
-	if ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) {
-		// Bootstrap.
-		wp_enqueue_script( 'bootstrap', $template_url . '/assets/js/libs/bootstrap.min.js', array(), null, true );
-
-		// FitVids.
-		wp_enqueue_script( 'fitvids', $template_url . '/assets/js/libs/jquery.fitvids.js', array(), null, true );
-
-		// Main jQuery.
-		wp_enqueue_script( 'odin-main', $template_url . '/assets/js/main.js', array(), null, true );
-	} else {
-		// Grunt main file with Bootstrap, FitVids and others libs.
-		wp_enqueue_script( 'odin-main-min', $template_url . '/assets/js/main.min.js', array(), null, true );
-	}
+	// Grunt main file with Bootstrap, FitVids and others libs.
+	wp_enqueue_script( 'odin-main-min', $template_url . '/assets/js/main.min.js', array(), null, true );
 	// Grunt watch livereload in the browser.
 	// wp_enqueue_script( 'odin-livereload', 'http://localhost:35729/livereload.js?snipver=1', array(), null, true );
 

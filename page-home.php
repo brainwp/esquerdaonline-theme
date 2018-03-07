@@ -10,11 +10,12 @@
  * @since 2.2.0
  */
 
-get_header(); ?>
-
+get_header( 'large' ); ?>
 	<main id="content" class="<?php echo odin_classes_page_full(); ?>" tabindex="-1" role="main">
+		<div class="col-md-12">
+
+		</div><!-- .col-md-12 -->
 		<?php dynamic_sidebar( 'main-sidebar' );?>
 	</main><!-- #main -->
-
 <?php
 get_footer();

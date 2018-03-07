@@ -33,8 +33,6 @@ class EOL_Posts_Widget extends WP_Widget {
 		/** This filter is documented in wp-includes/widgets/class-wp-widget-pages.php */
 		$title = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
 
-		$widget_text = ! empty( $instance['text'] ) ? $instance['text'] : '';
-
 		/**
 		 * Filter the content of the Text widget.
 		 *
@@ -49,9 +47,19 @@ class EOL_Posts_Widget extends WP_Widget {
 
 		echo $args['before_widget'];
 		if ( ! empty( $title ) ) {
-			echo $args['before_title'] . $title . $args['after_title'];
-		} ?>
-			<div class="textwidget"><?php echo !empty( $instance['filter'] ) ? wpautop( $text ) : $text; ?></div>
+			//echo $args['before_title'] . $title . $args['after_title'];
+		}
+		if ( $instance[ 'posts' ] && is_array( $instance[ 'posts'] ) && ! empty( $instance[ 'posts'] ) ) {
+			printf( '<div class="col-md-12 widget-eol-posts %s">', esc_attr( $instance[ 'classes_widget' ] ) );
+			foreach ( $instance[ 'posts'] as $key => $value ) {
+				$GLOBALS[ 'widget_current_post' ] = $value;
+				setup_postdata( $value[ 'post_id' ] );
+				get_template_part( 'content/post' );
+			}
+			echo '</div>';
+			wp_reset_postdata();
+		}
+		?>
 		<?php
 		echo $args['after_widget'];
 	}
@@ -211,9 +219,9 @@ class EOL_Posts_Widget extends WP_Widget {
 			?>
 			<p>
 				<label>
-					Link LEIA-MAIS
+					Link Leia Mais
 				</label>
-				<input class="widefat classes-css" type="text" name="<?php echo $this->get_field_name( 'readmore' ); ?>" value="<?php echo esc_attr($readmore); ?>">
+				<input class="widefat" type="text" name="<?php echo $this->get_field_name( 'readmore' ); ?>" value="<?php echo esc_attr($readmore); ?>">
 			</p>
 
 			<ul class="posts">
