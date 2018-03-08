@@ -21,4 +21,20 @@
 			comments_template();
 		} ?>
 	</div><!-- .col-md-12 fb-comments -->
+	<div class="continue-reading col-md-12">
+		<?php if ( $terms = wp_get_post_terms( get_the_ID(), 'post_tag' ) ) : ?>
+			<?php $query = new WP_Query(
+					array(
+						'tag_id' 			=> $terms[0]->term_id,
+						'posts_per_page' 	=> 3
+					)
+				);
+				if ( $query->have_posts() ) : ?>
+					<h3 class="area-title"><?php _e( 'Continue <span>Lendo</span> &#62;', 'eol' );?></h3><!-- .area-title -->
+					<?php while( $query->have_posts() ) : $query->the_post(); ?>
+						<?php get_template_part( '/content/post-default' );?>
+					<?php endwhile; wp_reset_postdata();?>
+				<?php endif;?>
+		<?php endif;?>
+	</div><!-- .continue-reading col-md-12 -->
 </section><!-- .social-area col-md-12 -->

@@ -129,3 +129,12 @@ body {
 	clear:both;
 	height:1px;
 }
+.area-title {
+	@extend .col-md-12;
+	font-weight: 500;
+	color:$main_content_color;
+	text-transform: uppercase;
+	span {
+		color:$red_main;
+	}
+}

@@ -7,6 +7,9 @@ footer#footer {
 	position: absolute;
 	width: 100%;
 	margin-top: 90px;
+	@media print {
+		display: none !important;
+	}
 	> .container {
 		padding-left: 0;
 		padding-right: 0;
