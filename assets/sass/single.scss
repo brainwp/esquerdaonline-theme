@@ -4,6 +4,7 @@
 	}
 }
 
+
 .no-padding{
 	padding-left: 0px;
 	padding-right: 0px;
@@ -368,16 +369,86 @@ span.tag-links a {
     transition: all ease-in-out 50ms;
 }
 
-section.main-post-social .post-default {
+section.main-post-social .postholder {
     border-bottom: 1px solid #ff000042;
     padding: 25px 0px 20px 0px;
 }
 
-section.main-post-social .post-default:first-child {
+section.main-post-social .postholder:first-child {
     padding-top: 0px;
 }
 
-section.main-post-social .post-default:last-child {
+section.main-post-social .postholder:last-child {
     border-bottom: none;
 }
 
+.postholder {
+    width: 100%;
+    float: left;
+}
+
+.col-md-12.fb-comments-area {
+    display: none;
+}
+
+.main-post-social{
+	float: left;
+}
+@media (max-width: 991px){
+	.social-area article.post-default {
+	    display: initial;
+	}
+	.social-area .post-thumbnail{
+		max-height: initial;
+	}
+	.continue-reading{
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+	div#primary {
+	    padding-left: 0px;
+	    padding-right: 0px;
+	}
+	h3.area-title {
+	    padding: 15px!important;
+	}
+	.social-area a.the-title.base-titulo h4{
+
+	}
+	section.main-post-social {
+	    display: block;
+	    padding: 0px 15px 0px 15px;
+	    background: rgba(0, 0, 0, 0.07);
+	}
+
+	.postholder {
+	    border-radius: 5px;
+	    background: white;
+	    overflow: hidden;
+	    margin-bottom: 33px;
+	}
+	.social-area a.the-title.base-titulo h4{
+		margin-top: 22px;
+	}
+
+	section.main-post-social .postholder{
+		border: none;
+		padding-top: 0px;
+	}
+	.social-area{
+		background: rgba(0, 0, 0, 0.07);
+	}
+
+	.social-area h3.area-title{
+		margin: 0px;
+	}
+
+	article.post-default.hasnt-thumb {
+	    margin-top: -26px;
+	}
+
+	article.post-default.hasnt-thumb {
+	    padding-top: 20px;
+	}
+
+}
