@@ -17,9 +17,11 @@
 				);
 				if ( $query->have_posts() ) : ?>
 					<h3 class="area-title"><?php _e( 'Continue <span>Lendo</span> &#62;', 'eol' );?></h3><!-- .area-title -->
-					<?php while( $query->have_posts() ) : $query->the_post(); ?>
-						<?php get_template_part( '/content/post-default' );?>
-					<?php endwhile; wp_reset_postdata();?>
+					<section class="main-post-social">
+						<?php while( $query->have_posts() ) : $query->the_post(); ?>
+							<?php get_template_part( '/content/post-default' );?>
+						<?php endwhile; wp_reset_postdata();?>
+					</section>
 				<?php endif;?>
 		<?php endif;?>
 	</div><!-- .continue-reading col-md-12 -->
