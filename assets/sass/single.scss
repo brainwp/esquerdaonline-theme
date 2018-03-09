@@ -9,6 +9,9 @@
 	padding-right: 0px;
 }
 body.single {
+	article.post-default.hasnt-thumb {
+	    display: block;
+	}
 	.entry-header{
 	.social-icons-post {
 	    display: flex;

@@ -4,7 +4,13 @@
  * Exibe o bloco padrão de posts
  */
 ?>
-<article class="post-default">
+
+
+
+
+
+
+<article class="post-default <?php if( has_post_thumbnail() ){ echo "has-thumb";}else{ echo "hasnt-thumb";}?>">
 	<?php if ( has_post_thumbnail() ) : ?>
 		<figure class="col-md-4 post-thumbnail">
 
