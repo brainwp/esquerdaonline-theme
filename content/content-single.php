@@ -30,6 +30,24 @@
 					}?>
 				</div><!-- .col-md-9 center-container -->
 			</div><!-- .col-md-12 text-center -->
+			<div class="col-md-12 social-icons-post">
+				<div class="icon-itself">
+					<a href="#">
+						<i class="fab fa-facebook-f"></i>
+					</a>
+				</div>
+				<div class="icon-itself">
+					<a href="#">
+						<i class="fab fa-twitter"></i>
+					</a>
+				</div>
+				<div class="icon-itself">
+					<a href="#">
+						<i class="fab fa-google-plus"></i>
+					</a>
+				</div>
+
+			</div>
 			<div class="col-md-12 text-center">
 				<div class="col-md-12 center-container text-center author">
 					<?php if ( $author = get_post_meta( get_the_ID(), 'the_author', true ) ) {
@@ -45,7 +63,11 @@
 			</div><!-- .col-md-12 text-center -->
 		</div><!-- .col-md-10 center-container -->
 	</header><!-- .entry-header -->
-	<?php eol_single_thumbnail();?>
+
+	<section class="post-thumb">
+		<?php eol_single_thumbnail();?>
+	</section>
+
 	<div class="col-md-12 clear"></div><!-- .col-md-12 clear -->
 
 	<?php if ( is_search() ) : ?>

@@ -6,11 +6,35 @@
 ?>
 <article class="post-default">
 	<?php if ( has_post_thumbnail() ) : ?>
-		<div class="col-md-4 post-thumbnail">
-			<a href="<?php the_permalink();?>">
+		<figure class="col-md-4 post-thumbnail">
+
+			<div class="col-md-12 social-icons-post">
+				<div class="icon-itself">
+					<a href="#facebook">
+						<i class="fab fa-facebook-f"></i>
+					</a>
+				</div>
+				<div class="icon-itself">
+					<a href="#twtt">
+						<i class="fab fa-twitter"></i>
+					</a>
+				</div>
+				<div class="icon-itself">
+					<a href="#gplus">
+						<i class="fab fa-google-plus"></i>
+					</a>
+				</div>
+
+			</div>
+			<a href="<?php the_permalink();?>" class="show-social-icons">
 				<?php the_post_thumbnail( 'medium' );?>
 			</a>
-		</div><!-- .col-md-5 pull-left thumbnail -->
+
+
+
+
+
+		</figure><!-- .col-md-5 pull-left thumbnail -->
 	<?php endif;?>
 	<div class="col-md-8 post-content">
 		<?php $terms = wp_get_post_terms( get_the_ID(), 'editorias' );?>
