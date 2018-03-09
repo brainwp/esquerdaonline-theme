@@ -6,21 +6,7 @@
 */
 ?>
 <section class="social-area col-md-12">
-	<div class="col-md-12 fb-comments-area">
-		<h3 class="col-md-4 pull-left comments-title">
-			<span class="fb-comments-count" data-href="<?php the_permalink();?>"></span>
-			<?php _e( ' Comentários', 'eol' );?>
-			<span class="red-line"></span>
-		</h3>
-		<div class="col-md-5 pull-right share-buttons">
-			<?php if ( function_exists( 'sharing_display' ) ) {
-				echo sharing_display();
-			} ?>
-		</div><!-- .col-md-5 pull-right share-buttons -->
-		<?php if ( comments_open() || get_comments_number() ) {
-			comments_template();
-		} ?>
-	</div><!-- .col-md-12 fb-comments -->
+
 	<div class="continue-reading col-md-12">
 		<?php if ( $terms = wp_get_post_terms( get_the_ID(), 'post_tag' ) ) : ?>
 			<?php $query = new WP_Query(
@@ -37,4 +23,26 @@
 				<?php endif;?>
 		<?php endif;?>
 	</div><!-- .continue-reading col-md-12 -->
+
+
+	<div class="col-md-12 fb-comments-area">
+		<h3 class="col-md-4 pull-left comments-title">
+			<span class="fb-comments-count" data-href="<?php the_permalink();?>"></span>
+			<?php _e( ' Comentários', 'eol' );?>
+			<span class="red-line"></span>
+		</h3>
+		<div class="col-md-5 pull-right share-buttons">
+			<?php if ( function_exists( 'sharing_display' ) ) {
+				echo sharing_display();
+			} ?>
+		</div>
+		<?php if ( comments_open() || get_comments_number() ) {
+			comments_template();
+		} ?>
+	</div> <!-- .col-md-12 fb-comments -->
+
 </section><!-- .social-area col-md-12 -->
+
+
+
+
