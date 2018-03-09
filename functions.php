@@ -357,6 +357,11 @@ require_once get_template_directory() . '/inc/fields.php';
  */
 require_once get_template_directory() . '/inc/custom-taxonomies.php';
 
+/**
+ * Load CPTs
+ */
+require_once get_template_directory() . '/inc/custom-post-types.php';
+
 function eol_jp_remove_share() {
     remove_filter( 'the_content', 'sharing_display', 19 );
     remove_filter( 'the_excerpt', 'sharing_display', 19 );
