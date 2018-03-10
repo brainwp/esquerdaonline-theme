@@ -491,4 +491,8 @@ section.main-post-social .postholder:last-child {
 		border: 0px!important;
     	padding: 0px!important;
 	}
+
+	body.single article.post-default.hasnt-thumb {
+	    display: flex;
+	}
 }
