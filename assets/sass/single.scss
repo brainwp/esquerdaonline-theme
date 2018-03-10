@@ -396,7 +396,7 @@ section.main-post-social .postholder:last-child {
 }
 @media (max-width: 991px){
 	.social-area article.post-default {
-	    display: initial;
+	    flex-flow: column-reverse;
 	}
 	.social-area .post-thumbnail{
 		max-height: initial;
@@ -428,7 +428,7 @@ section.main-post-social .postholder:last-child {
 	    margin-bottom: 33px;
 	}
 	.social-area a.the-title.base-titulo h4{
-		margin-top: 22px;
+		margin-top: 13px;
 	}
 
 	section.main-post-social .postholder{
@@ -443,12 +443,50 @@ section.main-post-social .postholder:last-child {
 		margin: 0px;
 	}
 
+	body.single .icon-itself {
+	    padding: 0px 7px!important;
+	    font-size: 19px;
+
+	}
+	.tag-links a {
+	    display: inline-block;
+	    margin: 3px;
+	}
 	article.post-default.hasnt-thumb {
 	    margin-top: -26px;
+	}
+	a.editoria.base-editoria {
+    	margin-top: 13px;
+    	display: block;
 	}
 
 	article.post-default.hasnt-thumb {
 	    padding-top: 20px;
 	}
+	.postholder {
+	    padding-bottom: 0px!important;
+	}
+	.social-area .main-post-social .post-default figure{
+		width: 100%;
+		margin-top: 6px;
+	}
+	.social-area a.editoria.base-editoria{
+		margin-bottom: -9px;
+	}
+
+	.moboltrue {
+	    font-size: 13px;
+	    padding-top: 7px;
+	    padding-bottom: 7px;
+	}
+	.moboltrue p {
+	    font-size: 13px;
+	    font-weight: 500;
+	}
+	article.post-default.hasnt-thumb {
+	    padding-top: 28px;
+	    padding-bottom: 7px;
+	}
+
 
 }
