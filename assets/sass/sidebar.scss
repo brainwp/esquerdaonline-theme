@@ -1,0 +1,12 @@
+.widget-area {
+	.widget-title {
+		@extend .col-md-12;
+		font-weight: 500;
+		color:$red_main;
+		text-transform: uppercase;
+		&:after {
+			color:$main_content_color;
+			content:' >';
+		}
+	}
+}
