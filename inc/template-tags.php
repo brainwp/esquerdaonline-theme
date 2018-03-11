@@ -117,6 +117,6 @@ function eol_single_thumbnail() {
 	}
 	echo '</div>';
 	if ( $author = get_post_meta( $single_thumbnail, 'image_author', true ) ) {
-		printf( __('<span class="image-author"><i class="fas fa-camera"></i><span>Foto: %s</span></span>', 'eol' ), apply_filters( 'the_title', $author ) );
+		printf( __('<span class="image-author"><i class="fas fa-camera hidden-sm hidden-xs"></i><span>Foto: %s</span></span>', 'eol' ), apply_filters( 'the_title', $author ) );
 	}
 }
