@@ -60,7 +60,7 @@
 			</div><!-- .col-md-7 nav-footer -->
 			<div class="col-md-3 madeby">
 				<a href="https://maismovimento.org">
-					<img src="<?php echo get_template_directory_uri();?>/assets/images/maismovimento.jpg" alt="<?php _e( 'Mantido pelo MAIS - Movimento por uma Alternativa Independente e Socialista', 'eol');?>" title="<?php _e( 'Mantido pelo MAIS - Movimento por uma Alternativa Independente e Socialista', 'eol');?>">
+					<img src="<?php echo get_template_directory_uri();?>/assets/images/maismovimento.png" alt="<?php _e( 'Mantido pelo MAIS - Movimento por uma Alternativa Independente e Socialista', 'eol');?>" title="<?php _e( 'Mantido pelo MAIS - Movimento por uma Alternativa Independente e Socialista', 'eol');?>">
 				</a>
 				<a href="https://brasa.art.br">
 					<img src="<?php echo get_template_directory_uri();?>/assets/images/brasa.png" alt="<?php _e( 'Desenvolvido em WordPress pela Brasa.art.br', 'eol' );?>" title="<?php _e( 'Desenvolvido em WordPress pela Brasa.art.br', 'eol' );?>">

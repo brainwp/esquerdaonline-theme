@@ -21,9 +21,8 @@ footer#footer {
 			width: 100%;
 		}
 		@media screen and (max-width:720px ) {
-			width:100%;
-			clear:both;
 			border:none !important;
+			width: initial;
 		}
 	}
 	.social-icons {
@@ -97,6 +96,42 @@ footer#footer {
 		}
 		a:first-child {
 			padding-right:10px;
+		}
+	}
+}
+
+@media (max-width: 991px){
+	footer#footer .logo-social img{
+		width: 	initial;
+	}
+
+	a.site-logo {
+	    display: flex;
+	    justify-content: center;
+	}
+	.nav-footer {
+	    padding-top: 27px;
+	}
+	footer#footer .nav-footer .nav-footer-each ul li a{
+		font-size: 	17px;
+	}
+
+	footer#footer {
+		.container {
+			display: flex;
+			flex-flow: column;
+			justify-content: center;
+    		align-items: center;
+		}
+		.logo-social {
+			order: 1;
+		}
+		.nav-footer {
+		    order: 3;
+		}
+		.madeby {
+		    order: 2;
+		    width: 76%;
 		}
 	}
 }
