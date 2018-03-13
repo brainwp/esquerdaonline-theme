@@ -26,7 +26,22 @@
 			<span class="skiplink-text"><?php _e( 'Skip to content', 'odin' ); ?></span>
 		</div>
 	</a>
-
+	<nav class="col-md-12" id="menu-institucional">
+		<div class="container">
+			<?php
+				wp_nav_menu(
+					array(
+						'theme_location' => 'menu-institucional',
+						'depth'          => 1,
+						'container'      => false,
+						'menu_class'     => 'nav navbar-nav',
+						'fallback_cb'    => 'Odin_Bootstrap_Nav_Walker::fallback',
+						'walker'         => new Odin_Bootstrap_Nav_Walker()
+					)
+				);
+			?>
+		</div><!-- .container -->
+	</nav><!-- #menu-institucional.col-md-12 -->
 	<header id="header" role="banner">
 		<div class="container">
 			<div class="page-header hidden-xs">

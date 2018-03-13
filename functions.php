@@ -64,11 +64,12 @@ if ( ! function_exists( 'odin_setup_features' ) ) {
 		register_nav_menus(
 			array(
 				'main-menu' => __( 'Main Menu', 'eol' ),
-				'menu-top' => __( 'Menu no topo', 'eol' ),
+				'menu-institucional' => __( 'Menu no topo (institucional)', 'eol' ),
 				'menu-footer-1' => __( 'Menu Rodapé 1', 'eol' ),
 				'menu-footer-2' =>  __( 'Menu Rodapé 2', 'eol' ),
 				'menu-footer-3' =>  __( 'Menu Rodapé 3', 'eol' ),
 				'menu-footer-4' =>  __( 'Menu Rodapé 4', 'eol' ),
+
 			)
 		);
 
