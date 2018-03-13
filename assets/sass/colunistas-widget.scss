@@ -1,7 +1,7 @@
 .each-colunista {
-	.thumbnail-colunista,
-	.colunista-name {
-		padding-right: 0;
+	.thumbnail-colunista {
+		padding: 0;
+
 	}
 	article {
 		width:100%;
@@ -10,4 +10,47 @@
 			display: inline-block;
 		}
 	}
+
+	.thumbnail-colunista {
+	    overflow: hidden;
+	    border-radius: 50%;
+	    width: 50px;
+	}
+	/*padding-left: 15px;*/
+	margin-bottom: 18px;
+	a.coluna-link {
+	    display: flex;
+	    align-items: center;
+	}
+
+	h4.colunista-name {
+	    padding-left: 12px;
+	    text-transform: uppercase;
+	    font-size: 17px;
+	    color: $main_content_color;
+	    font-weight: 700;
+	    letter-spacing: -0.4px;
+	}
+	a.coluna-link:hover{
+		text-decoration: none;
+	}
+
+	a.post-title {
+	    font-size: 20px;
+	    color: $main_content_color;
+	    font-weight: 500;
+	    letter-spacing: -0.4px;
+	    text-decoration: none;
+	    margin-top: 10px;
+	    margin-left: -2px;
+	    line-height: 23px;
+	}
+
+	a.post-sub-title {
+	    text-decoration: none;
+	    margin-top: 5px;
+	    color: black;
+	    line-height: 17px;
+	}
 }
+

@@ -1,12 +1,21 @@
 .widget-area {
 	.widget-title {
 		@extend .col-md-12;
+		margin-bottom: 25px;
+		margin-top: 0px;
 		font-weight: 500;
+		display: block;
+   		float: none;
 		color:$red_main;
 		text-transform: uppercase;
 		&:after {
 			color:$main_content_color;
 			content:' >';
 		}
+		padding: 0px;
 	}
+}
+
+aside#sidebar {
+    padding-left: 54px;
 }
