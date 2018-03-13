@@ -22,7 +22,7 @@
 					<?php the_title();?>
 				</a>
 				<?php if ( $meta = get_post_meta( get_the_ID(), 'sub_title', true ) ) :?>
-					<a href="<?php get_permalink();?>" class="post-sub-title">
+					<a href="<?php the_permalink();?>" class="post-sub-title">
 						<?php echo apply_filters( 'the_content', $meta );?>
 					</a>
 				<?php endif;?>
