@@ -1,12 +1,59 @@
 .widget-area {
 	.widget-title {
 		@extend .col-md-12;
+		margin-bottom: 25px;
+		margin-top: 0px;
 		font-weight: 500;
+		display: block;
+   		float: none;
 		color:$red_main;
 		text-transform: uppercase;
 		&:after {
 			color:$main_content_color;
 			content:' >';
 		}
+		padding: 0px;
 	}
 }
+
+aside#sidebar {
+    padding-left: 54px;
+
+    ul.posts-widget-list-tx {
+	    list-style: none;
+	    padding: 0px;
+	}
+
+	a.editoria-link {
+	    display: block;
+	    text-transform: uppercase;
+	    color: $main_content_color;
+	    font-weight: bold;
+	    letter-spacing: -0.4px;
+	    margin-bottom: 2px;
+	    font-size: 14px;
+	}
+
+	a.post-link-widget-li {
+	    font-size: 18px;
+	    color: black;
+	    text-decoration: none;
+	    display: block;
+	    padding-bottom: 7px;
+	    line-height: 21px;
+	}
+
+	li.post-widget-li {
+	    border-bottom: 1px solid rgba(0,0,0,0.2);
+	    margin-bottom: 15px;
+	}
+
+	li.post-widget-li:last-child {
+	    border-bottom: none;
+	}
+
+}
+
+
+
+
