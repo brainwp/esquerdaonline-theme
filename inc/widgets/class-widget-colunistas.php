@@ -7,8 +7,8 @@ class EOL_Widget_Colunistas extends WP_Widget {
 
 	public function __construct() {
 		$widget_ops = array('classname' => 'eol_widget_colunistas', 'description' => __('Widget de Colunistas'));
-		$control_ops = array('width' => 400, 'height' => 350);
-		parent::__construct('text', __('Text'), $widget_ops, $control_ops);
+		$control_ops = array('width' => 150, 'height' => 250);
+		parent::__construct('eol_widget_colunistas', __('Widget Colunistas'), $widget_ops, $control_ops);
 	}
 
 	/**
@@ -27,13 +27,24 @@ class EOL_Widget_Colunistas extends WP_Widget {
 		 * @param string    $widget_text The widget content.
 		 * @param WP_Widget $instance    WP_Widget instance.
 		 */
-		$text = apply_filters( 'widget_colunistas_posts', empty( $instance['posts'] ) ? '' : $instance['posts'], $instance );
+		$posts = apply_filters( 'widget_colunistas_posts', empty( $instance['posts'] ) ? 3 : $instance['posts'], $instance );
 		echo $args['before_widget'];
 		if ( ! empty( $title ) ) {
 			echo $args['before_title'] . $title . $args['after_title'];
-		} ?>
-			<div class="textwidget"><?php echo !empty( $instance['filter'] ) ? wpautop( $text ) : $text; ?></div>
-		<?php
+		}
+		$query = new WP_Query( array(
+			'post_type' => 'colunistas',
+			'posts_per' => $posts
+		) );
+		if ( $query->have_posts() ) {
+			echo '<div class="widget-colunistas">';
+			while( $query->have_posts() ) {
+				$query->the_post();
+				get_template_part( 'content/each-colunista' );
+			}
+			wp_reset_postdata();
+			echo '</div>';
+		}
 		echo $args['after_widget'];
 	}
 
@@ -45,11 +56,7 @@ class EOL_Widget_Colunistas extends WP_Widget {
 	public function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
 		$instance['title'] = sanitize_text_field( $new_instance['title'] );
-		if ( current_user_can('unfiltered_html') )
-			$instance['text'] =  $new_instance['text'];
-		else
-			$instance['text'] = wp_kses_post( stripslashes( $new_instance['text'] ) );
-		$instance['filter'] = ! empty( $new_instance['filter'] );
+		$instance[ 'posts' ] = absint( $new_instance[ 'posts'] );
 		return $instance;
 	}
 
@@ -57,17 +64,26 @@ class EOL_Widget_Colunistas extends WP_Widget {
 	 * @param array $instance
 	 */
 	public function form( $instance ) {
-		$instance = wp_parse_args( (array) $instance, array( 'title' => '', 'text' => '' ) );
-		$filter = isset( $instance['filter'] ) ? $instance['filter'] : 0;
+		$instance = wp_parse_args( (array) $instance, array( 'title' => '', 'posts' => 3 ) );
 		$title = sanitize_text_field( $instance['title'] );
+		$number = absint( $instance[ 'posts' ] );
 		?>
 		<p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label>
 		<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" /></p>
 
-		<p><label for="<?php echo $this->get_field_id( 'text' ); ?>"><?php _e( 'Content:' ); ?></label>
-		<textarea class="widefat" rows="16" cols="20" id="<?php echo $this->get_field_id('text'); ?>" name="<?php echo $this->get_field_name('text'); ?>"><?php echo esc_textarea( $instance['text'] ); ?></textarea></p>
+		<p><label for="<?php echo $this->get_field_id( 'posts' ); ?>"><?php _e( 'Numero de colunistas a ser exibido:', 'eol' ); ?></label>
+		<input class="widefat" id="<?php echo $this->get_field_id('posts'); ?>" name="<?php echo $this->get_field_name('posts'); ?>" type="number" value="<?php echo esc_attr($number); ?>" /></p>
 
-		<p><input id="<?php echo $this->get_field_id('filter'); ?>" name="<?php echo $this->get_field_name('filter'); ?>" type="checkbox" <?php checked( $filter ); ?> />&nbsp;<label for="<?php echo $this->get_field_id('filter'); ?>"><?php _e('Automatically add paragraphs'); ?></label></p>
 <?php
 	}
 }
+
+/**
+ *
+ * Registra o widget
+ *
+ */
+add_action( 'widgets_init', function(){
+	register_widget( 'EOL_Widget_Colunistas' );
+} );
+

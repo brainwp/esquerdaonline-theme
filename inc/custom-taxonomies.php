@@ -10,3 +10,14 @@ $editoria = new Odin_Taxonomy(
     'editorias', // Slug do Taxonomia.
     'post' // Nome do tipo de conteúdo que a taxonomia irá fazer parte.
 );
+
+// Taxonomia Colunistas
+$colunistas = new Odin_Taxonomy(
+    'Colunista', // Nome (Singular) da nova Taxonomia.
+    'colunistas', // Slug do Taxonomia.
+    'post' // Nome do tipo de conteúdo que a taxonomia irá fazer parte.
+);
+/**
+ * Classe para configuração do comportamento da taxonomia colunistas
+ */
+require_once get_template_directory() . '/inc/class-colunistas.php';
