@@ -94,13 +94,13 @@ class EOL_Recent_Posts_Taxonomy extends WP_Widget {
 			echo $args['before_title'] . $title . $args['after_title'];
 		}
 		?>
-		<ul>
+		<ul class="posts-widget-list-tx">
 			<?php foreach ( $r->posts as $recent_post ) : ?>
 				<?php
 				$post_title = get_the_title( $recent_post->ID );
 				$title      = ( ! empty( $post_title ) ) ? $post_title : __( '(no title)' );
 				?>
-				<li>
+				<li class="post-widget-li">
 					<?php
 					$term = wp_get_object_terms( $recent_post->ID, 'editorias', array( 'fields' => 'all' ) );
 					if( $term && $term[0] ) : ?>
@@ -108,7 +108,7 @@ class EOL_Recent_Posts_Taxonomy extends WP_Widget {
 							<?php echo apply_filters( 'the_title', $term[0]->name );?>
 						</a>
 					<?php endif;?>
-					<a class="post-link" href="<?php the_permalink( $recent_post->ID ); ?>"><?php echo $title; ?>
+					<a class="post-link-widget-li" href="<?php the_permalink( $recent_post->ID ); ?>"><?php echo $title; ?>
 					</a>
 				</li>
 			<?php endforeach; ?>
