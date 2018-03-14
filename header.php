@@ -26,7 +26,7 @@
 			<span class="skiplink-text"><?php _e( 'Skip to content', 'odin' ); ?></span>
 		</div>
 	</a>
-	<nav class="col-md-12" id="menu-institucional">
+	<nav class="col-md-12 hidden-xs hidden-sm" id="menu-institucional" >
 		<div class="container">
 			<?php
 				wp_nav_menu(
@@ -44,7 +44,7 @@
 	</nav><!-- #menu-institucional.col-md-12 -->
 	<header id="header" role="banner">
 		<div class="container">
-			<div class="site-logo">
+			<div class="site-logo hidden-xs hidden-sm">
 				<a href="#menu-open" class="menu-open-icon">
 					<span class="bars"></i>
 				</a>
@@ -72,7 +72,7 @@
 
 			<?php odin_the_custom_logo(); ?>
 
-			<nav class="pull-right menu-editorias text-right">
+			<nav class="pull-right menu-editorias text-right hidden-xs hidden-sm">
 				<?php
 					wp_nav_menu(
 						array(
