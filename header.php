@@ -81,6 +81,9 @@
 						)
 					);
 				?>
+				<a href="#" class="search-icon">
+					<i class="fas fa-search"></i>
+				</a>
 			</nav><!-- .col-md-5 pull-right menu-editorias -->
 		</div>
 	</header><!-- #header -->
