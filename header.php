@@ -44,11 +44,11 @@
 	</nav><!-- #menu-institucional.col-md-12 -->
 	<header id="header" role="banner">
 		<div class="container">
-			<div class="col-md-4 site-logo">
+			<div class="site-logo">
 				<a href="#menu-open" class="menu-open-icon">
-					<i class="fas fa-bars"></i>
+					<span class="bars"></i>
 				</a>
-				<?php odin_the_custom_logo(); ?>
+
 				<div class="social-icons">
 					<?php $links = get_theme_mod( 'social_links', false );?>
 					<?php if ( $links ) : ?>
@@ -68,7 +68,11 @@
 					<?php endif;?>
 				</div><!-- .social-icons -->
 			</div><!-- .col-md-4 site-logo -->
-			<nav class="col-md-7 pull-right menu-editorias text-right">
+
+
+			<?php odin_the_custom_logo(); ?>
+
+			<nav class="pull-right menu-editorias text-right">
 				<?php
 					wp_nav_menu(
 						array(
@@ -82,7 +86,7 @@
 					);
 				?>
 				<a href="#" class="search-icon">
-					<i class="fas fa-search"></i>
+
 				</a>
 			</nav><!-- .col-md-5 pull-right menu-editorias -->
 		</div>

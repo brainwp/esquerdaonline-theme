@@ -3,7 +3,7 @@
 		@extend .col-md-12;
 		margin-bottom: 25px;
 		margin-top: 0px;
-		font-weight: 500;
+		font-weight: 700;
 		display: block;
    		float: none;
 		color:$red_main;
@@ -11,8 +11,13 @@
 		&:after {
 			color:$main_content_color;
 			content:' >';
+			display: inline-block;
+		    margin-left: 4px;
+		    position: relative;
+		    top: 1px;
 		}
 		padding: 0px;
+		letter-spacing: -0.5px;
 	}
 }
 
