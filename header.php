@@ -42,7 +42,7 @@
 			?>
 		</div><!-- .container -->
 	</nav><!-- #menu-institucional.col-md-12 -->
-	<header id="header" role="banner">
+	<header id="header" role="banner" class="">
 		<div class="container">
 			<div class="site-logo hidden-xs hidden-sm">
 				<a href="#menu-open" class="menu-open-icon">
