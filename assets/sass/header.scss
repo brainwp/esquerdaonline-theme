@@ -68,8 +68,9 @@ header#header {
 
 	a.custom-logo-link {
 	    width: 195px;
-	    display: block;
-	    margin: 0 auto;
+	    display: inline-block;
+	    margin-top: -8px;
+	    margin-left: 15px;
 	}
 	span.bars {
 	    width: 30px;
@@ -80,7 +81,7 @@ header#header {
 	}
 
 	.menu-editorias {
-    	margin-top: -39px;
+    	margin-top: -19px;
 	}
 
 	a.menu-open-icon {
