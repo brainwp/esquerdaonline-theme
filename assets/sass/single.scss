@@ -26,6 +26,29 @@ body.single {
 		color: orangered;
 	}
 
+	blockquote p {
+	    padding: 22px 0px 22px 0px;
+	}
+
+	blockquote:before {
+	    content: '"';
+	    font-size: 38px;
+	    float: right;
+	}
+
+	blockquote:after {
+	    content: '"';
+	    font-size: 38px;
+	    float: right;
+	}
+
+	blockquote{
+		font-weight: 700;
+    	border: 0px;
+		float: right;
+	    width: 40%;
+	}
+
 	.icon-itself .fa-facebook-f{
 		color: #4267b2;
 	}
