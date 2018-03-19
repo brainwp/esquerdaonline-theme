@@ -22,6 +22,9 @@
 }
 
 aside#sidebar {
+	a img {
+		width: 100%;
+	}
     padding-left: 54px;
 
     ul.posts-widget-list-tx {
@@ -58,7 +61,4 @@ aside#sidebar {
 	}
 
 }
-
-
-
 
