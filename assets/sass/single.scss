@@ -10,6 +10,16 @@
 	padding-right: 0px;
 }
 body.single {
+
+	section.content-it-self h3 {
+	    border-bottom: 3px solid;
+	    display: inline-block;
+	    padding-bottom: 4px;
+	    font-size: 31px;
+	    margin-bottom: 25px;
+	    letter-spacing: -2px;
+	    font-weight: 700;
+	}
 	article.post-default.hasnt-thumb {
 	    display: block;
 	}
@@ -34,6 +44,7 @@ body.single {
 	    content: '"';
 	    font-size: 38px;
 	    float: right;
+		color: $red_main;
 	}
 
 	blockquote:after {
@@ -41,6 +52,7 @@ body.single {
 	    font-size: 38px;
 	    float: right;
 	    height: 3px;
+		color: $red_main;
 	}
 
 	blockquote{
@@ -48,8 +60,8 @@ body.single {
     	border: 0px;
 		float: right;
 	    width: 40%;
-	    border-right: 6px solid;
-	    border-bottom: 6px solid;
+	    border-right: 4px solid;/*rgba(0,0,0,0.15)*/
+	    border-bottom: 4px solid;/*rgba(0,0,0,0.15)*/
 		margin-left: 41px;
 	}
 
