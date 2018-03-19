@@ -40,6 +40,7 @@ body.single {
 	    content: '"';
 	    font-size: 38px;
 	    float: right;
+	    height: 3px;
 	}
 
 	blockquote{
@@ -47,6 +48,9 @@ body.single {
     	border: 0px;
 		float: right;
 	    width: 40%;
+	    border-right: 6px solid;
+	    border-bottom: 6px solid;
+		margin-left: 41px;
 	}
 
 	.icon-itself .fa-facebook-f{
@@ -419,6 +423,11 @@ section.main-post-social .postholder:last-child {
 	float: left;
 }
 @media (max-width: 991px){
+
+	body.single blockquote{
+		width: 100%;
+		margin-left: 0px;
+	}
 	.social-area article.post-default {
 	    flex-flow: column-reverse;
 	}
