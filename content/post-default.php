@@ -60,11 +60,8 @@
 					<?php the_title();?>
 				</h4>
 			</a>
-			<?php if ( $meta = get_post_meta( get_the_ID(), 'sub_title', true ) ) : ?>
-				<a href="<?php get_permalink();?>" class="sub-title base-subtitulo">
-					<?php echo apply_filters( 'the_content', $meta );?>
-				</a>
-			<?php endif;?>
+
+			<!-- a.sub-title base-subtitulo -->
 				<a href="<?php get_permalink();?>" class="the-date hidden-sm hidden-xs">
 					<?php printf( __( '%1$s de %2$s, %3$s', 'eol' ), get_the_date( 'd' ), get_the_date( 'F' ), get_the_date( 'Y' ) );?>
 					<?php if ( $meta = get_post_meta( get_the_ID(), 'the_author', true ) ) : ?>
