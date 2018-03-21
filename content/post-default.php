@@ -51,16 +51,17 @@
 			</figure><!-- .col-md-5 pull-left thumbnail -->
 		<?php endif;?>
 		<div class="col-md-8 post-content">
-			<?php $terms = wp_get_post_terms( get_the_ID(), 'editorias' );?>
-			<?php if( $terms ) {
-				printf( '<a class="editoria base-editoria" href="%s">%s</a>', get_term_link( $terms[0] ), apply_filters( 'the_title', $terms[0]->name ) );
+			<?php if ( ! is_singular( 'post') ) {
+				$terms = wp_get_post_terms( get_the_ID(), 'editorias' );
+				if( $terms ) {
+					printf( '<a class="editoria base-editoria" href="%s">%s</a>', get_term_link( $terms[0] ), apply_filters( 'the_title', $terms[0]->name ) );
+				}
 			} ?>
 			<a href="<?php the_permalink();?>" class="the-title base-titulo">
 				<h4>
 					<?php the_title();?>
 				</h4>
 			</a>
-
 			<!-- a.sub-title base-subtitulo -->
 				<a href="<?php get_permalink();?>" class="the-date hidden-sm hidden-xs">
 					<?php printf( __( '%1$s de %2$s, %3$s', 'eol' ), get_the_date( 'd' ), get_the_date( 'F' ), get_the_date( 'Y' ) );?>
