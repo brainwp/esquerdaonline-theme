@@ -34,4 +34,4 @@ sftp-config.json
 .ftppass
 *.zip
 src/node_modules/*
-
+src/package-lock.json
