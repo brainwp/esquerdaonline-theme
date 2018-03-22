@@ -120,6 +120,6 @@ function eol_single_thumbnail() {
 		printf( __('<span class="image-author"><i class="fas fa-camera hidden-sm hidden-xs"></i><span>Foto: %s</span></span>', 'eol' ), apply_filters( 'the_title', $author ) );
 	}
 	if ( $caption = wp_get_attachment_caption( $single_thumbnail) ) {
-		printf( __('<p id="image-caption">%s</p>', 'eol' ), apply_filters( 'the_title', $caption ) );
+		printf( __('<p class="image-caption">%s</p>', 'eol' ), apply_filters( 'the_title', $caption ) );
 	}
 }
