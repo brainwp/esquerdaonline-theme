@@ -30,7 +30,20 @@
 					}?>
 				</div><!-- .col-md-9 center-container -->
 			</div><!-- .col-md-12 text-center -->
-			<div class="col-md-12 social-icons-post">
+			<div class="col-md-6 text-center">
+				<div class="col-md-12 center-container text-center author">
+					<?php if ( $author = get_post_meta( get_the_ID(), 'the_author', true ) ) {
+							printf( __( 'Por %s', 'eol' ), apply_filters( 'the_title', $author) );
+						}
+					?>
+				</div><!-- .col-md-9 center-container -->
+			</div><!-- .col-md-6 text-center -->
+			<div class="col-md-6 text-center">
+				<div class="col-md-12 center-container text-center entry-meta">
+					<?php odin_posted_on(); ?>
+				</div><!-- .col-md-9 center-container -->
+			</div><!-- .col-md-6 text-center -->
+			<div class="col-md-6 social-icons-post">
 				<div class="icon-itself">
 					<a href="#">
 						<i class="fab fa-facebook-f"></i>
@@ -57,20 +70,7 @@
 					</a>
 				</div>
 
-			</div>
-			<div class="col-md-12 text-center">
-				<div class="col-md-12 center-container text-center author">
-					<?php if ( $author = get_post_meta( get_the_ID(), 'the_author', true ) ) {
-							printf( __( 'Por %s', 'eol' ), apply_filters( 'the_title', $author) );
-						}
-					?>
-				</div><!-- .col-md-9 center-container -->
-			</div><!-- .col-md-12 text-center -->
-			<div class="col-md-12 text-center">
-				<div class="col-md-12 center-container text-center entry-meta">
-					<?php odin_posted_on(); ?>
-				</div><!-- .col-md-9 center-container -->
-			</div><!-- .col-md-12 text-center -->
+			</div><!-- .col-md-6 social-icons-post -->
 		</div><!-- .col-md-10 center-container -->
 	</header><!-- .entry-header -->
 
