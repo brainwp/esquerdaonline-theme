@@ -73,6 +73,7 @@ header#header {
 	    display: inline-block;
 	    margin-top: -5px;
 	    margin-left: 15px;
+	    float: left;
 	}
 	span.bars {
 	    width: 30px;
@@ -174,4 +175,9 @@ nav#menu-institucional .navbar-nav li:first-child a {
 
 nav.pull-right.menu-editorias.text-right.hidden-xs.hidden-sm {
     max-height: 45px;
+    transition: 300ms ease all;
+}
+
+header#header .search-container {
+	display: none;
 }
