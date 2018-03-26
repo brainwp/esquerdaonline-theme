@@ -22,6 +22,9 @@
 }
 
 aside#sidebar {
+	h3.widgettitles a{
+		color: $red_main;
+	}
 	a img {
 		width: 100%;
 	}
