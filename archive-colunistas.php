@@ -30,6 +30,7 @@ get_header(); ?>
 
 				<?php
 					// Start the Loop.
+					$colunistas_array=array();
 					while ( have_posts() ) : the_post();
 
 						/*
@@ -38,7 +39,7 @@ get_header(); ?>
 						 * (where ___ is the post format) and that will be used instead.
 						 */
 						get_template_part( '/content/content', 'archive-colunistas' );
-
+						$colunistas_array[get_the_title()] = get_the_permalink();
 					endwhile;
 
 					// Page navigation.
@@ -52,7 +53,16 @@ get_header(); ?>
 			?>
 
 	</main><!-- #main -->
-
+	<aside id="sidebar-colunistas" class="<?php echo odin_classes_page_sidebar_aside(); ?>" role="complementary">
+		<h3 class="widgettitle widget-title" >Colunistas</h3>
+		<?php
+		foreach ($colunistas_array as $nome => $link) { ?>
+			<a href=" <?php echo $link; ?>"><?php echo $nome ?></a><br>
+			<?php
+		}
+		?>
+	</aside><!-- #sidebar -->
 <?php
+get_sidebar('colunistas');
 get_sidebar();
 get_footer();
