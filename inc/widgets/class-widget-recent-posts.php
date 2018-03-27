@@ -107,9 +107,7 @@ class EOL_Recent_Posts_Taxonomy extends WP_Widget {
 				</li>
 			<?php endforeach; ?>
 		</ul>
-		<?php if ( $term && $term[0] ) {
-			printf( __( '<a href="%s" class="btn btn-primary btn-leia">Leia mais</a>', 'eol' ), get_term_link( $term[0] ) );
-		}
+		<?php
 		echo $args['after_widget'];
 	}
 

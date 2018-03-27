@@ -72,6 +72,10 @@
 
 			<?php odin_the_custom_logo(); ?>
 
+			<div class="search-container col-md-7 text-right">
+				<?php get_search_form( true );?>
+			</div><!-- .search-container -->
+
 			<nav class="pull-right menu-editorias text-right hidden-xs hidden-sm">
 				<?php
 					wp_nav_menu(
@@ -85,7 +89,7 @@
 						)
 					);
 				?>
-				<a href="#" class="search-icon">
+				<a href="#" class="search-icon" data-open="false">
 
 				</a>
 			</nav><!-- .col-md-5 pull-right menu-editorias -->
