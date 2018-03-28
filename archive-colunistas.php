@@ -54,7 +54,7 @@ get_header(); ?>
 
 	</main><!-- #main -->
 	<aside id="sidebar-colunistas" class="<?php echo odin_classes_page_sidebar_aside(); ?>" role="complementary">
-		<h3 class="widgettitle widget-title" >Colunistas</h3>
+		<h3 class="widgettitle widget-title" ><?php _e( 'Colunistas', 'eol' );?></h3>
 		<?php
 		foreach ($colunistas_array as $nome => $link) { ?>
 			<a href=" <?php echo $link; ?>"><?php echo $nome ?></a><br>
