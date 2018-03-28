@@ -1,7 +1,7 @@
 .widget-area {
 	.widget-title {
 		@extend .col-md-12;
-		margin-bottom: 25px;
+		margin-bottom: 4px;
 		margin-top: 0px;
 		font-weight: 700;
 		display: block;
@@ -67,4 +67,13 @@ aside#sidebar {
 
 aside#sidebar-colunistas {
     padding-left: 54px;
+    margin-bottom: 14px;
+    a {
+	    text-decoration: none;
+	    text-transform: uppercase;
+	    color: black;
+	    font-size: 18px;
+	    font-weight: bold;
+	    letter-spacing: -.45px;
+	}
 }
