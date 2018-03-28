@@ -34,11 +34,6 @@
 						<i class="fab fa-instagram"></i>
 					</a>
 				</div>
-				<div class="icon-itself">
-					<a href="#">
-						<i class="fas fa-print"></i>
-					</a>
-				</div>
 			</div>
 			<!-- col-md-4 colunista-social -->
 			<div class="col-md-12 post-colunista">
