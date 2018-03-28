@@ -1,11 +1,11 @@
 <div class="each-colunista col-md-12">
-		<div class="col-md-4 thumbnail-colunista">
+		<div class="thumbnail-colunista">
 			<a href="<?php echo $link_colunista = get_the_permalink();?>" class="coluna-link">
 				<?php the_post_thumbnail( 'thumbnail' );?>
 			</a>
 		</div><!-- .col-md-4 thumbnail-colunista -->
-		<div class="col-md-8 conteudo-colunista">
-			<div class="col-md-8">
+		<div class="col-md-10 conteudo-colunista">
+			<div class="colunista-nome">
 				<h4 class="colunista-name">
 					<a href="<?php the_permalink();?>" class="coluna-link">
 						<?php the_title();?>
@@ -13,7 +13,7 @@
 				</h4><!-- .colunista-name -->
 			</div>
 			<!--  .col-md-8-->
-			<div class="col-md-4 colunista-social">
+			<div class="colunista-social">
 				<div class="icon-itself">
 					<a href="#">
 						<i class="fab fa-facebook-f"></i>
@@ -56,10 +56,10 @@
 								<?php the_title('<h2>','</h2>');?>
 							</a>
 						</article>
-						<div class="col-sm-6">
+						<div class="col-sm-6 the-date-time">
 							<?php echo get_the_date(); ?>
 						</div>
-						<div class="col-sm-6">
+						<div class="col-sm-6 coluna-link">
 							<a href="<?php echo $link_colunista;?>" class="coluna-link">
 								<?php _e( 'Mais textos desta coluna', 'eol' );?>
 							</a>

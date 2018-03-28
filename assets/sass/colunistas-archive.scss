@@ -1,0 +1,103 @@
+.post-type-archive-colunistas{
+	h1.page-title {
+	    margin: 0px 0px 9px 0px;
+	    text-transform: uppercase;
+	    font-size: 30px;
+	    font-weight: 600;
+   		letter-spacing: -0.45px;
+	}
+	header.page-header {
+	    padding: 0px;
+	    margin: 0px 0px 40px 0px;
+	    border: 0px;
+	}
+
+	h1.page-title span {
+	    color: $red-main;
+	}
+
+	.each-colunista {
+	    padding: 0px;
+	    margin-bottom: 40px;
+	}
+
+	.thumbnail-colunista {
+	    overflow: hidden;
+	    padding: 0px;
+	    border-radius: 100px;
+	    width: 100px;
+	    float: left;
+	}
+	.icon-itself .fa-facebook-f {
+	    color: #4267b2;
+	}
+	.icon-itself i.fab.fa-twitter {
+	    color: #1da1f2;
+	}
+	.icon-itself .fa-google-plus {
+	    color: orangered;
+	}
+	i.fab.fa-instagram {
+	    color: purple;
+	}
+	h4.colunista-name a {
+		text-transform: uppercase;
+	    color: $main_content_color;
+	    text-decoration: none;
+	    font-weight: 800;
+	    letter-spacing: -.45px;
+	    font-size: 19px;
+	}
+
+	.post-colunista {
+	    padding: 0px;
+	}
+
+	.colunista-social .icon-itself {
+	    display: inline-block;
+	    font-size: 18px;
+	    padding: 0px 3px;
+	}
+
+	.post-colunista a {
+	    text-decoration: none;
+	}
+
+	.the-date-time {
+	    padding: 0px;
+	    font-size: 15px;
+	    letter-spacing: -.45px;
+	}
+
+	.coluna-link {
+	    padding: 0px;
+	    text-align: right;
+	    font-size: 15px;
+	    letter-spacing: -.45px;
+	}
+
+	.coluna-link a {
+	    color: inherit;
+	}
+	.colunista-social {
+		padding: 0px;
+    	display: inline-block;
+    	margin-left: 16px;
+	}
+	.post-colunista article {
+	    padding: 0px;
+		margin-bottom: 5px;
+		margin-top: -8px;
+	}
+
+	.post-colunista article h2 {
+	    margin: 0px;
+	    color: $main_content_color;
+	    letter-spacing: -1.45px;
+	    font-size: 29px;
+	}
+	.colunista-nome{
+		display: inline-block;
+	}
+
+}
