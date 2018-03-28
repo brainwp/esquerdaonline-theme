@@ -37,12 +37,10 @@
 						}
 					?>
 				</div><!-- .col-md-9 center-container -->
-			</div><!-- .col-md-6 text-center -->
-			<div class="col-md-6 text-center">
-				<div class="col-md-12 center-container text-center entry-meta">
-					<?php odin_posted_on(); ?>
-				</div><!-- .col-md-9 center-container -->
-			</div><!-- .col-md-6 text-center -->
+					<div class="col-md-12 center-container text-center entry-meta">
+						<?php odin_posted_on(); ?>
+					</div><!-- .col-md-9 center-container -->
+				</div><!-- .col-md-6 text-center -->		
 			<div class="col-md-6 social-icons-post">
 				<div class="icon-itself">
 					<a href="#">
