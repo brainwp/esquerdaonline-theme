@@ -66,5 +66,4 @@ get_header(); ?>
 	</aside><!-- #sidebar -->
 <?php
 get_sidebar('colunistas');
-get_sidebar();
 get_footer();

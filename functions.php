@@ -202,6 +202,17 @@ function odin_widgets_init() {
 			'after_title' => '</h3>',
 		)
 	);
+	register_sidebar(
+		array(
+			'name' => __( 'Colunistas Sidebar', 'odin' ),
+			'id' => 'colunistas-sidebar',
+			'description' => __( 'Barra lateral da página de arquivo de colunistas', 'odin' ),
+			'before_widget' => '',
+			'after_widget' => '',
+			'before_title' => '<h3 class="widgettitle widget-title">',
+			'after_title' => '</h3>',
+		)
+	);
 }
 
 add_action( 'widgets_init', 'odin_widgets_init' );
@@ -375,7 +386,7 @@ add_action( 'loop_start', 'eol_jp_remove_share' );
 add_filter( 'get_the_archive_title', function ( $title ) {
 	if ( is_post_type_archive() ) {
 	        /* translators: Post type archive title. 1: Post type name */
-	        $title = sprintf( __( 'Archives <span>%s</span> &#62;' ), post_type_archive_title( '', false ) );
+	        $title = sprintf( __( 'Arquivo <span>%s</span> &#62;' ), post_type_archive_title( '', false ) );
 	    }
     return $title;
 
