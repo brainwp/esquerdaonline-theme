@@ -64,9 +64,12 @@ class EOL_Recent_Posts_Taxonomy extends WP_Widget {
 		if ( is_singular( 'post' ) ) {
 			$post = get_queried_object();
 			$term = wp_get_post_terms( $post->ID, 'editorias', array( 'fields' => 'all' ) );
-			$title = apply_filters( 'widget_title', $term[0]->name, $instance, $this->id_base );
-			$title = sprintf( '<a href="%s">%s</a>', get_term_link( $term[0] ), $title );
-			$query_args[ 'editorias' ] = $term[0]->slug;
+			if ( $term && ! is_wp_error( $term ) {
+				$title = apply_filters( 'widget_title', $term[0]->name, $instance, $this->id_base );
+				$title = sprintf( '<a href="%s">%s</a>', get_term_link( $term[0] ), $title );
+				$query_args[ 'editorias' ] = $term[0]->slug;
+
+			}
 		}
 		/**
 		 * Filters the arguments for the Recent Posts widget.
