@@ -391,3 +391,13 @@ add_filter( 'get_the_archive_title', function ( $title ) {
     return $title;
 
 });
+
+add_filter( 'dynamic_sidebar_params', 'check_sidebar_params' );
+function check_sidebar_params( $params ) {
+		// print_r($params);
+		$new_params = $params;
+		$new_params[0][ 'before_widget' ] = '<div class="widget-content">' ;
+		$new_params[0][ 'after_widget' ] = '</div>' ;
+
+    return $new_params;
+}
