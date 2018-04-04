@@ -67,7 +67,7 @@ class EOL_Recent_Posts_Taxonomy extends WP_Widget {
 			'ignore_sticky_posts' => true,
 		);
 		if ( is_singular( 'post' ) || is_int( $term ) ) {
-			if ( 'false' === $term ) {
+			if ( 0 === $term ) {
 				$post = get_queried_object();
 				$term = wp_get_post_terms( $post->ID, 'editorias', array( 'fields' => 'all' ) );
 			} else {
