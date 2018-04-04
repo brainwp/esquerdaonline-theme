@@ -22,6 +22,9 @@
 }
 
 aside#sidebar, aside#sidebar-colunistas {
+	.widget-content{
+		margin-top: 20px;
+	}
 	.widgettitle, .widget-title{
 		font-size:$widget_title_font_size;
 
