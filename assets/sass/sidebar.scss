@@ -5,7 +5,7 @@
 		margin-top: 0px;
 		font-weight: 700;
 		display: block;
-   		float: none;
+   	float: none;
 		color:$red_main;
 		text-transform: uppercase;
 		&:after {
@@ -23,6 +23,7 @@
 
 aside#sidebar {
 	h3 a{
+		font-size:$widget_title_font_size;
 		color: $red_main;
 	}
 	a img {
