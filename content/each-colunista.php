@@ -21,11 +21,7 @@
 				<a href="<?php the_permalink();?>" class="post-title">
 					<?php the_title();?>
 				</a>
-				<?php if ( $meta = get_post_meta( get_the_ID(), 'sub_title', true ) ) :?>
-					<a href="<?php the_permalink();?>" class="post-sub-title">
-						<?php echo apply_filters( 'the_content', $meta );?>
-					</a>
-				<?php endif;?>
+
 			</article>
 		<?php endwhile; wp_reset_postdata();?>
 	<?php endif;?>
