@@ -45,6 +45,9 @@ class EOL_Widget_Colunistas extends WP_Widget {
 			wp_reset_postdata();
 			echo '</div>';
 		}
+		?>
+		<a class="colunistas-link" href="<?php echo get_home_url( '','/colunistas')?>">Veja Mais</a>
+		<?php
 		echo $args['after_widget'];
 	}
 
@@ -86,4 +89,3 @@ class EOL_Widget_Colunistas extends WP_Widget {
 add_action( 'widgets_init', function(){
 	register_widget( 'EOL_Widget_Colunistas' );
 } );
-
