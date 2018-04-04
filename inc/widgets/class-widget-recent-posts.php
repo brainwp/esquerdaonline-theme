@@ -110,6 +110,8 @@ class EOL_Recent_Posts_Taxonomy extends WP_Widget {
 				</li>
 			<?php endforeach; ?>
 		</ul>
+		<a class="taxonomy-link-widget-li" href="<?php echo get_term_link( $term ); ?>">Veja Mais!
+		</a>
 		<?php
 		echo $args['after_widget'];
 	}
