@@ -154,6 +154,9 @@ body.single {
 		font-weight: 500;
 	}
 	.entry-meta {
+		.byline{
+			display:none;
+		}
 		color: $main_content_color;
 		font-weight: 500;
 		color: $entry_meta_color;
