@@ -38,6 +38,7 @@ aside#sidebar, aside#sidebar-colunistas {
     ul.posts-widget-list-tx {
 	    list-style: none;
 	    padding: 0px;
+			margin-bottom:0;
 	}
 
 	a.editoria-link {
@@ -66,6 +67,8 @@ aside#sidebar, aside#sidebar-colunistas {
 
 	li.post-widget-li:last-child {
 	    border-bottom: none;
+			margin-bottom: 0px;
+
 	}
 
 }
