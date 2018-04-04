@@ -118,6 +118,8 @@ class EOL_Recent_Posts_Taxonomy extends WP_Widget {
 				</li>
 			<?php endforeach; ?>
 		</ul>
+		<a class="post-link-widget-li" href="<?php echo get_term_link( $term ); ?>">Veja Mais</a>
+
 		<?php
 		echo $args['after_widget'];
 	}
@@ -166,7 +168,7 @@ class EOL_Recent_Posts_Taxonomy extends WP_Widget {
 		<p><label for="<?php echo $this->get_field_id( 'number' ); ?>"><?php _e( 'Number of posts to show:' ); ?></label>
 		<input class="tiny-text" id="<?php echo $this->get_field_id( 'number' ); ?>" name="<?php echo $this->get_field_name( 'number' ); ?>" type="number" step="1" min="1" value="<?php echo $number; ?>" size="3" /></p>
 
-		<p><label for="<?php echo $this->get_field_id( 'editoria' ); ?>"><?php _e( 'Number of posts to show:' ); ?></label>
+		<p><label for="<?php echo $this->get_field_id( 'editoria' ); ?>"><?php _e( 'Escolha a editoria:' ); ?></label>
 		<select name="<?php echo $this->get_field_name( 'editoria' ); ?>"  id="<?php echo $this->get_field_id( 'editoria' ); ?>">
 			<?php
 			if ( 'false' === $editoria ) {
