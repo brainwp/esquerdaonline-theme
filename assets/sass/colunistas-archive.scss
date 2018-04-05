@@ -1,4 +1,4 @@
-.post-type-archive-colunistas{
+.post-type-archive-colunistas, .single-colunistas{
 	h1.page-title {
 	    margin: 0px 0px 9px 0px;
 	    text-transform: uppercase;
@@ -27,13 +27,11 @@
 	    border-radius: 100px;
 			margin-left: 20px;
 	    float: left;
+	    max-width: 102px;
 			img.wp-post-image{
 				border-radius:200px;
 				max-width:100px
 			}
-	}
-	.conteudo-colunista{
-		float:right;
 	}
 	.icon-itself .fa-facebook-f {
 	    color: #4267b2;

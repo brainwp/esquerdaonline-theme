@@ -4,7 +4,7 @@
 				<?php the_post_thumbnail( 'thumbnail' );?>
 			</a>
 		</div><!-- .col-md-4 thumbnail-colunista -->
-		<div class="col-md-9 conteudo-colunista">
+		<div class="col-md-10 conteudo-colunista">
 			<div class="colunista-nome">
 				<h4 class="colunista-name">
 					<a href="<?php the_permalink();?>" class="coluna-link">

@@ -13,7 +13,9 @@
 	<header class="col-md-12 entry-header">
 		<div class="col-md-4 center-container no-padding">
 			<section class="post-thumb">
-				<?php eol_single_thumbnail();?>
+				<div class="thumbnail-colunista">
+					<?php eol_single_thumbnail();?>
+				</div>
 			</section>
 		</div><!-- .col-md-4 center-container -->
 
