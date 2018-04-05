@@ -200,6 +200,14 @@ body.single {
 		}
 	}
 	.entry-content {
+		footer .entry-meta
+		{
+			margin-top:10px;
+			color: #939393;
+			float: left;
+	    text-align: left;
+		}
+
 		padding-top: 35px;
 		color: $main_content_color;
 		font-size:$content_body_size;
