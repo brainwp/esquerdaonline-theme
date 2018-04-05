@@ -9,7 +9,7 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> class="col-md-8">
+<article id="post-<?php the_ID(); ?>" <?php post_class();?>>
 	<header class="col-md-12 entry-header">
 		<div class="col-md-4 center-container no-padding">
 			<section class="post-thumb">
@@ -98,4 +98,4 @@
 <!-- col-md-8 post-colunista -->
 
 
-<?php get_sidebar('colunistas');?>
+
