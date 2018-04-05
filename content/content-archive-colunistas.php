@@ -1,5 +1,5 @@
 <div class="each-colunista col-md-12">
-		<div class="col-md-3 thumbnail-colunista">
+		<div class="col-md-2 thumbnail-colunista">
 			<a href="<?php echo $link_colunista = get_the_permalink();?>" class="coluna-link">
 				<?php the_post_thumbnail( 'thumbnail' );?>
 			</a>
