@@ -406,14 +406,25 @@ function atualiza_data_colunista( $post_id ) {
 		return;
 	}
 	remove_action( 'save_post', 'atualiza_data_colunista' );
-	$colunista_id = get_page_by_path($colunista[0]->slug, OBJECT,'colunistas');
+	$colunista_obj = get_page_by_path($colunista[0]->slug, OBJECT,'colunistas');
+	$colunista_id = $colunista_obj->ID;
+	// print_r($colunista_id );
+	// wp_die();
+
+
 	$post_date = gmdate('Y-m-d H:i:s', time());
 	$args = array(
                'ID' => $colunista_id,
 							 'post_date' => $post_date
             );
-	print_r($args );
  	wp_update_post( $args );
 	add_action( 'save_post', 'atualiza_data_colunista' );
 }
 add_action( 'save_post', 'atualiza_data_colunista' );
+
+function wpb_add_google_fonts() {
+
+	wp_enqueue_style( 'wpb-google-fonts', 'https://fonts.googleapis.com/css?family=Lato:400,700', false );
+}
+
+add_action( 'wp_enqueue_scripts', 'wpb_add_google_fonts' );

@@ -38,6 +38,8 @@ get_header('large'); ?>
 						 * (where ___ is the post format) and that will be used instead.
 						 */
 						get_template_part( '/content/content', 'archive-colunistas' );
+
+						// para sidebar:
 						$colunistas_array[get_the_title()] = get_the_permalink();
 					endwhile;
 					// Page navigation.
