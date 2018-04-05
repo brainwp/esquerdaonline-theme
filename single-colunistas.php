@@ -23,7 +23,6 @@ get_header(); ?>
 
 
 					// Social area (share button, comments, etc )
-					get_template_part( '/parts/social-area' );
 				endwhile;
 			?>
 		</main><!-- #main -->

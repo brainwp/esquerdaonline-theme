@@ -33,6 +33,7 @@
 				max-width:100px
 			}
 	}
+
 	.icon-itself .fa-facebook-f {
 	    color: #4267b2;
 	}
@@ -110,4 +111,38 @@
 		max-width:70%;
 	}
 
+}
+
+.single-colunistas{
+	.thumbnail-colunista{
+		margin-left: 	0px!important;
+	}
+	.text-left.social-icons-colunist div {
+		    display: inline-block;
+	}
+	.post-colunista {
+	    margin-top: 20px;
+	    margin-bottom: 30px;
+	}
+	.lefthright {
+	    max-width: 101px;
+	}
+	.sub-title {
+	    margin-top: 8px;
+	}
+	.the-date-time {
+	    text-transform: uppercase;
+	    color: grey;
+	    font-weight: bold;
+	    font-size: 14px;
+	}
+	.sub-title p {
+	    margin: 0px 0px 4px;
+	}
+	.text-left.social-icons-colunist div:first-child {
+	    padding-left: 0px;
+	}
+	article {
+	    float: left;
+	}
 }
