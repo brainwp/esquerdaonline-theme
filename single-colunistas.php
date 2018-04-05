@@ -9,7 +9,7 @@
 get_header(); ?>
 
 	<div id="primary" class="<?php echo odin_classes_page_full(); ?>">
-		<main id="main-content" class="site-main" role="main">
+		<main id="main-content" class="site-main col-md-8" role="main">
 			<?php
 				// Start the Loop.
 				while ( have_posts() ) : the_post();
@@ -29,6 +29,6 @@ get_header(); ?>
 			?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
-
+<?php get_sidebar('colunistas');?>
 <?php
 get_footer();

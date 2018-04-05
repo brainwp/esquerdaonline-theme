@@ -9,7 +9,7 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> class="col-md-8">
 	<header class="col-md-12 entry-header">
 		<div class="col-md-4 center-container no-padding">
 			<section class="post-thumb">
@@ -21,7 +21,7 @@
 
 		<div class="col-md-8 center-container no-padding">
 			<div class="entry-title-container col-md-12 text-left">
-				<?php the_title( '<h1 class="entry-title main-title">', '</h1>' );?>
+				<?php the_title( '<h4 class="colunista-name">', '</h1>' );?>
 			</div><!-- .col-md-12 entry-title-container -->
 			<div class="entry-title-container col-md-12 text-left">
 				<section class="content-it-self">
