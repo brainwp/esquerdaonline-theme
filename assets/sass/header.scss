@@ -1,19 +1,60 @@
 header#header {
+	&.small-header{
+		padding-top: 23px;
+		padding-bottom: 15px;
+		.search-icon{
+			margin-top: -7px;
+		}
+		.menu-editorias .navbar-nav>li>a {
+   		padding-bottom: 0;
+			padding-bottom: 0;
+		}
+		a.custom-logo-link {
+		    width: 195px;
+		}
+		img{
+			width: 195px;
+		}
+	}
+	&.large-header{
+		padding-top: 5px;
+		padding-bottom: 5px;
+		.social-icons{
+				vertical-align: text-bottom;
+		}
+		a.custom-logo-link{
+			text-align:center;
+			float:none;
+			margin:0 auto;
+			display:block;
+			width:auto;
+			img{
+				width: 300px;
+			}
+		}
+		.nav.navbar-nav{
+			float: none;
+	    margin: 0;
+	    display: inline-block;
+		}
+		.search-icon{
+			margin-top: 9px;
+		}
+	}
+
 	.social-icons a {
 	    font-size: 18px;
 	    color: $main_content_color;
 	    padding-left: 10px;
 	}
-	padding-top: 44px;
-    padding-bottom: 30px;
-    box-shadow: 0 4px 7px -2px rgba(0,0,0,0.09);
+
+  box-shadow: 0 4px 7px -2px rgba(0,0,0,0.09);
 	.social-icons {
 		display: inline-block;
 		margin-left: 8px;
 	}
 	.search-icon {
 	    display: inline-block;
-	    margin-top: 9px;
 	    margin-left: 0px;
 	    background-image: url('../images/search.png');
 	    width: 35px;
@@ -69,7 +110,6 @@ header#header {
 	}
 
 	a.custom-logo-link {
-	    width: 195px;
 	    display: inline-block;
 	    margin-top: -5px;
 	    margin-left: 15px;
@@ -84,7 +124,7 @@ header#header {
 	}
 
 	.menu-editorias {
-    	margin-top: -19px;
+    	// margin-top: -19px;
 	}
 
 	a.menu-open-icon {
@@ -93,7 +133,6 @@ header#header {
 	}
 
 	a.custom-logo-link img {
-	    width: 195px;
 	    height: auto;
 	}
 }
@@ -108,8 +147,8 @@ nav#menu-institucional {
     padding-left: 0px;
     padding-right: 0px;
     .navbar-nav>li>a {
-	    padding-top: 7px;
-	    padding-bottom: 7px;
+			padding-top: 0px;
+			padding-bottom: 5px;
 	    color: $main_content_color;
 	    font-weight: 400;
 	}
@@ -156,7 +195,7 @@ ul#menu-menu-principal {
 
 
 div#wrapper.container {
-    margin-top: 80px;
+    margin-top: 40px;
 }
 nav#menu-institucional .navbar-nav li:first-child a {
     padding-left: 0px!important;

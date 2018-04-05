@@ -401,3 +401,19 @@ function check_sidebar_params( $params ) {
 
     return $new_params;
 }
+function atualiza_data_colunista( $post_id ) {
+	if ( wp_is_post_revision( $post_id ) || get_post_type($post_id) != 'post' || !$colunista = wp_get_post_terms($post_id,'colunistas')){
+		return;
+	}
+	remove_action( 'save_post', 'atualiza_data_colunista' );
+	$colunista_id = get_page_by_path($colunista[0]->slug, OBJECT,'colunistas');
+	$post_date = gmdate('Y-m-d H:i:s', time());
+	$args = array(
+               'ID' => $colunista_id,
+							 'post_date' => $post_date
+            );
+	print_r($args );
+ 	wp_update_post( $args );
+	add_action( 'save_post', 'atualiza_data_colunista' );
+}
+add_action( 'save_post', 'atualiza_data_colunista' );

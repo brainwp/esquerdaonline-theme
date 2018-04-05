@@ -16,7 +16,7 @@
  * @since 2.2.0
  */
 
-get_header(); ?>
+get_header('large'); ?>
 
 	<main id="content" class="<?php echo odin_classes_page_sidebar(); ?>" tabindex="-1" role="main">
 
@@ -32,7 +32,6 @@ get_header(); ?>
 					// Start the Loop.
 					$colunistas_array=array();
 					while ( have_posts() ) : the_post();
-
 						/*
 						 * Include the post format-specific template for the content. If you want to
 						 * use this in a child theme, then include a file called called content-___.php
@@ -41,7 +40,6 @@ get_header(); ?>
 						get_template_part( '/content/content', 'archive-colunistas' );
 						$colunistas_array[get_the_title()] = get_the_permalink();
 					endwhile;
-
 					// Page navigation.
 					odin_paging_nav();
 
