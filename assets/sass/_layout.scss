@@ -18,6 +18,18 @@
 // ==========================================================================
 // Header
 // ==========================================================================
+
+@font-face {
+    font-family: dinblack;
+    font-weight: bold;
+    src: url("../fonts/dinblack.otf") format("opentype");
+}
+@font-face {
+    font-family: knowledge;
+    font-weight: bold;
+    src: url("../fonts/knowledge-bold.otf") format("opentype");
+}
+
 #header {
     //
     // Navbar
