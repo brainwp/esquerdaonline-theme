@@ -25,9 +25,12 @@
 	    overflow: hidden;
 	    padding: 0px;
 	    border-radius: 100px;
-	    width: 100px;
 			margin-left: 20px;
 	    float: left;
+			img.wp-post-image{
+				border-radius:200px;
+				max-width:100px
+			}
 	}
 	.conteudo-colunista{
 		float:right;
