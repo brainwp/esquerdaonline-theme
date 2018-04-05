@@ -8,7 +8,6 @@
 
 get_header(); ?>
 
-	<div id="primary" class="<?php echo odin_classes_page_full(); ?>">
 		<main id="main-content" class="site-main col-md-8" role="main">
 			<?php
 				// Start the Loop.
@@ -28,7 +27,6 @@ get_header(); ?>
 				endwhile;
 			?>
 		</main><!-- #main -->
-	</div><!-- #primary -->
 <?php get_sidebar('colunistas');?>
 <?php
 get_footer();
