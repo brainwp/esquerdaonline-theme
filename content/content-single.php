@@ -105,7 +105,7 @@
 				<?php //if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) : ?>
 					<span class="comments-link"><?php //comments_popup_link( __( 'Leave a comment', 'odin' ), __( '1 Comment', 'odin' ), __( '% Comments', 'odin' ) ); ?></span>
 				<?php //endif; ?>
-				<div class="col-md-12 center-container text-center entry-meta">
+				<div class="col-md-12   entry-meta">
 					<?php odin_posted_on(); ?>
 				</div><!-- .col-md-9 center-container -->
 			</footer>
