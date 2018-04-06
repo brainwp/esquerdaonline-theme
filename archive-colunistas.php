@@ -57,12 +57,16 @@ get_header('large'); ?>
 		<h3 class="widgettitle widget-title" ><?php _e( 'Colunistas', 'eol' );?></h3>
 		<?php
 		// print_r($colunistas_array);
-		ksort($colunistas_array);
-		foreach ($colunistas_array as $nome => $link) { ?>
-			<a href=" <?php echo $link; ?>"><?php echo $nome ?></a><br>
-			<?php
-		}
-		?>
+		ksort($colunistas_array);?>
+		<ul class="posts-widget-list-tx">
+			<?php foreach ($colunistas_array as $nome => $link) :
+				?>
+				<li class="post-widget-li">
+					<a class="post-link-widget-li" href="<?php echo $link?>"><?php echo $nome; ?>
+					</a>
+				</li>
+			<?php endforeach; ?>
+		</ul>
 	</aside><!-- #sidebar -->
 <?php
 get_sidebar('colunistas');

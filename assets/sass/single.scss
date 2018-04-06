@@ -26,7 +26,7 @@ body.single {
     padding-bottom: 4px;
     font-size: 26px;
     margin-bottom: 25px;
-    letter-spacing: -1px;
+    letter-spacing: $letter_spacing_title;
     font-weight: 700;
 	}
 	article.post-default.hasnt-thumb {
@@ -108,7 +108,7 @@ body.single {
 
 	.main-title{
 		font-size: 30px;
-	    letter-spacing: -0.55px;
+	    letter-spacing: $letter_spacing_title;
 	    line-height: 33px;
 	    font-weight: 500;
 	}
@@ -149,7 +149,7 @@ body.single {
 	.sub-title-main .sub-title {
 		font-size:$sub_title_size;
 	    font-weight: 400;
-	    letter-spacing: -.45px;
+	    letter-spacing: $letter_spacing_title;
 	    line-height: 20px;
 	}
 	.author {
@@ -328,7 +328,7 @@ body.single {
 	    text-transform: uppercase;
 	    color: $editoria_main;
 	    font-weight: 800;
-	    letter-spacing: -0.35px;
+	    letter-spacing: $letter_spacing_link;
 	}
 	a.the-title.base-titulo {
 	    display: block;
@@ -355,7 +355,7 @@ body.single {
 		font-size: 23px;
 	    font-weight: 600;
 	    padding: 0px;
-	    letter-spacing: -0.8px;
+	    letter-spacing: $letter_spacing_title;
 	}
 	background: $social_bg;
 	padding-top: 10px;

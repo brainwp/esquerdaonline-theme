@@ -51,7 +51,7 @@
 	    color: $main_content_color;
 	    text-decoration: none;
 	    font-weight: 800;
-	    letter-spacing: -.45px;
+	    letter-spacing: $letter_spacing_title;
 			font-size: 17px;
 	}
 
@@ -72,14 +72,14 @@
 	.the-date-time {
 	    padding: 0px;
 	    font-size: 15px;
-	    letter-spacing: -.45px;
+	    letter-spacing: $letter_spacing_link;
 	}
 
 	.coluna-link {
 	    padding: 0px;
 	    text-align: right;
 	    font-size: 15px;
-	    letter-spacing: -.45px;
+	    letter-spacing: $letter_spacing_link;
 	}
 
 	.coluna-link a {
@@ -102,7 +102,7 @@
 	.post-colunista article h2 {
 	    margin: 0px;
 	    color: $main_content_color;
-	    letter-spacing: -1.45px;
+	    letter-spacing: $letter_spacing_title;
 	    font-size: 26px;
 			font-weight:400;
 	}

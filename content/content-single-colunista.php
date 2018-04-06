@@ -14,12 +14,12 @@
 		<div class="col-md-2 no-padding lefthright">
 			<section class="post-thumb">
 				<div class="thumbnail-colunista">
-					<?php eol_single_thumbnail();?>
+					<?php the_post_thumbnail( 'thumbnail' );?>
 				</div>
 			</section>
 		</div><!-- .col-md-4 center-container -->
 
-		<div class="col-md-8 center-container no-padding">
+		<div class="col-md-10 center-container no-padding">
 			<div class="entry-title-container col-md-12 text-left">
 				<?php the_title( '<h4 class="colunista-name">', '</h1>' );?>
 			</div><!-- .col-md-12 entry-title-container -->
@@ -81,11 +81,14 @@
 					<a href="<?php the_permalink();?>" class="post-title">
 						<?php the_title('<h2>','</h2>');?>
 					</a>
-					<div class="col-md-12 text-left sub-title no-padding">
-						<?php if ( $sub_title = get_post_meta( get_the_ID(), 'sub_title', true ) ) {
-							echo apply_filters( 'the_content', $sub_title );
+
+						<?php if ( $sub_title = get_post_meta( get_the_ID(), 'sub_title', true ) ) {?>
+							<div class="col-md-12 text-left sub-title no-padding">
+							<?php echo apply_filters( 'the_content', $sub_title );
+							?>
+							</div><!-- .col-md-9 center-container -->
+							<?php
 						}?>
-					</div><!-- .col-md-9 center-container -->
 					<div class="col-sm-6 the-date-time">
 						<?php echo get_the_date(); ?>
 					</div>
@@ -96,6 +99,3 @@
 </article><!-- #post-## -->
 
 <!-- col-md-8 post-colunista -->
-
-
-

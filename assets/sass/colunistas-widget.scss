@@ -29,7 +29,7 @@
 	    font-size: 17px;
 	    color: $main_content_color;
 	    font-weight: 700;
-	    letter-spacing: -0.4px;
+	   letter-spacing: $letter_spacing_title;
 	}
 	a.coluna-link:hover{
 		text-decoration: none;
@@ -39,7 +39,7 @@
 	    font-size: 18px;
 	    color: $main_content_color;
 	    font-weight: 500;
-	    letter-spacing: -0.4px;
+	   letter-spacing: $letter_spacing_link;
 	    text-decoration: none;
 	    margin-top: 10px;
 	    margin-left: -2px;
@@ -53,4 +53,3 @@
 	    line-height: 17px;
 	}
 }
-
