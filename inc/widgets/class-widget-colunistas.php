@@ -34,7 +34,7 @@ class EOL_Widget_Colunistas extends WP_Widget {
 		}
 		$query = new WP_Query( array(
 			'post_type' => 'colunistas',
-			'posts_per' => $posts
+			'posts_per_page' => $posts
 		) );
 		if ( $query->have_posts() ) {
 			echo '<div class="widget-colunistas">';

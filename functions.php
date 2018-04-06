@@ -213,6 +213,17 @@ function odin_widgets_init() {
 			'after_title' => '</h3>',
 		)
 	);
+	register_sidebar(
+		array(
+			'name' => __( 'Sidebar de cada colunista', 'odin' ),
+			'id' => 'colunistas-single-sidebar',
+			'description' => __( 'Barra lateral da página e cada colunista', 'odin' ),
+			'before_widget' => '',
+			'after_widget' => '',
+			'before_title' => '<h3 class="widgettitle widget-title">',
+			'after_title' => '</h3>',
+		)
+	);
 }
 
 add_action( 'widgets_init', 'odin_widgets_init' );
