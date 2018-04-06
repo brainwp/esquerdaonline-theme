@@ -8,7 +8,7 @@
 
 get_header('small'); ?>
 
-		<main id="main-content" class="site-main col-md-8" role="main">
+		<main id="main-content" class="site-main col-md-12" role="main">
 			<?php
 				// Start the Loop.
 				while ( have_posts() ) : the_post();
@@ -26,6 +26,5 @@ get_header('small'); ?>
 				endwhile;
 			?>
 		</main><!-- #main -->
-<?php get_sidebar('colunistas');?>
 <?php
 get_footer();

@@ -1,3 +1,16 @@
+.single-colunistas{
+	div#wrapper.container{
+		article.colunistas{
+			padding-left: 55px;
+		}
+		margin-top: 20px;
+		h4.colunista-name{
+			margin-top: 0;
+			font-size:22px;
+		}
+	}
+
+}
 .post-type-archive-colunistas, .single-colunistas{
 	h1.page-title {
 	    margin: 0px 0px 9px 0px;
