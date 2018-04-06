@@ -56,7 +56,7 @@
 						</div>
 						<div class="col-sm-6 coluna-link">
 							<a href="<?php echo $link_colunista;?>" class="coluna-link">
-								<?php _e( 'Mais textos desta coluna', 'eol' );?>
+								<?php _e( 'Mais da coluna', 'eol' );?>
 							</a>
 						</div>
 					<?php endwhile; wp_reset_postdata();?>
