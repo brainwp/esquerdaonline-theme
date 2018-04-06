@@ -6,7 +6,7 @@
  * @since 2.2.0
  */
 
-get_header(); ?>
+get_header('small'); ?>
 
 		<main id="main-content" class="site-main col-md-8" role="main">
 			<?php

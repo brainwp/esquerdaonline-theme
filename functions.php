@@ -386,7 +386,7 @@ add_action( 'loop_start', 'eol_jp_remove_share' );
 add_filter( 'get_the_archive_title', function ( $title ) {
 	if ( is_post_type_archive() ) {
 	        /* translators: Post type archive title. 1: Post type name */
-	        $title = sprintf( __( 'Arquivo <span>%s</span> &#62;' ), post_type_archive_title( '', false ) );
+	        $title = sprintf( __( 'Índice <span>%s</span> &#62;' ), post_type_archive_title( '', false ) );
 	    }
     return $title;
 

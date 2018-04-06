@@ -16,7 +16,7 @@
  * @since 2.2.0
  */
 
-get_header('large'); ?>
+get_header('small'); ?>
 
 	<main id="content" class="<?php echo odin_classes_page_sidebar(); ?>" tabindex="-1" role="main">
 
