@@ -77,7 +77,7 @@
 		?>
 		<?php if ( $last_post->have_posts() ) : ?>
 			<?php while( $last_post->have_posts() ) : $last_post->the_post(); ?>
-				<article class="col-md-12">
+				<article class="each-colunista col-md-12">
 					<a href="<?php the_permalink();?>" class="post-title">
 						<?php the_title('<h2>','</h2>');?>
 					</a>

@@ -16,7 +16,7 @@
  * @since 2.2.0
  */
 
-get_header('small'); ?>
+get_header('large'); ?>
 
 	<main id="content" class="<?php echo odin_classes_page_sidebar(); ?>" tabindex="-1" role="main">
 
@@ -54,7 +54,7 @@ get_header('small'); ?>
 
 	</main><!-- #main -->
 	<aside id="sidebar-colunistas" class="<?php echo odin_classes_page_sidebar_aside(); ?>" role="complementary">
-		<h3 class="widgettitle widget-title" ><?php _e( 'Colunistas', 'eol' );?></h3>
+		<h3 class="widgettitle widget-title" ><?php _e( 'acesso <span>rápido</span>', 'eol' );?></h3>
 		<?php
 		// print_r($colunistas_array);
 		ksort($colunistas_array);?>
