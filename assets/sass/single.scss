@@ -178,9 +178,10 @@ body.single {
 
 		clear: both;
 		background-repeat: no-repeat, repeat;
-		background-position: right top, left top;
-		background-image:linear-gradient(rgba(255,255,255,0) 29%, rgba(191,191,191,0) 46%, rgba(0,0,0,0.78) 97%, rgba(0,0,0,0.8) 98%);
-
+		background-position: right top, left top; /* FF3.6-15 */
+		background-image: -webkit-linear-gradient(rgba(0,0,0,0) 39%, rgba(0,0,0,0) 81%, rgba(0,0,0,0.2) 100%);
+		background-image: -o-linear-gradient(rgba(0,0,0,0) 39%, rgba(0,0,0,0) 81%, rgba(0,0,0,0.2) 100%);
+		background-image: linear-gradient(rgba(0,0,0,0) 39%, rgba(0,0,0,0) 81%, rgba(0,0,0,0.2) 100%);
 		img {
 			width:100%;
 			position: relative;
