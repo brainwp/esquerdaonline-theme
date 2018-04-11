@@ -423,7 +423,8 @@ function atualiza_data_colunista( $post_id ) {
 	// wp_die();
 
 
-	$post_date = gmdate('Y-m-d H:i:s', time());
+	// $post_date = gmdate('Y-m-d H:i:s', time());
+	$post_date = get_the_date($post_id);
 	$args = array(
                'ID' => $colunista_id,
 							 'post_date' => $post_date
