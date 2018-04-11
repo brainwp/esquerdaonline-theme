@@ -8,10 +8,7 @@
  * @since 2.2.0
  */
 ?>
-<?php if( has_term( '', 'colunistas' ) ) {
-	get_template_part( '/content/header', 'colunista' );
 
-} ?>
 <article id="post-<?php the_ID(); ?>" <?php $classes = array('col-md-8' , 'no-padding' ); post_class($classes);?>>
 	<header class="col-md-12 entry-header">
 		<div class="col-md-12 center-container no-padding">

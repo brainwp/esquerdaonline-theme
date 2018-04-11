@@ -7,7 +7,6 @@
  */
 
 get_header('small'); ?>
-
 	<div id="primary" class="site-main col-md-12">
 		<main id="main-content" class="site-main" role="main">
 			<?php
