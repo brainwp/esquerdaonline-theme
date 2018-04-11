@@ -8,17 +8,13 @@
  * @since 2.2.0
  */
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<?php if( has_term( '', 'colunistas' ) ) {
+	get_template_part( '/content/header', 'colunista' );
+
+} ?>
+<article id="post-<?php the_ID(); ?>" <?php $classes = array('col-md-8' , 'no-padding' ); post_class($classes);?>>
 	<header class="col-md-12 entry-header">
 		<div class="col-md-12 center-container no-padding">
-			<div class="editoria text-center">
-				<?php
-					$term = wp_get_post_terms( get_the_ID(), 'editorias' );
-					if ( $term ) {
-						printf( '<a href="%s">%s</a>', get_term_link( $term[0] ), apply_filters( 'the_title', $term[0]->name ) );
-					}
-				?>
-			</div><!-- .col-md-12 editoria -->
 			<div class="entry-title-container text-center">
 				<?php the_title( '<h1 class="entry-title main-title">', '</h1>' );?>
 			</div><!-- .col-md-10 entry-title-container -->
@@ -30,12 +26,6 @@
 				</div><!-- .col-md-9 center-container -->
 			</div><!-- .col-md-12 text-center -->
 			<div class="col-md-6 text-center">
-				<div class="col-md-12 center-container text-center author">
-					<?php if ( $author = get_post_meta( get_the_ID(), 'the_author', true ) ) {
-							printf( __( 'Por %s', 'eol' ), apply_filters( 'the_title', $author) );
-						}
-					?>
-				</div><!-- .col-md-9 center-container -->
 				<div class="col-md-12 center-container text-center entry-meta">
 					<?php odin_posted_on(); ?>
 				</div><!-- .col-md-9 center-container -->
@@ -116,3 +106,4 @@
 
 
 </article><!-- #post-## -->
+<?php get_sidebar('colunistas');?>

@@ -439,3 +439,32 @@ function wpb_add_google_fonts() {
 }
 
 add_action( 'wp_enqueue_scripts', 'wpb_add_google_fonts' );
+
+
+// add classes to body based on custom taxonomy ('sections')
+// examples: section-about-us, section-start, section-nyc
+function colunistas_class($classes) {
+	global $post;
+	if( has_term( '', 'colunistas', $post->ID ) ) {
+		$classes[] = " single-colunistas";
+	}
+	return $classes;
+}
+add_filter('body_class', 'colunistas_class');
+
+
+function single_colunistas_redirect() {
+
+    // Only modify custom taxonomy template redirect
+    if ( is_single() ) {
+        // Get the queried term
+        $post = get_queried_object();
+        // Determine if term has a parent;
+        // I *think* this will work; if not see above
+				if( has_term( '', 'colunistas', $post) ) {
+					include(get_template_directory() . '/single-noticia-colunista.php');
+					exit;
+				}
+    }
+}
+add_action( 'template_redirect', 'single_colunistas_redirect' );

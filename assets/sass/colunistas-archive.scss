@@ -1,12 +1,31 @@
+.single-post.single-colunistas{
+	.entry-header{
+		.social-icons-post{
+			margin-top: 0;
+		}
+		.entry-date{
+			line-height: 3;
+		}
+	}
+}
 .single-colunistas{
+	header.col-md-12 {
+		margin-bottom:30px;
+	}
 	div#wrapper.container{
 		article.colunistas{
 			padding-left: 55px;
 		}
 		margin-top: 20px;
+		.entry-title-container a:hover{
+			text-decoration: none;
+		}
 		h4.colunista-name{
+
 			margin-top: 0;
 			font-size:22px;
+			text-decoration: none;
+			color: #000;
 		}
 	}
 
@@ -34,6 +53,11 @@
 	    padding: 0px;
 			margin-bottom: 30px;
 			margin-top: 30px;
+
+	}
+	.each-colunista:nth-child(1) {
+
+			margin-top: 0;
 
 	}
 
