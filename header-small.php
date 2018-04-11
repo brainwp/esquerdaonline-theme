@@ -81,7 +81,7 @@
 		</div>
 	</header><!-- #header -->
 
-	<?php if( has_term( '', 'colunistas' ) ) {
+	<?php if( has_term( '', 'colunistas' ) || is_singular( 'colunistas' ) ) {
 		?>
 		<div class="barra-colunistas">
 			<div  class="container">

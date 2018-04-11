@@ -1,4 +1,4 @@
-.single-post.single-colunistas{
+.single-post.single-colunistas, .single-colunistas{
 	.barra-colunistas {
 			background: #EF4723;
 			color: #FFF;
@@ -16,6 +16,11 @@
 	.entry-header{
 		.social-icons-post{
 			margin-top: 0;
+			display: inline-block;
+			vertical-align: middle;
+		}
+		.center-container.text-center.entry-meta{
+			display: inline-block;
 		}
 		.entry-date{
 			line-height: 3;
@@ -23,6 +28,13 @@
 	}
 }
 .single-colunistas{
+	h4.colunista-name{
+
+		margin-top: 0;
+		font-size:22px;
+		text-decoration: none;
+		color: #000;
+	}
 	header.col-md-12 {
 		margin-bottom:30px;
 	}
@@ -33,13 +45,6 @@
 		margin-top: 20px;
 		.entry-title-container a:hover{
 			text-decoration: none;
-		}
-		h4.colunista-name{
-
-			margin-top: 0;
-			font-size:22px;
-			text-decoration: none;
-			color: #000;
 		}
 	}
 
