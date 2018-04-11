@@ -13,7 +13,9 @@
 		$content = apply_filters('the_content', $content);
 	endif;
 	?>
-
+<div class="barra-colunistas">
+<h5>Colunistas</h5>	
+</div>
 <header class="col-md-12 no-padding">
 	<div class="col-md-1 no-padding ">
 		<section class="post-thumb">
