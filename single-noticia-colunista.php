@@ -21,7 +21,6 @@ get_header('small'); ?>
 					get_template_part( '/content/content', 'single-noticia-colunista' );
 
 					// Social area (share button, comments, etc )
-					get_template_part( '/parts/social-area' );
 				endwhile;
 			?>
 		</main><!-- #main -->

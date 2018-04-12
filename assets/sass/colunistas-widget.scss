@@ -1,4 +1,5 @@
 #sidebar .each-colunista {
+	clear:both;
 	.thumbnail-colunista {
 		padding: 0;
 
@@ -24,6 +25,7 @@
 	}
 
 	h4.colunista-name {
+		text-align:left;
 	    padding-left: 12px;
 	    text-transform: uppercase;
 	    font-size: 17px;

@@ -102,6 +102,6 @@
 		</div><!-- .entry-content -->
 	<?php endif; ?>
 
-
+<?php	get_template_part( '/parts/social-area' ); ?>
 </article><!-- #post-## -->
 <?php get_sidebar();?>

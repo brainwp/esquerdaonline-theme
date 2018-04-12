@@ -27,8 +27,17 @@
 @font-face {
     font-family: knowledge;
     font-weight: bold;
-    src: url("../fonts/knowledge-bold.otf") format("opentype");
+    src: url("../fonts/knowledge-abold.otf") format("opentype");
 }
+@font-face{
+	font-family:"Knowledge Black";
+	font-style:normal;
+	font-weight:100;
+	src: url("../fonts/KnowledgeBold.woff") format("woff");
+}
+
+
+
 // petrobras
 // https://novodev.brasa.art.br/esquerdaonline/2017/08/11/petrobras-desvalorizacao-do-refino-traz-prejuizo-no-balanco-da-estatal/
 // cabeçalhos maiores com a fonte dinblack, menores com lato bold, p e links com lato regular
@@ -62,7 +71,7 @@
 // cabeçalhos maiores com a fonte knowlege, menores com lato bold, p e links com lato regular
 .postid-650, .postid-18046 {
 	h1,h2{
-		font-family: knowlege!important;
+		font-family: "Knowledge Black"!important;
 		font-weight: 800!important;
 	}
 	h3,h4,h5,h6,h3 a,h4 a,h5 a,h6 a{
@@ -89,7 +98,7 @@
 // https://novodev.brasa.art.br/esquerdaonline/2017/08/12/municiparios-de-porto-alegre-mobilizados-para-derrotar-marchezan/
 .postid-546, .postid-17727 {
 	h1,h2{
-		font-family: knowlege!important;
+		font-family: "Knowledge Black"!important;
 		font-weight: 800!important;
 	}
 	h3,h4,h5,h6,h3 a,h4 a,h5 a,h6 a{
@@ -107,6 +116,9 @@
 	#header-colunista p{
 		font-size:15px!important;
 	}
+}
+body header#header a.menu-open-icon{
+	font-size:14px!important;
 }
 
 // dia do estudante
