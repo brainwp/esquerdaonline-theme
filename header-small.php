@@ -81,5 +81,14 @@
 		</div>
 	</header><!-- #header -->
 
+	<?php if( has_term( '', 'colunistas' ) || is_singular( 'colunistas' ) ) {
+		?>
+		<div class="barra-colunistas">
+			<div  class="container">
+				<h5 class="col-md-12">Colunistas</h5>
+			</div>
+		</div><?php
+		get_template_part( '/content/header', 'colunista' );
+	} ?>
 	<div id="wrapper" class="container">
 		<div class="row">

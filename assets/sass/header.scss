@@ -55,10 +55,10 @@ header#header {
 	}
 	.search-icon {
 	    display: inline-block;
-	    margin-left: 0px;
-	    background-image: url('../images/search.png');
-	    width: 35px;
-	    height: 35px;
+			margin-left: -5px;
+	    background-image: url(../images/search.png);
+	    width: 28px;
+	    height: 28px;
 	    background-repeat: no-repeat;
 	    background-position: center;
 	    background-size: cover;
@@ -143,7 +143,6 @@ nav#menu-institucional {
 	    padding-left: 0px;
 	    padding-right: 0px;
 	}
-    background: rgba(0,0,0,0.01);
     padding-left: 0px;
     padding-right: 0px;
     .navbar-nav>li>a {

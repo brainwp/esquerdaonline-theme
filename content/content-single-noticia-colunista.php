@@ -8,10 +8,7 @@
  * @since 2.2.0
  */
 ?>
-<?php if( has_term( '', 'colunistas' ) ) {
-	get_template_part( '/content/header', 'colunista' );
 
-} ?>
 <article id="post-<?php the_ID(); ?>" <?php $classes = array('col-md-8' , 'no-padding' ); post_class($classes);?>>
 	<header class="col-md-12 entry-header">
 		<div class="col-md-12 center-container no-padding">
@@ -25,39 +22,40 @@
 					}?>
 				</div><!-- .col-md-9 center-container -->
 			</div><!-- .col-md-12 text-center -->
-			<div class="col-md-6 text-center">
-				<div class="col-md-12 center-container text-center entry-meta">
+			<div class=" text-center">
+				<div class=" social-icons-post">
+					<div class="icon-itself">
+						<a href="#">
+							<i class="fab fa-facebook-f"></i>
+						</a>
+					</div>
+					<div class="icon-itself">
+						<a href="#">
+							<i class="fab fa-twitter"></i>
+						</a>
+					</div>
+					<div class="icon-itself">
+						<a href="#">
+							<i class="fab fa-google-plus"></i>
+						</a>
+					</div>
+					<div class="icon-itself">
+						<a href="#">
+							<i class="fab fa-instagram"></i>
+						</a>
+					</div>
+					<div class="icon-itself">
+						<a href="#">
+							<i class="fas fa-print"></i>
+						</a>
+					</div>
+
+				</div><!-- .col-md-6 social-icons-post -->
+				<div class=" center-container text-center entry-meta">
 					<?php odin_posted_on(); ?>
 				</div><!-- .col-md-9 center-container -->
 			</div><!-- .col-md-6 text-center -->
-			<div class="col-md-6 social-icons-post">
-				<div class="icon-itself">
-					<a href="#">
-						<i class="fab fa-facebook-f"></i>
-					</a>
-				</div>
-				<div class="icon-itself">
-					<a href="#">
-						<i class="fab fa-twitter"></i>
-					</a>
-				</div>
-				<div class="icon-itself">
-					<a href="#">
-						<i class="fab fa-google-plus"></i>
-					</a>
-				</div>
-				<div class="icon-itself">
-					<a href="#">
-						<i class="fab fa-instagram"></i>
-					</a>
-				</div>
-				<div class="icon-itself">
-					<a href="#">
-						<i class="fas fa-print"></i>
-					</a>
-				</div>
 
-			</div><!-- .col-md-6 social-icons-post -->
 		</div><!-- .col-md-10 center-container -->
 	</header><!-- .entry-header -->
 
@@ -104,6 +102,6 @@
 		</div><!-- .entry-content -->
 	<?php endif; ?>
 
-
+<?php	get_template_part( '/parts/social-area' ); ?>
 </article><!-- #post-## -->
-<?php get_sidebar('colunistas');?>
+<?php get_sidebar();?>

@@ -7,7 +7,6 @@
  */
 
 get_header('small'); ?>
-
 	<div id="primary" class="site-main col-md-12">
 		<main id="main-content" class="site-main" role="main">
 			<?php
@@ -22,7 +21,6 @@ get_header('small'); ?>
 					get_template_part( '/content/content', 'single-noticia-colunista' );
 
 					// Social area (share button, comments, etc )
-					get_template_part( '/parts/social-area' );
 				endwhile;
 			?>
 		</main><!-- #main -->

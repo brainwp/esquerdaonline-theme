@@ -8,58 +8,6 @@
  * @since 2.2.0
  */
 ?>
-
-<header class="col-md-12 no-padding">
-	<div class="col-md-1 no-padding ">
-		<section class="post-thumb">
-			<div class="thumbnail-colunista">
-				<?php the_post_thumbnail( 'thumbnail' );?>
-			</div>
-		</section>
-	</div><!-- .col-md-4 center-container -->
-
-	<div class="col-md-11 center-container no-padding">
-		<div class="entry-title-container col-md-12 ">
-			<?php the_title( '<h4 class="colunista-name">', '</h1>' );?>
-		</div><!-- .col-md-12 entry-title-container -->
-		<div class="entry-title-container col-md-12 text-left">
-			<section class="content-it-self">
-				<?php
-					the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'odin' ) );
-
-				?>
-			</section>
-		</div><!-- .col-md-12 entry-title-container -->
-		<div class="col-md-12 text-left social-icons-colunist">
-			<div class="icon-itself">
-				<a href="#">
-					<i class="fab fa-facebook-f"></i>
-				</a>
-			</div>
-			<div class="icon-itself">
-				<a href="#">
-					<i class="fab fa-twitter"></i>
-				</a>
-			</div>
-			<div class="icon-itself">
-				<a href="#">
-					<i class="fab fa-google-plus"></i>
-				</a>
-			</div>
-			<div class="icon-itself">
-				<a href="#">
-					<i class="fab fa-instagram"></i>
-				</a>
-			</div>
-			<div class="icon-itself">
-				<a href="#">
-					<i class="fas fa-print"></i>
-				</a>
-			</div>
-
-		</div><!-- .col-md-6 social-icons-post -->
-	</div><!-- .col-md-8 center-container -->
-</header><!-- .entry-header -->
 <article id="post-<?php the_ID(); ?>" <?php $classes = array('col-md-8' , 'no-padding' ); post_class($classes);?>>
 	<div class="col-md-12 post-colunista no-padding">
 		<?php 	// pega o ultimo post do colunista e o exibe;
