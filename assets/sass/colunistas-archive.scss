@@ -211,7 +211,7 @@
 	.post-type-archive-colunistas{
 		.each-colunista:nth-child(2n){
 			background: rgba(230,214,214,0.2);
-			padding: 20px;
+			padding: 20px 0;
 		}
 		.each-colunista{
 			.colunista-social{
@@ -222,7 +222,15 @@
 
 			}
 			.post-colunista{
-				margin: 20px 0;
+				.post-title{
+					h2{
+						font-size:23px;
+					}
+				}
+				margin: 10px 0;
+				.the-date-time{
+					margin-top: 10px;
+				}
 			}
 			.colunista-nome{
 				max-width: 100%;
