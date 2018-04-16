@@ -209,11 +209,26 @@
 }
 @media screen and (max-width: 768px) {
 	.post-type-archive-colunistas{
+		.each-colunista:nth-child(2n){
+			background: rgba(230,214,214,0.2);
+			padding: 20px;
+		}
 		.each-colunista{
-			.colunista-nome{
-				max-width: 50%;
+			.colunista-social{
+				float: none;
+				margin: 5px auto 10px;
+				display: block;
+				text-align: center;
+
 			}
-			margin-bottom:40px;
+			.post-colunista{
+				margin: 20px 0;
+			}
+			.colunista-nome{
+				max-width: 100%;
+				text-align: center;
+				width: 100%;
+			}
 			.thumbnail-colunista{
 				min-width: 100%;
 				text-align:center;
