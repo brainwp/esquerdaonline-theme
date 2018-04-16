@@ -42,9 +42,7 @@
 			comments_template();
 		} ?>
 	</div> <!-- .col-md-12 fb-comments -->
+<div class="clearfix">
 
+</div>
 </section><!-- .social-area col-md-12 -->
-
-
-
-

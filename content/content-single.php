@@ -114,5 +114,7 @@
 		</div><!-- .entry-content -->
 	<?php endif; ?>
 
+	<div class="clearfix">
 
+	</div>
 </article><!-- #post-## -->
