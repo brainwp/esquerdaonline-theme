@@ -20,7 +20,7 @@ $content = apply_filters('the_content', $content);
 	?>
 <header id="header-colunista" class="no-padding">
 	<div class="container">
-		<div class="col-md-1 no-padding ">
+		<div class="col-md-2 no-padding ">
 			<section class="post-thumb">
 				<div class="thumbnail-colunista">
 					<a href="<?php echo get_the_permalink( $post_id) ?>">
@@ -30,7 +30,7 @@ $content = apply_filters('the_content', $content);
 			</section>
 		</div><!-- .col-md-4 center-container -->
 
-		<div class="col-md-11 center-container no-padding">
+		<div class="col-md-10 center-container no-padding">
 			<div class="entry-title-container col-md-12 ">
 				<a href="<?php echo get_the_permalink($post_id) ?>">
 					<h4 class="colunista-name"><?php echo get_the_title( $post_id);?></h4>
