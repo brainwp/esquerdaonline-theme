@@ -75,6 +75,8 @@
 	    padding: 0px;
 			margin-bottom: 30px;
 			margin-top: 30px;
+			clear: both;
+
 
 	}
 	.each-colunista:nth-child(1) {
@@ -87,7 +89,6 @@
 	    overflow: hidden;
 	    padding: 0px;
 	    border-radius: 100px;
-			margin-left: 20px;
 	    float: left;
 	    max-width: 102px;
 			img.wp-post-image{
@@ -154,7 +155,6 @@
 		padding: 0px;
 		display: inline-block;
 		float: right;
-		margin-left: 16px;
 	}
 	.post-colunista article {
 	    padding: 0px;
@@ -205,5 +205,22 @@
 	}
 	article {
 	    float: left;
+	}
+}
+@media screen and (max-width: 768px) {
+	.post-type-archive-colunistas{
+		.each-colunista{
+			.colunista-nome{
+				max-width: 50%;
+			}
+			margin-bottom:40px;
+			.thumbnail-colunista{
+				min-width: 100%;
+				text-align:center;
+			}
+			.coluna-link{
+				margin-top: -20px;
+			}
+		}
 	}
 }

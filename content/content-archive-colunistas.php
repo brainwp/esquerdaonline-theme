@@ -1,11 +1,11 @@
 <div class="each-colunista col-md-12">
-		<div class="col-md-2 thumbnail-colunista">
+		<div class="col-sm-2 thumbnail-colunista">
 			<a href="<?php echo $link_colunista = get_the_permalink();?>" class="coluna-link">
 				<?php the_post_thumbnail( 'thumbnail' );?>
 			</a>
 		</div><!-- .col-md-4 thumbnail-colunista -->
-		<div class="col-md-10 conteudo-colunista">
-			<div class="colunista-nome">
+		<div class="col-sm-10 conteudo-colunista">
+			<div class="colunista-nome no-padding text-left col-md-6">
 				<h4 class="colunista-name">
 					<a href="<?php the_permalink();?>" class="coluna-link">
 						<?php the_title();?>
@@ -13,7 +13,7 @@
 				</h4><!-- .colunista-name -->
 			</div>
 			<!--  .col-md-8-->
-			<div class="colunista-social">
+			<div class="colunista-social no-padding text-right col-md-6">
 				<div class="icon-itself">
 					<a href="#">
 						<i class="fab fa-facebook-f"></i>
@@ -46,7 +46,7 @@
 				?>
 				<?php if ( $last_post->have_posts() ) : ?>
 					<?php while( $last_post->have_posts() ) : $last_post->the_post(); ?>
-						<article class="col-md-12">
+						<article class="col-sm-12">
 							<a href="<?php the_permalink();?>" class="post-title">
 								<?php the_title('<h2>','</h2>');?>
 							</a>
@@ -64,4 +64,7 @@
 			</div>
 		</div>
 		<!-- col-md-8 conteudo-colunista -->
+		<div class="clearfix">
+
+		</div>
 </div><!-- .each-colunista -->
