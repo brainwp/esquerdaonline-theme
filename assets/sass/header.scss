@@ -287,13 +287,16 @@ nav#menu-institucional .navbar-nav li:first-child a {
 		}
 		min-height: 70px;
 		#menu-open{
-			z-index:999;
-			position:relative;
+			z-index: 999;
+			width: 40px;
+			height: 40px;
+			margin: 13px 26px;
+			position: relative;
+			padding: 5px;
 		}
 		.container{
 			width:100%;
 			position:absolute;
-			z-index: 99;
 			&.open{
 				.menu-line-1, .menu-line-3, .menu-line-1 {
 					left:0;
@@ -317,22 +320,29 @@ nav#menu-institucional .navbar-nav li:first-child a {
 			    display: block;
 			    margin: 0 auto !important;
 			}
+			.fechar-menu{
+				float: right;
+				margin: -6px 10px;
+				i{
+					font-size:18px;
+					cursor: pointer;
+				}
+			}
 			.social-icons{
-
-					border-bottom: solid #EF4723 3px;
-					vertical-align: text-bottom;
-					text-align:center;
-					float: none!important;
-					display: block;
-					margin-left: 0;
-					padding-bottom:15px;
-					a:first-of-type{
-						padding-left:0px;
-					}
+				margin-top: 15px;
+				clear:both;
+				vertical-align: text-bottom;
+				text-align:center;
+				display: block;
+				float: none!important;
+				margin-left: 0;
+				padding-bottom:15px;
+				a:first-of-type{
+					padding-left:0px;
+				}
 			}
 			.menu-line-1 {
 				padding-top:15px;
-				margin-top: 66px;
 
 			}
 			.menu-line-2{
@@ -356,6 +366,7 @@ nav#menu-institucional .navbar-nav li:first-child a {
 				}
 			}
 			.menu-line-1, .menu-line-3, .menu-line-1 {
+				z-index: 999;
 				text-align: center;
 				background-color: #fdfbfb;
 				transition: opacity 0.7s ease-in-out, width 4s, left 0.7s;
@@ -364,7 +375,7 @@ nav#menu-institucional .navbar-nav li:first-child a {
 				width: 0;
 				padding-left:0px;
 				padding-right:0px;
-				opacity:0;
+				// opacity:0;
 				left:-200px;
 				nav#menu-institucional .navbar-nav li:first-child a {
     			padding-left: 15px !important;

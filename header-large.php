@@ -33,6 +33,9 @@
 		</a>
 		<div class="container">
 			<div class="col-md-12 menu-line-1 ">
+				<div class="fechar-menu">
+					<i class="fas fa-times"></i>
+				</div>
 				<div class="social-icons pull-right">
 					<?php $links = get_theme_mod( 'social_links', false );?>
 					<?php if ( $links ) : ?>
@@ -51,6 +54,7 @@
 						<?php endforeach;?>
 					<?php endif;?>
 				</div><!-- .social-icons -->
+
 				<nav class="col-md-12 " id="menu-institucional" >
 						<?php
 							wp_nav_menu(
