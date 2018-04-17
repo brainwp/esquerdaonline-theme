@@ -6,7 +6,7 @@
  * @since 2.2.0
  */
 
-get_header('small'); ?>
+get_header('large'); ?>
 	<div id="primary" class="site-main col-md-12">
 		<main id="main-content" class="site-main" role="main">
 			<?php
