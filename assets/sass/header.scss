@@ -19,9 +19,7 @@ header#header {
 	&.large-header{
 		padding-top: 5px;
 		padding-bottom: 5px;
-		.social-icons{
-				vertical-align: text-bottom;
-		}
+
 		a.custom-logo-link{
 			text-align:center;
 			float:none;
@@ -205,19 +203,187 @@ nav#menu-institucional .navbar-nav li:first-child a {
 
 
 @media (max-width: 991px){
-	header#header a.custom-logo-link{
-		width: 195px;
-	    display: block;
-	    margin: 0 auto !important;
+	header#header{
+		.search-icon{
+			display: none;
+		}
+		ul{
+			width: 100%;
+			li{
+				text-align: center;
+			}
+		}
+		nav#menu-institucional{
+
+			ul.navbar-nav{
+				width: 100%;
+				li{
+					text-align: center;
+					a{
+						font-size:0.8em;
+						padding-top: 5px;
+			    	padding-bottom: 5px;
+					}
+
+				}
+				text-align: center;
+			}
+
+
+		}
+		nav#menu-institucional .navbar-nav>li>a, .menu-editorias .navbar-nav>li>a {
+			padding-top: 10px;
+    	padding-bottom: 10px;
+			text-transform:uppercase;
+			font-weigh: bold;
+		}
+		.menu-line-1{
+			border-top: solid #EF4723 3px;
+			border-right: solid #EF4723 3px;
+			border-left: solid #EF4723 3px;
+
+		}
+		.menu-line-3 {
+			border-right: solid #EF4723 3px;
+			border-bottom: solid #EF4723 3px;
+			border-left: solid #EF4723 3px;
+
+
+		}
+		.search-container {
+			display: block!important;
+			padding:0;
+			opacity:0;
+			left:0;
+			transition: opacity 0.7s ease-in-out, width 3s, left 0.7s;
+			-moz-transition: opacity 0.7s ease-in-out, width 3s, left 0.7s;
+			-webkit-transition: opacity 0.7s ease-in-out, width 3s, left 0.7s;
+			form{
+				border-top: solid #EF4723 3px;
+				.input-group{
+					.input-group-btn{
+						width: 20%;
+						display: inline-block;
+						border:none;
+						button{
+							border:none;
+							background: transparent;
+						}
+
+					}
+					input.form-control{
+						background: transparent;
+						border: none;
+						width: 80%;
+						display: inline-block;
+						-webkit-box-shadow: none;
+				    box-shadow: none;
+				    -webkit-transition: none;
+				    -o-transition: none;
+					}
+					width:100%;
+				}
+			}
+		}
+		min-height: 70px;
+		#menu-open{
+			z-index:999;
+			position:relative;
+		}
+		.container{
+			width:100%;
+			position:absolute;
+			z-index: 99;
+			&.open{
+				.menu-line-1, .menu-line-3, .menu-line-1 {
+					left:0;
+					transition: opacity 0.7s ease-in-out, width 0s, left 0.7s;
+					-moz-transition: opacity 0.7s ease-in-out, width 0s, left 0.7s;
+					-webkit-transition: opacity 0.7s ease-in-out, width 0s, left 0.7s;
+					width: 200px;
+					display: block;
+					opacity:1;
+				}
+				.search-container {
+					width:100%;
+					opacity:1;
+					transition: opacity 0.7s ease-in-out, width 1.5s;
+				  -moz-transition: opacity 0.7s ease-in-out, width 1.5s;
+				  -webkit-transition: opacity 0.7s ease-in-out, width 1.5s;
+				}
+			}
+			a.custom-logo-link{
+				width: 195px;
+			    display: block;
+			    margin: 0 auto !important;
+			}
+			.social-icons{
+
+					border-bottom: solid #EF4723 3px;
+					vertical-align: text-bottom;
+					text-align:center;
+					float: none!important;
+					display: block;
+					margin-left: 0;
+					padding-bottom:15px;
+					a:first-of-type{
+						padding-left:0px;
+					}
+			}
+			.menu-line-1 {
+				padding-top:15px;
+				margin-top: 66px;
+
+			}
+			.menu-line-2{
+				position:absolute;
+				top:0;
+				left: 50%;
+	    	transform: translate(-50%);
+			}
+			.menu-line-3{
+
+				&:before{
+					width: 100%;
+					display: block;
+					text-transform:uppercase;
+					background: #EF4723;
+					color:white;
+					padding-top:5px;
+					content: "Editorias";
+					padding-bottom:5px;
+					text-align: center;
+				}
+			}
+			.menu-line-1, .menu-line-3, .menu-line-1 {
+				text-align: center;
+				background-color: #fdfbfb;
+				transition: opacity 0.7s ease-in-out, width 4s, left 0.7s;
+			  -moz-transition: opacity 0.7s ease-in-out, width 4s, left 0.7s;
+			  -webkit-transition: opacity 0.7s ease-in-out, width 4s, left 0.7s;
+				width: 0;
+				padding-left:0px;
+				padding-right:0px;
+				opacity:0;
+				left:-200px;
+				nav#menu-institucional .navbar-nav li:first-child a {
+    			padding-left: 15px !important;
+				}
+				nav.menu-editorias.text-center{
+					text-align:left;
+				}
+				ul a{
+					margin: 0 30px;
+
+				}
+			}
+		}
 	}
 }
-
-
 nav.pull-right.menu-editorias.text-right.hidden-xs.hidden-sm {
     max-height: 45px;
     transition: 300ms ease all;
 }
-
 header#header .search-container {
 	display: none;
 }

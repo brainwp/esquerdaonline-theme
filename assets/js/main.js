@@ -17,5 +17,8 @@ jQuery(document).ready(function($) {
 
 	// Tooltip.
 	$( '.odin-tooltip' ).tooltip();
-
+	$( '#menu-open' ).click(function() {
+		  $( '#header .container' ).toggleClass( 'open' );
+			
+	});
 });

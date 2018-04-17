@@ -28,9 +28,30 @@
 	</a>
 
 	<header id="header" role="banner" class="large-header">
+		<a href="#menu-open" id="menu-open" class="menu-open-icon hidden-lg hidden-md">
+			<span class="bars"></i>
+		</a>
 		<div class="container">
-			<div class="col-md-12 menu-line-1">
-				<nav class="col-md-12 hidden-xs hidden-sm" id="menu-institucional" >
+			<div class="col-md-12 menu-line-1 ">
+				<div class="social-icons pull-right">
+					<?php $links = get_theme_mod( 'social_links', false );?>
+					<?php if ( $links ) : ?>
+						<?php foreach( $links as $link ) : ?>
+							<?php $class = sprintf( 'fa-%s-%s', $link[ 'link_icon' ], $link[ 'link_icon' ][0] );?>
+							<?php if ( 'twitter' === $link[ 'link_icon'] ) {
+								$class = 'fa-twitter';
+							}
+							if ( 'instagram' === $link[ 'link_icon'] ) {
+								$class = 'fa-instagram';
+							}
+							?>
+							<a href="<?php echo esc_url( $link[ 'link_url'] );?>">
+								<i class="fab <?php echo $class;?>"></i>
+							</a>
+						<?php endforeach;?>
+					<?php endif;?>
+				</div><!-- .social-icons -->
+				<nav class="col-md-12 " id="menu-institucional" >
 						<?php
 							wp_nav_menu(
 								array(
@@ -43,26 +64,8 @@
 								)
 							);
 						?>
-						<div class="social-icons pull-right">
-							<?php $links = get_theme_mod( 'social_links', false );?>
-							<?php if ( $links ) : ?>
-								<?php foreach( $links as $link ) : ?>
-									<?php $class = sprintf( 'fa-%s-%s', $link[ 'link_icon' ], $link[ 'link_icon' ][0] );?>
-									<?php if ( 'twitter' === $link[ 'link_icon'] ) {
-										$class = 'fa-twitter';
-									}
-									if ( 'instagram' === $link[ 'link_icon'] ) {
-										$class = 'fa-instagram';
-									}
-									?>
-									<a href="<?php echo esc_url( $link[ 'link_url'] );?>">
-										<i class="fab <?php echo $class;?>"></i>
-									</a>
-								<?php endforeach;?>
-							<?php endif;?>
-						</div><!-- .social-icons -->
-				</nav><!-- #menu-institucional.col-md-12 -->
 
+				</nav><!-- #menu-institucional.col-md-12 -->
 			</div>
 			<!-- .line-1 -->
 			<div class="col-md-12 menu-line-2">
@@ -70,9 +73,9 @@
 
 			</div>
 			<!-- .line-2 -->
-			<div class="col-md-12 menu-line-3">
+			<div class="col-sm-12 menu-line-3 ">
 
-				<nav class=" menu-editorias text-center hidden-xs hidden-sm">
+				<nav class=" menu-editorias text-center ">
 
 					<?php
 						wp_nav_menu(
