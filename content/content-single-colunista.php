@@ -39,6 +39,29 @@
 		<?php endif; ?>
 	</div>
 </article><!-- #post-## -->
+
+<?php
+	$args = array(
+	  'post_type'   => 'colunistas',
+	  'orderby'=> 'title',
+	  'order' => 'ASC'
+	);
+	$colunistas = get_posts( $args );
+	 ?>
+<aside id="sidebar-colunistas" class="<?php echo odin_classes_page_sidebar_aside(); ?>" role="complementary">
+	<h3 class="widgettitle widget-title" ><?php _e( 'acesso <span>rápido</span>', 'eol' );?></h3>
+	<ul class="posts-widget-list-tx">
+		<?php foreach ($colunistas as $colunista ) :
+			$link = get_post_permalink( $colunista->ID);
+			$nome = $colunista->post_title;
+			?>
+			<li class="post-widget-li">
+				<a class="post-link-widget-li" href="<?php echo $link?>"><?php echo $nome; ?>
+				</a>
+			</li>
+		<?php endforeach; ?>
+	</ul>
+</aside><!-- #sidebar -->
 <?php get_sidebar('colunistas');?>
 
 <!-- col-md-8 post-colunista -->
