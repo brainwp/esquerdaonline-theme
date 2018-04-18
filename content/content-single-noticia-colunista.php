@@ -62,6 +62,12 @@
 	<section class="post-thumb">
 		<?php eol_single_thumbnail();?>
 	</section>
+    <div class="">
+        <?php if( has_term( '', 'colunistas' ) ) {
+            get_template_part( '/content/header', 'colunista' );
+        } ?>
+
+    </div>
 
 	<div class="col-md-12 clear"></div><!-- .col-md-12 clear -->
 

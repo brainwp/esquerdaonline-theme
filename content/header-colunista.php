@@ -19,7 +19,7 @@ if ($term_list = wp_get_post_terms($post->ID, 'colunistas', array("fields" => "s
 $content = apply_filters('the_content', $content);
 	?>
 <header id="header-colunista" class="no-padding">
-	<div class="container">
+	<div class="container-colunista">
 		<div class="col-md-2 no-padding ">
 			<section class="post-thumb">
 				<div class="thumbnail-colunista">
@@ -63,5 +63,7 @@ $content = apply_filters('the_content', $content);
 			</div><!-- .col-md-6 social-icons-post -->
 		</div><!-- .col-md-8 center-container -->
 	</div>
+    <div class="clearfix">
 
+    </div>
 </header><!-- .entry-header -->

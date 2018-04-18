@@ -1,4 +1,9 @@
 .single-post.single-colunistas, .single-colunistas{
+	&.colunistas-template-default{
+		.container-colunista{
+			@extend .container;
+		}
+	}
 	.barra-colunistas {
 			background: #EF4723;
 			color: #FFF;
@@ -11,7 +16,7 @@
 	}
 	#header-colunista{
 		background: $colunistas_bg;
-    padding: 30px 0;
+    	padding: 30px 0;
 		.entry-title-container.text-left{
 			padding-left: 0;
 		}
@@ -31,9 +36,14 @@
 	}
 }
 .single-colunistas{
+    &.single-post{
+		.thumbnail-colunista {
+				img.wp-post-image{
+					max-width: 120px;
+				}
+		}
+    }
 	h4.colunista-name{
-
-		margin-top: 0;
 		font-size:22px;
 		text-decoration: none;
 		color: #000;
@@ -50,7 +60,37 @@
 			text-decoration: none;
 		}
 	}
-
+    .thumbnail-colunista{
+		margin-left: 	0px!important;
+	}
+	.text-left.social-icons-colunist div {
+		    display: inline-block;
+	}
+	.post-colunista {
+	    margin-top: 20px;
+	    margin-bottom: 30px;
+	}
+	.lefthright {
+	    max-width: 101px;
+	}
+	.sub-title {
+	    margin-top: 8px;
+	}
+	.the-date-time {
+	    text-transform: uppercase;
+	    color: grey;
+	    font-weight: bold;
+	    font-size: 14px;
+	}
+	.sub-title p {
+	    margin: 0px 0px 4px;
+	}
+	.text-left.social-icons-colunist div:first-child {
+	    padding-left: 0px;
+	}
+	article {
+	    float: left;
+	}
 }
 .post-type-archive-colunistas, .single-colunistas{
 	h1.page-title {
@@ -70,28 +110,21 @@
 	h1.page-title span {
 	    color: $red-main;
 	}
-
 	.each-colunista {
 	    padding: 0px;
-			margin-bottom: 30px;
-			margin-top: 30px;
-			clear: both;
-
-
+	    margin-bottom: 30px;
+		margin-top: 30px;
+		clear: both;
 	}
 	.each-colunista:nth-child(1) {
-
 			margin-top: 0;
-
 	}
-
 	.thumbnail-colunista {
 	    overflow: hidden;
 	    padding: 0px;
 	    border-radius: 100px;
 			img.wp-post-image{
 				border-radius:200px;
-				max-width: 120px;
 				display: block;
 				margin: 0 auto;
 			}
@@ -173,38 +206,11 @@
 	}
 
 }
-
-.single-colunistas{
-	.thumbnail-colunista{
-		margin-left: 	0px!important;
-	}
-	.text-left.social-icons-colunist div {
-		    display: inline-block;
-	}
-	.post-colunista {
-	    margin-top: 20px;
-	    margin-bottom: 30px;
-	}
-	.lefthright {
-	    max-width: 101px;
-	}
-	.sub-title {
-	    margin-top: 8px;
-	}
-	.the-date-time {
-	    text-transform: uppercase;
-	    color: grey;
-	    font-weight: bold;
-	    font-size: 14px;
-	}
-	.sub-title p {
-	    margin: 0px 0px 4px;
-	}
-	.text-left.social-icons-colunist div:first-child {
-	    padding-left: 0px;
-	}
-	article {
-	    float: left;
+@media screen and (min-width: 990px) {
+	.single-post.single-colunistas, .single-colunistas{
+		#header-colunista{
+	    	padding: 30px 0 30px 15px;
+		}
 	}
 }
 @media screen and (max-width: 768px) {
