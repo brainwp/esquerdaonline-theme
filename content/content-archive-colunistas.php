@@ -52,7 +52,7 @@
 							</a>
 						</article>
 						<div class="col-sm-6 the-date-time">
-							<?php echo get_the_date(); ?>
+							<?php echo get_the_date('j \d\e F \d\e Y'); ?>
 						</div>
 						<div class="col-sm-6 coluna-link">
 							<a href="<?php echo $link_colunista;?>" class="coluna-link">
