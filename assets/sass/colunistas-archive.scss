@@ -8,10 +8,18 @@
 			background: #EF4723;
 			color: #FFF;
 			padding: 10px;
-			text-align: right;
+			text-align: left;
+			.container{
+				h5{
+					padding-left: 55px;
+				}
+			}
+
 	}
 	.barra-colunistas h5 {
 			font-weight: bolder;
+			text-transform: uppercase;
+
 
 	}
 	#header-colunista{
