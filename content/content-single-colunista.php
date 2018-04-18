@@ -32,7 +32,7 @@
 							<?php
 						}?>
 					<div class="col-sm-6 the-date-time">
-						<?php echo get_the_date(); ?>
+						<?php echo get_the_date('j \d\e F \d\e Y'); ?>
 					</div>
 				</article>
 			<?php endwhile; wp_reset_postdata();?>
