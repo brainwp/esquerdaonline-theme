@@ -77,10 +77,7 @@
 	    margin-top: 8px;
 	}
 	.the-date-time {
-	    text-transform: uppercase;
-	    color: grey;
-	    font-weight: bold;
-	    font-size: 14px;
+	    text-transform: lowercase;
 	}
 	.sub-title p {
 	    margin: 0px 0px 4px;
@@ -93,6 +90,13 @@
 	}
 }
 .post-type-archive-colunistas, .single-colunistas{
+	&.archive{
+		.thumbnail-colunista {
+				img.wp-post-image{
+					max-width: 120px;
+				}
+		}
+	}
 	h1.page-title {
 	    margin: 0px 0px 9px 0px;
 	    text-transform: uppercase;
@@ -143,12 +147,15 @@
 	    color: purple;
 	}
 	h4.colunista-name a {
+		letter-spacing: $letter_spacing_title;
+		text-align: left;
 		text-transform: uppercase;
-	    color: $main_content_color;
+		font-size: 18px;
+	    color: black;
 	    text-decoration: none;
-	    font-weight: 800;
-	    letter-spacing: $letter_spacing_title;
-			font-size: 17px;
+	    display: block;
+	    line-height: 21px;
+		font-weight: normal;
 	}
 
 	.post-colunista {
@@ -166,6 +173,7 @@
 	}
 
 	.the-date-time {
+		text-transform: lowercase;
 	    padding: 0px;
 	    font-size: 15px;
 	    letter-spacing: $letter_spacing_link;
