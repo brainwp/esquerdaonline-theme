@@ -256,11 +256,6 @@
 			article.colunistas{
 				padding-left:0;
 			}
-			.colunista-name{
-				a{
-					text-align: center;
-				}
-			}
 		}
 	}
 	.post-type-archive-colunistas{
@@ -288,6 +283,9 @@
 				}
 			}
 			.colunista-nome{
+				a{
+					text-align: center;
+				}
 				max-width: 100%;
 				text-align: center;
 				width: 100%;
