@@ -7,7 +7,7 @@
 		<div class="col-sm-10 conteudo-colunista">
 			<div class="colunista-nome no-padding text-left col-md-6">
 				<h4 class="colunista-name">
-					<a href="<?php the_permalink();?>" class="coluna-link">
+					<a href="<?php the_permalink();?>" class="">
 						<?php the_title();?>
 					</a>
 				</h4><!-- .colunista-name -->
