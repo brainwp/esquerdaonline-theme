@@ -25,4 +25,7 @@
 			</article>
 		<?php endwhile; wp_reset_postdata();?>
 	<?php endif;?>
+	<div class="clearfix">
+
+	</div>
 </div><!-- .each-colunista -->
