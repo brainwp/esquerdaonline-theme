@@ -181,9 +181,9 @@ body.single {
 		clear: both;
 		background-repeat: no-repeat, repeat;
 		background-position: right top, left top; /* FF3.6-15 */
-		background-image: -webkit-linear-gradient(rgba(0,0,0,0) 39%, rgba(0,0,0,0) 80%, rgba(0,0,0,0.3) 100%);
-		background-image: -o-linear-gradient(rgba(0,0,0,0) 39%, rgba(0,0,0,0) 80%, rgba(0,0,0,0.3) 100%);
-		background-image: linear-gradient(rgba(0,0,0,0) 39%, rgba(0,0,0,0) 80%, rgba(0,0,0,0.3) 100%);
+		background-image: -webkit-linear-gradient(rgba(0,0,0,0) 39%, rgba(0,0,0,0) 80%, rgba(0,0,0,0.6) 100%);
+		background-image: -o-linear-gradient(rgba(0,0,0,0) 39%, rgba(0,0,0,0) 80%, rgba(0,0,0,0.6) 100%);
+		background-image: linear-gradient(rgba(0,0,0,0) 39%, rgba(0,0,0,0) 80%, rgba(0,0,0,0.6) 100%);
 		img {
 			width:100%;
 			position: relative;
