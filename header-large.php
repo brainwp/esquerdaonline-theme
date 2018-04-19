@@ -115,7 +115,7 @@
 		?>
 	</div>
 	<?php
-	} else{
+} else if( has_term( '', 'colunistas', $post->ID )) {
 		?>
 	<div class="barra-colunistas">
 		<div  class="container">

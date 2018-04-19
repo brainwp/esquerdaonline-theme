@@ -93,7 +93,7 @@
 		?>
 	</div>
 	<?php
-} else if( has_term( '', 'colunistas', $post->ID ) {
+} else if( has_term( '', 'colunistas', $post->ID )) {
 		?>
 	<div class="barra-colunistas">
 		<div  class="container">
