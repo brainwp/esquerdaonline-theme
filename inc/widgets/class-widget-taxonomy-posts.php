@@ -14,7 +14,7 @@
  *
  * @see WP_Widget
  */
-class EOL_Recent_Posts_Taxonomy extends WP_Widget {
+class EOL_Taxonomy_Posts extends WP_Widget {
 
 	/**
 	 * Sets up a new Recent Posts widget instance.
@@ -23,12 +23,12 @@ class EOL_Recent_Posts_Taxonomy extends WP_Widget {
 	 */
 	public function __construct() {
 		$widget_ops = array(
-			'classname'                   => 'eol_widget_recent_posts_taxonomy',
+			'classname'                   => 'eol_widget_taxonomy_posts',
 			'description'                 => '',
 			'customize_selective_refresh' => true,
 		);
-		parent::__construct( 'eol_widget_recent_posts_taxonomy', __( 'Ultimos posts da categoria do post atual' ), $widget_ops );
-		$this->alt_option_name = 'eol_widget_recent_posts_taxonomy';
+		parent::__construct( 'eol_widget_taxonomy_posts', __( 'Posts em destaque de uma determinada editoria' ), $widget_ops );
+		$this->alt_option_name = 'eol_widget_taxonomy_posts';
 	}
 
 	/**
@@ -54,46 +54,34 @@ class EOL_Recent_Posts_Taxonomy extends WP_Widget {
 		/**
 		 * Pega a editoria se selecionada alguma
 		*/
-		$term = isset( $instance['editoria'] ) ? absint( $instance['editoria'] ) : 'false';
+		$term = isset( $instance['term'] ) ? absint( $instance['term'] ) : 'false';
 
 		if ( ! $number ) {
 			$number = 5;
 		}
 		$show_date = isset( $instance['show_date'] ) ? $instance['show_date'] : false;
-		$query_args = array(
-			'posts_per_page'      => $number,
-			'no_found_rows'       => true,
-			'post_status'         => 'publish',
-			'ignore_sticky_posts' => true,
-		);
 
-		if ( is_singular( 'post' ) || is_int( $term ) ) {
-			$veja_mais = "Veja Mais";
-			// se nao tem termo selecionado no widget
-			if ( 0 === $term ) {
-				$post = get_queried_object();
-				if ( has_term( '', 'colunistas', $post->ID )) {
-					$term = wp_get_post_terms( $post->ID, 'colunistas', array( 'fields' => 'all' ) );
-					$tax = 'colunistas';
-					$title = "Mais desta coluna";
-					$veja_mais = "Todas da coluna";
-
-				}
-				else{
-					$term = wp_get_post_terms( $post->ID, 'editorias', array( 'fields' => 'all' ) );
-					$tax = 'editorias';
-					$title = apply_filters( 'widget_title', $term[0]->name, $instance, $this->id_base );
-
-				}
-			} else {
-				$term = array( get_term( absint( $term ) ) );
-				$tax = 'editorias';
-
-			}
-			if ( $term && ! is_wp_error( $term ) ) {
-				$title = sprintf( '<a href="%s">%s</a>', get_term_link( $term[0] ), $title );
-				$query_args[ $tax ] = $term[0]->slug;
-			}
+		if ( ! $instance[ 'term'] || 'false' === $instance[ 'term'] ) {
+			$query_args = array();
+		} else {
+			$query_args = array(
+				'posts_per_page'      => $number,
+				'no_found_rows'       => true,
+				'post_status'         => 'publish',
+				'tax_query' => array(
+					'relation' => 'AND',
+					array(
+						'taxonomy' => 'editorias',
+						'field'    => 'term_id',
+						'terms'    => array( $instance[ 'term'] ),
+					),
+					array(
+						'taxonomy' => '_featured_eo',
+						'field'    => 'slug',
+						'terms'    => array( 'sim' ),
+					),
+				),
+			);
 		}
 		/**
 		 * Filters the arguments for the Recent Posts widget.
@@ -122,22 +110,30 @@ class EOL_Recent_Posts_Taxonomy extends WP_Widget {
 			echo $args['before_title'] . $title . $args['after_title'];
 		}
 		?>
-		<ul class="posts-widget-list-tx">
+		<ul class="widget-eol-taxonomy-posts">
+			<?php $i = 0;?>
 			<?php foreach ( $r->posts as $recent_post ) : ?>
 				<?php
+				setup_postdata( $recent_post );
 				$post_title = get_the_title( $recent_post->ID );
 				$title      = ( ! empty( $post_title ) ) ? $post_title : __( '(no title)' );
 				?>
-				<li class="post-widget-li">
+
+				<li class="post-widget-li index-num-<?php echo $i;?>">
+					<?php if ( 0 === $i ) {
+						the_post_thumbnail( 'medium' );
+					} else {
+						echo '<a class="post-thumbnail-link" href="' . get_permalink() . '">';
+						the_post_thumbnail( 'thumbnail' );
+						echo '</a>';
+					}
+					?>
 					<a class="post-link-widget-li" href="<?php the_permalink( $recent_post->ID ); ?>"><?php echo $title; ?>
 					</a>
 				</li>
 			<?php endforeach; ?>
+			<?php wp_reset_postdata();?>
 		</ul>
-		<?php $term_link = get_term_link( $query_args[ $tax ], $tax );?>
-		<?php if ( ! is_wp_error( $term_link ) ) : ?>
-			<a class="editoria-link" href="<?php echo $term_link?>"><?php echo $veja_mais ?></a>
-		<?php endif;?>
 		<?php
 		echo $args['after_widget'];
 	}
@@ -157,12 +153,12 @@ class EOL_Recent_Posts_Taxonomy extends WP_Widget {
 		$instance['title']     = sanitize_text_field( $new_instance['title'] );
 		$instance['number']    = (int) $new_instance['number'];
 		$instance['show_date'] = isset( $new_instance['show_date'] ) ? (bool) $new_instance['show_date'] : false;
-		$instance[ 'editoria' ] = 'false';
+		$instance[ 'term' ] = 'false';
 
 		if ( 'false' != $new_instance[ 'editoria'] ) {
-			$instance[ 'editoria' ] = absint( $new_instance[ 'editoria'] );
-			if ( ! term_exists( $instance[ 'editoria' ], 'editorias' ) ) {
-				$instance[ 'editoria' ] = 'false';
+			$instance[ 'term' ] = absint( $new_instance[ 'term'] );
+			if ( ! term_exists( $instance[ 'term' ], 'editorias' ) ) {
+				$instance[ 'term' ] = 'false';
 			}
 		}
 		return $instance;
@@ -178,29 +174,26 @@ class EOL_Recent_Posts_Taxonomy extends WP_Widget {
 	public function form( $instance ) {
 		$title     = isset( $instance['title'] ) ? esc_attr( $instance['title'] ) : '';
 		$number    = isset( $instance['number'] ) ? absint( $instance['number'] ) : 5;
-		$editoria  = isset( $instance['editoria'] ) ? absint( $instance['editoria'] ) : 'false';
+		$term  = isset( $instance['term'] ) ? absint( $instance['term'] ) : 'false';
 ?>
 		<p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
 		<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>" /></p>
-
+		<?php /*
 		<p><label for="<?php echo $this->get_field_id( 'number' ); ?>"><?php _e( 'Number of posts to show:' ); ?></label>
 		<input class="tiny-text" id="<?php echo $this->get_field_id( 'number' ); ?>" name="<?php echo $this->get_field_name( 'number' ); ?>" type="number" step="1" min="1" value="<?php echo $number; ?>" size="3" /></p>
-
-		<p><label for="<?php echo $this->get_field_id( 'editoria' ); ?>"><?php _e( 'Escolha a editoria:' ); ?></label>
-		<select name="<?php echo $this->get_field_name( 'editoria' ); ?>"  id="<?php echo $this->get_field_id( 'editoria' ); ?>">
+		*/
+		?>
+		<select name="<?php echo $this->get_field_name( 'term' ); ?>"  id="<?php echo $this->get_field_id( 'term' ); ?>" required>
 			<?php
-			if ( 'false' === $editoria ) {
-				echo '<option value="false" selected>Automatico</option>';
-			} else {
-				echo '<option value="false">Automatico</option>';
-			}
+			var_dump( $term );
+			echo '<option value="">Selecionar</option>';
 			$editorias = get_terms( array( 'taxonomy' => 'editorias' ) );
 			if ( $editorias && ! is_wp_error( $editorias ) && ! empty( $editorias) ) {
-				foreach ( $editorias as $term ) {
-					if ( $editoria === $term->term_id ) {
-						printf( '<option value="%s" selected>%s</option>', $term->term_id, $term->name );
+				foreach ( $editorias as $editoria ) {
+					if ( $term === $editoria->term_id ) {
+						printf( '<option value="%s" selected>%s</option>', $editoria->term_id, $editoria->name );
 					} else {
-						printf( '<option value="%s">%s</option>', $term->term_id, $term->name );
+						printf( '<option value="%s">%s</option>', $editoria->term_id, $editoria->name );
 					}
 				}
 			}
@@ -216,5 +209,5 @@ class EOL_Recent_Posts_Taxonomy extends WP_Widget {
  *
  */
 add_action( 'widgets_init', function(){
-	register_widget( 'EOL_Recent_Posts_Taxonomy' );
+	register_widget( 'EOL_Taxonomy_Posts' );
 } );
