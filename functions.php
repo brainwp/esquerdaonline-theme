@@ -376,6 +376,14 @@ require_once get_template_directory() . '/inc/fields.php';
  }
 
 /**
+ * Load Shortcodes
+ */
+ $shortcode_dir = get_template_directory() . '/inc/shortcode/';
+ foreach ( glob( $shortcode_dir . '*.php' ) as $filename ){
+ 	include $filename;
+ }
+
+/**
  * Load custom taxonomies
  */
 require_once get_template_directory() . '/inc/custom-taxonomies.php';
