@@ -17,11 +17,7 @@
  */
 
 get_header('large'); ?>
-<?php
-	if ( ! dynamic_sidebar( 'editorias-single-sidebar' ) ) {
 
-	}
-?>
 	<main id="content" class="<?php echo odin_classes_page_sidebar(); ?>" tabindex="-1" role="main">
 
 			<?php if ( have_posts() ) :?>
@@ -31,6 +27,15 @@ get_header('large'); ?>
 						the_archive_title( '<h1 class="page-title">', '</h1>' );
 					?>
 				</header><!-- .page-header -->
+				<div class="topo-editoria">
+					<?php
+						if ( ! dynamic_sidebar( 'editorias-single-sidebar' ) ) {
+
+							dynamic_sidebar( 'editorias-single-sidebar' );
+						}
+					?>
+
+				</div>
 				<section class="social-area">
 					<div class="main-post-social">
 						<?php

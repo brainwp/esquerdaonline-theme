@@ -103,7 +103,7 @@
 			<!-- .line-3 -->
 		</div>
 	</header><!-- #header -->
-	<?php if( is_singular( 'colunistas' ) ) {
+	<?php if( !is_tax() && is_singular( 'colunistas' ) ) {
 		?>
 	<div class="archive-colunista">
     	<div class="barra-colunistas">
@@ -115,7 +115,7 @@
 		?>
 	</div>
 	<?php
-} else if( has_term( '', 'colunistas', $post->ID )) {
+} else if( !is_tax() && has_term( '', 'colunistas', $post->ID )) {
 		?>
 	<div class="barra-colunistas">
 		<div  class="container">

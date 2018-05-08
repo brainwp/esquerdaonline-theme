@@ -45,7 +45,7 @@ class EOL_Taxonomy_Posts extends WP_Widget {
 			$args['widget_id'] = $this->id;
 		}
 
-		$title = ( ! empty( $instance['title'] ) ) ? $instance['title'] : __( 'Recent Posts' );
+		$title = ( ! empty( $instance['title'] ) ) ? $instance['title'] :'';
 
 		/** This filter is documented in wp-includes/widgets/class-wp-widget-pages.php */
 		$title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
@@ -62,27 +62,32 @@ class EOL_Taxonomy_Posts extends WP_Widget {
 		$show_date = isset( $instance['show_date'] ) ? $instance['show_date'] : false;
 
 		if ( ! $instance[ 'term'] || 'false' === $instance[ 'term'] ) {
-			$query_args = array();
+			if (is_tax( $taxonomy = 'editorias')) {
+				$term = get_queried_object()->term_taxonomy_id;
+			}
 		} else {
-			$query_args = array(
-				'posts_per_page'      => $number,
-				'no_found_rows'       => true,
-				'post_status'         => 'publish',
-				'tax_query' => array(
-					'relation' => 'AND',
-					array(
-						'taxonomy' => 'editorias',
-						'field'    => 'term_id',
-						'terms'    => array( $instance[ 'term'] ),
-					),
-					array(
-						'taxonomy' => '_featured_eo',
-						'field'    => 'slug',
-						'terms'    => array( 'sim' ),
-					),
-				),
-			);
+			$term = array( $instance[ 'term'] );
 		}
+		$query_args = array(
+			'posts_per_page'      => $number,
+
+			'no_found_rows'       => true,
+			'post_status'         => 'publish',
+			'tax_query' => array(
+				'relation' => 'AND',
+				array(
+					'taxonomy' => 'editorias',
+					'field'    => 'term_id',
+					'terms'    => array( $term ),
+				),
+				array(
+					'taxonomy' => '_featured_eo',
+					'field'    => 'slug',
+					'terms'    => array( 'sim' ),
+				),
+			),
+
+		);
 		/**
 		 * Filters the arguments for the Recent Posts widget.
 		 *
@@ -94,6 +99,7 @@ class EOL_Taxonomy_Posts extends WP_Widget {
 		 * @param array $args     An array of arguments used to retrieve the recent posts.
 		 * @param array $instance Array of settings for the current widget.
 		 */
+
 		$r = new WP_Query(
 			apply_filters(
 				'widget_posts_args', $query_args, $instance
@@ -121,15 +127,41 @@ class EOL_Taxonomy_Posts extends WP_Widget {
 
 				<li class="post-widget-li index-num-<?php echo $i;?>">
 					<?php if ( 0 === $i ) {
-						the_post_thumbnail( 'medium' );
+						echo '<a class="post-thumbnail-link" href="' . get_permalink($recent_post->ID) . '">';
+						echo get_the_post_thumbnail($recent_post->ID ,  'medium' );
+						echo '</a>';
 					} else {
-						echo '<a class="post-thumbnail-link" href="' . get_permalink() . '">';
-						the_post_thumbnail( 'thumbnail' );
+						echo '<a class="post-thumbnail-link" href="' . get_permalink($recent_post->ID) . '">';
+						echo get_the_post_thumbnail( $recent_post->ID , 'medium' );
 						echo '</a>';
 					}
+					$i++;
 					?>
-					<a class="post-link-widget-li" href="<?php the_permalink( $recent_post->ID ); ?>"><?php echo $title; ?>
-					</a>
+					<div class="post-link-widget-text" >
+						<h3 class="tax-widget-titulo">
+							<a href="<?php the_permalink( $recent_post->ID ); ?>" ><?php echo $title;?></a>
+						</h3>
+						<?php
+						if ( $sub_title = get_post_meta( $recent_post->ID, 'sub_title', true ) ) {?>
+						<h4 class="tax-widget-subtitulo">
+							<?php
+								echo apply_filters( 'the_content', $sub_title );
+							?>
+						</h4>
+						<?php
+						}
+						?>
+						<div class="tax-widget-data">
+							<?php odin_posted_on();?>
+						</div>
+						<?php if ( $author = get_post_meta( $recent_post->ID, 'the_author', true ) ) { ?>
+						<div class="tax-widget-autor">
+							<?php
+							printf( __( '-', 'eol' ), apply_filters( 'the_title', $author) );
+							?>
+						</div>
+						<?php } ?>
+					</div>
 				</li>
 			<?php endforeach; ?>
 			<?php wp_reset_postdata();?>

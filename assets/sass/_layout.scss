@@ -287,3 +287,51 @@ body {
 		color:$red_main;
 	}
 }
+.widget-eol-taxonomy-posts{
+	list-style: none;
+
+	.post-widget-li{
+
+		list-style: none;
+		float:left;
+		position: relative;
+		a{
+			&:hover	{
+				text-decoration:none;
+			}
+		}
+		img{
+			width: 100%;
+		}
+		&.index-num-0{
+			width: 66%;
+			.post-link-widget-text{
+				position: absolute;
+				z-index: 99;
+				bottom:20px;
+			}
+			img{
+				width: 100%;
+			}
+		}
+		&.index-num-1{
+			width:33%;
+			.tax-widget-subtitulo{
+				display: none;
+			}
+		}
+		&.index-num-2{
+			clear:left;
+		}
+		&.index-num-2, &.index-num-3, &.index-num-4 {
+			width:33%;
+			.tax-widget-subtitulo{
+				display: none;
+			}
+		}
+	}
+
+	.index-num-1{
+
+	}
+}
