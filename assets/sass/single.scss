@@ -455,16 +455,16 @@ span.tag-links a {
     transition: all ease-in-out 50ms;
 }
 
-section.main-post-social .postholder {
+.main-post-social .postholder  {
     border-bottom: 1px solid #ff000042;
     padding: 25px 0px 20px 0px;
 }
 
-section.main-post-social .postholder:first-child {
+.main-post-social .postholder:first-child {
     padding-top: 0px;
 }
 
-section.main-post-social .postholder:last-child {
+.main-post-social .postholder:last-child {
     border-bottom: none;
 }
 

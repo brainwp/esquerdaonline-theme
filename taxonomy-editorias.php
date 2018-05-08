@@ -17,7 +17,11 @@
  */
 
 get_header('large'); ?>
+<?php
+	if ( ! dynamic_sidebar( 'editorias-single-sidebar' ) ) {
 
+	}
+?>
 	<main id="content" class="<?php echo odin_classes_page_sidebar(); ?>" tabindex="-1" role="main">
 
 			<?php if ( have_posts() ) :?>
@@ -27,31 +31,36 @@ get_header('large'); ?>
 						the_archive_title( '<h1 class="page-title">', '</h1>' );
 					?>
 				</header><!-- .page-header -->
+				<section class="social-area">
+					<div class="main-post-social">
+						<?php
+							// Start the Loop.
+							$colunistas_array=array();
+							while ( have_posts() ) : the_post();
 
-				<?php
-					// Start the Loop.
-					$colunistas_array=array();
-					while ( have_posts() ) : the_post();
+								/*
+								 * Include the post format-specific template for the content. If you want to
+								 * use this in a child theme, then include a file called called content-___.php
+								 * (where ___ is the post format) and that will be used instead.
+								 */
+								 get_template_part( '/content/post-default' );
 
-						/*
-						 * Include the post format-specific template for the content. If you want to
-						 * use this in a child theme, then include a file called called content-___.php
-						 * (where ___ is the post format) and that will be used instead.
-						 */
-						 get_template_part( '/content/post-default' );
+								// para sidebar:
+								$colunistas_array[get_the_title()] = get_the_permalink();
+							endwhile;
+							// Page navigation.
+							odin_paging_nav();
 
-						// para sidebar:
-						$colunistas_array[get_the_title()] = get_the_permalink();
-					endwhile;
-					// Page navigation.
-					odin_paging_nav();
+						else :
+							// If no content, include the "No posts found" template.
+							get_template_part( 'content', 'none' );
 
-				else :
-					// If no content, include the "No posts found" template.
-					get_template_part( 'content', 'none' );
+						endif;
+					?>
 
-				endif;
-			?>
+					</div>
+
+				</section>
 
 	</main><!-- #main -->
 	<aside id="sidebar-colunistas" class="<?php echo odin_classes_page_sidebar_aside(); ?>" role="complementary">
@@ -70,5 +79,5 @@ get_header('large'); ?>
 		</ul>
 	</aside><!-- #sidebar -->
 <?php
-get_sidebar('colunistas');
+get_sidebar('');
 get_footer();

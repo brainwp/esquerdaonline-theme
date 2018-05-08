@@ -224,6 +224,17 @@ function odin_widgets_init() {
 			'after_title' => '</h3>',
 		)
 	);
+	register_sidebar(
+		array(
+			'name' => __( 'Área do topo das editorias', 'odin' ),
+			'id' => 'editorias-single-sidebar',
+			'description' => __( 'Área do topo das editorias onde fica o widget com os destaques da editoria.', 'odin' ),
+			'before_widget' => '',
+			'after_widget' => '',
+			'before_title' => '<h3 class="widgettitle widget-title">',
+			'after_title' => '</h3>',
+		)
+	);
 }
 
 add_action( 'widgets_init', 'odin_widgets_init' );
@@ -403,9 +414,9 @@ function eol_jp_remove_share() {
 add_action( 'loop_start', 'eol_jp_remove_share' );
 
 add_filter( 'get_the_archive_title', function ( $title ) {
-	if ( is_post_type_archive() ) {
+	if ( is_post_type_archive() || is_tax()) {
 	        /* translators: Post type archive title. 1: Post type name */
-	        $title = sprintf( __( 'Índice <span>%s</span> &#62;' ), post_type_archive_title( '', false ) );
+	        $title = sprintf( __( 'Índice <span>%s</span> &#62;' ), ($title  = post_type_archive_title( '', false ))? $title : single_term_title('',false) );
 	    }
     return $title;
 
