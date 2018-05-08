@@ -36,6 +36,25 @@
 	src: url("../fonts/KnowledgeBold.woff") format("woff");
 }
 
+.error404 {
+	main{
+		text-align: center;
+		.page-header{
+			.page-title{
+				font-size: 15em;
+			    margin-top: 0;
+			    padding-top: 0;
+				color:$red_main;
+				font-weight:bolder;
+			}
+			p{
+				margin-bottom: 0;
+				font-size: 23px;
+			}
+		}
+	}
+
+}
 
 
 // petrobras

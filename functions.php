@@ -449,7 +449,7 @@ add_action( 'wp_enqueue_scripts', 'wpb_add_google_fonts' );
 // examples: section-about-us, section-start, section-nyc
 function colunistas_class($classes) {
 	global $post;
-	if( has_term( '', 'colunistas', $post->ID ) ) {
+	if( isset($post) && has_term( '', 'colunistas', $post->ID ) ) {
 		$classes[] = " single-colunistas";
 	}
 	return $classes;
