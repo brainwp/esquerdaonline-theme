@@ -36,10 +36,10 @@ if(function_exists("register_field_group"))
 			),
 			array (
 				'key' => 'field_5a9fe80d6b1e9',
-				'label' => 'Imagem destacada na página da noticia',
+				'label' => 'Imagem Retangular',
 				'name' => 'thumbnail_single',
 				'type' => 'image',
-				'instructions' => 'Utilize esse campo caso queira que a imagem destacada na página do noticia seja diferente dos widgets e páginas de arquivo.',
+				'instructions' => 'Essa imagem será utilizada para todos os widgets que utilizem imagens retangulares e para a imagem de destque na página da notícia.',
 				'save_format' => 'object',
 				'preview_size' => 'thumbnail',
 				'library' => 'all',

@@ -72,7 +72,7 @@
 	</header><!-- .entry-header -->
 
 	<section class="post-thumb">
-		<?php eol_single_thumbnail();?>
+		<?php eol_single_thumbnail('large',1);?>
 	</section>
 
 	<div class="col-md-12 clear"></div><!-- .col-md-12 clear -->

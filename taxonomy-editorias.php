@@ -23,10 +23,9 @@ get_header('large'); ?>
 			<?php if ( have_posts() ) :?>
 
 				<header class="page-header">
-					<?php
-						the_archive_title( '<h1 class="page-title">', '</h1>' );
-					?>
+					<h1 class="page-title">Destaques <span> <?php echo ($title  = post_type_archive_title( '', false ))? $title : single_term_title('',false) ?></span>></h1>
 				</header><!-- .page-header -->
+
 				<div class="topo-editoria">
 					<?php
 						if ( ! dynamic_sidebar( 'editorias-single-sidebar' ) ) {
@@ -36,6 +35,12 @@ get_header('large'); ?>
 					?>
 
 				</div>
+				<div class="clearfix">
+
+				</div>
+				<?php
+					the_archive_title( '<h1 class="page-title">', '</h1>' );
+				?>
 				<section class="social-area">
 					<div class="main-post-social">
 						<?php
@@ -68,21 +73,7 @@ get_header('large'); ?>
 				</section>
 
 	</main><!-- #main -->
-	<aside id="sidebar-colunistas" class="<?php echo odin_classes_page_sidebar_aside(); ?>" role="complementary">
-		<h3 class="widgettitle widget-title" ><?php _e( 'acesso <span>rápido</span>', 'eol' );?></h3>
-		<?php
-		// print_r($colunistas_array);
-		ksort($colunistas_array);?>
-		<ul class="posts-widget-list-tx">
-			<?php foreach ($colunistas_array as $nome => $link) :
-				?>
-				<li class="post-widget-li">
-					<a class="post-link-widget-li" href="<?php echo $link?>"><?php echo $nome; ?>
-					</a>
-				</li>
-			<?php endforeach; ?>
-		</ul>
-	</aside><!-- #sidebar -->
+	
 <?php
 get_sidebar('');
 get_footer();

@@ -116,7 +116,7 @@ class EOL_Taxonomy_Posts extends WP_Widget {
 			echo $args['before_title'] . $title . $args['after_title'];
 		}
 		?>
-		<ul class="widget-eol-taxonomy-posts">
+		<div class="widget-eol-taxonomy-posts">
 			<?php $i = 0;?>
 			<?php foreach ( $r->posts as $recent_post ) : ?>
 				<?php
@@ -125,14 +125,14 @@ class EOL_Taxonomy_Posts extends WP_Widget {
 				$title      = ( ! empty( $post_title ) ) ? $post_title : __( '(no title)' );
 				?>
 
-				<li class="post-widget-li index-num-<?php echo $i;?>">
+				<div class="post-widget-li index-num-<?php echo $i;?>">
 					<?php if ( 0 === $i ) {
 						echo '<a class="post-thumbnail-link" href="' . get_permalink($recent_post->ID) . '">';
-						echo get_the_post_thumbnail($recent_post->ID ,  'medium' );
+						eol_single_thumbnail('retangular-g',$recent_post->ID);
 						echo '</a>';
 					} else {
 						echo '<a class="post-thumbnail-link" href="' . get_permalink($recent_post->ID) . '">';
-						echo get_the_post_thumbnail( $recent_post->ID , 'medium' );
+						eol_single_thumbnail('retangular-p',$recent_post->ID);
 						echo '</a>';
 					}
 					$i++;
@@ -143,29 +143,32 @@ class EOL_Taxonomy_Posts extends WP_Widget {
 						</h3>
 						<?php
 						if ( $sub_title = get_post_meta( $recent_post->ID, 'sub_title', true ) ) {?>
-						<h4 class="tax-widget-subtitulo">
+						<div class="tax-widget-subtitulo">
 							<?php
 								echo apply_filters( 'the_content', $sub_title );
 							?>
-						</h4>
+						</div>
 						<?php
 						}
 						?>
 						<div class="tax-widget-data">
-							<?php odin_posted_on();?>
+							<?php echo get_the_date('j \d\e F \d\e Y',$recent_post->ID);?>
 						</div>
-						<?php if ( $author = get_post_meta( $recent_post->ID, 'the_author', true ) ) { ?>
+						<?php if ( $author = get_post_meta( $recent_post->ID, 'the_author', true )) { ?>
 						<div class="tax-widget-autor">
 							<?php
-							printf( __( '-', 'eol' ), apply_filters( 'the_title', $author) );
+							printf( __( ' · %s', 'eol' ), apply_filters( 'the_title', $author) );
 							?>
 						</div>
 						<?php } ?>
 					</div>
-				</li>
+				</div>
 			<?php endforeach; ?>
 			<?php wp_reset_postdata();?>
-		</ul>
+			<div class="clearfix">
+
+			</div>
+		</div>
 		<?php
 		echo $args['after_widget'];
 	}

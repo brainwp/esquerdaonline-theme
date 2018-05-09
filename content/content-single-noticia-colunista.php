@@ -60,7 +60,7 @@
 	</header><!-- .entry-header -->
 
 	<section class="post-thumb">
-		<?php eol_single_thumbnail();?>
+		<?php eol_single_thumbnail('large');?>
 	</section>
     <div class="">
         <?php if( has_term( '', 'colunistas' ) ) {
