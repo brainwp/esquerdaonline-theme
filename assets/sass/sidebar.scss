@@ -1,11 +1,10 @@
-.widget-area {
-	.widget-title {
+.widget-title {
 		@extend .col-md-12;
 		margin-bottom: 10px;
 		margin-top: 0px;
 		font-weight: 700;
 		display: block;
-   	float: none;
+   		float: none;
 		color:$red_main;
 		text-transform: uppercase;
 		&:after {
@@ -17,13 +16,16 @@
 		    top: 1px;
 		}
 		padding: 0px;
-		letter-spacing: -0.5px;
+		letter-spacing: $letter_spacing_title;
 	}
-}
+
 
 aside#sidebar, aside#sidebar-colunistas {
 	.widget-content{
 		margin-top: 50px;
+		&:first-child{
+			margin-top:20px;
+		}
 	}
 	.widgettitle, .widget-title{
 		font-size:$widget_title_font_size;

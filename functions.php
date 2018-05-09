@@ -232,8 +232,19 @@ function odin_widgets_init() {
 	register_sidebar(
 		array(
 			'name' => __( 'Área do topo das editorias', 'odin' ),
-			'id' => 'editorias-single-sidebar',
+			'id' => 'editorias-archive-topo',
 			'description' => __( 'Área do topo das editorias onde fica o widget com os destaques da editoria.', 'odin' ),
+			'before_widget' => '',
+			'after_widget' => '',
+			'before_title' => '<h3 class="widgettitle widget-title">',
+			'after_title' => '</h3>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name' => __( 'Área lateral das editorias', 'odin' ),
+			'id' => 'editorias-archive-sidebar',
+			'description' => __( 'Área de barra lateral das editorias.', 'odin' ),
 			'before_widget' => '',
 			'after_widget' => '',
 			'before_title' => '<h3 class="widgettitle widget-title">',

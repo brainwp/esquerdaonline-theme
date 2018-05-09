@@ -287,7 +287,23 @@ body {
 		color:$red_main;
 	}
 }
+.tax-editorias{
+	.topo-editoria{
+		.widgettitle, .widget-title{
+			font-size:$widget_title_font_size;
+			color:black;
+			@extend h1.page-title;
+			margin-bottom: 20px;
+			span{
+				color: $red-main;
+			}
+		}
+	}
+
+}
+
 .widget-eol-taxonomy-posts{
+
 	margin-bottom:40px;
 	list-style: none;
 	.post-widget-li{

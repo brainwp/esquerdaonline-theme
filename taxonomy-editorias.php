@@ -22,16 +22,11 @@ get_header('large'); ?>
 
 			<?php if ( have_posts() ) :?>
 
-				<header class="page-header">
-					<h1 class="page-title">Destaques <span> <?php echo ($title  = post_type_archive_title( '', false ))? $title : single_term_title('',false) ?></span>></h1>
-				</header><!-- .page-header -->
-
 				<div class="topo-editoria">
 					<?php
-						if ( ! dynamic_sidebar( 'editorias-single-sidebar' ) ) {
+					dynamic_sidebar( 'editorias-archive-topo' )
 
-							dynamic_sidebar( 'editorias-single-sidebar' );
-						}
+
 					?>
 
 				</div>
@@ -73,7 +68,11 @@ get_header('large'); ?>
 				</section>
 
 	</main><!-- #main -->
-	
+	<aside id="sidebar" class="<?php echo odin_classes_page_sidebar_aside(); ?>" role="complementary">
+		<?php
+		dynamic_sidebar( 'editorias-archive-sidebar' )
+		?>
+	</aside><!-- #sidebar -->
+
 <?php
-get_sidebar('');
 get_footer();

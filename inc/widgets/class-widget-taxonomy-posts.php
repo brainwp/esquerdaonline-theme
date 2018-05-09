@@ -48,7 +48,7 @@ class EOL_Taxonomy_Posts extends WP_Widget {
 		$title = ( ! empty( $instance['title'] ) ) ? $instance['title'] :'';
 
 		/** This filter is documented in wp-includes/widgets/class-wp-widget-pages.php */
-		$title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
+		// $title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
 
 		$number = ( ! empty( $instance['number'] ) ) ? absint( $instance['number'] ) : 5;
 		/**
@@ -184,8 +184,17 @@ class EOL_Taxonomy_Posts extends WP_Widget {
 	 * @return array Updated settings to save.
 	 */
 	public function update( $new_instance, $old_instance ) {
+
+
+		$allowed_html = array('span' => array(
+					'class' => array(),
+					'title' => array(),
+					'style' => array(),
+				),
+			);
+
 		$instance              = $old_instance;
-		$instance['title']     = sanitize_text_field( $new_instance['title'] );
+		$instance['title']     = wp_kses($new_instance['title'], $allowed_html);
 		$instance['number']    = (int) $new_instance['number'];
 		$instance['show_date'] = isset( $new_instance['show_date'] ) ? (bool) $new_instance['show_date'] : false;
 		$instance[ 'term' ] = 'false';
