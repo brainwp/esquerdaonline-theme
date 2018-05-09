@@ -507,3 +507,26 @@ function single_colunistas_redirect() {
     }
 }
 add_action( 'template_redirect', 'single_colunistas_redirect' );
+
+
+function de_cat_pra_edi(){
+
+	$posts = new WP_Query( array(
+		'posts_per_page' => 1,
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'category',
+				'field'    => 'term_id',
+				'terms'    => array( 29 ),
+			),
+		),
+	));
+	foreach ($posts->posts as $post) {
+		$post_id = $post->ID;
+		echo $post_id;
+		echo '<br>';
+
+		print_r(wp_set_post_terms( $post_id, 249,'editorias',false));
+	}
+}
+add_action('wp_head', 'de_cat_pra_edi');
