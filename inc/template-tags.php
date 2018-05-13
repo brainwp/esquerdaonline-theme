@@ -106,7 +106,7 @@ if ( ! function_exists( 'odin_the_custom_logo' ) ) {
  * Output the single thumbnail if it's exists
  * If not, return the default get_post_thumbnail()
  */
-function eol_single_thumbnail($size='full', $post_id = '') {
+function eol_single_thumbnail($size='full', $post_id = false) {
 	echo '<div class="single-thumbnail">';
 	$post_id = ( $post_id ? $post_id : get_the_ID());
 	if ( $single_thumbnail = get_post_meta( $post_id , 'thumbnail_single', true ) ) {
