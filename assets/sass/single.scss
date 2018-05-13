@@ -177,7 +177,6 @@ body.single {
 	    font-size: 13px;
 	}
 	.single-thumbnail {
-
 		clear: both;
 		background-repeat: no-repeat, repeat;
 		background-position: right top, left top; /* FF3.6-15 */
@@ -187,7 +186,7 @@ body.single {
 		img {
 			width:100%;
 			position: relative;
-			z-index: -1;
+			z-index: 9;
 		}
 		overflow: hidden;
 	    max-height: 380px;
