@@ -529,4 +529,4 @@ function de_cat_pra_edi(){
 		print_r(wp_set_post_terms( $post_id, 249,'editorias',false));
 	}
 }
-add_action('wp_head', 'de_cat_pra_edi');
+// add_action('wp_head', 'de_cat_pra_edi');
