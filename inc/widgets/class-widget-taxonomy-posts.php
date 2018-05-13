@@ -130,10 +130,17 @@ class EOL_Taxonomy_Posts extends WP_Widget {
 						echo '<a class="post-thumbnail-link" href="' . get_permalink($recent_post->ID) . '">';
 						eol_single_thumbnail('retangular-g',$recent_post->ID);
 						echo '</a>';
+						$sub_title= '';
 					} else {
 						echo '<a class="post-thumbnail-link" href="' . get_permalink($recent_post->ID) . '">';
 						eol_single_thumbnail('retangular-p',$recent_post->ID);
 						echo '</a>';
+						if ( $sub_title = get_post_meta( $recent_post->ID, 'sub_title', true ) ) {
+							$sub_title= '<div class="tax-widget-subtitulo">'.apply_filters( 'the_content', $sub_title ).'</div>';
+						}
+						else{
+							$sub_title= '';
+						}
 					}
 					$i++;
 					?>
@@ -141,18 +148,9 @@ class EOL_Taxonomy_Posts extends WP_Widget {
 						<h3 class="tax-widget-titulo">
 							<a href="<?php the_permalink( $recent_post->ID ); ?>" ><?php echo $title;?></a>
 						</h3>
-						<?php
-						if ( $sub_title = get_post_meta( $recent_post->ID, 'sub_title', true ) ) {?>
-						<div class="tax-widget-subtitulo">
-							<?php
-								echo apply_filters( 'the_content', $sub_title );
-							?>
-						</div>
-						<?php
-						}
-						?>
+						<?php echo $sub_title; ?>
 						<div class="tax-widget-data">
-							<?php echo get_the_date('j \d\e F \d\e Y',$recent_post->ID);?>
+							<?php echo get_the_date('d\/m\/Y',$recent_post->ID);?>
 						</div>
 						<?php if ( $author = get_post_meta( $recent_post->ID, 'the_author', true )) { ?>
 						<div class="tax-widget-autor">

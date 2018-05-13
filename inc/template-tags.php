@@ -112,10 +112,14 @@ function eol_single_thumbnail($size='full', $post_id = '') {
 	if ( $single_thumbnail = get_post_meta( $post_id , 'thumbnail_single', true ) ) {
 		$single_thumbnail_img = wp_get_attachment_image_src( $single_thumbnail, $size, false );
 		printf( '<img src="%s" alt="%s">', $single_thumbnail_img[0], esc_attr(get_the_title() ) );
-	} else {
-		$single_thumbnail_img = get_the_post_thumbnail( $post_id , $size );
+	} elseif($single_thumbnail_img = get_the_post_thumbnail( $post_id , $size )) {
 		echo $single_thumbnail_img;
 		$single_thumbnail = get_post_thumbnail_id( $post_id );
+	}
+	else{
+		?>
+			<img src="<?php echo get_template_directory_uri() ?>/assets/images/img-default.jpg" alt="">
+		<?php
 	}
 	echo '</div>';
 	if ( is_single($post_id) && $author = get_post_meta( $single_thumbnail, 'image_author', true ) ) {

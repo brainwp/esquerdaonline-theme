@@ -371,7 +371,7 @@ body {
 		&.index-num-1{
 			.tax-widget-subtitulo{
 				font-size:13px;
-				display: none;
+				// display: none;
 			}
 		}
 		&.index-num-2{
@@ -385,13 +385,14 @@ body {
 				}
 				.tax-widget-titulo{
 					margin-top: 0;
+					font-size: 20px;
 				}
 			}
 
 		}
 		&.index-num-2, &.index-num-3, &.index-num-4 {
 			.tax-widget-subtitulo{
-				display: none;
+				// display: none;
 			}
 		}
 	}
