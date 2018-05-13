@@ -44,12 +44,6 @@ class EOL_Recent_Posts_Taxonomy extends WP_Widget {
 		if ( ! isset( $args['widget_id'] ) ) {
 			$args['widget_id'] = $this->id;
 		}
-
-		$title = ( ! empty( $instance['title'] ) ) ? $instance['title'] : __( 'Recent Posts' );
-
-		/** This filter is documented in wp-includes/widgets/class-wp-widget-pages.php */
-		$title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
-
 		$number = ( ! empty( $instance['number'] ) ) ? absint( $instance['number'] ) : 5;
 		/**
 		 * Pega a editoria se selecionada alguma
@@ -82,18 +76,23 @@ class EOL_Recent_Posts_Taxonomy extends WP_Widget {
 				else{
 					$term = wp_get_post_terms( $post->ID, 'editorias', array( 'fields' => 'all' ) );
 					$tax = 'editorias';
-					$title = apply_filters( 'widget_title', $term[0]->name, $instance, $this->id_base );
+					$title = "Mais desta editoria";
+					// $title = apply_filters( 'widget_title', $term[0]->name, $instance, $this->id_base );
 
 				}
 			} else {
 				$term = array( get_term( absint( $term ) ) );
 				$tax = 'editorias';
+				$title = $title = apply_filters( 'widget_title', $term[0]->name, $instance, $this->id_base );
 
 			}
 			if ( $term && ! is_wp_error( $term ) ) {
-				$title = sprintf( '<a href="%s">%s</a>', get_term_link( $term[0] ), $title );
 				$query_args[ $tax ] = $term[0]->slug;
 			}
+			$title = ( ! empty( $instance['title'] ) ) ? $instance['title'] : $title;
+			/** This filter is documented in wp-includes/widgets/class-wp-widget-pages.php */
+			$title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
+
 		}
 		/**
 		 * Filters the arguments for the Recent Posts widget.
