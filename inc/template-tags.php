@@ -106,7 +106,7 @@ if ( ! function_exists( 'odin_the_custom_logo' ) ) {
  * Output the single thumbnail if it's exists
  * If not, return the default get_post_thumbnail()
  */
-function eol_single_thumbnail($size='full', $post_id = false, $meta=false) {
+function eol_single_thumbnail($size='full', $post_id = null, $meta = null) {
 	echo '<div class="single-thumbnail">';
 	$post_id = ( $post_id ? $post_id : get_the_ID());
 	if ( $single_thumbnail = get_post_meta( $post_id , 'thumbnail_single', true ) ) {
@@ -128,7 +128,8 @@ function eol_single_thumbnail($size='full', $post_id = false, $meta=false) {
 		}
 		if ( is_single($post_id) && $caption = wp_get_attachment_caption( $single_thumbnail) ) {
 			printf( __('<p class="image-caption">%s</p>', 'eol' ), apply_filters( 'the_title', $caption ) );
-		}	}
+		}
+	}
 
 }
 function eol_single_thumbnail_meta($post_id, $single_thumbnail){

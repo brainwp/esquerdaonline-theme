@@ -508,6 +508,28 @@ function single_colunistas_redirect() {
 }
 add_action( 'template_redirect', 'single_colunistas_redirect' );
 
+// Remove destacadas do loop principal de editorias;
+// Remove destacadas do loop principal de editorias;
+add_action( 'pre_get_posts', 'remove_editoria' );
+function remove_editoria( $query ) {
+
+    if( $query->is_main_query() && $query->is_tax() ) {
+		$tax_query = array(
+			'taxonomy' => '_featured_eo',
+			'field' => 'slug',
+			'terms' => array('sim'),
+            'operator'=> 'NOT IN'
+		);
+		$query->tax_query->queries[] = $tax_query;
+   		$query->query_vars['tax_query'] = $query->tax_query->queries;
+
+    }
+}
+// Remove destacadas do loop principal de editorias;
+// Remove destacadas do loop principal de editorias;
+
+
+
 
 function de_cat_pra_edi(){
 
@@ -530,3 +552,30 @@ function de_cat_pra_edi(){
 	}
 }
 // add_action('wp_head', 'de_cat_pra_edi');
+
+
+function myTheme_registerWidgetAreas() {
+    // Grab all pages except trashed
+    $pages = new WP_Query(Array(
+        'post_type' => 'post',
+        'post_status' => array('publish', 'pending', 'draft', 'auto-draft', 'future', 'private', 'inherit'),
+        'posts_per_page'=>-1
+    ));
+    // Step through each page
+    while ( $pages->have_posts() ) {
+        $pages->the_post();
+        // Ignore pages with no slug
+        if ($pages->post->post_name == '') continue;
+        // Register the sidebar for the page. Note that the id has
+        // to match the name given in the theme template
+        register_sidebar( array(
+            'name'          => 'Widgets do post',
+            'id'            => 'widget_area_for_page_'.$pages->post->post_name,
+            'before_widget' => '',
+            'after_widget'  => '',
+            'before_title'  => '',
+            'after_title'   => '',
+        ) );
+    }
+}
+add_action( 'widgets_init', 'myTheme_registerWidgetAreas' );

@@ -72,8 +72,7 @@ class EOL_Recent_Posts_Taxonomy extends WP_Widget {
 					$title = "Mais desta coluna";
 					$veja_mais = "Todas da coluna";
 
-				}
-				else{
+				} else {
 					$term = wp_get_post_terms( $post->ID, 'editorias', array( 'fields' => 'all' ) );
 					$tax = 'editorias';
 					$title = "Mais desta editoria";
