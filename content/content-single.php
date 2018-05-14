@@ -74,7 +74,7 @@
 
 	<section class="post-thumb">
 		<?php
-			eol_single_thumbnail('retangular-g','','TRUE');
+			eol_single_thumbnail('full','','TRUE');
 			// eol_single_thumbnail_meta()
 		?>
 	</section>

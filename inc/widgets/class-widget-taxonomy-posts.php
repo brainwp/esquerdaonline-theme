@@ -128,7 +128,7 @@ class EOL_Taxonomy_Posts extends WP_Widget {
 				<div class="post-widget-li index-num-<?php echo $i;?>">
 					<?php if ( 0 === $i ) {
 						echo '<a class="post-thumbnail-link" href="' . get_permalink($recent_post->ID) . '">';
-						eol_single_thumbnail('retangular-g',$recent_post->ID);
+						eol_single_thumbnail('retangular-m',$recent_post->ID);
 						echo '</a>';
 						$sub_title= '';
 					} else {
