@@ -15,8 +15,18 @@
 	padding-right: 0px;
 }
 body.single {
+	&.editoria{
+		.barra-editorias {
+			background-image: url('../images/barra-azul.jpg');
+		}
+	}
+	&.editorial{
+		.barra-editorias {
+			background-image: url('../images/barra-vermelha.jpg');
+		}
+	}
+
 	.barra-editorias {
-			background: url('../images/barra-azul.jpg');
 			background-size: cover;
 
 			color: #FFF;
