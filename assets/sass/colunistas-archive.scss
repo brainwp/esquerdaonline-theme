@@ -5,12 +5,15 @@
 		}
 	}
 	.barra-colunistas {
-			background: $red_main;
+			background: url('../images/barra-vermelha.jpg');
+			background-size: cover;
+			// background: $red_main;
 			color: #FFF;
 			padding: 10px;
 			text-align: left;
 			.container{
 				h5{
+					font-size: 15px;
 					padding-left: 55px;
 				}
 			}
@@ -69,7 +72,7 @@
 		article.colunistas{
 			padding-left: 55px;
 		}
-		margin-top: 20px;
+		// margin-top: 20px;
 		.entry-title-container a:hover{
 			text-decoration: none;
 		}

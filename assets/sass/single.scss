@@ -17,11 +17,14 @@
 body.single {
 	.barra-editorias {
 			background: url('../images/barra-azul.jpg');
+			background-size: cover;
+
 			color: #FFF;
 			padding: 10px;
 			text-align: left;
 			.container{
 				h5{
+					font-size: 15px;
 					padding-left: 55px;
 					font-weight: bolder;
 					text-transform: uppercase;
