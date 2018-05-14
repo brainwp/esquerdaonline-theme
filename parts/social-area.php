@@ -12,7 +12,9 @@
 			<?php $query = new WP_Query(
 					array(
 						'tag_id' 			=> $terms[0]->term_id,
-						'posts_per_page' 	=> 3
+						'posts_per_page' 	=> 3,
+						'post__not_in' => array(get_the_ID()), 
+
 					)
 				);
 				if ( $query->have_posts() ) : ?>
