@@ -73,8 +73,9 @@ body.single {
 
 
 	blockquote p {
+		text-align: right;
 	    padding: 22px 0px 22px 0px;
-			font-size: 22px;
+		font-size: 22px;
 
 	}
 
@@ -91,6 +92,7 @@ body.single {
 	    float: right;
 	    height: 3px;
 		color: $red_main;
+		margin-bottom: 10px;
 	}
 
 	blockquote{
@@ -105,7 +107,14 @@ body.single {
 
 	.entry-content {
 		width:100%;
-		clear:both;
+		.content-it-self, p{
+			font-family: $font_family_p;
+			color: $main_content_color_p;
+		    font-size: 20px;
+		    letter-spacing: 0.2px;
+		    line-height: 33px;
+		    font-weight: 200;
+		}
 	}
 	header.entry-header {
 		margin-bottom: 16px;
@@ -125,10 +134,13 @@ body.single {
 
 
 	.main-title{
-		font-size: 30px;
+		font-size: 39px;
 	    letter-spacing: $letter_spacing_title;
-	    line-height: 33px;
-	    font-weight: 500;
+		font-family: $font_family_h1;
+		font-weight: 800;
+		line-height: 40px;
+
+
 	}
 	.editoria {
 		a {
@@ -164,11 +176,12 @@ body.single {
 	    align-items: center;
 	    justify-content: center;
 	}
-	.sub-title-main .sub-title {
+	.sub-title-main .sub-title p{
+		font-family:$font_family_sub_titulo;
+		line-height: 28px;
 		font-size:$sub_title_size;
-	    font-weight: 400;
+	    font-weight: 300;
 	    letter-spacing: $letter_spacing_title;
-	    line-height: 20px;
 	}
 	.author {
 		padding-top: 10px;
@@ -222,6 +235,9 @@ body.single {
 		}
 	}
 	.entry-content {
+		p{
+			color: $main_content_color_p;
+		}
 		footer .entry-meta
 		{
 			margin-top:10px;
@@ -230,10 +246,7 @@ body.single {
 	    text-align: left;
 			padding-left:0px;
 		}
-
-		padding-top: 15px;
-		color: $main_content_color;
-		font-size:$content_body_size;
+		padding-top: 25px;
 		font-weight: 500;
 	}
 }
@@ -330,12 +343,19 @@ body.single {
 	    line-height: 15px;
 	    display: block;
 	}
-	a.the-date, a.the-date p {
+	a.the-date{
+		p{
+			text-transform: uppercase;
+			font-size: 12px;
+		  	color: $editoria_main;
+			display: inline;
+
+		}
 	    text-transform: uppercase;
 	    font-size: 12px;
 	    color: $editoria_main;
 	    opacity: 0.7;
-	    display: inline;
+
 	}
 	a.sub-title.base-subtitulo p {
 	    margin-bottom: 4px;
@@ -414,7 +434,7 @@ body.single {
 }
 
 .content-it-self{
-		text-align: justify;
+		text-align: left;
 		padding-right: 15px;
 	    padding-left: 15px;
 	    font-weight: 400;
@@ -487,6 +507,10 @@ span.tag-links a {
 	body.single blockquote{
 		width: 100%;
 		margin-left: 0px;
+		text-align: right;
+		p{
+			text-align: right;
+		}
 	}
 	.social-area article.post-default {
 	    flex-flow: column-reverse;

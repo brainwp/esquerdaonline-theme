@@ -11,18 +11,26 @@ $red_main: #d0482a;
 $white_main: white;
 $editoria_main: #282828;
 $main_content_color: #282828;
+$main_content_color_p:#413e3e;
 $entry_meta_color: #939393;
 $social_bg: rgba(230, 214, 214, 0.2);
 $footer_bg: #d0482a;
 $colunistas_bg:rgba(230, 214, 214, 0.3);
+$btn_veja_mais_color: #595757;
+
 
 // font sizes
-$widget_title_font_size:20px;
-$sub_title_size: 19px;
+$widget_title_font_size:18px;
+$sub_title_size: 22px;
 $caption_author_size: 13px;
 $content_body_size: 17px;
 $navbar-padding-vertical:0;
 
 // letter-spacing
-$letter_spacing_title:-0.6px;
+$letter_spacing_title:-0.1px;
 $letter_spacing_link:-0.4px;
+
+$font_family_h1: "Knowledge Black";
+$font_family_sub_titulo: "Lato";
+$font_family_widget_titulo: "Lato";
+$font_family_p: "Lato";

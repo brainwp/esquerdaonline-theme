@@ -29,11 +29,15 @@ aside#sidebar, aside#sidebar-colunistas {
 	}
 	.widgettitle, .widget-title{
 		font-size:$widget_title_font_size;
+		letter-spacing: 0;
+		font-family: $font_family_widget_titulo;
 
 	}
 	h3 a{
 		font-size:$widget_title_font_size;
 		color: $red_main;
+		letter-spacing: 0;
+		font-family: $font_family_widget_titulo;
 	}
 	a img {
 		width: 100%;
@@ -47,23 +51,25 @@ aside#sidebar, aside#sidebar-colunistas {
 	}
 
 	a.editoria-link, a.colunistas-link {
-		margin-top:10px;
+		margin-top:15px;
 	    display: block;
 	    text-transform: uppercase;
 	    color: $main_content_color;
 	    font-weight: bold;
-	   letter-spacing: $letter_spacing_link;
+	  	// letter-spacing: $letter_spacing_link;
 	    margin-bottom: 2px;
 	    font-size: 14px;
+		color:$btn_veja_mais_color;
 	}
 
 	a.post-link-widget-li {
+		font-family: $font_family_widget_titulo;
 	    font-size: 18px;
 	    color: black;
 	    text-decoration: none;
 	    display: block;
-	    padding-bottom: 7px;
-	    line-height: 21px;
+	    padding-bottom: 15px;
+	    line-height: 22px;
 	}
 
 	li.post-widget-li {
