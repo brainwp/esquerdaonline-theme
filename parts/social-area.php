@@ -14,12 +14,10 @@
 
 				array_push($tags, $term->term_id);
 			}
-			print_r($tags);
-			$tags = implode(',',$tags);
 			?>
 			<?php $query = new WP_Query(
 					array(
-						'tag_id' 			=> "$tags",
+						'tag__in' 			=> $tags,
 						'posts_per_page' 	=> 6,
 						'post__not_in' => array(get_the_ID()),
 
