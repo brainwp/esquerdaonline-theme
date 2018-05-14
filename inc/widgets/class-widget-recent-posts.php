@@ -66,6 +66,7 @@ class EOL_Recent_Posts_Taxonomy extends WP_Widget {
 			// se nao tem termo selecionado no widget
 			if ( 0 === $term ) {
 				$post = get_queried_object();
+				$query_args['post__not_in'] = array($post->ID);
 				if ( has_term( '', 'colunistas', $post->ID )) {
 					$term = wp_get_post_terms( $post->ID, 'colunistas', array( 'fields' => 'all' ) );
 					$tax = 'colunistas';
