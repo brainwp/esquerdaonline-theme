@@ -430,7 +430,7 @@ function eol_jp_remove_share() {
 add_action( 'loop_start', 'eol_jp_remove_share' );
 
 add_filter( 'get_the_archive_title', function ( $title ) {
-	if ( is_post_type_archive() || is_tax()) {
+	if ( is_post_type_archive() || is_tax() ||is_tag( ) ) {
 	        /* translators: Post type archive title. 1: Post type name */
 	        $title = sprintf( __( 'Índice <span>%s</span> &#62;' ), ($title  = post_type_archive_title( '', false ))? $title : single_term_title('',false) );
 	    }
@@ -579,3 +579,19 @@ function myTheme_registerWidgetAreas() {
     }
 }
 add_action( 'widgets_init', 'myTheme_registerWidgetAreas' );
+
+add_filter( 'body_class', 'section_id_class' );
+// add classes to body based on custom taxonomy ('sections')
+// examples: section-about-us, section-start, section-nyc
+function section_id_class( $classes ) {
+    global $post;
+
+    $section_terms = get_the_terms( $post->ID, 'editorias' );
+    if ( $section_terms && ! is_wp_error( $section_terms ) ) {
+        foreach ($section_terms as $term) {
+            $classes[] = 'editoria-' . $term->slug;
+        }
+    }
+
+    return $classes;
+}
