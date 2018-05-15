@@ -7,10 +7,9 @@
  * @package Odin
  * @since 2.2.0
  */
-$widget_post = $GLOBALS[ 'widget_current_post' ];
+$widget = $GLOBALS[ 'current_widget' ];
 ?>
-
-<article class="each-post-widget <?php echo esc_attr( $widget_post[ 'classes_css' ] );?>">
+<article class="each-post-widget <?php echo esc_attr( $widget[ 'classes_posts' ] );?>">
 	<div class="thumbnail">
 		<?php if ( isset( $widget_post[ 'image_id'] ) && absint( $widget_post[ 'image_id' ] ) > 0 ) :
 			$image = wp_get_attachment_image_src( $widget_post[ 'image_id'], 'medium', false );

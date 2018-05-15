@@ -33,6 +33,15 @@ class EOL_Posts_Widget extends WP_Widget {
 		/** This filter is documented in wp-includes/widgets/class-wp-widget-pages.php */
 		$title = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
 
+		// pega o termo da posição selecionada;
+		$posicao = absint( $instance[ 'posicao' ] );
+
+		// pega as classes do widget (global) e de cada post
+		$classes_widget = esc_attr( $instance[ 'classes_widget' ] );
+		$classes_posts = esc_attr( $instance[ 'classes_posts' ] );
+
+		// numero de posts a ser exibido
+		$number = absint( $instance[ 'number'] );
 		/**
 		 * Filter the content of the Text widget.
 		 *
@@ -49,11 +58,26 @@ class EOL_Posts_Widget extends WP_Widget {
 		if ( ! empty( $title ) ) {
 			//echo $args['before_title'] . $title . $args['after_title'];
 		}
-		if ( $instance[ 'posts' ] && is_array( $instance[ 'posts'] ) && ! empty( $instance[ 'posts'] ) ) {
-			printf( '<div class="col-md-12 widget-eol-posts %s">', esc_attr( $instance[ 'classes_widget' ] ) );
-			foreach ( $instance[ 'posts'] as $key => $value ) {
-				$GLOBALS[ 'widget_current_post' ] = $value;
-				setup_postdata( $value[ 'post_id' ] );
+		$query = new WP_Query(
+			array(
+				'posts_per_page' => $number,
+				'tax_query' => array(
+					array(
+						'taxonomy' => '_featured_eo',
+						'terms'    => $posicao,
+					),
+				),
+			)
+		);
+		if ( $query->have_posts() ) {
+			printf( '<div class="widget-eol-posts %s">', esc_attr( $instance[ 'classes_widget' ] ) );
+			if ( ! empty( $title ) ) {
+				echo '<h3>' . $title . '</h3>';
+			}
+			// coloca o widget atual numa variavel global para
+			$GLOBALS[ 'current_widget' ] = $instance;
+			while( $query->have_posts() ) {
+				$query->the_post();
 				get_template_part( 'content/post' );
 			}
 			echo '</div>';
@@ -79,6 +103,7 @@ class EOL_Posts_Widget extends WP_Widget {
 		$instance = $old_instance;
 		$instance['title'] = sanitize_text_field( $new_instance['title'] );
 		$instance['classes_widget'] = esc_attr( sanitize_text_field( $new_instance['classes_widget'] ) );
+		$instance['classes_posts'] = esc_attr( sanitize_text_field( $new_instance['classes_posts'] ) );
 		$instance[ 'posicao' ] = absint( $new_instance[ 'posicao'] );
 		$instance['readmore'] = sanitize_text_field( $new_instance['readmore'] );
 
@@ -101,6 +126,7 @@ class EOL_Posts_Widget extends WP_Widget {
 				'readmore' => '',
 				'posicao' => '',
 				'classes_posts' => '',
+				'number' => 0
 			)
 		);
 		?>
@@ -135,11 +161,11 @@ class EOL_Posts_Widget extends WP_Widget {
 					Posição (Precisa descrever melhor)<br>
 				</label>
 				<?php if( ! is_wp_error( $terms ) && ! empty( $terms ) ) : ?>
-					<select name="<?php echo $this->get_field_name( 'posicao' ); ?>">
+					<select name="<?php echo $this->get_field_name( 'posicao' ); ?>" required>
 						<?php if ( 0 === $posicao ) {
-							echo '<option value="0" selected>' . __( 'Selecione a taxonomia de posição' ) . '</option>';
+							echo '<option value="" selected>' . __( 'Selecione a taxonomia de posição' ) . '</option>';
 						} else {
-							echo '<option value="0" selected>' . __( 'Selecione a taxonomia de posição' ) . '</option>';
+							echo '<option value="">' . __( 'Selecione a taxonomia de posição' ) . '</option>';
 						} ?>
 						<?php foreach ( $terms as $term ) : ?>
 							<?php $selected = '';?>
@@ -174,6 +200,15 @@ class EOL_Posts_Widget extends WP_Widget {
 					Link Leia Mais
 				</label>
 				<input class="widefat" type="text" name="<?php echo $this->get_field_name( 'readmore' ); ?>" value="<?php echo esc_attr($readmore); ?>">
+			</p>
+
+			<?php
+			// numero de posts a ser exibido
+			$number = sanitize_text_field( $instance['number'] );
+			?>
+			<p>
+				<label>Numero de posts</label>
+				<input class="widefat" type="number" name="<?php echo $this->get_field_name( 'number' ); ?>" value="<?php echo esc_attr($number); ?>">
 			</p>
 
 		</div><!-- .form-container -->
