@@ -36,116 +36,135 @@
 	src: url("../fonts/KnowledgeBold.woff") format("woff");
 }
 
+.error404 {
+	main{
+		text-align: center;
+		.page-header{
+			.page-title{
+				font-size: 15em;
+			    margin-top: 0;
+			    padding-top: 0;
+				color:$red_main;
+				font-weight:bolder;
+			}
+			p{
+				margin-bottom: 0;
+				font-size: 23px;
+			}
+		}
+	}
+
+}
 
 
 // petrobras
 // https://novodev.brasa.art.br/esquerdaonline/2017/08/11/petrobras-desvalorizacao-do-refino-traz-prejuizo-no-balanco-da-estatal/
 // cabeçalhos maiores com a fonte dinblack, menores com lato bold, p e links com lato regular
-.postid-568, .postid-17643 {
-	h1,h2{
-		font-family: dinblack!important;
-		font-weight: 800!important;
-	}
-	h1{
-		font-size: 28px!important;
-
-	}
-	h3,h4,h5,h6,h3 a,h4 a,h5 a,h6 a{
-		font-family: Lato!important;
-		font-weight: 800;
-	}
-	.sub-title p {
-		font-size:$sub_title_size;
-	}
-	p,a{
-		font-family: Lato!important;
-		font-weight: 400;
-		font-size:18px;
-	}
-	#header-colunista p{
-		font-size:16px!important;
-	}
-}
+// .postid-568, .postid-17643 {
+// 	h1,h2{
+// 		font-family: dinblack!important;
+// 		font-weight: 800!important;
+// 	}
+// 	h1{
+// 		font-size: 28px!important;
+//
+// 	}
+// 	h3,h4,h5,h6,h3 a,h4 a,h5 a,h6 a{
+// 		font-family: Lato!important;
+// 		font-weight: 800;
+// 	}
+// 	.sub-title p {
+// 		font-size:$sub_title_size;
+// 	}
+// 	p,a{
+// 		font-family: Lato!important;
+// 		font-weight: 400;
+// 		font-size:18px;
+// 	}
+// 	#header-colunista p{
+// 		font-size:16px!important;
+// 	}
+// }
 // Circo voador
 // https://novodev.brasa.art.br/esquerdaonline/2018/03/05/18046/
 // cabeçalhos maiores com a fonte knowlege, menores com lato bold, p e links com lato regular
-.postid-650, .postid-18046 {
-	h1,h2{
-		font-family: "Knowledge Black"!important;
-		font-weight: 800!important;
-	}
-	h3,h4,h5,h6,h3 a,h4 a,h5 a,h6 a{
-		font-family: Lato!important;
-		font-weight: 800;
-	}
-	.sub-title p {
-		font-size:$sub_title_size;
-	}
-	p,a{
-		font-family: Lato!important;
-		font-weight: 400;
-		font-size:18px;
-	}
-	.entry-content p{
-
-	}
-	#header-colunista p{
-		font-size:16px!important;
-	}
-}
+// .postid-650, .postid-18046 {
+// 	h1,h2{
+// 		font-family: "Knowledge Black"!important;
+// 		font-weight: 800!important;
+// 	}
+// 	h3,h4,h5,h6,h3 a,h4 a,h5 a,h6 a{
+// 		font-family: Lato!important;
+// 		font-weight: 800;
+// 	}
+// 	.sub-title p {
+// 		font-size:$sub_title_size;
+// 	}
+// 	p,a{
+// 		font-family: Lato!important;
+// 		font-weight: 400;
+// 		font-size:18px;
+// 	}
+// 	.entry-content p{
+//
+// 	}
+// 	#header-colunista p{
+// 		font-size:16px!important;
+// 	}
+// }
 // contra os golpes
 // cabeçalhos maiores com a fonte knowlege, menores com Roboto bold, p e links com Roboto regular
 // https://novodev.brasa.art.br/esquerdaonline/2017/08/12/municiparios-de-porto-alegre-mobilizados-para-derrotar-marchezan/
-.postid-546, .postid-17727 {
-	h1,h2{
-		font-family: "Knowledge Black"!important;
-		font-weight: 800!important;
-	}
-	h3,h4,h5,h6,h3 a,h4 a,h5 a,h6 a{
-		font-family: 'Roboto'!important;
-		font-weight: 800;
-	}
-	.sub-title p {
-		font-size:$sub_title_size;
-	}
-	p,a{
-		font-family: 'Roboto'!important;
-		font-weight: 400;
-		font-size:$content_body_size;
-	}
-	#header-colunista p{
-		font-size:15px!important;
-	}
-}
-body header#header a.menu-open-icon{
-	font-size:14px!important;
-}
-
-// dia do estudante
-// cabeçalhos maiores com a fonte dinblack, menores com Roboto bold, p e links com Roboto regular
-// https://novodev.brasa.art.br/esquerdaonline/2017/08/11/dia-do-estudante-educacao-pede-socorro-mas-resiste/
-.postid-546, .postid-17623 {
-	h1,h2{
-		font-family: dinblack!important;
-		font-weight: 800!important;
-	}
-	h3,h4,h5,h6,h3 a,h4 a,h5 a,h6 a{
-		font-family: 'Roboto'!important;
-		font-weight: 800;
-	}
-	.sub-title p {
-		font-size:$sub_title_size;
-	}
-	p,a{
-		font-family: 'Roboto'!important;
-		font-weight: 400;
-		font-size:$content_body_size;
-	}
-	#header-colunista p{
-		font-size:15px!important;
-	}
-}
-
+// .postid-546, .postid-17727 {
+// 	h1,h2{
+// 		font-family: "Knowledge Black"!important;
+// 		font-weight: 800!important;
+// 	}
+// 	h3,h4,h5,h6,h3 a,h4 a,h5 a,h6 a{
+// 		font-family: 'Roboto'!important;
+// 		font-weight: 800;
+// 	}
+// 	.sub-title p {
+// 		font-size:$sub_title_size;
+// 	}
+// 	p,a{
+// 		font-family: 'Roboto'!important;
+// 		font-weight: 400;
+// 		font-size:$content_body_size;
+// 	}
+// 	#header-colunista p{
+// 		font-size:15px!important;
+// 	}
+// }
+// body header#header a.menu-open-icon{
+// 	font-size:14px!important;
+// }
+//
+// // dia do estudante
+// // cabeçalhos maiores com a fonte dinblack, menores com Roboto bold, p e links com Roboto regular
+// // https://novodev.brasa.art.br/esquerdaonline/2017/08/11/dia-do-estudante-educacao-pede-socorro-mas-resiste/
+// .postid-546, .postid-17623 {
+// 	h1,h2{
+// 		font-family: dinblack!important;
+// 		font-weight: 800!important;
+// 	}
+// 	h3,h4,h5,h6,h3 a,h4 a,h5 a,h6 a{
+// 		font-family: 'Roboto'!important;
+// 		font-weight: 800;
+// 	}
+// 	.sub-title p {
+// 		font-size:$sub_title_size;
+// 	}
+// 	p,a{
+// 		font-family: 'Roboto'!important;
+// 		font-weight: 400;
+// 		font-size:$content_body_size;
+// 	}
+// 	#header-colunista p{
+// 		font-size:15px!important;
+// 	}
+// }
+//
 
 
 #header {
@@ -251,7 +270,7 @@ html {
 body {
     margin-bottom: 70px;
     * {
-    	font-family: 'Roboto', sans-serif;
+    	font-family: $font_family_p, 'Roboto', sans-serif;
     }
 }
 .clear {
@@ -266,5 +285,119 @@ body {
 	text-transform: uppercase;
 	span {
 		color:$red_main;
+	}
+}
+.tax-editorias{
+	.topo-editoria{
+		.widgettitle, .widget-title{
+			font-size:$widget_title_font_size;
+			color:black;
+			@extend h1.page-title;
+			margin-bottom: 20px;
+			span{
+				color: $red-main;
+			}
+		}
+	}
+
+}
+
+.widget-eol-taxonomy-posts{
+
+	margin-bottom:40px;
+	list-style: none;
+	.post-widget-li{
+		padding: 5px;
+		.post-link-widget-text{
+			margin: 5px;
+
+			.byline{
+				display: none;
+			}
+			.tax-widget-data, .tax-widget-autor{
+				float:left;
+				text-transform: uppercase;
+				font-size: 12px;
+				margin-top:3px;
+			}
+			.tax-widget-titulo{
+				margin-bottom: 0px;
+			}
+			.tax-widget-subtitulo{
+				p{
+					margin:0;
+				}
+			}
+
+		}
+		list-style: none;
+		float:left;
+		position: relative;
+
+		a{
+			&:hover	{
+				text-decoration:none;
+			}
+		}
+		img{
+			width: 100%;
+		}
+		&.index-num-0{
+			width: 66%;
+			.post-link-widget-text{
+				background-repeat: no-repeat, repeat;
+				background-position: right top, left top; /* FF3.6-15 */
+				background-image: -webkit-gradient(
+				  linear, left top, left bottom, from(transparent),
+				  to(rgba(0,0,0,1))
+				);
+				padding: 20px 20px 10px;
+				position: absolute;
+				z-index: 99;
+				bottom:0;
+     			left: 0;
+				padding-bottom: 15px;
+				a,p,div,span{
+					color:#fff;
+				}
+
+			}
+			img{
+				width: 100%;
+
+			}
+
+		}
+		&.index-num-1{
+			.tax-widget-subtitulo{
+				font-size:13px;
+				// display: none;
+			}
+		}
+		&.index-num-2{
+			clear:left;
+		}
+		&.index-num-1,&.index-num-2, &.index-num-3, &.index-num-4 {
+			width:33%;
+			.post-link-widget-text{
+				a,p,div,span{
+					color:#000;
+				}
+				.tax-widget-titulo{
+					margin-top: 0;
+					font-size: 19px;
+				}
+			}
+
+		}
+		&.index-num-2, &.index-num-3, &.index-num-4 {
+			.tax-widget-subtitulo{
+				// display: none;
+			}
+		}
+	}
+
+	.index-num-1{
+
 	}
 }

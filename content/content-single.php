@@ -11,14 +11,15 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="col-md-12 entry-header">
 		<div class="col-md-12 center-container no-padding">
-			<div class="editoria text-center">
+			<!-- <div class="editoria text-center">
 				<?php
 					$term = wp_get_post_terms( get_the_ID(), 'editorias' );
 					if ( $term ) {
 						printf( '<a href="%s">%s</a>', get_term_link( $term[0] ), apply_filters( 'the_title', $term[0]->name ) );
 					}
 				?>
-			</div><!-- .col-md-12 editoria -->
+			</div> -->
+			<!-- .col-md-12 editoria -->
 			<div class="entry-title-container text-center">
 				<?php the_title( '<h1 class="entry-title main-title">', '</h1>' );?>
 			</div><!-- .col-md-10 entry-title-container -->
@@ -30,17 +31,17 @@
 				</div><!-- .col-md-9 center-container -->
 			</div><!-- .col-md-12 text-center -->
 			<div class="col-md-6 text-center">
-				<div class="col-md-12 center-container text-center author">
+				<div class="col-md-12 center-container text-right author">
 					<?php if ( $author = get_post_meta( get_the_ID(), 'the_author', true ) ) {
 							printf( __( 'Por %s', 'eol' ), apply_filters( 'the_title', $author) );
 						}
 					?>
 				</div><!-- .col-md-9 center-container -->
-				<div class="col-md-12 center-container text-center entry-meta">
+				<div class="col-md-12 center-container text-right entry-meta">
 					<?php odin_posted_on(); ?>
 				</div><!-- .col-md-9 center-container -->
 			</div><!-- .col-md-6 text-center -->
-			<div class="col-md-6 social-icons-post">
+			<div class="col-md-6 social-icons-post text-left">
 				<div class="icon-itself">
 					<a href="#">
 						<i class="fab fa-facebook-f"></i>
@@ -72,7 +73,10 @@
 	</header><!-- .entry-header -->
 
 	<section class="post-thumb">
-		<?php eol_single_thumbnail();?>
+		<?php
+			eol_single_thumbnail('full','','TRUE');
+			// eol_single_thumbnail_meta()
+		?>
 	</section>
 
 	<div class="col-md-12 clear"></div><!-- .col-md-12 clear -->

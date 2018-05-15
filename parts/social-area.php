@@ -8,11 +8,19 @@
 <section class="social-area col-md-12">
 
 	<div class="continue-reading col-md-12">
-		<?php if ( $terms = wp_get_post_terms( get_the_ID(), 'post_tag' ) ) : ?>
+		<?php if ( $terms = wp_get_post_terms( get_the_ID(), 'post_tag' ) ) :
+			$tags = array();
+			foreach ($terms as $term) {
+
+				array_push($tags, $term->term_id);
+			}
+			?>
 			<?php $query = new WP_Query(
 					array(
-						'tag_id' 			=> $terms[0]->term_id,
-						'posts_per_page' 	=> 3
+						'tag__in' 			=> $tags,
+						'posts_per_page' 	=> 6,
+						'post__not_in' => array(get_the_ID()),
+
 					)
 				);
 				if ( $query->have_posts() ) : ?>

@@ -103,7 +103,7 @@
 			<!-- .line-3 -->
 		</div>
 	</header><!-- #header -->
-	<?php if( is_singular( 'colunistas' ) ) {
+	<?php if( !is_tax() && is_singular( 'colunistas' ) ) {
 		?>
 	<div class="archive-colunista">
     	<div class="barra-colunistas">
@@ -115,11 +115,22 @@
 		?>
 	</div>
 	<?php
-} else if( has_term( '', 'colunistas', $post->ID )) {
+} else if( !is_tax() && !is_tag()  && has_term( '', 'colunistas', $post->ID )) {
 		?>
 	<div class="barra-colunistas">
 		<div  class="container">
 			<h5 class="col-md-12">Colunistas</h5>
+		</div>
+	</div>
+<?php  }
+else if( is_singular('post') ) {
+		?>
+	<div class="barra-editorias">
+		<div  class="container">
+			<?php
+			$term = wp_get_post_terms( get_the_ID(), 'editorias' );
+			?>
+			<h5 class="col-md-12"><?php echo $term[0]->name;  ?></h5>
 		</div>
 	</div>
 <?php  }?>

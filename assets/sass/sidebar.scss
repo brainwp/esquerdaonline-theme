@@ -1,11 +1,10 @@
-.widget-area {
-	.widget-title {
+.widget-title {
 		@extend .col-md-12;
 		margin-bottom: 10px;
 		margin-top: 0px;
 		font-weight: 700;
 		display: block;
-   	float: none;
+   		float: none;
 		color:$red_main;
 		text-transform: uppercase;
 		&:after {
@@ -17,21 +16,28 @@
 		    top: 1px;
 		}
 		padding: 0px;
-		letter-spacing: -0.5px;
+		letter-spacing: $letter_spacing_title;
 	}
-}
+
 
 aside#sidebar, aside#sidebar-colunistas {
 	.widget-content{
 		margin-top: 50px;
+		&:first-child{
+			margin-top:20px;
+		}
 	}
 	.widgettitle, .widget-title{
 		font-size:$widget_title_font_size;
+		letter-spacing: 0;
+		font-family: $font_family_widget_titulo;
 
 	}
 	h3 a{
 		font-size:$widget_title_font_size;
 		color: $red_main;
+		letter-spacing: 0;
+		font-family: $font_family_widget_titulo;
 	}
 	a img {
 		width: 100%;
@@ -45,23 +51,25 @@ aside#sidebar, aside#sidebar-colunistas {
 	}
 
 	a.editoria-link, a.colunistas-link {
-		margin-top:10px;
+		margin-top:15px;
 	    display: block;
 	    text-transform: uppercase;
 	    color: $main_content_color;
 	    font-weight: bold;
-	   letter-spacing: $letter_spacing_link;
+	  	// letter-spacing: $letter_spacing_link;
 	    margin-bottom: 2px;
 	    font-size: 14px;
+		color:$btn_veja_mais_color;
 	}
 
 	a.post-link-widget-li {
+		font-family: $font_family_widget_titulo;
 	    font-size: 18px;
 	    color: black;
 	    text-decoration: none;
 	    display: block;
-	    padding-bottom: 7px;
-	    line-height: 21px;
+	    padding-bottom: 15px;
+	    line-height: 22px;
 	}
 
 	li.post-widget-li {

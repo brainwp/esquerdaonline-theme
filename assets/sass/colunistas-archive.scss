@@ -5,12 +5,13 @@
 		}
 	}
 	.barra-colunistas {
-			background: #EF4723;
+			background-image: url('../images/barra-roxa.jpg');
 			color: #FFF;
 			padding: 10px;
 			text-align: left;
 			.container{
 				h5{
+					font-size: 15px;
 					padding-left: 55px;
 				}
 			}
@@ -37,8 +38,11 @@
 			margin-top: 0;
 			display: inline-block;
 			vertical-align: middle;
+			padding-right:10px;
+
 		}
 		.center-container.text-center.entry-meta{
+			padding-left:10px;
 			display: inline-block;
 		}
 		.entry-date{
@@ -66,7 +70,7 @@
 		article.colunistas{
 			padding-left: 55px;
 		}
-		margin-top: 20px;
+		// margin-top: 20px;
 		.entry-title-container a:hover{
 			text-decoration: none;
 		}
@@ -100,7 +104,7 @@
 	    float: left;
 	}
 }
-.post-type-archive-colunistas, .single-colunistas{
+.post-type-archive-colunistas, .single-colunistas, .tax-editorias, .tag{
 	&.archive{
 		.thumbnail-colunista {
 				img.wp-post-image{

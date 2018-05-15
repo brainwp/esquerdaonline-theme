@@ -22,6 +22,23 @@ get_header('large'); ?>
 
 			<?php if ( have_posts() ) :?>
 
+
+
+				<div class="topo-editoria">
+					<?php
+					if (is_active_sidebar( 'editorias-archive-topo' )) {
+						?>
+						<header class="page-header">
+							<h1 class="page-title">Destaques <span> <?php echo ($title  = post_type_archive_title( '', false ))? $title : single_term_title('',false) ?></span>></h1>
+						</header><!-- .page-header -->
+						<?php
+						dynamic_sidebar( 'editorias-archive-topo' );
+					}
+
+
+					?>
+
+				</div>
 				<div class="clearfix">
 
 				</div>

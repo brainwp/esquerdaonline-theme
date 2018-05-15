@@ -78,6 +78,11 @@ if ( ! function_exists( 'odin_setup_features' ) ) {
 		 */
 		add_theme_support( 'post-thumbnails' );
 		add_image_size( 'post-default-thumbnail', 300, 200, true );
+		add_image_size( 'retangular-p', 330, 190, true );
+		add_image_size( 'retangular-m', 400, 230, true );
+		// add_image_size( 'retangular-g', 800, 461, true );
+		add_image_size( 'quadrada-p', 300, 300, true );
+		add_image_size( 'quadrada-g', 800, 800, true );
 		/**
 		 * Add feed link.
 		 */
@@ -218,6 +223,28 @@ function odin_widgets_init() {
 			'name' => __( 'Sidebar de cada colunista', 'odin' ),
 			'id' => 'colunistas-single-sidebar',
 			'description' => __( 'Barra lateral da página e cada colunista', 'odin' ),
+			'before_widget' => '',
+			'after_widget' => '',
+			'before_title' => '<h3 class="widgettitle widget-title">',
+			'after_title' => '</h3>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name' => __( 'Área do topo das editorias', 'odin' ),
+			'id' => 'editorias-archive-topo',
+			'description' => __( 'Área do topo das editorias onde fica o widget com os destaques da editoria.', 'odin' ),
+			'before_widget' => '',
+			'after_widget' => '',
+			'before_title' => '<h3 class="widgettitle widget-title">',
+			'after_title' => '</h3>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name' => __( 'Área lateral das editorias', 'odin' ),
+			'id' => 'editorias-archive-sidebar',
+			'description' => __( 'Área de barra lateral das editorias.', 'odin' ),
 			'before_widget' => '',
 			'after_widget' => '',
 			'before_title' => '<h3 class="widgettitle widget-title">',
@@ -403,9 +430,9 @@ function eol_jp_remove_share() {
 add_action( 'loop_start', 'eol_jp_remove_share' );
 
 add_filter( 'get_the_archive_title', function ( $title ) {
-	if ( is_post_type_archive() ) {
+	if ( is_post_type_archive() || is_tax() ||is_tag( ) ) {
 	        /* translators: Post type archive title. 1: Post type name */
-	        $title = sprintf( __( 'Índice <span>%s</span> &#62;' ), post_type_archive_title( '', false ) );
+	        $title = sprintf( __( 'Índice <span>%s</span> &#62;' ), ($title  = post_type_archive_title( '', false ))? $title : single_term_title('',false) );
 	    }
     return $title;
 
@@ -457,7 +484,7 @@ add_action( 'wp_enqueue_scripts', 'wpb_add_google_fonts' );
 // examples: section-about-us, section-start, section-nyc
 function colunistas_class($classes) {
 	global $post;
-	if( has_term( '', 'colunistas', $post->ID ) ) {
+	if( !is_tax() && !is_tag() && isset($post) && has_term( '', 'colunistas', $post->ID ) ) {
 		$classes[] = " single-colunistas";
 	}
 	return $classes;
@@ -480,3 +507,95 @@ function single_colunistas_redirect() {
     }
 }
 add_action( 'template_redirect', 'single_colunistas_redirect' );
+
+// Remove destacadas do loop principal de editorias;
+// Remove destacadas do loop principal de editorias;
+add_action( 'pre_get_posts', 'remove_editoria' );
+function remove_editoria( $query ) {
+
+    if( $query->is_main_query() && $query->is_tax() ) {
+		$tax_query = array(
+			'taxonomy' => '_featured_eo',
+			'field' => 'slug',
+			'terms' => array('sim'),
+            'operator'=> 'NOT IN'
+		);
+		$query->tax_query->queries[] = $tax_query;
+   		$query->query_vars['tax_query'] = $query->tax_query->queries;
+
+    }
+}
+// Remove destacadas do loop principal de editorias;
+// Remove destacadas do loop principal de editorias;
+
+
+
+
+function de_cat_pra_edi(){
+
+	$posts = new WP_Query( array(
+		'posts_per_page' => 1,
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'category',
+				'field'    => 'term_id',
+				'terms'    => array( 29 ),
+			),
+		),
+	));
+	foreach ($posts->posts as $post) {
+		$post_id = $post->ID;
+		echo $post_id;
+		echo '<br>';
+
+		print_r(wp_set_post_terms( $post_id, 249,'editorias',false));
+	}
+}
+// add_action('wp_head', 'de_cat_pra_edi');
+
+
+function myTheme_registerWidgetAreas() {
+    // Grab all pages except trashed
+    $pages = new WP_Query(Array(
+        'post_type' => 'post',
+        'post_status' => array('publish', 'pending', 'draft', 'auto-draft', 'future', 'private', 'inherit'),
+        'posts_per_page'=>-1
+    ));
+    // Step through each page
+    while ( $pages->have_posts() ) {
+        $pages->the_post();
+        // Ignore pages with no slug
+        if ($pages->post->post_name == '') continue;
+        // Register the sidebar for the page. Note that the id has
+        // to match the name given in the theme template
+        register_sidebar( array(
+            'name'          => 'Widgets do post',
+            'id'            => 'widget_area_for_page_'.$pages->post->post_name,
+            'before_widget' => '',
+            'after_widget'  => '',
+            'before_title'  => '',
+            'after_title'   => '',
+        ) );
+    }
+}
+add_action( 'widgets_init', 'myTheme_registerWidgetAreas' );
+
+add_filter( 'body_class', 'section_id_class' );
+// add classes to body based on custom taxonomy ('sections')
+// examples: section-about-us, section-start, section-nyc
+function section_id_class( $classes ) {
+    global $post;
+
+    $section_terms = get_the_terms( $post->ID, 'editorias' );
+    if ( $section_terms && ! is_wp_error( $section_terms ) ) {
+        foreach ($section_terms as $term) {
+			if ($term->slug == 'editorial') {
+				$classes[] = $term->slug;
+			} else{
+				$classes[] = 'editoria editoria-' . $term->slug;
+			}
+        }
+    }
+
+    return $classes;
+}
