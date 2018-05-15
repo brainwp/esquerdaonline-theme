@@ -78,43 +78,10 @@ class EOL_Posts_Widget extends WP_Widget {
 	public function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
 		$instance['title'] = sanitize_text_field( $new_instance['title'] );
-		$instance[ 'posts' ] = array();
 		$instance['classes_widget'] = esc_attr( sanitize_text_field( $new_instance['classes_widget'] ) );
+		$instance[ 'posicao' ] = absint( $new_instance[ 'posicao'] );
 		$instance['readmore'] = sanitize_text_field( $new_instance['readmore'] );
-		$index = 0;
-		foreach ( $new_instance[ 'post_title'] as $key => $value ) {
-			$instance[ 'posts' ][ $index ][ 'post_title' ] = esc_attr( $value );
-			$instance[ 'posts' ][ $index ][ 'post_id' ] = absint( $new_instance[ 'post_id'][ $index ] );
-			if ( 0 === $instance[ 'posts' ][ $index ][ 'post_id' ] ) {
-				$instance[ 'posts' ][ $index ][ 'post_id' ] = '';
-			}
-			// Verifica se o campo de imagem foi preenchido e valida se o ID é de fato uma imagem
-			if ( isset( $new_instance[ 'image_id'][ $index ] ) && ! empty( $new_instance[ 'image_id'][ $index ] ) ) {
-				$image_id = absint( $new_instance[ 'image_id'][ $index ] );
-				if ( wp_attachment_is_image( $image_id ) ) {
-					$instance[ 'posts' ][ $index ][ 'image_id' ] = $image_id;
-				}
-			}
-			// Verifica se o campo de texto "classes css" está preenchido, se sim, seta o valor no novo array, se não, seta um valor vazio
-			if ( isset( $new_instance[ 'classes_css' ][ $index ] ) ) {
-				$instance[ 'posts' ][ $index ][ 'classes_css' ] = esc_attr( sanitize_text_field( $new_instance[ 'classes_css'][ $index ] ) );
-			} else {
-				$instance[ 'posts' ][ $index ][ 'classes_css' ] = '';
-			}
-			// Verifica se o campo de texto "author" está preenchido, se sim, seta o valor no novo array, se não, seta um valor vazio
-			if ( isset( $new_instance[ 'author' ][ $index ] ) ) {
-				$instance[ 'posts' ][ $index ][ 'author' ] = esc_attr( sanitize_text_field( $new_instance[ 'author'][ $index ] ) );
-			} else {
-				$instance[ 'posts' ][ $index ][ 'author' ] = '';
-			}
-			// Verifica se o campo de texto "sub titulo" está preenchido, se sim, seta o valor no novo array, se não, seta um valor vazio
-			if ( isset( $new_instance[ 'sub_title' ][ $index ] ) ) {
-				$instance[ 'posts' ][ $index ][ 'sub_title' ] = esc_attr( sanitize_text_field( $new_instance[ 'sub_title'][ $index ] ) );
-			} else {
-				$instance[ 'posts' ][ $index ][ 'sub_title' ] = '';
-			}
-			$index++;
-		}
+
 		return $instance;
 	}
 
@@ -132,66 +99,11 @@ class EOL_Posts_Widget extends WP_Widget {
 				'title' => '',
 				'classes_widget' => '',
 				'readmore' => '',
-				'posts' => array(),
+				'posicao' => '',
+				'classes_posts' => '',
 			)
 		);
-		/**
-		 * Template HTML para o repetidor de campos
-		 * Quando clicado em adicionar post, o conteúdo dessa tag é copiado para dentro da div.posts
-		 */
 		?>
-		<script type="text/template" id="eol-posts-widget-<?php echo $this->get_field_id('title'); ?>">
-			<li class="each-repeater open" style="border:1px solid #e3e3e3;">
-				<p>
-					<label>Título do post</label>
-					<input class="widefat post-title" type="text" name="<?php echo $this->get_field_name( 'post_title[]' ); ?>">
-				</p>
-				<p>
-					<label>Sub-título</label>
-					<input class="widefat" type="text" name="<?php echo $this->get_field_name( 'sub_title[]' ); ?>">
-				</p>
-				<p>
-					<label>Buscar post / ID do post</label>
-					<input class="widefat post-search" type="text" name="<?php echo $this->get_field_name( 'post_id[]' ); ?>">
-					<span class="posts-search-list">
-
-					</span>
-				</p>
-				<p>
-					<label>Classes CSS do post</label>
-					<input class="widefat" type="text" name="<?php echo $this->get_field_name( 'classes_css[]' ); ?>">
-				</p>
-				<p>
-					<label>Autor</label>
-					<input class="widefat" type="text" name="<?php echo $this->get_field_name( 'author[]' ); ?>">
-				</p>
-				<p class="image-selector">
-					<a href="#" class="image-selector-link">
-						Selecione uma imagem para ser exibida.
-						<small> ( Caso nenhuma seja selecionada a imagem destacada do post será utilizada )
-						</small>
-					</a>
-					<input type="hidden" name="<?php echo $this->get_field_name( 'image_id[]' ); ?>" class="input-image">
-					<span class="image-selected" style="display: none;">
-						<a href="#" class="btn-delete-image">
-							Remover imagem
-						</a>
-					</span>
-				</p>
-
-				<p>
-					<a href="#" class="remove-row">
-						Remover post
-					</a>
-					|
-					<a href="#" class="close-row">
-						Fechar
-					</a>
-
-				</p>
-
-			</li><!-- .each-repeater -->
-		</script>
 		<div class="form-container">
 			<?php
 			// campo de titulo "global"
@@ -214,6 +126,46 @@ class EOL_Posts_Widget extends WP_Widget {
 				<input class="widefat classes-css" type="text" name="<?php echo $this->get_field_name( 'classes_widget' ); ?>" value="<?php echo esc_attr($classes); ?>">
 			</p>
 			<?php
+			// seletor de termo da taxonomia "_eo_featured"
+			$posicao = absint( $instance['posicao'] );
+			$terms = get_terms( array( 'taxonomy' => '_featured_eo', 'hide_empty' => false ) );
+			?>
+			<p>
+				<label>
+					Posição (Precisa descrever melhor)<br>
+				</label>
+				<?php if( ! is_wp_error( $terms ) && ! empty( $terms ) ) : ?>
+					<select name="<?php echo $this->get_field_name( 'posicao' ); ?>">
+						<?php if ( 0 === $posicao ) {
+							echo '<option value="0" selected>' . __( 'Selecione a taxonomia de posição' ) . '</option>';
+						} else {
+							echo '<option value="0" selected>' . __( 'Selecione a taxonomia de posição' ) . '</option>';
+						} ?>
+						<?php foreach ( $terms as $term ) : ?>
+							<?php $selected = '';?>
+							<?php if ( $posicao === $term->term_id ) {
+								$selected = 'selected';
+							} ?>
+							<option value="<?php echo $term->term_id;?>" <?php echo $selected;?>>
+								<?php echo $term->name;?>
+							</option>
+						<?php endforeach; ?>
+					</select>
+				<?php endif; ?>
+			</p>
+
+			<?php
+			// campo de classes "pra cada post"
+			$classes_posts = sanitize_text_field( $instance['classes_posts'] );
+			?>
+			<p>
+				<label>
+					Classes CSS do post<br>
+					<small>Coloque cada classe separado por uma barra de espaço</small>
+				</label>
+				<input class="widefat classes-css" type="text" name="<?php echo $this->get_field_name( 'classes_posts' ); ?>" value="<?php echo esc_attr($classes_posts); ?>">
+			</p>
+			<?php
 			// campo de classes "global"
 			$readmore = sanitize_text_field( $instance['readmore'] );
 			?>
@@ -224,83 +176,6 @@ class EOL_Posts_Widget extends WP_Widget {
 				<input class="widefat" type="text" name="<?php echo $this->get_field_name( 'readmore' ); ?>" value="<?php echo esc_attr($readmore); ?>">
 			</p>
 
-			<ul class="posts">
-				<?php
-				/**
-				 * Adiciona a lista de campos já criado anteriormente e que já contem registro no banco do WP
-				 */
-				if ( ! empty( $instance[ 'posts'] ) ) : ?>
-					<?php foreach ( $instance[ 'posts' ] as $post ) : ?>
-						<li class="each-repeater" style="border:1px solid #e3e3e3;">
-							<p>
-								<label>Titulo do post</label>
-								<input class="widefat post-title" type="text" name="<?php echo $this->get_field_name( 'post_title[]' ); ?>" value="<?php echo esc_attr( $post[ 'post_title'] );?>">
-							</p>
-							<p>
-								<label>Sub-título</label>
-								<input class="widefat" type="text" name="<?php echo $this->get_field_name( 'sub_title[]' ); ?>" value="<?php echo esc_attr( $post[ 'sub_title'] );?>">
-							</p>
-
-							<p>
-								<label>Buscar post / ID do post</label>
-								<input class="widefat post-search" type="text" name="<?php echo $this->get_field_name( 'post_id[]' ); ?>" value="<?php echo esc_attr( $post[ 'post_id' ] );?>">
-								<span class="posts-search-list"></span>
-							</p>
-							<p>
-								<label>Classes CSS do post</label>
-								<input class="widefat" type="text" name="<?php echo $this->get_field_name( 'classes_css[]' ); ?>" value="<?php echo esc_attr( $post[ 'classes_css' ] );?>">
-							</p>
-							<p>
-								<label>Autor</label>
-								<input class="widefat" type="text" name="<?php echo $this->get_field_name( 'author[]' ); ?>" value="<?php echo esc_attr( $post[ 'author' ] );?>">
-							</p>
-							<?php $image_id = '';?>
-							<?php if ( isset( $post[ 'image_id' ] ) && wp_attachment_is_image( $post[ 'image_id' ] ) ) {
-								$image_id = $post[ 'image_id' ];
-							}?>
-							<p class="image-selector">
-								<?php // Esconde o link de seleção de imagem caso uma imagem já tenha sido selecionada ?>
-								<?php $image_selector_link_style = '';?>
-								<?php if ( '' != $image_id ) {
-									$image_selector_link_style = 'display:none;';
-								}?>
-								<a href="#" class="image-selector-link" style="<?php echo $image_selector_link_style;?>">
-									Selecione uma imagem para ser exibida.
-									<small> ( Caso nenhuma seja selecionada a imagem destacada do post será utilizada )
-									</small>
-								</a>
-								<input type="hidden" name="<?php echo $this->get_field_name( 'image_id[]' ); ?>" class="input-image" value="<?php echo $image_id;?>">
-								<?php // Exibe o botão de remover imagem quando uma imagem estiver sido selecionada ?>
-								<?php $image_selected_style = 'display:none;';?>
-								<?php if ( '' != $image_id ) {
-									$image_selected_style = '';
-								}?>
-								<span class="image-selected" style="<?php echo $image_selected_style;?>">
-									<?php if ( '' != $image_id ) {
-										$image = wp_get_attachment_image_src( $image_id, 'thumbnail', false );
-										printf( '<img src="%s" width="64" height="64">', $image[0] );
-									}?>
-									<a href="#" class="btn-delete-image">
-										Remover imagem
-									</a>
-								</span>
-							</p>
-							<p>
-								<a href="#" class="remove-row">
-									Remover post
-								</a>
-								|
-								<a href="#" class="close-row">
-									Fechar
-								</a>
-							</p>
-						</li><!-- .each-repeater -->
-					<?php endforeach;?>
-				<?php endif;?>
-			</ul><!-- .posts -->
-			<a href="#eol-posts-widget-<?php echo $this->get_field_id('title'); ?>" class="add-new-row">
-				(+) Adicionar post
-			</a>
 		</div><!-- .form-container -->
 		<?php
 	}

@@ -23,8 +23,8 @@ $colunistas = new Odin_Taxonomy(
 require_once get_template_directory() . '/inc/class-colunistas.php';
 
 // Taxonomia Destaque
-$destaque = new Odin_Taxonomy(
-    'Destaque', // Nome (Singular) da nova Taxonomia.
+$posicao = new Odin_Taxonomy(
+    'Posição', // Nome (Singular) da nova Taxonomia.
     '_featured_eo', // Slug do Taxonomia.
     'post' // Nome do tipo de conteúdo que a taxonomia irá fazer parte.
 );
