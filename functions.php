@@ -585,17 +585,17 @@ add_filter( 'body_class', 'section_id_class' );
 // examples: section-about-us, section-start, section-nyc
 function section_id_class( $classes ) {
     global $post;
-
-    $section_terms = get_the_terms( $post->ID, 'editorias' );
-    if ( $section_terms && ! is_wp_error( $section_terms ) ) {
-        foreach ($section_terms as $term) {
-			if ($term->slug == 'editorial') {
-				$classes[] = $term->slug;
-			} else{
-				$classes[] = 'editoria editoria-' . $term->slug;
-			}
-        }
-    }
-
+	if (is_object($post)) {
+		$section_terms = get_the_terms( $post->ID, 'editorias' );
+	    if ( $section_terms && ! is_wp_error( $section_terms ) ) {
+	        foreach ($section_terms as $term) {
+				if ($term->slug == 'editorial') {
+					$classes[] = $term->slug;
+				} else{
+					$classes[] = 'editoria editoria-' . $term->slug;
+				}
+	        }
+	    }
+	}
     return $classes;
 }

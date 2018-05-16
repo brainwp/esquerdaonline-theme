@@ -6,7 +6,7 @@
  * @since 2.2.0
  */
 
-get_header(); ?>
+ get_header('large'); ?>
 
 	<main id="content" class="<?php echo odin_classes_page_full(); ?>" tabindex="-1" role="main">
 
@@ -16,9 +16,7 @@ get_header(); ?>
 			</header>
 
 			<div class="page-content">
-				<p><?php _e( 'It looks like nothing was found at this location. Maybe try a search?', 'odin' ); ?></p>
-
-				<?php get_search_form(); ?>
+				<p><?php _e( 'Nada foi encontrado nesse endereço. Talvez a busca no menu auxilie você a encontrar o que deseja.', 'odin' ); ?></p>
 			</div><!-- .page-content -->
 
 	</main><!-- #main -->
