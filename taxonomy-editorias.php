@@ -46,7 +46,7 @@ get_header('large'); ?>
 					the_archive_title( '<h1 class="page-title">', '</h1>' );
 				?>
 				<section class="social-area">
-					<div class="main-post-social continue-reading">
+					<div class="main-post-social no-padding continue-reading">
 						<?php
 							// Start the Loop.
 							$colunistas_array=array();
