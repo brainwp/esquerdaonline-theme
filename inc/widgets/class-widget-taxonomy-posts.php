@@ -83,7 +83,7 @@ class EOL_Taxonomy_Posts extends WP_Widget {
 				array(
 					'taxonomy' => '_featured_eo',
 					'field'    => 'slug',
-					'terms'    => array( 'sim' ),
+					'terms'    => array( 'destaque' ),
 				),
 			),
 
