@@ -126,40 +126,63 @@ class EOL_Taxonomy_Posts extends WP_Widget {
 				?>
 
 				<div class="post-widget-li index-num-<?php echo $i;?>">
-					<?php if ( 0 === $i ) {
-						echo '<a class="post-thumbnail-link" href="' . get_permalink($recent_post->ID) . '">';
-						eol_single_thumbnail('retangular-m',$recent_post->ID);
-						echo '</a>';
-						$sub_title= '';
-					} else {
-						echo '<a class="post-thumbnail-link" href="' . get_permalink($recent_post->ID) . '">';
-						eol_single_thumbnail('retangular-p',$recent_post->ID);
-						echo '</a>';
-						if ( $sub_title = get_post_meta( $recent_post->ID, 'sub_title', true ) ) {
-							$sub_title= '<div class="tax-widget-subtitulo">'.apply_filters( 'the_content', $sub_title ).'</div>';
-						}
-						else{
-							$sub_title= '';
-						}
-					}
-					$i++;
-					?>
-					<div class="post-link-widget-text" >
-						<h3 class="tax-widget-titulo">
-							<a href="<?php the_permalink( $recent_post->ID ); ?>" ><?php echo $title;?></a>
-						</h3>
-						<?php echo $sub_title; ?>
-						<div class="tax-widget-data">
-							<?php echo get_the_date('d\/m\/Y',$recent_post->ID);?>
+					<figure class=" post-thumbnail"><div class="col-md-12 social-icons-post">
+						<div class="icon-itself">
+							<a href="#">
+								<i class="fab fa-facebook-f"></i>
+							</a>
 						</div>
-						<?php if ( $author = get_post_meta( $recent_post->ID, 'the_author', true )) { ?>
-						<div class="tax-widget-autor">
-							<?php
-							printf( __( ' · %s', 'eol' ), apply_filters( 'the_title', $author) );
-							?>
+						<div class="icon-itself">
+							<a href="#">
+								<i class="fab fa-twitter"></i>
+							</a>
 						</div>
-						<?php } ?>
+
+						<div class="icon-itself">
+							<a href="#">
+								<i class="fab fa-instagram"></i>
+							</a>
+						</div>
+
 					</div>
+
+						<?php if ( 0 === $i ) {
+							echo '<a class="post-thumbnail-link" href="' . get_permalink($recent_post->ID) . '">';
+							eol_single_thumbnail('retangular-m',$recent_post->ID);
+							echo '</a>';
+							$sub_title= '';
+						} else {
+							echo '<a class="post-thumbnail-link" href="' . get_permalink($recent_post->ID) . '">';
+							eol_single_thumbnail('retangular-p',$recent_post->ID);
+							echo '</a>';
+							if ( $sub_title = get_post_meta( $recent_post->ID, 'sub_title', true ) ) {
+								$sub_title= '<div class="tax-widget-subtitulo">'.apply_filters( 'the_content', $sub_title ).'</div>';
+							}
+							else{
+								$sub_title= '';
+							}
+						}
+						$i++;
+						?>
+						</figure>
+
+						<div class="post-link-widget-text" >
+							<h3 class="tax-widget-titulo">
+								<a href="<?php the_permalink( $recent_post->ID ); ?>" ><?php echo $title;?></a>
+							</h3>
+							<?php echo $sub_title; ?>
+							<div class="tax-widget-data">
+								<?php echo get_the_date('d\/m\/Y',$recent_post->ID);?>
+							</div>
+							<?php if ( $author = get_post_meta( $recent_post->ID, 'the_author', true )) { ?>
+							<div class="tax-widget-autor">
+								<?php
+								printf( __( ' · %s', 'eol' ), apply_filters( 'the_title', $author) );
+								?>
+							</div>
+							<?php } ?>
+						</div>
+
 				</div>
 			<?php endforeach; ?>
 			<?php wp_reset_postdata();?>
