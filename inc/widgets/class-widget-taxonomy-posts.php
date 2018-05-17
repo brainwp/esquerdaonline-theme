@@ -150,16 +150,16 @@ class EOL_Taxonomy_Posts extends WP_Widget {
 							echo '<a class="post-thumbnail-link" href="' . get_permalink($recent_post->ID) . '">';
 							eol_single_thumbnail('retangular-m',$recent_post->ID);
 							echo '</a>';
-							$sub_title= '';
+							$chamada= '';
 						} else {
 							echo '<a class="post-thumbnail-link" href="' . get_permalink($recent_post->ID) . '">';
 							eol_single_thumbnail('retangular-p',$recent_post->ID);
 							echo '</a>';
-							if ( $sub_title = get_post_meta( $recent_post->ID, 'sub_title', true ) ) {
-								$sub_title= '<div class="tax-widget-subtitulo">'.apply_filters( 'the_content', $sub_title ).'</div>';
+							if ( $chamada = get_post_meta( $recent_post->ID, 'chamada', true ) ) {
+								$chamada= '<div class="tax-widget-subtitulo">'.apply_filters( 'the_content', $chamada ).'</div>';
 							}
 							else{
-								$sub_title= '';
+								$chamada= '';
 							}
 						}
 						$i++;
@@ -170,7 +170,7 @@ class EOL_Taxonomy_Posts extends WP_Widget {
 							<h3 class="tax-widget-titulo">
 								<a href="<?php the_permalink( $recent_post->ID ); ?>" ><?php echo $title;?></a>
 							</h3>
-							<?php echo $sub_title; ?>
+							<?php echo $chamada; ?>
 							<div class="tax-widget-data">
 								<?php echo get_the_date('d\/m\/Y',$recent_post->ID);?>
 							</div>

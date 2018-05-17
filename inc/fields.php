@@ -22,6 +22,17 @@ if(function_exists("register_field_group"))
 				'formatting' => 'br',
 			),
 			array (
+				'key' => 'field_6a9fe7ad6b1e7',
+				'label' => 'Chamada',
+				'name' => 'chamada',
+				'type' => 'textarea',
+				'default_value' => '',
+				'placeholder' => '',
+				'maxlength' => '',
+				'rows' => 9,
+				'formatting' => 'br',
+			),
+			array (
 				'key' => 'field_5a9fe7e96b1e8',
 				'label' => 'Autor',
 				'name' => 'the_author',
