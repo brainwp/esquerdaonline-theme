@@ -517,7 +517,7 @@ function remove_editoria( $query ) {
 		$tax_query = array(
 			'taxonomy' => '_featured_eo',
 			'field' => 'slug',
-			'terms' => array('sim'),
+			'terms' => array('destaque'),
             'operator'=> 'NOT IN'
 		);
 		$query->tax_query->queries[] = $tax_query;
