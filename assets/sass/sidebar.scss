@@ -19,13 +19,15 @@
 		letter-spacing: $letter_spacing_title;
 	}
 
-
+aside#sidebar-colunistas {
+	&:first-child{
+		margin-top:20px;
+	}
+}
 aside#sidebar, aside#sidebar-colunistas {
 	.widget-content{
 		margin-top: 50px;
-		&:first-child{
-			margin-top:20px;
-		}
+
 	}
 	.widgettitle, .widget-title{
 		font-size:$widget_title_font_size;
