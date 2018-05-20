@@ -534,21 +534,23 @@ function remove_editoria( $query ) {
 function de_cat_pra_edi(){
 
 	$posts = new WP_Query( array(
-		'posts_per_page' => 1,
+		'posts_per_page' => 999,
 		'tax_query' => array(
 			array(
-				'taxonomy' => 'category',
-				'field'    => 'term_id',
-				'terms'    => array( 29 ),
+				'taxonomy' => '_featured_eo',
+				'field'    => 'slug',
+				'terms'    => array( 'sim' ),
 			),
 		),
 	));
+	// print_r($posts);
+	// die;
 	foreach ($posts->posts as $post) {
 		$post_id = $post->ID;
 		echo $post_id;
 		echo '<br>';
-
-		print_r(wp_set_post_terms( $post_id, 249,'editorias',false));
+		print_r($term = get_term_by('slug','destaque','_featured_eo'));
+		print_r(wp_set_post_terms( $post_id, $term->term_id,'_featured_eo',false));
 	}
 }
 // add_action('wp_head', 'de_cat_pra_edi');
