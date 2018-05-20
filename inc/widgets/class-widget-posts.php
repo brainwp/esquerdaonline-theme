@@ -125,7 +125,7 @@ class EOL_Posts_Widget extends WP_Widget {
 				'classes_widget' => '',
 				'readmore' => '',
 				'posicao' => '',
-				'classes_posts' => '',
+				'classes_posts' => 'exibicao-titulo exibicao-data exibicao-autor tamanho-25 foto-fundo',
 				'number' => 0
 			)
 		);
