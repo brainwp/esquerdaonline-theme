@@ -115,7 +115,7 @@
 		?>
 	</div>
 	<?php
-} else if( !is_tax() && !is_tag()  && has_term( '', 'colunistas', $post->ID )) {
+} else if(is_object($post) && !is_tax() && !is_tag()  && has_term( '', 'colunistas', $post->ID )) {
 		?>
 	<div class="barra-colunistas">
 		<div  class="container">

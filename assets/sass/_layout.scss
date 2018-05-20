@@ -52,6 +52,14 @@
 				font-size: 23px;
 			}
 		}
+		p{
+			font-family: $font_family_p;
+			color: $main_content_color_p;
+		    font-size: 20px;
+		    letter-spacing: 0.2px;
+		    line-height: 33px;
+		    font-weight: 200;
+		}
 	}
 
 }

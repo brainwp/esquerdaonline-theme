@@ -261,14 +261,19 @@ body.single {
 	}
 }
 .continue-reading {
-    padding: 0px 30px;
+    // padding: 0px 30px;
 }
 .base-titulo{
 
 }
-.social-area {
-	.main-post-social{
-		.post-default{
+
+.social-area, .widget-content {
+	.main-post-social, .widget-eol-taxonomy-posts{
+		.post-default, .post-widget-li {
+			.social-icons-post {
+			    display: none;
+				z-index: 99;
+			}
 			.post-thumbnail:hover .social-icons-post {
 				display: block;
 				text-align: center;
@@ -279,6 +284,7 @@ body.single {
 			    transform: translate(-50%, -50%);
 				.icon-itself{
 					display: inline-block;
+					padding:10px;
 
 				}
 			}
@@ -291,9 +297,11 @@ body.single {
 				overflow: hidden;
 				background: #f34824;
 				text-align: center;
+				position: relative;
+
 			}
 			.post-thumbnail:hover a img {
-			    // filter: blur(2px);
+			    filter: blur(2px);
 			    transition: all ease-in-out 100ms;
 			}
 			figure img {
@@ -397,7 +405,7 @@ body.single {
 	    color: $editoria_main;
     	font-size: 20px;
 	}
-	.post-thumbnail {
+	.post-default .post-thumbnail {
 	    padding: 0px 0px;
 	    max-height: 150px;
 	    overflow: hidden;

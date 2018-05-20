@@ -7,7 +7,7 @@
 ?>
 <section class="social-area col-md-12">
 
-	<div class="continue-reading col-md-12">
+	<div class="continue-reading no-padding col-md-12">
 		<?php if ( $terms = wp_get_post_terms( get_the_ID(), 'post_tag' ) ) :
 			$tags = array();
 			foreach ($terms as $term) {
