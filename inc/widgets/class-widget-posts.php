@@ -55,9 +55,6 @@ class EOL_Posts_Widget extends WP_Widget {
 		$text = apply_filters( 'widget_text', $widget_text, $instance, $this );
 
 		echo $args['before_widget'];
-		if ( ! empty( $title ) ) {
-			//echo $args['before_title'] . $title . $args['after_title'];
-		}
 		$query = new WP_Query(
 			array(
 				'posts_per_page' => $number,
@@ -106,6 +103,7 @@ class EOL_Posts_Widget extends WP_Widget {
 		$instance['classes_posts'] = esc_attr( sanitize_text_field( $new_instance['classes_posts'] ) );
 		$instance[ 'posicao' ] = absint( $new_instance[ 'posicao'] );
 		$instance['readmore'] = sanitize_text_field( $new_instance['readmore'] );
+		$instance[ 'number' ] = absint( $new_instance[ 'number'] );
 
 		return $instance;
 	}
@@ -125,7 +123,7 @@ class EOL_Posts_Widget extends WP_Widget {
 				'classes_widget' => '',
 				'readmore' => '',
 				'posicao' => '',
-				'classes_posts' => '',
+				'classes_posts' => 'exibicao-titulo exibicao-data exibicao-autor tamanho-25 foto-fundo',
 				'number' => 0
 			)
 		);
