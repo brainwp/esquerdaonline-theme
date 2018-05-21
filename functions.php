@@ -580,7 +580,7 @@ function myTheme_registerWidgetAreas() {
         ) );
     }
 }
-add_action( 'widgets_init', 'myTheme_registerWidgetAreas' );
+// add_action( 'widgets_init', 'myTheme_registerWidgetAreas' );
 
 add_filter( 'body_class', 'section_id_class' );
 // add classes to body based on custom taxonomy ('sections')

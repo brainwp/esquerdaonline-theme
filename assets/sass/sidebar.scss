@@ -23,6 +23,9 @@ aside#sidebar-colunistas {
 	&:first-child{
 		margin-top:20px;
 	}
+	a.post-link-widget-li{
+
+	}
 }
 aside#sidebar, aside#sidebar-colunistas {
 	.widget-content{
@@ -93,7 +96,7 @@ aside#sidebar-colunistas {
     padding-left: 54px;
     a {
 	    text-decoration: none;
-	    text-transform: uppercase;
+	    // text-transform: uppercase;
 	    color: black;
 	    font-size: 18px;
 	    letter-spacing: $letter_spacing_title;

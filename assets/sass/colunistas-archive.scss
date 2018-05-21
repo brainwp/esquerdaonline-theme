@@ -1,6 +1,11 @@
 .single-post.single-colunistas, .single-colunistas{
 	&.colunistas-template-default{
+		.post-colunista article h2{
+			font-weight: 600;
+			letter-spacing: 0.1px;
+		}
 		.container-colunista{
+
 			@extend .container;
 		}
 	}
@@ -108,7 +113,7 @@
 	.text-left.social-icons-colunist div:first-child {
 	    padding-left: 0px;
 	}
-	article {
+	main > article {
 		min-height: 80vh;
 	    float: left;
 	}
@@ -154,7 +159,6 @@
 			img.wp-post-image{
 				border-radius:200px;
 				display: block;
-				margin: 0 auto;
 			}
 	}
 

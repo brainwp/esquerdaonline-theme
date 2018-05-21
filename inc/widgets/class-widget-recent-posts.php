@@ -70,7 +70,7 @@ class EOL_Recent_Posts_Taxonomy extends WP_Widget {
 				if ( has_term( '', 'colunistas', $post->ID )) {
 					$term = wp_get_post_terms( $post->ID, 'colunistas', array( 'fields' => 'all' ) );
 					$tax = 'colunistas';
-					$title = "Mais desta coluna";
+					$title =$term[0]->name;
 					$veja_mais = "Todas da coluna";
 
 				} else {
