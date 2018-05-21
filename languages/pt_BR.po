@@ -211,7 +211,7 @@ msgstr ", "
 
 # @ odin
 #: ../content.php:51
-msgid "Tagged as:"
+msgid "Marcado como:"
 msgstr "Marcado como:"
 
 # @ odin
