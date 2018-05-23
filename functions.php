@@ -556,31 +556,24 @@ function de_cat_pra_edi(){
 // add_action('wp_head', 'de_cat_pra_edi');
 
 
-function myTheme_registerWidgetAreas() {
-    // Grab all pages except trashed
-    $pages = new WP_Query(Array(
-        'post_type' => 'post',
-        'post_status' => array('publish', 'pending', 'draft', 'auto-draft', 'future', 'private', 'inherit'),
-        'posts_per_page'=>-1
-    ));
-    // Step through each page
-    while ( $pages->have_posts() ) {
-        $pages->the_post();
-        // Ignore pages with no slug
-        if ($pages->post->post_name == '') continue;
-        // Register the sidebar for the page. Note that the id has
-        // to match the name given in the theme template
-        register_sidebar( array(
-            'name'          => 'Widgets do post',
-            'id'            => 'widget_area_for_page_'.$pages->post->post_name,
-            'before_widget' => '',
-            'after_widget'  => '',
-            'before_title'  => '',
-            'after_title'   => '',
+function eol_register_widget_area_by_object_id() {
+	$url = $_SERVER[ 'REQUEST_SCHEME' ] . '://' . $_SERVER[ 'SERVER_NAME' ] . $_SERVER['REQUEST_URI'];
+	$post_id = url_to_postid( $url );
+	$post = get_post( $post_id );
+	// Register the sidebar for the page. Note that the id has
+	// to match the name given in the theme template
+	if ( $post && ! is_wp_error(  $post ) && ! empty( $post->post_name ) ) {
+
+		register_sidebar( array(
+			'name'          => 'Widgets do post',
+			'id'            => 'widget_area_for_page_'.$post->post_name,
+			'before_widget' => '','after_widget'  => '',
+			'before_title'  => '',
+			'after_title'   => '',
         ) );
     }
 }
-// add_action( 'widgets_init', 'myTheme_registerWidgetAreas' );
+add_action( 'widgets_init', 'eol_register_widget_area_by_object_id' );
 
 add_filter( 'body_class', 'section_id_class' );
 // add classes to body based on custom taxonomy ('sections')
