@@ -77,6 +77,9 @@ body.single {
 				i.fab.fa-twitter {
 				    color: #1da1f2;
 				}
+				i{
+					font-size:18px;
+				}
 			}
 		}
 	}
@@ -184,7 +187,7 @@ body.single {
 	.sub-title-main{
 		display: flex;
 	    align-items: center;
-	    justify-content: center;
+	    // justify-content: center;
 	}
 	.sub-title-main .sub-title p{
 		font-family:$font_family_sub_titulo;
@@ -250,7 +253,7 @@ body.single {
 		}
 		footer .entry-meta
 		{
-			margin-top:10px;
+			margin-top:20px;
 			color: #939393;
 			float: left;
 	    text-align: left;

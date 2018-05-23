@@ -28,3 +28,8 @@ $posicao = new Odin_Taxonomy(
     '_featured_eo', // Slug do Taxonomia.
     'post' // Nome do tipo de conteúdo que a taxonomia irá fazer parte.
 );
+$posicao = new Odin_Taxonomy(
+    'Regiões e estado', // Nome (Singular) da nova Taxonomia.
+    'regioes', // Slug do Taxonomia.
+    'post' // Nome do tipo de conteúdo que a taxonomia irá fazer parte.
+);

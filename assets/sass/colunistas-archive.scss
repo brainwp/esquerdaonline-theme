@@ -1,6 +1,11 @@
 .single-post.single-colunistas, .single-colunistas{
 	&.colunistas-template-default{
+		.post-colunista article h2{
+			font-weight: 600;
+			letter-spacing: 0.1px;
+		}
 		.container-colunista{
+
 			@extend .container;
 		}
 	}
@@ -61,7 +66,8 @@
 		}
     }
 	h4.colunista-name{
-		font-size:22px;
+		font-size:24px;
+		font-weight: 900;
 		text-decoration: none;
 		color: #000;
 	}
@@ -70,7 +76,7 @@
 	}
 	div#wrapper.container{
 		article.colunistas{
-			padding-left: 55px;
+			// padding-left: 55px;
 		}
 		// margin-top: 20px;
 		.entry-title-container a:hover{
@@ -82,6 +88,11 @@
 	}
 	.text-left.social-icons-colunist div {
 		    display: inline-block;
+			padding: 10px;
+			i{
+				font-size:18px;
+			}
+
 	}
 	.post-colunista {
 	    margin-top: 20px;
@@ -102,7 +113,8 @@
 	.text-left.social-icons-colunist div:first-child {
 	    padding-left: 0px;
 	}
-	article {
+	main > article {
+		min-height: 80vh;
 	    float: left;
 	}
 }
@@ -147,7 +159,6 @@
 			img.wp-post-image{
 				border-radius:200px;
 				display: block;
-				margin: 0 auto;
 			}
 	}
 
@@ -200,7 +211,6 @@
 	    padding: 0px;
 	    text-align: right;
 	    font-size: 15px;
-			margin-top: 10px;
 	    letter-spacing: $letter_spacing_link;
 			font-weight: 500;
 	}

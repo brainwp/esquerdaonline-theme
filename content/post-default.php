@@ -70,7 +70,7 @@
 			</div><!-- .col-md-12 text-center -->
 			<!-- a.sub-title base-subtitulo -->
 				<a href="<?php get_permalink();?>" class="the-date hidden-sm hidden-xs">
-					<?php printf( __( '%1$s de %2$s, %3$s', 'eol' ), get_the_date( 'd' ), get_the_date( 'F' ), get_the_date( 'Y' ) );?>
+					<?php printf( __( '%1$s de %2$s de %3$s', 'eol' ), get_the_date( 'd' ), get_the_date( 'F' ), get_the_date( 'Y' ) );?>
 					<?php if ( $meta = get_post_meta( get_the_ID(), 'the_author', true ) ) : ?>
 						<?php echo ' • ' . apply_filters( 'the_content', $meta );?>
 					<?php endif;?>

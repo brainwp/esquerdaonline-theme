@@ -32,9 +32,15 @@ $content = apply_filters('the_content', $content);
 
 		<div class="col-md-10 center-container no-padding">
 			<div class="entry-title-container col-md-12 ">
-				<a href="<?php echo get_the_permalink($post_id) ?>">
-					<h4 class="colunista-name"><?php echo get_the_title( $post_id);?></h4>
-				</a>
+				<?php if (!is_singular('colunistas' )): ?>
+					<a href="<?php echo get_the_permalink($post_id) ?>">
+						<h4 class="colunista-name"><?php echo get_the_title( $post_id);?></h4>
+					</a>
+					<?php else:
+						?>
+						<h4 class="colunista-name"><?php echo get_the_title( $post_id);?></h4>
+				<?php endif; ?>
+
 			</div><!-- .col-md-12 entry-title-container -->
 			<div class="entry-title-container col-md-12 text-left">
 				<section class="content-it-self">

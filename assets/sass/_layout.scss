@@ -276,8 +276,11 @@ html {
 }
 
 body {
+	iframe, .tailor-responsive-embed,.fb_iframe_widget_fluid_desktop, .fb_iframe_widget_fluid_desktops span{
+		width:100%!important;
+	}
     margin-bottom: 70px;
-    * {
+    p, h2,h3,h4,h5,h6,a,span {
     	font-family: $font_family_p, 'Roboto', sans-serif;
     }
 }
