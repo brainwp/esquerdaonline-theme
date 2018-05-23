@@ -4,20 +4,24 @@
  *
 */
 jQuery(document).ready(function($) {
-	// setting the tabs in the sidebar hide and show, setting the current tab
-	$('div.tabbed div').hide();
-	$('div.t1').show();
-	$('div.tabbed ul.tabs li.t1 a').addClass('tab-current');
+// Widget de regiões
+	$('div.widget-estados select.regioes').change(function(e){
+		value = $("select.regioes option:selected" ).attr('value');
+		console.log(value)
+		if (value != 0) {
+			$('div.widget-estados select.estados option').addClass('hide');
+			$('div.widget-estados select.estados option.estado.' + value+ '').removeClass('hide');
+		}
+		else{
+			$('div.widget-estados select.estados option').removeClass('hide');
 
-// SIDEBAR TABS
-$('div.tabbed ul li a').click(function(e){
-	e.preventDefault();
-	var thisClass = this.className.split(" ");
-	console.log(thisClass[0]);
-	$('div.tabbed div').hide();
-	$('div.' + thisClass).show();
-	$('div.tabbed ul.tabs li a').removeClass('tab-current');
-	$(this).addClass('tab-current');
+		}
+		$('div.tabbed ul.tabs li a').removeClass('tab-current');
+		$(this).addClass('tab-current');
+	});
+	$('div.widget-estados select.estados').change(function(e){
+		value = $("select.estados option:selected" ).attr('value');
+		window.location.replace(value);
 	});
 
 	$( document ).on( 'click', '.search-icon', function( e ){
