@@ -413,7 +413,13 @@ body {
 	}
 }
 
-
+.widget-estados{
+	background: url(../images/mapa.png);
+	background-position: top left;
+	background-size: 43px;
+	background-repeat: no-repeat;
+	padding-left: 55px;
+}
 select.regioes{
 	select.estados{
 		&option.hide{
@@ -421,4 +427,22 @@ select.regioes{
 		}
 	}
 
+}
+.div-select{
+	border: solid 1px #d0482aa6;
+    background: #f7eeec;
+    padding: 5px;
+    margin: 5px 5px;
+    display: inline-block;
+	border-radius: 5px;
+	select{
+		&:focus, &:hover, &:active{
+			outline:0!important;
+		}
+		background: transparent;
+		max-width: 100%;
+		border: none;
+		color: #413e3e;
+	}
+	display:inline-block;
 }

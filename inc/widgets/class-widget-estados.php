@@ -16,18 +16,22 @@ class EOL_Widget_Estados extends WP_Widget {
 	 * @param array $instance
 	 */
 	public function widget( $args, $instance ) {
+		echo $args['before_widget'];
+		$title = apply_filters( 'widget_title', empty( $instance['title'] ) ? 'Matérias por localidade' : $instance['title'], $instance, $this->id_base );
+		echo $args['before_title'] . $title . $args['after_title'];
+
 		/** This filter is documented in wp-includes/default-widgets.php */
 		$title = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
 
-		$args = [
+		$args_query = [
 			'taxonomy'     => 'regioes',
 			'number'        => 999,
 			'hide_empty'    => true
 		];
-		$regioes = array_values(get_terms( $args ));
+		$regioes = array_values(get_terms( $args_query ));
 		$html = '<div class="widget-estados">';
-		$html_tabs = '<select class="regioes"><option value="0">Regiões</option>';
-		$html_content = '<select class="estados"><option value="0">Estados</option>';
+		$html_tabs = '<div class="div-select"><select class="regioes"><option value="0">Regiões</option>';
+		$html_content = '<div class="div-select"><select class="estados"><option value="0">Estados</option>';
 		$html_array_tabs = array();
 		foreach ($regioes as $regiao ) {
 			if (!$regiao->parent) {
@@ -41,10 +45,12 @@ class EOL_Widget_Estados extends WP_Widget {
 		// foreach ($html_array_tabs as $key => $value) {
 		// 	$html_content .=  '<select class="'.$key.' estados" class="tab-pane fade in "><option value="0">Estados</option>'.$value.'</select>';
 		// }
-		$html_tabs .='</select>';
-		$html_content .= '</select>';
+		$html_tabs .='</select></div>';
+		$html_content .= '</select></div>';
 		$html .=$html_tabs.$html_content.'</div><!-- tabbed -->';
 		echo $html;
+		echo $args['after_widget'];
+
 	}
 
 	/**
@@ -69,9 +75,6 @@ class EOL_Widget_Estados extends WP_Widget {
 		?>
 		<p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label>
 		<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" /></p>
-
-		<p><label for="<?php echo $this->get_field_id( 'posts' ); ?>"><?php _e( 'Numero de colunistas a ser exibido:', 'eol' ); ?></label>
-		<input class="widefat" id="<?php echo $this->get_field_id('posts'); ?>" name="<?php echo $this->get_field_name('posts'); ?>" type="number" value="<?php echo esc_attr($number); ?>" /></p>
 
 <?php
 	}
