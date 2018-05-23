@@ -89,7 +89,7 @@ if ( ! $chamada ) {
 	<div class="post-link-widget-text">
 		<?php if ( in_array( 'exibicao-titulo', $classes_posts ) ) : ?>
 			<h3 class="tax-widget-titulo">
-				<a href="<?php the_permalink( $recent_post->ID ); ?>" >
+				<a href="<?php the_permalink( get_the_ID() ); ?>" >
 					<?php the_title();?>
 				</a>
 			</h3>
@@ -126,11 +126,11 @@ if ( ! $chamada ) {
 		<?php endif;?>
 		<?php if ( in_array( 'exibicao-data', $classes_posts ) ) : ?>
 			<div class="tax-widget-data">
-				<?php echo get_the_date('d\/m\/Y',$recent_post->ID);?>
+				<?php echo get_the_date('d\/m\/Y',get_the_ID());?>
 			</div>
 		<?php endif;?>
 		<?php if ( in_array( 'exibicao-autor', $classes_posts ) ) : ?>
-			<?php if ( $author = get_post_meta( $recent_post->ID, 'the_author', true )) : ?>
+			<?php if ( $author = get_post_meta( get_the_ID(), 'the_author', true )) : ?>
 				<div class="tax-widget-autor">
 					<?php printf( __( ' · %s', 'eol' ), apply_filters( 'the_title', $author) );?>
 				</div>
