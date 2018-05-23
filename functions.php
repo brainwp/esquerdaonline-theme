@@ -601,3 +601,5 @@ function section_id_class( $classes ) {
 	}
     return $classes;
 }
+
+add_filter('widget_text', 'do_shortcode');
