@@ -21,7 +21,7 @@ jQuery(document).ready(function($) {
 	});
 	$('div.widget-estados select.estados').change(function(e){
 		value = $("select.estados option:selected" ).attr('value');
-		window.location.replace(value);
+		window.location(value);
 	});
 
 	$( document ).on( 'click', '.search-icon', function( e ){
