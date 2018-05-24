@@ -118,6 +118,17 @@
 	    float: left;
 	}
 }
+.post-type-archive-colunistas{
+	.post-colunista{
+		article {
+			.post-title{
+				h2{
+					font-weight: 600;
+				}
+			}
+		}
+	}
+}
 .post-type-archive-colunistas, .single-colunistas, .tax-editorias, .tag, .tax-regioes{
 	&.archive{
 		.thumbnail-colunista {

@@ -94,13 +94,16 @@ aside#sidebar, aside#sidebar-colunistas {
 
 aside#sidebar-colunistas {
     padding-left: 54px;
-    a.post-link-widget-li {
-		font-size: 16px;
-	    padding-bottom: 10px;
-	    line-height: 18px;
-	    text-decoration: none;
-	    // text-transform: uppercase;
-	    color: black;
-	    letter-spacing: $letter_spacing_title;
+	li.post-widget-li{
+		margin-bottom:10px;
+		a.post-link-widget-li {
+			font-size: 16px;
+		    padding-bottom: 10px;
+		    line-height: 18px;
+		    text-decoration: none;
+		    color: black;
+		    letter-spacing: $letter_spacing_title;
+		}
 	}
+
 }
