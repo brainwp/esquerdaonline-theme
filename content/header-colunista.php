@@ -23,9 +23,15 @@ $content = apply_filters('the_content', $content);
 		<div class="col-md-2 no-padding ">
 			<section class="post-thumb">
 				<div class="thumbnail-colunista">
-					<a href="<?php echo get_the_permalink( $post_id) ?>">
-						<?php echo get_the_post_thumbnail( $post_id, 'thumbnail' );?>
-					</a>
+					<?php if (!is_singular('colunistas' )): ?>
+						<a href="<?php echo get_the_permalink( $post_id) ?>">
+							<?php echo get_the_post_thumbnail( $post_id, 'thumbnail' );?>
+						</a>
+						<?php else:
+							?>
+							<?php echo get_the_post_thumbnail( $post_id, 'thumbnail' );?>
+					<?php endif; ?>
+
 				</div>
 			</section>
 		</div><!-- .col-md-4 center-container -->
