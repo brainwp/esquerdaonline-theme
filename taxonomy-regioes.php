@@ -28,7 +28,6 @@ get_header('large'); ?>
 					<div class="main-post-social no-padding continue-reading">
 						<?php
 							// Start the Loop.
-							$colunistas_array=array();
 							while ( have_posts() ) : the_post();
 
 								/*
@@ -39,10 +38,12 @@ get_header('large'); ?>
 								 get_template_part( '/content/post-default' );
 
 								// para sidebar:
-								$colunistas_array[get_the_title()] = get_the_permalink();
 							endwhile;
 							// Page navigation.
 							odin_paging_nav();
+							?>
+						</div>
+						<?php  
 
 						else :
 							// If no content, include the "No posts found" template.
@@ -51,7 +52,6 @@ get_header('large'); ?>
 						endif;
 					?>
 
-					</div>
 					<div class="clearfix">
 
 					</div>

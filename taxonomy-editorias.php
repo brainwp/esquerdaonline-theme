@@ -64,6 +64,9 @@ get_header('large'); ?>
 							endwhile;
 							// Page navigation.
 							odin_paging_nav();
+							?>
+							</div>
+							<?php
 
 						else :
 							// If no content, include the "No posts found" template.
@@ -72,7 +75,6 @@ get_header('large'); ?>
 						endif;
 					?>
 
-					</div>
 					<div class="clearfix">
 
 					</div>

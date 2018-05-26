@@ -512,8 +512,7 @@ add_action( 'template_redirect', 'single_colunistas_redirect' );
 // Remove destacadas do loop principal de editorias;
 add_action( 'pre_get_posts', 'remove_editoria' );
 function remove_editoria( $query ) {
-
-    if( $query->is_main_query() && $query->is_tax() ) {
+    if( $query->is_main_query() && $query->is_tax('editoria') ) {
 		$tax_query = array(
 			'taxonomy' => '_featured_eo',
 			'field' => 'slug',
