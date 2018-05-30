@@ -118,7 +118,18 @@
 	    float: left;
 	}
 }
-.post-type-archive-colunistas, .single-colunistas, .tax-editorias, .tag{
+.post-type-archive-colunistas{
+	.post-colunista{
+		article {
+			.post-title{
+				h2{
+					font-weight: 600;
+				}
+			}
+		}
+	}
+}
+.post-type-archive-colunistas, .single-colunistas, .tax-editorias, .tag, .tax-regioes{
 	&.archive{
 		.thumbnail-colunista {
 				img.wp-post-image{
@@ -205,12 +216,16 @@
 	    padding: 0px;
 	    font-size: 15px;
 	    letter-spacing: $letter_spacing_link;
+		margin-top: 10px;
+
 	}
 
 	.coluna-link {
 	    padding: 0px;
 	    text-align: right;
 	    font-size: 15px;
+		margin-top: 10px;
+
 	    letter-spacing: $letter_spacing_link;
 			font-weight: 500;
 	}

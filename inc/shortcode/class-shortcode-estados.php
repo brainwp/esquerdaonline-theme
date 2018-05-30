@@ -26,39 +26,40 @@
 		 * @return string
 		 */
 		public function shortcode( $atts ) {
+
 			$args = [
 			    'taxonomy'     => 'regioes',
-			    'parent'        => 0,
 			    'number'        => 999,
 			    'hide_empty'    => true
 			];
 			$regioes = array_values(get_terms( $args ));
-			$html = '<ul class="nav nav-tabs">';
+			$html = '<div class="tabbed">';
+			$html_tabs = '<ul class="tabs">';
+			$html_content = '';
+			$html_array_tabs = array();
 			foreach ($regioes as $regiao ) {
-				$html .=
-				'<li class="nav-item">
-  			    	<a class="nav-link " href="#">'.$regiao->name.'</a>
-  			  	</li>';
-			}
-			$html .='</ul>';
+				if (!$regiao->parent) {
+					$html_tabs .=
+					'<li class="tab-'.$regiao->term_id.'">
+	  			    	<a class="tab-'.$regiao->term_id.' tab" href="#">'.$regiao->name.'</a>
+	  			  	</li>';
 
+				}
+				else{
+					if (isset($html_array_tabs["tab-" . $regiao->parent] ) ) {
+						$html_array_tabs["tab-" . $regiao->parent] .= '<a>'.$regiao->name.'</a>';
+					}
+					else{
+						$html_array_tabs["tab-" . $regiao->parent] = '<a>'.$regiao->name.'</a>';
+					}
+				}
+			}
+			foreach ($html_array_tabs as $key => $value) {
+				$html_content .=  '<div class="'.$key.'" class="tab-pane fade in ">'.$value.'</div>';
+			}
+			$html_tabs .='</ul>';
+			$html .=$html_tabs.$html_content.'</div><!-- tabbed -->';
 			return $html;
-			$post_id = get_the_ID();
-			if ( $atts[ 'id'] && ! empty( $atts[ 'id'] ) ) {
-				$post_id = absint( $atts[ 'id' ] );
-			}
-			$posts = get_post_meta( $post_id, 'related_articles', true );
-			if ( ! is_array( $posts ) && empty( $posts ) ) {
-				return '';
-			}
-			$html = '<div class="eol_related_articles">';
-			foreach ( $posts as $related_id ) {
-				$html .= '<a class="each-related-article" href="' . get_permalink( $related_id ) . '">';
-				$html .= get_the_title( $related_id );
-				$html .= '</a>';
-			}
-
-			return $html . '</div>';
 		}
 		/**
 		 * Return an instance of this class.
