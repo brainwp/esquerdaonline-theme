@@ -15,8 +15,8 @@
 			<div class="entry-title-container text-center">
 				<?php the_title( '<h1 class="entry-title main-title">', '</h1>' );?>
 			</div><!-- .col-md-10 entry-title-container -->
-			<div class="col-md-12 sub-title-main">
-				<div class="col-md-11 text-center sub-title">
+			<div class="col-md-12 sub-title-main no-padding">
+				<div class="text-center sub-title">
 					<?php if ( $sub_title = get_post_meta( get_the_ID(), 'sub_title', true ) ) {
 						echo apply_filters( 'the_content', $sub_title );
 					}?>
