@@ -555,7 +555,20 @@ function de_cat_pra_edi(){
 }
 // add_action('wp_head', 'de_cat_pra_edi');
 
-
+/**
+ * Retorna o ID da widget area de termos de acordo com o URL do mesmo
+ * @see eol_register_widget_area_by_object_id()
+ * @return string
+ */
+function eol_get_widget_term_id() {
+	$url = str_replace( '?' . $_SERVER[ 'QUERY_STRING'], '', $_SERVER[ 'REQUEST_URI'] );
+	return 'widget_' . str_replace( '/', '_', $url );
+}
+/**
+ * Registra widget area para posts/paginas/termos de acordo com o 'slug' do mesmo
+ * Em caso de termo, usa a função "eol_get_widget_term_id()"
+ * @see eol_get_widget_term_id()
+ */
 function eol_register_widget_area_by_object_id() {
 	$url = $_SERVER[ 'REQUEST_SCHEME' ] . '://' . $_SERVER[ 'SERVER_NAME' ] . $_SERVER['REQUEST_URI'];
 	$post_id = url_to_postid( $url );
@@ -563,15 +576,22 @@ function eol_register_widget_area_by_object_id() {
 	// Register the sidebar for the page. Note that the id has
 	// to match the name given in the theme template
 	if ( $post && ! is_wp_error(  $post ) && ! empty( $post->post_name ) ) {
-
 		register_sidebar( array(
 			'name'          => 'Widgets do post',
-			'id'            => 'widget_area_for_page_'.$post->post_name,
+			'id'            => 'widget_'.$post->post_name,
 			'before_widget' => '','after_widget'  => '',
 			'before_title'  => '',
 			'after_title'   => '',
         ) );
+        return;
     }
+	register_sidebar( array(
+		'name'          => 'Widgets do termo',
+		'id'            => eol_get_widget_term_id(),
+		'before_widget' => '','after_widget'  => '',
+		'before_title'  => '',
+		'after_title'   => '',
+    ) );
 }
 add_action( 'widgets_init', 'eol_register_widget_area_by_object_id' );
 
