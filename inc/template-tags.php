@@ -62,7 +62,7 @@ if ( ! function_exists( 'odin_posted_on' ) ) {
 		}
 
 		// Set up and print post meta information.
-			printf( '<span class="entry-date">Publicado em: <time class="entry-date" datetime="%s">%s</time></span>. <span class="byline">%s <span class="modify-date">  %s</span>.</span>',
+			printf( '<span class="entry-date">Publicado em: <time class="entry-date" datetime="%s">%s</time></span> <span class="byline">%s <span class="modify-date">  %s</span></span>',
 			esc_attr( get_the_date( 'c' ) ),
 			esc_html( get_the_date( 'd/m/Y h\hi' ) ),
 			__( 'Modificado em: ', 'odin' ),
