@@ -42,7 +42,7 @@
 				</div>
 				<a href="<?php the_permalink();?>" class="show-social-icons">
 					<?php
-					eol_single_thumbnail('retangular-p',get_the_ID());
+					eol_single_thumbnail('post-default-thumbnail',get_the_ID());
 					?>
 				</a>
 

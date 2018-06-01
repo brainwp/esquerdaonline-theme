@@ -77,12 +77,12 @@ if ( ! function_exists( 'odin_setup_features' ) ) {
 		 * Add post_thumbnails suport.
 		 */
 		add_theme_support( 'post-thumbnails' );
-		add_image_size( 'post-default-thumbnail', 300, 200, true );
-		add_image_size( 'retangular-p', 330, 190, true );
-		add_image_size( 'retangular-m', 400, 230, true );
+		add_image_size( 'post-default-thumbnail', 330, 185, true );
+		// add_image_size( 'retangular-p', 330, 185, true );
+		add_image_size( 'retangular-m', 400, 225, true );
 		// add_image_size( 'retangular-g', 800, 461, true );
-		add_image_size( 'quadrada-p', 300, 300, true );
-		add_image_size( 'quadrada-g', 800, 800, true );
+		// add_image_size( 'quadrada-p', 300, 300, true );
+		// add_image_size( 'quadrada-g', 800, 800, true );
 		/**
 		 * Add feed link.
 		 */
