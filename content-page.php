@@ -6,9 +6,9 @@
  * @since 2.2.0
  */
 ?>
-<?php the_post_thumbnail( $size = 'full'); ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<?php the_title( '<header class="entry-header"><h1 class="entry-title">', '</h1></header><!-- .entry-header -->' ); ?>
+	<?php the_post_thumbnail( $size = 'full'); ?>
 
 	<div class="entry-content">
 		<?php
