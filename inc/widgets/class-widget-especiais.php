@@ -54,7 +54,7 @@ class EOL_Lista_Especiais extends WP_Widget {
 		$show_date = isset( $instance['show_date'] ) ? $instance['show_date'] : false;
 		$query_args = array(
 			'posts_per_page'      => $number,
-			'post_type' 	      => 'especiais'
+			'post_type' 	      => 'especiais',
 			'no_found_rows'       => true,
 			'post_status'         => 'publish',
 			'ignore_sticky_posts' => true,
