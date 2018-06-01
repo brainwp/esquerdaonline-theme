@@ -33,7 +33,7 @@
 					'fields' => array (
 						array (
 							'key' => 'field_5aea7b0a65c83',
-							'label' => 'Selecione as matérias relacionadas',
+							'label' => 'Selecione as matérias coordenadas',
 							'name' => 'related_articles',
 							'type' => 'relationship',
 							'conditional_logic' => array (
@@ -103,7 +103,7 @@
 			$html = '<div class="eol_related_articles">';
 			foreach ( $posts as $related_id ) {
 				$html .= '<a class="each-related-article" href="' . get_permalink( $related_id ) . '">';
-				$html .= get_the_title( $related_id );
+				$html .= '<i class="fas fa-angle-right"></i>'.get_the_title( $related_id );
 				$html .= '</a>';
 			}
 
