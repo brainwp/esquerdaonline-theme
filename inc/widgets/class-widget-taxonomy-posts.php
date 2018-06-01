@@ -174,13 +174,16 @@ class EOL_Taxonomy_Posts extends WP_Widget {
 							<div class="tax-widget-data">
 								<?php echo get_the_date('d\/m\/Y',$recent_post->ID);?>
 							</div>
-							<?php if ( $author = get_post_meta( $recent_post->ID, 'the_author', true )) { ?>
+							<?php if ( false && $author = get_post_meta( $recent_post->ID, 'the_author', true )) { ?>
 							<div class="tax-widget-autor">
 								<?php
 								printf( __( ' · %s', 'eol' ), apply_filters( 'the_title', $author) );
 								?>
 							</div>
-							<?php } ?>
+							<?php }
+							// if false para não exibir o autor
+
+							?>
 						</div>
 
 				</div>
