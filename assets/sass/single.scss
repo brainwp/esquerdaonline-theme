@@ -137,7 +137,7 @@ body.single, body.page-template-default {
 	header.entry-header {
 		margin-bottom: 16px;
 		display: flex;
-		justify-content: center;
+		text-align: center;
 		@media screen and (max-width:720px ) {
 			div {
 				padding-left:0;
@@ -176,7 +176,7 @@ body.single, body.page-template-default {
 		display: flex;
 		align-content: center;
 		align-items: center;
-		justify-content: center;
+		text-align: center;
 		flex-flow: column;
 	}
 
@@ -192,7 +192,7 @@ body.single, body.page-template-default {
 	.sub-title-main{
 		display: flex;
 	    align-items: center;
-	    // justify-content: center;
+	    // text-align: center;
 	}
 	.sub-title-main .sub-title p{
 		font-family:$font_family_sub_titulo;
@@ -224,7 +224,7 @@ body.single, body.page-template-default {
 				clear: both;
 				overflow: hidden;
 			    display: flex;
-			    justify-content: center;
+			  	text-align: center;
 			    align-items: center;
 				background-repeat: no-repeat, repeat;
 				background-position: right top, left top; /* FF3.6-15 */
@@ -392,7 +392,7 @@ body.single, body.page-template-default {
 	}
 	article.post-default {
 	    display: flex;
-	    justify-content: center;
+	    text-align: center;
 	    align-items: center;
 	}
 	a.editoria.base-editoria {
@@ -418,7 +418,7 @@ body.single, body.page-template-default {
 	    max-height: 150px;
 	    overflow: hidden;
 	  /*  display: flex;
-	    justify-content: center;
+	    text-align: center;
 	    align-items: flex-start;
 	    align-content: center;*/
 	}
@@ -470,7 +470,7 @@ a.show-social-icons {
 
     display: flex;
     align-items: center;
-    justify-content: center;
+   	text-align: center;
     align-content: center;
 
 }
