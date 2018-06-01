@@ -93,7 +93,7 @@
 		 */
 		public function shortcode( $atts ) {
 			$post_id = get_the_ID();
-			if ( $atts[ 'id'] && ! empty( $atts[ 'id'] ) ) {
+			if ( isset($atts[ 'id']) && ! empty( $atts[ 'id'] ) ) {
 				$post_id = absint( $atts[ 'id' ] );
 			}
 			$posts = get_post_meta( $post_id, 'related_articles', true );
