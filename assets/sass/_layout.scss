@@ -454,3 +454,28 @@ select.regioes{
    	color:$red_main;
 
 }
+body.page-template-default #wrapper{
+	header.entry-header{
+		text-transform: uppercase;
+		justify-content: left;
+		text-align: left;
+		h1{
+			font-size: 30px;
+			font-weight: 600;
+			letter-spacing: -0.45px;
+			font-family: "Lato","Roboto",sans-serif;
+			&:after{
+				font-size: 45px;
+				font-weight: 600;
+				letter-spacing: -0.45px;
+				font-family: "Lato","Roboto",sans-serif;
+				content: '>';
+				text-transform: uppercase;
+				vertical-align: top;
+				line-height: 33px;
+				color:$red-main;		
+			}
+		}
+	}
+	min-height: 50vh;
+}

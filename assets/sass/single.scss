@@ -14,7 +14,7 @@
 	padding-left: 0px;
 	padding-right: 0px;
 }
-body.single {
+body.single, body.page-template-default {
 	&.editoria{
 		.barra-editorias {
 			background-image: url('../images/barra-azul.jpg');
@@ -97,15 +97,20 @@ body.single {
 		font-size: 56px;
 	    float: right;
 		color: $red_main;
+		width: 100%;
+		text-align: right;
+		line-height: 45px;
+
 	}
 
 	blockquote:after {
 	    content: '"';
+		line-height: 45px;
 	    font-size: 56px;
 	    float: right;
 	    height: 3px;
 		color: $red_main;
-		margin-bottom: 10px;
+		margin: 15px 0 25px;
 	}
 
 	blockquote{
