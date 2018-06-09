@@ -1,0 +1,17 @@
+.widget-share-site {
+	a {
+		display: inline-block;
+	}
+	a i {
+		font-size: 32px;
+	}
+	i.fa-facebook-f {
+		color:$fb_color;
+	}
+	i.fa-twitter {
+		color:$twitter_color;
+	}
+	i.fa-google-plus {
+		color:$gplus_color;
+	}
+}
