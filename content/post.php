@@ -48,9 +48,11 @@ if ( ! $chamada ) {
 			</a>
 		</h3>
 		<?php echo $chamada; ?>
-		<div class="tax-widget-data">
-			<?php echo get_the_date('d\/m\/Y',get_the_ID());?>
-		</div>
+		<?php if ( in_array( 'exibicao-data' , $classes_posts ) ) : ?>
+			<div class="tax-widget-data">
+				<?php echo get_the_date('d\/m\/Y',get_the_ID());?>
+			</div>
+		<?php endif;?>
 		<?php if ( $author = get_post_meta( get_the_ID(), 'the_author', true )) { ?>
 				<div class="tax-widget-autor">
 						<?php
@@ -124,7 +126,7 @@ if ( ! $chamada ) {
 		<?php if ( in_array( 'exibicao-chamada', $classes_posts ) ) : ?>
 			<?php echo $chamada; ?>
 		<?php endif;?>
-		<?php if ( in_array( 'exibicao-data', $classes_posts ) ) : ?>
+		<?php if ( in_array( 'exibicao-data', $classes_posts )  && ! in_array( 'foto-fundo', $classes_posts ) ) : ?>
 			<div class="tax-widget-data">
 				<?php echo get_the_date('d\/m\/Y',get_the_ID());?>
 			</div>
