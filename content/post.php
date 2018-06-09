@@ -87,7 +87,7 @@ if ( ! $chamada ) {
 		</figure>
 	<?php endif;?>
 	<div class="post-link-widget-text">
-		<?php if ( in_array( 'exibicao-titulo', $classes_posts ) ) : ?>
+		<?php if ( in_array( 'exibicao-titulo', $classes_posts )  && ! in_array( 'foto-fundo', $classes_posts ) ) : ?>
 			<h3 class="tax-widget-titulo">
 				<a href="<?php the_permalink( get_the_ID() ); ?>" >
 					<?php the_title();?>
