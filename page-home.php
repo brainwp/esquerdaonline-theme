@@ -13,9 +13,9 @@
 get_header( 'large' ); ?>
 	<main id="content" class="<?php echo odin_classes_page_full(); ?>" tabindex="-1" role="main">
 		<div class="col-md-12">
+			<?php dynamic_sidebar( 'home-widgets' );?>
 
 		</div><!-- .col-md-12 -->
-		<?php dynamic_sidebar( 'main-sidebar' );?>
 	</main><!-- #main -->
 <?php
 get_footer();

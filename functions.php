@@ -209,6 +209,17 @@ function odin_widgets_init() {
 	);
 	register_sidebar(
 		array(
+			'name' => __( 'Home', 'odin' ),
+			'id' => 'home-widgets',
+			'description' => __( 'Home', 'odin' ),
+			'before_widget' => '',
+			'after_widget' => '',
+			'before_title' => '<h3 class="widgettitle widget-title">',
+			'after_title' => '</h3>',
+		)
+	);
+	register_sidebar(
+		array(
 			'name' => __( 'Colunistas Sidebar', 'odin' ),
 			'id' => 'colunistas-sidebar',
 			'description' => __( 'Barra lateral da página de arquivo de colunistas', 'odin' ),
