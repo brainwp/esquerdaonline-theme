@@ -53,13 +53,15 @@ if ( ! $chamada ) {
 				<?php echo get_the_date('d\/m\/Y',get_the_ID());?>
 			</div>
 		<?php endif;?>
-		<?php if ( $author = get_post_meta( get_the_ID(), 'the_author', true )) { ?>
+		<?php if ( in_array( 'exibicao-autor' , $classes_posts ) ) : ?>
+			<?php if ( $author = get_post_meta( get_the_ID(), 'the_author', true )) { ?>
 				<div class="tax-widget-autor">
 						<?php
 						printf( __( ' · %s', 'eol' ), apply_filters( 'the_title', $author) );
 						?>
 				</div>
-		<?php } ?>
+			<?php } ?>
+		<?php endif;?>
 	</div>
 	<?php endif; // foto-fundo?>
 	<?php if ( in_array( 'foto-esquerda', $classes_posts ) ) : ?>
@@ -131,7 +133,7 @@ if ( ! $chamada ) {
 				<?php echo get_the_date('d\/m\/Y',get_the_ID());?>
 			</div>
 		<?php endif;?>
-		<?php if ( in_array( 'exibicao-autor', $classes_posts ) ) : ?>
+		<?php if ( in_array( 'exibicao-autor', $classes_posts ) && ! in_array( 'foto-fundo', $classes_posts ) ) : ?>
 			<?php if ( $author = get_post_meta( get_the_ID(), 'the_author', true )) : ?>
 				<div class="tax-widget-autor">
 					<?php printf( __( ' · %s', 'eol' ), apply_filters( 'the_title', $author) );?>
