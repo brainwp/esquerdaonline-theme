@@ -578,9 +578,10 @@ function eol_register_widget_area_by_object_id() {
 	register_sidebar( array(
 		'name'          => 'Widgets da página',
 		'id'            => eol_get_widget_object_id(),
-		'before_widget' => '','after_widget'  => '',
-		'before_title'  => '',
-		'after_title'   => '',
+		'before_widget' => '',
+		'after_widget'  => '',
+		'before_title' => '<h3 class="widgettitle widget-title">',
+		'after_title' => '</h3>',
     ) );
 }
 add_action( 'widgets_init', 'eol_register_widget_area_by_object_id' );

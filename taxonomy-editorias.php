@@ -82,8 +82,13 @@ get_header('large'); ?>
 
 	</main><!-- #main -->
 	<aside id="sidebar" class="<?php echo odin_classes_page_sidebar_aside(); ?>" role="complementary">
-		<?php
-		dynamic_sidebar( 'editorias-archive-sidebar' )
+		<?php $sidebar_name = eol_get_widget_object_id(); ?>
+		<?php if ( is_active_sidebar( $sidebar_name ) ) {
+				dynamic_sidebar( $sidebar_name );
+			} else {
+				dynamic_sidebar( $sidebar_name );
+				dynamic_sidebar( 'editorias-archive-sidebar' );
+			}
 		?>
 	</aside><!-- #sidebar -->
 
