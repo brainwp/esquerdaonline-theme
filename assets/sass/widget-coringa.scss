@@ -39,6 +39,7 @@
       &.post-thumbnail{
         img{
           max-width: 100%;
+          width:100%;
         }
       }
     }
@@ -62,7 +63,7 @@
   .tamanho-25{
     @extend .col-md-3;
     h3{
-      font-size:20px;
+      font-size:19px;
       a{
         color:#000;
         &:hover{
@@ -73,7 +74,17 @@
   }
 
   .foto-fundo{
-
+    .post-link-widget-text{
+      position: absolute;
+      bottom:10px;
+      left:50%;
+      transform: translate(-50%,0);
+      width:80%;
+      color:#fff;
+      a, p{
+        color:#fff;
+      }
+    }
   }
   .foto-esquerda{
 
