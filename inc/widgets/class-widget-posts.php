@@ -42,17 +42,6 @@ class EOL_Posts_Widget extends WP_Widget {
 
 		// numero de posts a ser exibido
 		$number = absint( $instance[ 'number'] );
-		/**
-		 * Filter the content of the Text widget.
-		 *
-		 * @since 2.3.0
-		 * @since 4.4.0 Added the `$this` parameter.
-		 *
-		 * @param string         $widget_text The widget content.
-		 * @param array          $instance    Array of settings for the current widget.
-		 * @param WP_Widget_Text $this        Current Text widget instance.
-		 */
-		$text = apply_filters( 'widget_text', $widget_text, $instance, $this );
 
 		echo $args['before_widget'];
 		$query = new WP_Query(
