@@ -15,7 +15,7 @@ if ( ! $chamada ) {
 }
 ?>
 <article class="each-post-widget <?php echo esc_attr( $widget[ 'classes_posts' ] );?>">
-	<?php if ( in_array( 'foto-fundo', $classes_posts ) ) : ?>
+	<?php if ( in_array( 'foto-fundo', $classes_posts ) || in_array( 'foto-cima', $classes_posts ) ) : ?>
 	<figure class=" post-thumbnail">
 		<div class="col-md-12 social-icons-post">
 			<div class="icon-itself">
@@ -91,7 +91,7 @@ if ( ! $chamada ) {
 		</figure>
 	<?php endif;?>
 	<div class="post-link-widget-text">
-		<?php if ( in_array( 'exibicao-titulo', $classes_posts )  && ! in_array( 'foto-fundo', $classes_posts ) ) : ?>
+		<?php if ( in_array( 'exibicao-titulo', $classes_posts )  && !( in_array( 'foto-fundo', $classes_posts ) || in_array( 'foto-cima', $classes_posts ) ) ) : ?>
 			<h3 class="tax-widget-titulo">
 				<a href="<?php the_permalink( get_the_ID() ); ?>" >
 					<?php the_title();?>
@@ -124,23 +124,22 @@ if ( ! $chamada ) {
 			?>
 		</figure>
 		<?php endif;?>
-
-		<?php if ( in_array( 'exibicao-chamada', $classes_posts ) ) : ?>
+		<?php if ( in_array( 'exibicao-chamada', $classes_posts )   && !( in_array( 'foto-fundo', $classes_posts ) || in_array( 'foto-cima', $classes_posts ) ) ) : ?>
 			<?php echo $chamada; ?>
 		<?php endif;?>
-		<?php if ( in_array( 'exibicao-data', $classes_posts )  && ! in_array( 'foto-fundo', $classes_posts ) ) : ?>
+			<?php if ( in_array( 'exibicao-data', $classes_posts )   && !( in_array( 'foto-fundo', $classes_posts ) || in_array( 'foto-cima', $classes_posts ) ) ) : ?>
 			<div class="tax-widget-data">
 				<?php echo get_the_date('d\/m\/Y',get_the_ID());?>
 			</div>
 		<?php endif;?>
-		<?php if ( in_array( 'exibicao-autor', $classes_posts ) && ! in_array( 'foto-fundo', $classes_posts ) ) : ?>
+		<?php if ( in_array( 'exibicao-autor', $classes_posts )   && !( in_array( 'foto-fundo', $classes_posts ) || in_array( 'foto-cima', $classes_posts ) ) ) : ?>
 			<?php if ( $author = get_post_meta( get_the_ID(), 'the_author', true )) : ?>
 				<div class="tax-widget-autor">
 					<?php printf( __( ' · %s', 'eol' ), apply_filters( 'the_title', $author) );?>
 				</div>
 			<?php endif; ?>
 		<?php endif;?>
-		<?php if ( in_array( 'exibicao-relacionadas', $classes_posts ) ) : ?>
+		<?php if ( in_array( 'exibicao-relacionadas', $classes_posts )   && !( in_array( 'foto-fundo', $classes_posts ) || in_array( 'foto-cima', $classes_posts ) ) ) : ?>
 			<div class="eol-post-relacionadas">
 				<?php echo do_shortcode( '[eol_relacionadas]' );?>
 			</div><!-- .eol-post-relacionadas -->
