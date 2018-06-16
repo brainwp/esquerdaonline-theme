@@ -7,31 +7,9 @@
 if(function_exists("register_field_group"))
 {
 	register_field_group(array (
-		'id' => 'acf_campos-adicionais',
-		'title' => 'Campos adicionais',
+		'id' => 'acf_info-noticia',
+		'title' => 'Informações da notícia',
 		'fields' => array (
-			array (
-				'key' => 'field_5a9fe7ad6b1e7',
-				'label' => 'Sub-título',
-				'name' => 'sub_title',
-				'type' => 'textarea',
-				'default_value' => '',
-				'placeholder' => '',
-				'maxlength' => '',
-				'rows' => 9,
-				'formatting' => 'br',
-			),
-			array (
-				'key' => 'field_6a9fe7ad6b1e7',
-				'label' => 'Chamada',
-				'name' => 'chamada',
-				'type' => 'textarea',
-				'default_value' => '',
-				'placeholder' => '',
-				'maxlength' => '',
-				'rows' => 9,
-				'formatting' => 'br',
-			),
 			array (
 				'key' => 'field_5a9fe7e96b1e8',
 				'label' => 'Autor',
@@ -46,14 +24,51 @@ if(function_exists("register_field_group"))
 				'maxlength' => '',
 			),
 			array (
+				'key' => 'field_5a9fe7ad6b1e7',
+				'label' => 'Sub-título',
+				'name' => 'sub_title',
+				'instructions' => 'Será exibido na página da notícia, abaixo do título.',
+				'type' => 'textarea',
+				'default_value' => '',
+				'placeholder' => '',
+				'maxlength' => '',
+				'rows' => 9,
+				'formatting' => 'br',
+			),
+			array (
+				'key' => 'field_6a9fe7ad6b1e7',
+				'label' => 'Chamada',
+				'instructions' => 'Será exibida nos widgets da home',
+				'name' => 'chamada',
+				'type' => 'textarea',
+				'default_value' => '',
+				'placeholder' => '',
+				'maxlength' => '',
+				'rows' => 9,
+				'formatting' => 'br',
+			),
+
+			array (
 				'key' => 'field_5a9fe80d6b1e9',
-				'label' => 'Imagem Retangular',
+				'label' => 'Imagem Widget',
 				'name' => 'thumbnail_single',
 				'type' => 'image',
-				'instructions' => 'Essa imagem será utilizada para todos os widgets que utilizem imagens retangulares e para a imagem de destque na página da notícia.',
+				'instructions' => 'Essa imagem será utilizada Como padrão para os widgets e como imagem da single se marcado o campo abaixo.',
 				'save_format' => 'object',
 				'preview_size' => 'thumbnail',
 				'library' => 'all',
+			),
+			array (
+				'key' => 'field_5b24158bb86b6',
+				'label' => 'Exibir na notícia',
+				'instructions' => 'Marque para usar a imagem do Widget na página da notícia.',
+				'name' => 'exibir_na_single',
+				'type' => 'checkbox',
+				'choices' => array (
+					'true' => 'Sim',
+				),
+				'default_value' => '',
+				'layout' => 'horizontal',
 			),
 		),
 		'location' => array (
@@ -113,3 +128,17 @@ if(function_exists("register_field_group"))
 		'menu_order' => 0,
 	));
 }
+/**
+ * Set Advanced Custom Fields metabox priority.
+ *
+ * @param  string  $priority    The metabox priority.
+ * @param  array   $field_group The field group data.
+ * @return string  $priority    The metabox priority, modified.
+ */
+function km_set_acf_metabox_priority( $priority, $field_group ) {
+	if ( 'Informações da notícia' === $field_group['title'] ) {
+		$priority = 'high';
+	}
+	return $priority;
+}
+add_filter( 'acf/input/meta_box_priority', 'km_set_acf_metabox_priority', 10, 2 );
