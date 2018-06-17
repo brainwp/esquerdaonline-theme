@@ -91,6 +91,15 @@
 	}
   .each-post-widget{
 
+	  &.tamanho-25:nth-of-type(4n+1){
+	  	clear:left;
+	  }
+	  &.tamanho-33:nth-of-type(3n+1){
+	  	clear:left;
+	  }
+	  &.tamanho-50:nth-of-type(2n+1){
+	  	clear:left;
+	  }
 	  &.tamanho-total-100{
 		  h3.tax-widget-titulo{
 			  font-size:42px;
