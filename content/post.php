@@ -153,7 +153,8 @@ if ( ! $chamada ) {
 		</figure>
 		<?php endif;?>
 		<?php if ( in_array( 'exibicao-chamada', $classes_posts )   && ! in_array( 'foto-fundo', $classes_posts )  ) : ?>
-			<?php echo $chamada; ?>
+			<?php $chamada = '<div class="tax-widget-subtitulo">'.apply_filters( 'the_content', $chamada ).'</div>';
+			echo $chamada; ?>
 		<?php endif;?>
 			<?php if ( in_array( 'exibicao-data', $classes_posts )   && !( in_array( 'foto-fundo', $classes_posts ) || in_array( 'foto-cima', $classes_posts ) ) ) : ?>
 			<div class="tax-widget-data">
