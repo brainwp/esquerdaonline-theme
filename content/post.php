@@ -34,6 +34,8 @@ if ( ! $chamada ) {
 }
 ?>
 <article class="each-post-widget tamanho-total-<?php echo $tamanho_total; ?>  <?php echo esc_attr( $widget[ 'classes_posts' ] );?>">
+<div class="flex">
+
 	<?php if ( in_array( 'foto-fundo', $classes_posts ) || in_array( 'foto-cima', $classes_posts ) ) : ?>
 	<figure class=" post-thumbnail">
 		<div class="col-md-12 social-icons-post">
@@ -165,11 +167,7 @@ if ( ! $chamada ) {
 				</div>
 			<?php endif; ?>
 		<?php endif;?>
-		<?php if ( in_array( 'exibicao-relacionadas', $classes_posts )   && !( in_array( 'foto-fundo', $classes_posts ) || in_array( 'foto-cima', $classes_posts ) ) ) : ?>
-			<div class="eol-post-relacionadas">
-				<?php echo do_shortcode( '[eol_relacionadas]' );?>
-			</div><!-- .eol-post-relacionadas -->
-		<?php endif;?>
+
 	</div>
 	<?php if ( in_array( 'foto-direita', $classes_posts ) ) : ?>
 		<figure class=" post-thumbnail">
@@ -196,5 +194,11 @@ if ( ! $chamada ) {
 			echo '</a>';
 			?>
 		</figure>
+	<?php endif;?>
+</div><!--flex-->
+	<?php if ( in_array( 'exibicao-relacionadas', $classes_posts )  ) : ?>
+		<div class="eol-post-relacionadas">
+			<?php echo do_shortcode( '[eol_relacionadas]' );?>
+		</div><!-- .eol-post-relacionadas -->
 	<?php endif;?>
 </article><!-- #post-## -->
