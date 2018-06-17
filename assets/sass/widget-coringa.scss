@@ -119,14 +119,28 @@
 			  .tax-widget-subtitulo{
 				  font-size:20px;
 			  }
+			  .figure{
+				  div a i{
+					  font-size: 30px;
+
+				  }
+			  }
 		  }
 	  }
 	  &.tamanho-total-100{
-		  h3.tax-widget-titulo{
-			  font-size:42px;
+		  .post-link-widget-text{
+			  h3.tax-widget-titulo{
+				  font-size:42px;
+			  }
+			  .tax-widget-subtitulo{
+				  font-size: 25px;
+			  }
 		  }
-		  .tax-widget-subtitulo{
-			  font-size: 25px;
+		  .figure{
+			  div a i{
+				  font-size: 35px;
+
+			  }
 		  }
 	  }
 
