@@ -1,25 +1,5 @@
-.widget-title {
-		@extend .col-md-12;
-		margin-bottom: 10px;
-		margin-top: 0px;
-		font-weight: 700;
-		display: block;
-   		float: none;
-		color:$red_main;
-		text-transform: uppercase;
-		&:after {
-			color:$main_content_color;
-			content:' >';
-			display: inline-block;
-		    margin-left: 4px;
-		    position: relative;
-		    top: 1px;
-		}
-		padding: 0px;
-		letter-spacing: $letter_spacing_title;
-	}
-
-aside#sidebar-colunistas {
+.widget-colunistas{
+	overflow: hidden;
 	&:first-child{
 		margin-top:20px;
 	}
@@ -27,12 +7,13 @@ aside#sidebar-colunistas {
 
 	}
 }
+
+aside#sidebar-colunistas {
+
+}
 aside#sidebar, aside#sidebar-colunistas {
 	.widget-content{
-		overflow: hidden;
-		clear:both;
 		margin-top: 50px;
-		width: 100%;
 
 	}
 	.widgettitle, .widget-title{

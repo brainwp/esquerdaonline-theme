@@ -1,4 +1,3 @@
-<div class="each-colunista">
 	<a href="<?php the_permalink();?>" class="coluna-link">
 		<div class="col-md-2 thumbnail-colunista">
 			<?php the_post_thumbnail( 'thumbnail' );?>
@@ -28,4 +27,3 @@
 	<div class="clearfix">
 
 	</div>
-</div><!-- .each-colunista -->
