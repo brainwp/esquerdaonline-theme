@@ -44,7 +44,7 @@ class EOL_Widget_Colunistas extends WP_Widget {
 				echo '<div class="widget-colunistas">';
 				while( $query->have_posts() ) {?>
 
-					<div class="each-colunista no-padding <?php echo $classes_noticias; ?>">
+					<div class="each-colunista  <?php echo $classes_noticias; ?>">
 					<?php
 					$query->the_post();
 					get_template_part( 'content/each-colunista' );

@@ -32,8 +32,13 @@ aside#sidebar, aside#sidebar-colunistas {
 		overflow: hidden;
 		clear:both;
 		margin-top: 50px;
+
 		width: 100%;
 
+	}
+	.each-colunista{
+		margin-bottom: 18px;
+		padding:0!important;
 	}
 	.widgettitle, .widget-title{
 		font-size:$widget_title_font_size;

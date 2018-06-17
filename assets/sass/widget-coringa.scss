@@ -93,6 +93,9 @@
 		}
 	}
   .each-post-widget{
+	  padding-left:1vw;
+	  padding-right:1vw;
+	  margin-bottom:2vw;
 	  &:hover{
 		  .social-icons-post{
 			  display: block;
@@ -139,6 +142,7 @@
 			  }
 		  }
 	  }
+
 	  &.tamanho-total-100{
 		  .post-link-widget-text{
 			  h3.tax-widget-titulo{
@@ -156,9 +160,7 @@
 		  }
 	  }
 
-	  padding-left:1vw;
-	  padding-right:1vw;
-	  margin-bottom:2vw;
+
 	  .post-link-widget-text{
 		  .tax-widget-autor:nth-of-type(2),.tax-widget-autor:nth-of-type(3){
 			  margin-left:5px;
