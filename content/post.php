@@ -21,7 +21,7 @@ $widget_size = (isset($tamanho_widget_array[1]) ? $tamanho_widget_array[1] : '10
 // echo $post_size;
 // echo $widget_size;
 $tamanho_total = $widget_size * $post_size / 100;
-if ($tamanho_total >= 50) {
+if ($tamanho_total >= 50 ) {
 	$thumb_size = $thumb_size.'-g';
 }
 else{
@@ -57,7 +57,6 @@ if ( ! $chamada ) {
 		echo '<a class="post-thumbnail-link" href="' . get_permalink() . '">';
 		eol_single_thumbnail($thumb_size, get_the_ID() );
 		echo '</a>';
-		$chamada = '<div class="tax-widget-subtitulo">'.apply_filters( 'the_content', $chamada ).'</div>';
 		?>
 	</figure>
 	<div class="overlay-post-link-widget-text">
@@ -68,7 +67,11 @@ if ( ! $chamada ) {
 					<?php the_title();?>
 				</a>
 			</h3>
-			<?php echo $chamada; ?>
+			<?php
+			if ( in_array( 'exibicao-chamada', $classes_posts ) && ! in_array( 'foto-cima', $classes_posts )  ) :
+				$chamada = '<div class="tax-widget-subtitulo">'.apply_filters( 'the_content', $chamada ).'</div>';
+				echo $chamada; 
+			endif;?>
 			<?php if ( in_array( 'exibicao-data' , $classes_posts ) ) : ?>
 				<div class="tax-widget-data">
 					<?php echo get_the_date('d\/m\/Y',get_the_ID());?>
@@ -147,8 +150,8 @@ if ( ! $chamada ) {
 			?>
 		</figure>
 		<?php endif;?>
-		<?php if ( in_array( 'exibicao-chamada', $classes_posts )   && !( in_array( 'foto-fundo', $classes_posts ) || in_array( 'foto-cima', $classes_posts ) ) ) : ?>
-			<?php echo $chamada; ?>
+		<?php if ( in_array( 'exibicao-chamada', $classes_posts )   && ! in_array( 'foto-fundo', $classes_posts )  ) : ?>
+			<?php echo 'ssss'.$chamada; ?>
 		<?php endif;?>
 			<?php if ( in_array( 'exibicao-data', $classes_posts )   && !( in_array( 'foto-fundo', $classes_posts ) || in_array( 'foto-cima', $classes_posts ) ) ) : ?>
 			<div class="tax-widget-data">
