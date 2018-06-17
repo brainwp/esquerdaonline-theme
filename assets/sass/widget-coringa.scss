@@ -41,9 +41,11 @@
 .widget-eol-posts {
 	overflow:hidden;
 	padding:0!important;
+	h2{
+		padding-left:1vw;
+	}
 	&.titulo-grande{
 		h2{
-			padding-left:15px;
 			&:after{
 				font-size:33px;
 			}
