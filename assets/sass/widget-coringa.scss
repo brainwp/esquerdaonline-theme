@@ -31,7 +31,7 @@
    	  		color:#000;
    	  		font-size: 20px;
    	  		&:hover{
-   				text-decoration:none;
+
    	  		}
    		}
   	}
@@ -39,6 +39,9 @@
 
 }
 .widget-eol-posts {
+	a{
+		text-decoration:none;
+	}
 	overflow:hidden;
 	padding:0!important;
 	&.limpa{
@@ -90,7 +93,16 @@
 		}
 	}
   .each-post-widget{
-
+	  &:hover{
+		  .social-icons-post{
+			  display: block;
+		  }
+		  img{
+			  filter: blur(2px);
+			  transition: all ease-in-out 100ms;
+			  opacity: 0.35;
+		  }
+	  }
 	  &.tamanho-25:nth-of-type(4n+1){
 	  	clear:left;
 	  }
@@ -200,17 +212,6 @@
     figure{
       background: #f34824;
       position: relative;
-      &:hover{
-        .social-icons-post{
-          display: block;
-        }
-        img{
-          filter: blur(2px);
-          transition: all ease-in-out 100ms;
-          opacity: 0.35;
-
-        }
-      }
       > div a i{
         opacity: 0.7;
         font-size: 20px;
