@@ -33,7 +33,7 @@ if ( ! $chamada ) {
 	$chamada = '';
 }
 ?>
-<article class="each-post-widget  <?php echo esc_attr( $widget[ 'classes_posts' ] );?>">
+<article class="each-post-widget tamanho-total-<?php echo $tamanho_total; ?>  <?php echo esc_attr( $widget[ 'classes_posts' ] );?>">
 	<?php if ( in_array( 'foto-fundo', $classes_posts ) || in_array( 'foto-cima', $classes_posts ) ) : ?>
 	<figure class=" post-thumbnail">
 		<div class="col-md-12 social-icons-post">

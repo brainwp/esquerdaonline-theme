@@ -1,0 +1,103 @@
+.widget-eol-taxonomy-posts{
+
+	margin-bottom:40px;
+	list-style: none;
+	.post-widget-li{
+		padding: 5px;
+		.post-link-widget-text{
+			margin: 5px;
+
+			.byline{
+				display: none;
+			}
+			.tax-widget-data, .tax-widget-autor{
+				float:left;
+				text-transform: uppercase;
+				font-size: 12px;
+				margin-top:3px;
+			}
+			.tax-widget-titulo{
+				margin-bottom: 0px;
+			}
+			.tax-widget-subtitulo{
+				p{
+					margin:0;
+				}
+			}
+
+		}
+		list-style: none;
+		float:left;
+		position: relative;
+
+		a{
+			&:hover	{
+				text-decoration:none;
+			}
+		}
+		img{
+			width: 100%;
+		}
+		&.index-num-0{
+			width: 66%;
+			.overlay-post-link-widget-text{
+				position:relative;
+				width: 100%;
+
+				.post-link-widget-text{
+					background-repeat: no-repeat, repeat;
+					background-position: right top, left top; /* FF3.6-15 */
+					background-image: -webkit-gradient(
+					  linear, left top, left bottom, from(transparent),
+					  to(rgba(0,0,0,1))
+					);
+					padding: 20px 20px 10px;
+					position: absolute;
+					z-index: 99;
+					bottom:0;
+					left: 0;
+					padding-bottom: 15px;
+					a,p,div,span{
+						color:#fff;
+					}
+
+				}
+			}
+			img{
+				width: 100%;
+			}
+
+		}
+		&.index-num-1{
+			.tax-widget-subtitulo{
+				font-size:13px;
+				// display: none;
+			}
+		}
+		&.index-num-2{
+			clear:left;
+		}
+		&.index-num-1,&.index-num-2, &.index-num-3, &.index-num-4 {
+			width:33%;
+			.post-link-widget-text{
+				a,p,div,span{
+					color:#000;
+				}
+				.tax-widget-titulo{
+					margin-top: 0;
+					font-size: 19px;
+				}
+			}
+
+		}
+		&.index-num-2, &.index-num-3, &.index-num-4 {
+			.tax-widget-subtitulo{
+				// display: none;
+			}
+		}
+	}
+
+	.index-num-1{
+
+	}
+}
