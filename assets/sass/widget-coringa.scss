@@ -39,6 +39,11 @@
 
 }
 .widget-eol-posts {
+	overflow:hidden;
+	padding:0!important;
+	&.limpa{
+		clear:both;
+	}
 	.eol_related_articles{
 		margin-top:0;
 		a{
@@ -48,8 +53,7 @@
 
 		}
 	}
-	overflow:hidden;
-	padding:0!important;
+
 	h2{
 		padding-left:1vw;
 	}
@@ -86,9 +90,7 @@
 		}
 	}
   .each-post-widget{
-	  &.limpa{
-		  clear:both;
-	  }
+
 	  &.tamanho-total-100{
 		  h3.tax-widget-titulo{
 			  font-size:42px;
