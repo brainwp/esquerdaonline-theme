@@ -53,6 +53,15 @@
 	h2{
 		padding-left:1vw;
 	}
+	&.titulo-gigante{
+		h2{
+			font-size:40px;
+			&:after{
+				font-size:44px;
+			}
+
+		}
+	}
 	&.titulo-grande{
 		h2{
 			&:after{
@@ -77,6 +86,17 @@
 		}
 	}
   .each-post-widget{
+	  &.limpa{
+		  clear:both;
+	  }
+	  &.tamanho-total-100{
+		  h3.tax-widget-titulo{
+			  font-size:42px;
+		  }
+		  .tax-widget-subtitulo{
+			  font-size: 25px;
+		  }
+	  }
 	  padding-left:1vw;
 	  padding-right:1vw;
 	  margin-bottom:2vw;
@@ -91,6 +111,13 @@
 		  .tax-widget-data, .tax-widget-autor{
 			  float:left;
 
+		  }
+		  .tax-widget-titulo{
+			  color:#000;
+			  a{
+				  color:#000;
+
+			  }
 		  }
 
 	  }
