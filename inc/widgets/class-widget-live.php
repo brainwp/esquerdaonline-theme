@@ -30,12 +30,12 @@ class EOL_Widget_Video_Live extends WP_Widget {
 		 * @param WP_Widget $instance    WP_Widget instance.
 		 */
 		 ?>
-		 <div class="widget-live-container no-padding  <?php echo $classes; ?> ">
+		 <div class="widget-live-container <?php echo $classes; ?> ">
 			 <?php
 			$posts = apply_filters( 'widget_colunistas_posts', empty( $instance['posts'] ) ? 3 : $instance['posts'], $instance );
 			echo $args['before_widget'];
 			if ( ! empty( $title ) ) {
-				echo '<h2 class="widget-title">' . $title . '</h2>';
+				echo $args['before_title'] . $title . $args['after_title'];
 			}
 			$embed = wp_oembed_get( $url );
 			if ( $embed ) {

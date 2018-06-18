@@ -1,0 +1,10 @@
+.widget-live-container{
+	h2{
+		color: #d0482a;
+	    text-transform: uppercase;
+		&:after {
+	    	content: ">";
+	    	color: #000;
+		}
+	}
+}

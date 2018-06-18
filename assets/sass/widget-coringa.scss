@@ -1,6 +1,7 @@
 .limpa{
 	clear:both;
 }
+
 .home {
 	.widget-content{
 		padding-top: 0px;
@@ -42,11 +43,17 @@
 
 }
 .widget-eol-posts {
+	overflow:hidden;
+	padding:0!important;
+	&.esconder-titulo{
+		.widget-title{
+			visibility:hidden;
+		}
+	}
 	a{
 		text-decoration:none;
 	}
-	overflow:hidden;
-	padding:0!important;
+
 	.eol_related_articles{
 		margin-top:0;
 		a{
@@ -57,7 +64,7 @@
 		}
 	}
 
-	h2{
+	.widget-title{
 		padding-left:1vw;
 	}
 	&.titulo-gigante{
