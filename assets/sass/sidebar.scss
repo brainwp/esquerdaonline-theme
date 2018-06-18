@@ -28,6 +28,9 @@ aside#sidebar-colunistas {
 	}
 }
 aside#sidebar, aside#sidebar-colunistas {
+	.widget-eol-posts {
+		clear:both;
+	}
 	.widget-content{
 		overflow: hidden;
 		clear:both;
@@ -36,10 +39,19 @@ aside#sidebar, aside#sidebar-colunistas {
 		width: 100%;
 
 	}
-	.each-colunista{
-		margin-bottom: 18px;
-		padding:0!important;
+	.widget-colunistas{
+		.widget-content{
+			.widget-title{
+				padding-left:0;
+			}
+			.each-colunista{
+				margin-bottom: 18px;
+				padding:0!important;
+			}
+		}
 	}
+
+
 	.widgettitle, .widget-title{
 		font-size:$widget_title_font_size;
 		letter-spacing: 0;
