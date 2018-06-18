@@ -46,6 +46,7 @@ class EOL_Posts_Widget extends WP_Widget {
 		$query = new WP_Query(
 			array(
 				'posts_per_page' => $number,
+				'post_type' => array('post', 'especiais'),
 				'tax_query' => array(
 					array(
 						'taxonomy' => '_featured_eo',

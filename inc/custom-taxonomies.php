@@ -26,7 +26,7 @@ require_once get_template_directory() . '/inc/class-colunistas.php';
 $posicao = new Odin_Taxonomy(
     'Posição', // Nome (Singular) da nova Taxonomia.
     '_featured_eo', // Slug do Taxonomia.
-    'post' // Nome do tipo de conteúdo que a taxonomia irá fazer parte.
+    array('post', 'especiais') // Nome do tipo de conteúdo que a taxonomia irá fazer parte.
 );
 $posicao = new Odin_Taxonomy(
     'Regiões e estado', // Nome (Singular) da nova Taxonomia.
