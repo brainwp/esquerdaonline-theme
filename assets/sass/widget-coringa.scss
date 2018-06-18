@@ -1,3 +1,6 @@
+.limpa{
+	clear:both;
+}
 .home {
 	.widget-content{
 		padding-top: 0px;
@@ -44,9 +47,6 @@
 	}
 	overflow:hidden;
 	padding:0!important;
-	&.limpa{
-		clear:both;
-	}
 	.eol_related_articles{
 		margin-top:0;
 		a{
@@ -154,8 +154,7 @@
 		  }
 		  figure{
 			  div a i{
-				  font-size: 30px;
-
+				  font-size: 28px;
 			  }
 		  }
 	  }
@@ -216,7 +215,7 @@
       position: relative;
       > div a i{
         opacity: 0.7;
-        font-size: 20px;
+        font-size: 28px;
         display: inline-block;
         color: #fff !important;
       }
