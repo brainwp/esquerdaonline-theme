@@ -1,14 +1,14 @@
 .widget-colunistas{
 	.widget-content{
-		margin-bottom:2vw;
+		margin-bottom:$padding-noticia;
 		.colunistas-link{
-			padding: 1vw;
+			padding: $padding-noticia;
 			font-size: 18px;
 			font-weight: 700;
 		}
 	}
 	.widget-title{
-		padding-left:1vw;
+		padding-left:$padding-noticia;
 	}
 	overflow: hidden;
 	&:first-child{
@@ -18,9 +18,9 @@
 
 	}
 	.each-colunista {
-		padding-left:1vw;
-		padding-right:1vw;
-		margin-bottom:2vw;
+		padding-left:$padding-noticia;
+		padding-right:$padding-noticia;
+		margin-bottom:$padding-noticia;
 		&.tamanho-50:nth-of-type(2n+1), &.tamanho-33:nth-of-type(3n+1){
 			clear:left;
 		}

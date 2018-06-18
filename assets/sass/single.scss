@@ -337,19 +337,19 @@ body.single, body.page-template-default {
 			&:hover img {
 				opacity: 0.35;
 			}
-			&:hover > div i {
+			&:hover  div i {
 				opacity: 0.7;
 			}
-			&:hover > div i:hover{
+			&:hover:hover  div i:hover{
 				opacity:1;
 			}
-			&:hover > div i.left-icon {
+			&:hover:hover  div i.left-icon {
 
 			}
-			&:hover > div i.right-icon {
+			&:hover:hover  div i.right-icon {
 
 			}
-			&:hover > div::before {
+			&:hover:hover  div::before {
 				background: rgba(255, 255, 255, 0);
 				left: 30px;
 				right: 30px;
