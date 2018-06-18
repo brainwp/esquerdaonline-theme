@@ -48,6 +48,9 @@ aside#sidebar, aside#sidebar-colunistas {
 				padding-left:0;
 			}
 			.each-colunista{
+				&:first-child{
+					margin-top:15px;
+				}
 				margin-bottom: 18px;
 				padding:0!important;
 			}
