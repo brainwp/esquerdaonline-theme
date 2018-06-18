@@ -29,20 +29,24 @@ class EOL_Widget_Video_Live extends WP_Widget {
 		 * @param string    $widget_text The widget content.
 		 * @param WP_Widget $instance    WP_Widget instance.
 		 */
-		$posts = apply_filters( 'widget_colunistas_posts', empty( $instance['posts'] ) ? 3 : $instance['posts'], $instance );
-		echo $args['before_widget'];
-		echo '<div class="widget-video-live '.$classes.'">';
-		if ( ! empty( $title ) ) {
-			echo $args['before_title'] . $title . $args['after_title'];
-		}
-		$embed = wp_oembed_get( $url );
-		if ( $embed ) {
-			echo $embed;
-		}
-		echo '</div>';
-		?>
+		 ?>
+		 <div class="widget-live-container no-padding  <?php echo $classes; ?> ">
+			 <?php
+			$posts = apply_filters( 'widget_colunistas_posts', empty( $instance['posts'] ) ? 3 : $instance['posts'], $instance );
+			echo $args['before_widget'];
+			if ( ! empty( $title ) ) {
+				echo $args['before_title'] . $title . $args['after_title'];
+			}
+			$embed = wp_oembed_get( $url );
+			if ( $embed ) {
+				echo $embed;
+			}
+			?>
+			<?php
+			echo $args['after_widget'];
+			?>
+		</div> <!--widget-live-container-->
 		<?php
-		echo $args['after_widget'];
 	}
 
 	/**
