@@ -35,7 +35,7 @@ class EOL_Widget_Video_Live extends WP_Widget {
 			$posts = apply_filters( 'widget_colunistas_posts', empty( $instance['posts'] ) ? 3 : $instance['posts'], $instance );
 			echo $args['before_widget'];
 			if ( ! empty( $title ) ) {
-				echo $args['before_title'] . $title . $args['after_title'];
+				echo '<h2 class="widget-title">' . $title . '</h2>';
 			}
 			$embed = wp_oembed_get( $url );
 			if ( $embed ) {
