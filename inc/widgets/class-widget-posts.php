@@ -56,7 +56,7 @@ class EOL_Posts_Widget extends WP_Widget {
 			)
 		);
 		if ( $query->have_posts() ) {
-			printf( '<div class="widget-eol-posts %s">', esc_attr( $instance[ 'classes_widget' ] ) );
+			printf( '<div class="widget-eol-posts widget-container %s">', esc_attr( $instance[ 'classes_widget' ] ) );
 			if ( ! empty( $title ) ) {
 				echo $args['before_title'] . $title . $args['after_title'];
 			}

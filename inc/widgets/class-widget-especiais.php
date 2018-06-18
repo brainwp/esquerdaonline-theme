@@ -81,7 +81,9 @@ class EOL_Lista_Especiais extends WP_Widget {
 			return;
 		}
 		?>
-		<?php echo $args['before_widget']; ?>
+		<div class="widget-container widget-especiais">
+			<?php
+			echo $args['before_widget']; ?>
 		<?php
 		if ( $title ) {
 			echo $args['before_title'] . $title . $args['after_title'];
@@ -106,6 +108,9 @@ class EOL_Lista_Especiais extends WP_Widget {
 		<?php endif;?>
 		<?php
 		echo $args['after_widget'];
+		?>
+	</div>
+	<?php 
 	}
 
 	/**

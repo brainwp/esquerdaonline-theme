@@ -16,6 +16,9 @@ class EOL_Widget_Estados extends WP_Widget {
 	 * @param array $instance
 	 */
 	public function widget( $args, $instance ) {
+		?>
+		<div class="widget-container widget-estados-container">
+			<?php
 		echo $args['before_widget'];
 		$title = apply_filters( 'widget_title', empty( $instance['title'] ) ? 'Matérias por localidade' : $instance['title'], $instance, $this->id_base );
 		echo $args['before_title'] . $title . $args['after_title'];
@@ -49,7 +52,9 @@ class EOL_Widget_Estados extends WP_Widget {
 		$html_content .= '</select></div>';
 		$html .=$html_tabs.$html_content.'</div><!-- tabbed -->';
 		echo $html;
-		echo $args['after_widget'];
+		echo $args['after_widget'];?>
+	</div>
+	<?php
 
 	}
 

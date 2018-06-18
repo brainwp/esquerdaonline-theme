@@ -110,7 +110,9 @@ class EOL_Taxonomy_Posts extends WP_Widget {
 			return;
 		}
 		?>
-		<?php echo $args['before_widget']; ?>
+		<div class="widget-container widget-socials">
+			<?php
+			 echo $args['before_widget']; ?>
 		<?php
 		if ( $title ) {
 			echo $args['before_title'] . $title . $args['after_title'];
@@ -196,7 +198,9 @@ class EOL_Taxonomy_Posts extends WP_Widget {
 			</div>
 		</div>
 		<?php
-		echo $args['after_widget'];
+		echo $args['after_widget'];?>
+	</div>
+	<?php
 	}
 
 	/**

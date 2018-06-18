@@ -334,22 +334,22 @@ body.single, body.page-template-default {
 				transition-delay: 0s;
 			}
 
-			figure:hover img {
+			&:hover img {
 				opacity: 0.35;
 			}
-			figure:hover > div i {
+			&:hover > div i {
 				opacity: 0.7;
 			}
-			figure:hover > div i:hover{
+			&:hover > div i:hover{
 				opacity:1;
 			}
-			figure:hover > div i.left-icon {
+			&:hover > div i.left-icon {
 
 			}
-			figure:hover > div i.right-icon {
+			&:hover > div i.right-icon {
 
 			}
-			figure:hover > div::before {
+			&:hover > div::before {
 				background: rgba(255, 255, 255, 0);
 				left: 30px;
 				right: 30px;

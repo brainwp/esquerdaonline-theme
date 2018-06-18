@@ -18,23 +18,28 @@ class EOL_Widget_Share_Site extends WP_Widget {
 	public function widget( $args, $instance ) {
 		/** This filter is documented in wp-includes/default-widgets.php */
 		$title = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
-		echo $args['before_widget'];
-		if ( ! empty( $title ) ) {
-			echo $args['before_title'] . $title . $args['after_title'];
-		} ?>
-		<div class="widget-share-site">
-			<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo home_url();?>">
-				<i class="fab fa-facebook-f"></i>
-			</a>
-			<a target="_blank" href="https://twitter.com/intent/tweet?text=<?php echo home_url();?>">
-					<i class="fab fa-twitter"></i>
-			</a>
-			<a target="_blank" href="https://plus.google.com/share?url=https://esquerdaonline.com.br">
-				<i class="fab fa-google-plus"></i>
-			</a>
-		</div><!-- .widget-share-site -->
-		<?php
-		echo $args['after_widget'];
+		?>
+		<div class="widget-container widget-socials">
+			<?php
+			echo $args['before_widget'];
+			if ( ! empty( $title ) ) {
+				echo $args['before_title'] . $title . $args['after_title'];
+			} ?>
+			<div class="widget-share-site">
+				<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo home_url();?>">
+					<i class="fab fa-facebook-f"></i>
+				</a>
+				<a target="_blank" href="https://twitter.com/intent/tweet?text=<?php echo home_url();?>">
+						<i class="fab fa-twitter"></i>
+				</a>
+				<a target="_blank" href="https://plus.google.com/share?url=https://esquerdaonline.com.br">
+					<i class="fab fa-google-plus"></i>
+				</a>
+			</div><!-- .widget-share-site -->
+			<?php
+			echo $args['after_widget'];?>
+		</div>
+		<?php 
 	}
 
 	/**
