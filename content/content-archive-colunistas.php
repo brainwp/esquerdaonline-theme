@@ -44,7 +44,7 @@
 				<?php endif;?>
 				<?php if ( $value = get_post_meta( get_the_ID(), 'email', true ) ) : ?>
 				<div class="icon-itself">
-					<a href="mailto:<?php echo esc_url( $value );?>">
+					<a href="mailto:<?php echo sanitize_email( $value );?>">
 						<i class="fas fa-envelope"></i>
 					</a>
 				</div>

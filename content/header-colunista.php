@@ -57,21 +57,41 @@ $content = apply_filters('the_content', $content);
 				</section>
 			</div><!-- .col-md-12 entry-title-container -->
 			<div class="col-md-12 text-left social-icons-colunist">
+				<?php if ( $value = get_post_meta( $post_id, 'facebook', true ) ) : ?>
 				<div class="icon-itself">
-					<a href="#">
+					<a href="<?php echo esc_url( $value );?>">
 						<i class="fab fa-facebook-f"></i>
 					</a>
 				</div>
+				<?php endif;?>
+				<?php if ( $value = get_post_meta( $post_id, 'twitter', true ) ) : ?>
 				<div class="icon-itself">
-					<a href="#">
+					<a href="<?php echo esc_url( $value );?>">
 						<i class="fab fa-twitter"></i>
 					</a>
 				</div>
+				<?php endif;?>
+				<?php if ( $value = get_post_meta( $post_id, 'google_plus', true ) ) : ?>
 				<div class="icon-itself">
-					<a href="#">
+					<a href="<?php echo esc_url( $value );?>">
 						<i class="fab fa-google-plus"></i>
 					</a>
 				</div>
+				<?php endif;?>
+				<?php if ( $value = get_post_meta( $post_id, 'instagram', true ) ) : ?>
+				<div class="icon-itself">
+					<a href="<?php echo esc_url( $value );?>">
+						<i class="fab fa-instagram"></i>
+					</a>
+				</div>
+				<?php endif;?>
+				<?php if ( $value = get_post_meta( $post_id, 'email', true ) ) : ?>
+				<div class="icon-itself">
+					<a href="mailto:<?php echo sanitize_email( $value );?>">
+						<i class="fas fa-envelope"></i>
+					</a>
+				</div>
+				<?php endif;?>
 			</div><!-- .col-md-6 social-icons-post -->
 		</div><!-- .col-md-8 center-container -->
 	</div>
