@@ -65,4 +65,30 @@ jQuery(document).ready(function($) {
 			return;
 		}
 	});
+	/**
+	 *
+	 * Share posts on hover
+	 *
+	*/
+	$( document ).on( 'click', 'figure i', function( e ){
+		e.preventDefault();
+		var url = $( this ).parent().parent().parent().parent().find( '.show-social-icons' ).attr( 'href' );
+		if ( $( this ).hasClass( 'fa-facebook-f' ) ) {
+			eol_fb_share( url );
+			return;
+		}
+		if ( $( this ).hasClass( 'fa-twitter' ) ) {
+			eol_twitter_share( url );
+			return;
+		}
+		if ( $( this ).hasClass( 'fa-google-plus' ) ) {
+			eol_gplus_share( url );
+			return;
+		}
+		if ( $( this ).hasClass( 'fa-print' ) ) {
+			eol_print_share();
+			return;
+		}
+
+	});
 });
