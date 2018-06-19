@@ -142,7 +142,7 @@ class EOL_Taxonomy_Posts extends WP_Widget {
 
 						<div class="icon-itself">
 							<a href="#">
-								<i class="fab fa-instagram"></i>
+								<i class="fab fa-google-plus"></i>
 							</a>
 						</div>
 

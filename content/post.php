@@ -9,34 +9,13 @@
  */
 $widget = $GLOBALS[ 'current_widget' ];
 $classes_posts = explode( ' ', $widget[ 'classes_posts' ] );
-preg_match("/thumb-([^\s]+)/", $widget[ 'classes_posts' ], $tumb_array);
-preg_match("/tamanho-([^\s]+)/", $widget[ 'classes_posts' ], $tamanho_array);
-preg_match("/tamanho-([^\s]+)/", $widget[ 'classes_widget' ], $tamanho_widget_array);
-// print_r($tamanho_array);
-
-$thumb_size = (isset($tumb_array[1]) ? $tumb_array[1] : 'quadrada');
-$post_size = (isset($tamanho_array[1]) ? $tamanho_array[1] : '25');
-$widget_size = (isset($tamanho_widget_array[1]) ? $tamanho_widget_array[1] : '100');
-
-// echo $post_size;
-// echo $widget_size;
-$tamanho_total = $widget_size * $post_size / 100;
-if ($tamanho_total >= 50 ) {
-	$thumb_size = $thumb_size.'-g';
-}
-else{
-	$thumb_size = $thumb_size.'-p';
-}
-
 $chamada = get_post_meta( get_the_ID(), 'chamada', true );
 if ( ! $chamada ) {
 	$chamada = '';
 }
 ?>
-<article class="each-post-widget tamanho-total-<?php echo $tamanho_total; ?>  <?php echo esc_attr( $widget[ 'classes_posts' ] );?>">
-<div class="flex">
-
-	<?php if ( in_array( 'foto-fundo', $classes_posts ) || in_array( 'foto-cima', $classes_posts ) ) : ?>
+<article class="each-post-widget <?php echo esc_attr( $widget[ 'classes_posts' ] );?>">
+	<?php if ( in_array( 'foto-fundo', $classes_posts ) ) : ?>
 	<figure class=" post-thumbnail">
 		<div class="col-md-12 social-icons-post">
 			<div class="icon-itself">
@@ -51,46 +30,39 @@ if ( ! $chamada ) {
 			</div>
 			<div class="icon-itself">
 				<a href="#">
-					<i class="fab fa-instagram"></i>
+					<i class="fab fa-google-plus"></i>
 				</a>
 			</div>
 		</div>
 		<?php
 		echo '<a class="post-thumbnail-link" href="' . get_permalink() . '">';
-		eol_single_thumbnail($thumb_size, get_the_ID() );
+		eol_single_thumbnail('retangular-m', get_the_ID() );
 		echo '</a>';
+		$chamada = '<div class="tax-widget-subtitulo">'.apply_filters( 'the_content', $chamada ).'</div>';
 		?>
 	</figure>
-	<div class="overlay-post-link-widget-text">
-		<div class="post-link-widget-text" >
-
-			<h3 class="tax-widget-titulo">
-				<a href="<?php the_permalink(); ?>" >
-					<?php the_title();?>
-				</a>
-			</h3>
-			<?php
-			if ( in_array( 'exibicao-chamada', $classes_posts ) && ! in_array( 'foto-cima', $classes_posts )  ) :
-				$chamada = '<div class="tax-widget-subtitulo">'.apply_filters( 'the_content', $chamada ).'</div>';
-				echo $chamada;
-			endif;?>
-			<?php if ( in_array( 'exibicao-data' , $classes_posts ) ) : ?>
-				<div class="tax-widget-data">
-					<?php echo get_the_date('d\/m\/Y',get_the_ID().' ');?>
+	<div class="post-link-widget-text" >
+		<h3 class="tax-widget-titulo">
+			<a href="<?php the_permalink(); ?>" >
+				<?php the_title();?>
+			</a>
+		</h3>
+		<?php echo $chamada; ?>
+		<?php if ( in_array( 'exibicao-data' , $classes_posts ) ) : ?>
+			<div class="tax-widget-data">
+				<?php echo get_the_date('d\/m\/Y',get_the_ID());?>
+			</div>
+		<?php endif;?>
+		<?php if ( in_array( 'exibicao-autor' , $classes_posts ) ) : ?>
+			<?php if ( $author = get_post_meta( get_the_ID(), 'the_author', true )) { ?>
+				<div class="tax-widget-autor">
+						<?php
+						printf( __( ' · %s', 'eol' ), apply_filters( 'the_title', $author) );
+						?>
 				</div>
-			<?php endif;?>
-			<?php if ( in_array( 'exibicao-autor' , $classes_posts ) ) : ?>
-				<?php if ( $author = get_post_meta( get_the_ID(), 'the_author', true )) { ?>
-					<div class="tax-widget-autor">
-							<?php
-							printf( __( '%s', 'eol' ), apply_filters( 'the_title', $author) );
-							?>
-					</div>
-				<?php } ?>
-			<?php endif;?>
-		</div>
+			<?php } ?>
+		<?php endif;?>
 	</div>
-
 	<?php endif; // foto-fundo?>
 	<?php if ( in_array( 'foto-esquerda', $classes_posts ) ) : ?>
 		<figure class=" post-thumbnail">
@@ -107,19 +79,19 @@ if ( ! $chamada ) {
 				</div>
 				<div class="icon-itself">
 					<a href="#">
-						<i class="fab fa-instagram"></i>
+						<i class="fab fa-google-plus"></i>
 					</a>
 				</div>
 			</div>
 			<?php
 			echo '<a class="post-thumbnail-link" href="' . get_permalink() . '">';
-			eol_single_thumbnail($thumb_size, get_the_ID() );
+			eol_single_thumbnail('retangular-m', get_the_ID() );
 			echo '</a>';
 			?>
 		</figure>
 	<?php endif;?>
 	<div class="post-link-widget-text">
-		<?php if ( in_array( 'exibicao-titulo', $classes_posts )  && !( in_array( 'foto-fundo', $classes_posts ) || in_array( 'foto-cima', $classes_posts ) ) ) : ?>
+		<?php if ( in_array( 'exibicao-titulo', $classes_posts )  && ! in_array( 'foto-fundo', $classes_posts ) ) : ?>
 			<h3 class="tax-widget-titulo">
 				<a href="<?php the_permalink( get_the_ID() ); ?>" >
 					<?php the_title();?>
@@ -141,34 +113,38 @@ if ( ! $chamada ) {
 				</div>
 				<div class="icon-itself">
 					<a href="#">
-						<i class="fab fa-instagram"></i>
+						<i class="fab fa-google-plus"></i>
 					</a>
 				</div>
 			</div>
 			<?php
 			echo '<a class="post-thumbnail-link" href="' . get_permalink() . '">';
-			eol_single_thumbnail($thumb_size, get_the_ID() );
+			eol_single_thumbnail('retangular-m', get_the_ID() );
 			echo '</a>';
 			?>
 		</figure>
 		<?php endif;?>
-		<?php if ( in_array( 'exibicao-chamada', $classes_posts )   && ! in_array( 'foto-fundo', $classes_posts )  ) : ?>
-			<?php $chamada = '<div class="tax-widget-subtitulo">'.apply_filters( 'the_content', $chamada ).'</div>';
-			echo $chamada; ?>
+
+		<?php if ( in_array( 'exibicao-chamada', $classes_posts ) ) : ?>
+			<?php echo $chamada; ?>
 		<?php endif;?>
-			<?php if ( in_array( 'exibicao-data', $classes_posts )   && !( in_array( 'foto-fundo', $classes_posts ) || in_array( 'foto-cima', $classes_posts ) ) ) : ?>
+		<?php if ( in_array( 'exibicao-data', $classes_posts )  && ! in_array( 'foto-fundo', $classes_posts ) ) : ?>
 			<div class="tax-widget-data">
-				<?php echo get_the_date('d\/m\/Y',get_the_ID()).' ';?>
+				<?php echo get_the_date('d\/m\/Y',get_the_ID());?>
 			</div>
 		<?php endif;?>
-		<?php if ( in_array( 'exibicao-autor', $classes_posts )   && !( in_array( 'foto-fundo', $classes_posts ) || in_array( 'foto-cima', $classes_posts ) ) ) : ?>
+		<?php if ( in_array( 'exibicao-autor', $classes_posts ) && ! in_array( 'foto-fundo', $classes_posts ) ) : ?>
 			<?php if ( $author = get_post_meta( get_the_ID(), 'the_author', true )) : ?>
 				<div class="tax-widget-autor">
-					<?php printf( __( '%s', 'eol' ), apply_filters( 'the_title', $author) );?>
+					<?php printf( __( ' · %s', 'eol' ), apply_filters( 'the_title', $author) );?>
 				</div>
 			<?php endif; ?>
 		<?php endif;?>
-
+		<?php if ( in_array( 'exibicao-relacionadas', $classes_posts ) ) : ?>
+			<div class="eol-post-relacionadas">
+				<?php echo do_shortcode( '[eol_relacionadas]' );?>
+			</div><!-- .eol-post-relacionadas -->
+		<?php endif;?>
 	</div>
 	<?php if ( in_array( 'foto-direita', $classes_posts ) ) : ?>
 		<figure class=" post-thumbnail">
@@ -185,21 +161,15 @@ if ( ! $chamada ) {
 				</div>
 				<div class="icon-itself">
 					<a href="#">
-						<i class="fab fa-instagram"></i>
+						<i class="fab fa-google-plus"></i>
 					</a>
 				</div>
 			</div>
 			<?php
 			echo '<a class="post-thumbnail-link" href="' . get_permalink() . '">';
-			eol_single_thumbnail($thumb_size, get_the_ID() );
+			eol_single_thumbnail('retangular-m', get_the_ID() );
 			echo '</a>';
 			?>
 		</figure>
-	<?php endif;?>
-</div><!--flex-->
-	<?php if ( in_array( 'exibicao-relacionadas', $classes_posts )  ) : ?>
-		<div class="eol-post-relacionadas">
-			<?php echo do_shortcode( '[eol_relacionadas]' );?>
-		</div><!-- .eol-post-relacionadas -->
 	<?php endif;?>
 </article><!-- #post-## -->
