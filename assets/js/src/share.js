@@ -73,6 +73,9 @@ jQuery(document).ready(function($) {
 	$( document ).on( 'click', 'figure i', function( e ){
 		e.preventDefault();
 		var url = $( this ).parent().parent().parent().parent().find( '.show-social-icons' ).attr( 'href' );
+		if ( ! url ) {
+			var url = $( this ).parent().parent().parent().parent().find( '.post-thumbnail-link' ).attr( 'href' );
+		}
 		if ( $( this ).hasClass( 'fa-facebook-f' ) ) {
 			eol_fb_share( url );
 			return;
