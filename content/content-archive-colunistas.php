@@ -14,26 +14,42 @@
 			</div>
 			<!--  .col-md-8-->
 			<div class="colunista-social no-padding text-right col-md-6">
+				<?php if ( $value = get_post_meta( get_the_ID(), 'facebook', true ) ) : ?>
 				<div class="icon-itself">
-					<a href="#">
+					<a href="<?php echo esc_url( $value );?>">
 						<i class="fab fa-facebook-f"></i>
 					</a>
 				</div>
+				<?php endif;?>
+				<?php if ( $value = get_post_meta( get_the_ID(), 'twitter', true ) ) : ?>
 				<div class="icon-itself">
-					<a href="#">
+					<a href="<?php echo esc_url( $value );?>">
 						<i class="fab fa-twitter"></i>
 					</a>
 				</div>
+				<?php endif;?>
+				<?php if ( $value = get_post_meta( get_the_ID(), 'google_plus', true ) ) : ?>
 				<div class="icon-itself">
-					<a href="#">
+					<a href="<?php echo esc_url( $value );?>">
 						<i class="fab fa-google-plus"></i>
 					</a>
 				</div>
+				<?php endif;?>
+				<?php if ( $value = get_post_meta( get_the_ID(), 'instagram', true ) ) : ?>
 				<div class="icon-itself">
-					<a href="#">
+					<a href="<?php echo esc_url( $value );?>">
 						<i class="fab fa-instagram"></i>
 					</a>
 				</div>
+				<?php endif;?>
+				<?php if ( $value = get_post_meta( get_the_ID(), 'email', true ) ) : ?>
+				<div class="icon-itself">
+					<a href="mailto:<?php echo esc_url( $value );?>">
+						<i class="fas fa-envelope"></i>
+					</a>
+				</div>
+				<?php endif;?>
+
 			</div>
 			<!-- col-md-4 colunista-social -->
 			<div class="col-md-12 post-colunista">
