@@ -46,6 +46,7 @@ jQuery(document).ready(function($) {
 	 *
 	*/
 	$( 'body.single' ).on( 'click', 'i', function( e ){
+		e.preventDefault();
 		var url = window.location.href;
 		if ( $( this ).hasClass( 'fa-facebook-f' ) ) {
 			eol_fb_share( url );
