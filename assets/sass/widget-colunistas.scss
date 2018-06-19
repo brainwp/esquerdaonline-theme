@@ -8,7 +8,7 @@
 		}
 	}
 	.widget-title{
-		padding-left:$padding-noticia;
+		padding-left:$padding-noticia!important;
 	}
 	overflow: hidden;
 	a.post-link-widget-li{
@@ -24,7 +24,7 @@
 		&.tamanho-100{
 			clear:both;
 		}
-		
+
 
 		.thumbnail-colunista {
 			padding: 0;

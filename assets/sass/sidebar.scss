@@ -40,9 +40,9 @@ aside#sidebar, aside#sidebar-colunistas {
 
 	}
 	.widget-colunistas{
-		&:first-child{
-			margin-top:20px;
-		}
+		// &:first-child{
+		// 	margin-top:20px;
+		// }
 		.widget-content{
 			.widget-title{
 				padding-left:0;
@@ -51,6 +51,7 @@ aside#sidebar, aside#sidebar-colunistas {
 				&:first-child{
 					margin-top:15px;
 				}
+				margin-top:0;
 				margin-bottom: 18px;
 				padding:0!important;
 			}
