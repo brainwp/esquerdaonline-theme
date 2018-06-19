@@ -41,11 +41,6 @@
 					</div>
 					<div class="icon-itself">
 						<a href="#">
-							<i class="fab fa-instagram"></i>
-						</a>
-					</div>
-					<div class="icon-itself">
-						<a href="#">
 							<i class="fas fa-print"></i>
 						</a>
 					</div>
