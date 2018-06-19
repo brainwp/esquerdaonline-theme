@@ -1,3 +1,14 @@
+@media(min-width:1401px){
+	.each-post-widget{
+		overflow: hidden;
+	  	padding-left:$padding-noticia;
+	  	padding-right:$padding-noticia;
+	  	margin-bottom:$margin-bottom-noticia;
+	}
+	.widget-title{
+		padding-left:15px;
+	}
+}
 @media(min-width:991px){
 	.widget-eol-posts.widget-container {
 		&.titulo-gigante{
@@ -134,6 +145,13 @@
 			}
 			&foto.meio{
 
+			}
+			&.sem-foto, &.foto-cima{
+				.post-link-widget-text{
+					.tax-widget-titulo{
+						margin-top:0;
+					}
+				}
 			}
 			&.titulo-medio{
 				.overlay-post-link-widget-text{
@@ -330,8 +348,13 @@
 }
 @media(max-width:991px){
 	.widget-eol-posts.widget-container {
-		&.foto-esquerda{
-			.each-post-widget{
+		.each-post-widget{
+			&.esconder-titulo{
+				.widget-title{
+					display:none;
+				}
+			}
+			&.foto-esquerda{
 				.post-link-widget-text, .post-link-widget-text-2{
 					padding-left: 0;
 					padding-right: 0;
