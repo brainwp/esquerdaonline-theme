@@ -330,4 +330,21 @@
 			}
 		}
 	}
+	.single-colunistas.single-post {
+		.thumbnail-colunista{
+			img.wp-post-image{
+				margin:0 auto;
+			}
+		}
+		.colunista-name, .entry-title-container.text-left, .text-left.social-icons-colunist{
+			text-align: center;
+		}
+		.each-related-article{
+			font-size: 17px;
+			clear: left;
+		}
+		.single-thumbnail{
+			width:100%;
+		}
+	}
 }

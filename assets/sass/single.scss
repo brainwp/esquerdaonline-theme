@@ -282,7 +282,7 @@ body.single, body.page-template-default {
 			    display: none;
 				z-index: 99;
 			}
-			.post-thumbnail:hover .social-icons-post {
+			&:hover .social-icons-post {
 				display: block;
 				text-align: center;
 			    position: absolute;
@@ -308,7 +308,7 @@ body.single, body.page-template-default {
 				position: relative;
 
 			}
-			.post-thumbnail:hover a img {
+			&:hover a img {
 			    filter: blur(2px);
 			    transition: all ease-in-out 100ms;
 			}
