@@ -8,6 +8,9 @@
 	    width: 1380px;
 	}
 }
+@media(min-width:991px){
+
+}
 
 
 .no-padding{
@@ -636,5 +639,35 @@ span.tag-links a {
 
 	body.single article.post-default.hasnt-thumb {
 	    display: flex;
+	}
+}
+@media(max-width:991px){
+
+	.widget-eol-taxonomy-posts{
+		.post-widget-li{
+			a{
+				color:$dark_main!important;
+			}
+			width:100%!important;
+			float:none!important;
+			.post-thumbnail{
+				clear:both;
+			}
+			&.index-num-0{
+				.overlay-post-link-widget-text{
+					.post-link-widget-text{
+
+						background-image:none!important;
+					    padding: 0px!important;
+					    position: relative!important;
+					}
+				}
+			}
+		}
+	}
+	.social-area{
+		.single-thumbnail, .single-thumbnail img{
+			width:100%;
+		}
 	}
 }
