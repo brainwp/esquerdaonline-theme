@@ -263,8 +263,14 @@
 
 		}
 	}
+
 }
 @media screen and (max-width: 768px) {
+	.post-type-archive-colunistas, .single-colunistas{
+		.thumbnail-colunista img{
+			margin:0 auto;
+		}
+	}
 	.single-colunistas{
 		#header-colunista{
 			.entry-title-container.text-left{

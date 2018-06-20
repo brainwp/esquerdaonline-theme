@@ -26,6 +26,7 @@ aside#sidebar-colunistas {
 	a.post-link-widget-li{
 
 	}
+
 }
 aside#sidebar, aside#sidebar-colunistas {
 	.widget-eol-posts {
@@ -40,6 +41,17 @@ aside#sidebar, aside#sidebar-colunistas {
 
 	}
 	.widget-colunistas{
+		a.colunistas-link {
+			padding-left: 0;
+			margin-top:0px;
+		    display: block;
+		    text-transform: uppercase;
+		    font-weight: bold;
+		  	// letter-spacing: $letter_spacing_link;
+		    margin-bottom: 2px;
+		    font-size: 14px;
+			color:$btn_veja_mais_color;
+		}
 		// &:first-child{
 		// 	margin-top:20px;
 		// }
@@ -82,11 +94,11 @@ aside#sidebar, aside#sidebar-colunistas {
 			margin-bottom:0;
 	}
 
-	a.editoria-link, a.colunistas-link {
+	a.editoria-link, {
+		padding-left: 0;
 		margin-top:15px;
 	    display: block;
 	    text-transform: uppercase;
-	    color: $main_content_color;
 	    font-weight: bold;
 	  	// letter-spacing: $letter_spacing_link;
 	    margin-bottom: 2px;
