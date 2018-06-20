@@ -1,11 +1,16 @@
 .single{
-	.each-related-article{
-		float: left;
-		clear:both;
-		font-size:0.9em;
-		i{
-			margin-right: 5px;
+	.eol_related_articles{
+		margin-bottom:10px;
+		.each-related-article{
+			float: left;
+		    margin-left: 20px;
+		    clear: both;
+		    font-size: 0.9em;
+		    line-height: 1.4;
+		    margin-bottom: 0px;
+			i{
+				margin-right: 5px;
+			}
 		}
 	}
-	
 }
