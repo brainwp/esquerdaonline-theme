@@ -165,26 +165,28 @@ class EOL_Taxonomy_Posts extends WP_Widget {
 						$i++;
 						?>
 						</figure>
+						<div class="overlay-post-link-widget-text">
+							<div class="post-link-widget-text" >
+								<h3 class="tax-widget-titulo">
+									<a href="<?php the_permalink( $recent_post->ID ); ?>" ><?php echo $title;?></a>
+								</h3>
+								<?php echo $chamada; ?>
+								<div class="tax-widget-data">
+									<?php echo get_the_date('d\/m\/Y',$recent_post->ID);?>
+								</div>
+								<?php if ( false && $author = get_post_meta( $recent_post->ID, 'the_author', true )) { ?>
+								<div class="tax-widget-autor">
+									<?php
+									printf( __( ' · %s', 'eol' ), apply_filters( 'the_title', $author) );
+									?>
+								</div>
+								<?php }
+								// if false para não exibir o autor
 
-						<div class="post-link-widget-text" >
-							<h3 class="tax-widget-titulo">
-								<a href="<?php the_permalink( $recent_post->ID ); ?>" ><?php echo $title;?></a>
-							</h3>
-							<?php echo $chamada; ?>
-							<div class="tax-widget-data">
-								<?php echo get_the_date('d\/m\/Y',$recent_post->ID);?>
-							</div>
-							<?php if ( false && $author = get_post_meta( $recent_post->ID, 'the_author', true )) { ?>
-							<div class="tax-widget-autor">
-								<?php
-								printf( __( ' · %s', 'eol' ), apply_filters( 'the_title', $author) );
 								?>
 							</div>
-							<?php }
-							// if false para não exibir o autor
-
-							?>
 						</div>
+
 
 				</div>
 			<?php endforeach; ?>

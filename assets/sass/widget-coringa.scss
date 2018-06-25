@@ -1,5 +1,97 @@
+.home {
+	.widget-content{
+		padding-top: 0px;
+	}
+	div#wrapper.container{
+		margin-top:20px;
+	}
+}
+.tamanho-100{
+  @extend .col-md-12;
+}
+.tamanho-75{
+  @extend .col-md-10;
+}
+.tamanho-66{
+  @extend .col-md-8;
+}
+
+.tamanho-50{
+  @extend .col-md-6;
+}
+.tamanho-33{
+  @extend .col-md-4;
+}
+.tamanho-25{
+  @extend .col-md-3;
+  &.each-post-widget{
+  	h3{
+   		font-size:20px;
+   		a{
+   	  		color:#000;
+   	  		font-size: 20px;
+   	  		&:hover{
+   				text-decoration:none;
+   	  		}
+   		}
+  	}
+  }
+
+}
 .widget-eol-posts {
+	overflow:hidden;
+	padding:0!important;
+	&.titulo-grande{
+		h2{
+			padding-left:15px;
+			&:after{
+				font-size:33px;
+			}
+		}
+	}
+	&.titulo-pequeno{
+		h2{
+			font-size:27px;
+			&:after{
+				font-size:30px;
+			}
+		}
+	}
+	h2{
+		color:$red-main;
+		text-transform:uppercase;
+		&:after{
+			content:">";
+			color:#000;
+		}
+	}
   .each-post-widget{
+	  padding-left:1vw;
+	  padding-right:1vw;
+	  margin-bottom:2vw;
+	&.foto-meio{
+		.tax-widget-titulo{
+			display: flex;
+			height: 60px;
+			align-items: center;
+		}
+	}
+	&.foto-esquerda{
+		display: flex;
+		text-align: left;
+		align-items: center;
+		figure{
+			@extend .col-md-4;
+			@extend .no-padding;
+
+		}
+		.post-link-widget-text, .post-link-widget-text-2{
+			@extend .col-md-8;
+			.tax-widget-titulo{
+				margin-top:0;
+			}
+		}
+	}
     figure{
       background: #f34824;
       position: relative;
@@ -39,21 +131,17 @@
       &.post-thumbnail{
         img{
           max-width: 100%;
+<<<<<<< HEAD
           width:100%;
+=======
+		  width: 100%;
+>>>>>>> 390cae10120fdf92d26a8a6ec71fcd051124c18a
         }
       }
     }
   }
-  .tamanho-100{
-    @extend .col-md-12;
-  }
-  .tamanho-75{
-    @extend .col-md-10;
-  }
-  .tamanho-66{
-    @extend .col-md-8;
-  }
 
+<<<<<<< HEAD
   .tamanho-50{
     @extend .col-md-6;
   }
@@ -85,6 +173,32 @@
         color:#fff;
       }
     }
+=======
+
+  .foto-fundo{
+	  position: relative;
+	  .overlay-post-link-widget-text{
+		  position:relative;
+		  width:100%;
+		  .post-link-widget-text{
+	  		background-repeat: no-repeat, repeat;
+	  	    background-position: right top, left top;
+	  	    background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(#000));
+	  	    padding: 20px 20px 10px;
+	  		color:#fff;
+	  		position:absolute;
+	  		bottom:0;
+	  		width:100%;
+	  		a,p{
+	  			color:#fff;
+	  		}
+	  		.tax-widget-data, .tax-widget-autor{
+	  			display:inline-block;
+	  		}
+	  	}
+	  }
+
+>>>>>>> 390cae10120fdf92d26a8a6ec71fcd051124c18a
   }
   .foto-esquerda{
 

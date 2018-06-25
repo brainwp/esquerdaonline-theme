@@ -109,10 +109,13 @@ if ( ! function_exists( 'odin_the_custom_logo' ) ) {
 function eol_single_thumbnail($size='full', $post_id = null, $meta = null) {
 	echo '<div class="single-thumbnail">';
 	$post_id = ( $post_id ? $post_id : get_the_ID());
-	if ( $single_thumbnail = get_post_meta( $post_id , 'thumbnail_single', true ) ) {
-		$single_thumbnail_img = wp_get_attachment_image_src( $single_thumbnail, $size, false );
+	preg_match("/widget([^\s]+)/", $size, $size_thumb);
+	$thumb_size = (isset($tumb_array[1]) ? $tumb_array[1] : 'quadrada');
+	if ( isset($size_thumb[1] ) &&  $single_thumbnail = get_post_meta( $post_id , 'thumbnail_single', true )){
+		$single_thumbnail_img = wp_get_attachment_image_src( $single_thumbnail, 'full', false );
 		printf( '<img src="%s" alt="%s">', $single_thumbnail_img[0], esc_attr(get_the_title() ) );
-	} elseif($single_thumbnail_img = get_the_post_thumbnail( $post_id , $size )) {
+	}
+	elseif($single_thumbnail_img = get_the_post_thumbnail( $post_id , $size )) {
 		echo $single_thumbnail_img;
 		$single_thumbnail = get_post_thumbnail_id( $post_id );
 	}
@@ -134,5 +137,8 @@ function eol_single_thumbnail($size='full', $post_id = null, $meta = null) {
 }
 function eol_single_thumbnail_meta($post_id, $single_thumbnail){
 	$post_id = ( $post_id ? $post_id : get_the_ID());
+
+}
+function eol_widget_thumbnail($size,$id) {
 
 }

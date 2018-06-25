@@ -12,7 +12,7 @@
 
 get_header( 'large' ); ?>
 	<main id="content" class="<?php echo odin_classes_page_full(); ?>" tabindex="-1" role="main">
-		<div class="col-md-12">
+		<div class="col-md-12 no-padding">
 			<?php dynamic_sidebar( 'home-widgets' );?>
 
 		</div><!-- .col-md-12 -->

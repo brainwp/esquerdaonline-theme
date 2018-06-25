@@ -43,7 +43,6 @@ class EOL_Posts_Widget extends WP_Widget {
 		// numero de posts a ser exibido
 		$number = absint( $instance[ 'number'] );
 
-		echo $args['before_widget'];
 		$query = new WP_Query(
 			array(
 				'posts_per_page' => $number,
@@ -58,7 +57,7 @@ class EOL_Posts_Widget extends WP_Widget {
 		if ( $query->have_posts() ) {
 			printf( '<div class="widget-eol-posts %s">', esc_attr( $instance[ 'classes_widget' ] ) );
 			if ( ! empty( $title ) ) {
-				echo '<h3>' . $title . '</h3>';
+				echo '<h2>' . $title . '</h2>';
 			}
 			// coloca o widget atual numa variavel global para
 			$GLOBALS[ 'current_widget' ] = $instance;
@@ -71,7 +70,6 @@ class EOL_Posts_Widget extends WP_Widget {
 		}
 		?>
 		<?php
-		echo $args['after_widget'];
 	}
 
 	/**
@@ -109,10 +107,10 @@ class EOL_Posts_Widget extends WP_Widget {
 		$instance = wp_parse_args( (array) $instance,
 			array(
 				'title' => '',
-				'classes_widget' => '',
+				'classes_widget' => 'titulo-pequeno tamanho-25',
 				'readmore' => '',
 				'posicao' => '',
-				'classes_posts' => 'exibicao-titulo exibicao-data exibicao-autor tamanho-25 foto-fundo',
+				'classes_posts' => 'thumb-quadrada exibicao-titulo exibicao-data exibicao-autor tamanho-25 foto-fundo',
 				'number' => 0
 			)
 		);
