@@ -133,6 +133,17 @@ else if( is_singular('post') ) {
 			<h5 class="col-md-12"><?php echo $term[0]->name;  ?></h5>
 		</div>
 	</div>
+<?php  }
+else if( is_tax('editorias') ) {
+		?>
+	<div class="barra-editorias">
+		<div  class="container">
+			<?php
+			$term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) ); ;
+			?>
+			<h5 class="col-md-12"><?php echo $term->name;  ?></h5>
+		</div>
+	</div>
 <?php  }?>
 	<div id="wrapper" class="container">
 		<div class="row">
