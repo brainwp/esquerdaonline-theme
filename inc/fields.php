@@ -50,7 +50,7 @@ if(function_exists("register_field_group"))
 
 			array (
 				'key' => 'field_5a9fe80d6b1e9',
-				'label' => 'Imagem Widget',
+				'label' => 'Imagem Alternativa',
 				'name' => 'thumbnail_single',
 				'type' => 'image',
 				'instructions' => 'Essa imagem será utilizada Como padrão para os widgets e como imagem da single se marcado o campo abaixo.',

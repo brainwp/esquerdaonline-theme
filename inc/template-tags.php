@@ -111,17 +111,34 @@ function eol_single_thumbnail($size='full', $post_id = null, $meta = null) {
 	echo '<div class="single-thumbnail">';
 	$post_id = ( $post_id ? $post_id : get_the_ID());
 	preg_match("/widget([^\s]+)/", $size, $size_thumb);
-	// print_r($size);
-	// die;
-	$thumb_size = (isset($tumb_array[1]) ? $tumb_array[1] : 'quadrada');
-	if ( isset($size_thumb[1] ) &&  $single_thumbnail = get_post_meta( $post_id , 'thumbnail_single', true )){
+	// se single
+	if (is_single( $post_id )) {
+		// se vai mostrar a alternativa
+		if (get_field('exibir_na_single',$post_id) && $single_thumbnail = get_post_meta( $post_id , 'thumbnail_single', true )) {
+			$single_thumbnail = get_post_meta( $post_id , 'thumbnail_single', true );
+			$single_thumbnail_img = wp_get_attachment_image_src( $single_thumbnail, 'full', false );
+			printf( '<img src="%s" alt="%s">', $single_thumbnail_img[0], esc_attr(get_the_title() ) );
+		}
+		// se vai mostrar a padrão
+		elseif($single_thumbnail_img = get_the_post_thumbnail( $post_id , 'full' )){
+			echo $single_thumbnail_img;
+			$single_thumbnail = get_post_thumbnail_id( $post_id );
+		}
+		else{
+			// fazer imagem padrão ser utilizada no facebook.
+		}
+	}
+	// se é widget e é thumb-widget com imagem alternativa
+	elseif( isset($size_thumb[1] ) &&  $single_thumbnail = get_post_meta( $post_id , 'thumbnail_single', true )){
 		$single_thumbnail_img = wp_get_attachment_image_src( $single_thumbnail, 'full', false );
 		printf( '<img src="%s" alt="%s">', $single_thumbnail_img[0], esc_attr(get_the_title() ) );
 	}
+	// se é widget e é thumb-widget com imagem destacada
 	elseif (isset($size_thumb[1] )&& $single_thumbnail_img = get_the_post_thumbnail( $post_id , 'full' )) {
 		echo $single_thumbnail_img;
 		$single_thumbnail = get_post_thumbnail_id( $post_id );
 	}
+	// se é widget e é thumb-tamanho com imagem destacada
 	elseif($single_thumbnail_img = get_the_post_thumbnail( $post_id , $size )) {
 		echo $single_thumbnail_img;
 		$single_thumbnail = get_post_thumbnail_id( $post_id );
@@ -143,6 +160,11 @@ function eol_single_thumbnail($size='full', $post_id = null, $meta = null) {
 			printf( __('<p class="image-caption">%s</p>', 'eol' ), apply_filters( 'the_title', $caption ) );
 		}
 	}
+
+
+	// print_r($size);
+	// die;
+
 
 }
 function eol_single_thumbnail_meta($post_id, $single_thumbnail){
