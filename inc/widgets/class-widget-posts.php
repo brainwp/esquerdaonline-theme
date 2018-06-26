@@ -108,10 +108,10 @@ class EOL_Posts_Widget extends WP_Widget {
 		$instance = wp_parse_args( (array) $instance,
 			array(
 				'title' => '',
-				'classes_widget' => 'titulo-pequeno tamanho-25',
+				'classes_widget' => 'titulo-pequeno tamanho-50',
 				'readmore' => '',
 				'posicao' => '',
-				'classes_posts' => 'thumb-quadrada exibicao-titulo exibicao-data exibicao-autor tamanho-25 foto-fundo',
+				'classes_posts' => 'thumb-quadrada exibicao-titulo  tamanho-50 foto-fundo',
 				'number' => 0
 			)
 		);
