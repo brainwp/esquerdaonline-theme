@@ -133,7 +133,7 @@ function eol_single_thumbnail($size='full', $post_id = null, $meta = null) {
 	echo '</div>';
 	if ($meta) {
 		if ( is_single($post_id) && $author = get_post_meta( $single_thumbnail, 'image_author', true ) ) {
-			printf( __('<span class="image-author"><i class="fas fa-camera hidden-sm hidden-xs"></i><span>Foto: %s</span></span>', 'eol' ), apply_filters( 'the_title', $author ) );
+			printf( __('<span class="image-author"><i class="fas fa-camera hidden-sm hidden-xs"></i><span>%s</span></span>', 'eol' ), apply_filters( 'the_title', $author ) );
 		}
 		if ( is_single($post_id) && $caption = wp_get_attachment_caption( $single_thumbnail) ) {
 			printf( __('<p class="image-caption">%s</p>', 'eol' ), apply_filters( 'the_title', $caption ) );
