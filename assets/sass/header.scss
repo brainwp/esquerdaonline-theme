@@ -212,7 +212,7 @@ nav#menu-institucional .navbar-nav li:first-child a {
 		padding-top: 70px;
 	}
 	header#header{
-		z-index: 9;
+		z-index: 99;
 		background: #fff;
 		overflow: hidden;
 		position: fixed; /* Set the navbar to fixed position */
@@ -305,13 +305,17 @@ nav#menu-institucional .navbar-nav li:first-child a {
 			width: 40px;
 			height: 40px;
 			margin: 10px ;
-			position: relative;
+			position: fixed;
+			overflow: hidden;
+			top: 0;
 			padding: 5px;
 		}
 		.container{
 			width:100%;
-			position:absolute;
+			position:fixed;
+			height: 0;
 			&.open{
+				z-index: 999;
 				.menu-line-1, .menu-line-3, .menu-line-1 {
 					left:0;
 					transition: opacity 0.7s ease-in-out, width 0s, left 0.7s;

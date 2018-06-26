@@ -100,3 +100,8 @@
 
 	}
 }
+@media (max-width: 991px){
+	.widget-eol-taxonomy-posts .post-widget-li.index-num-0 .overlay-post-link-widget-text{
+		z-index: 9;
+	}
+}

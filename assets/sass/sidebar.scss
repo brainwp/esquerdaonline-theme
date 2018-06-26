@@ -1,10 +1,12 @@
 .widget-title {
 		@extend .col-md-12;
+		padding: 0px;
+		letter-spacing: $letter_spacing_title;
 		margin-bottom: 10px;
 		margin-top: 0px;
 		font-weight: 700;
 		display: block;
-   		float: none;
+   	float: none;
 		color:$red_main;
 		text-transform: uppercase;
 		&:after {
@@ -15,8 +17,6 @@
 		    position: relative;
 		    top: 1px;
 		}
-		padding: 0px;
-		letter-spacing: $letter_spacing_title;
 	}
 
 aside#sidebar-colunistas {
@@ -41,8 +41,16 @@ aside#sidebar, aside#sidebar-colunistas {
 
 	}
 	.widget-colunistas{
+		&:first-of-type{
+			.widget-content{
+				margin-top: 0;
+			}
+		}
+		.widget-title{
+			padding-left: 0!important;
+		}
 		a.colunistas-link {
-			padding-left: 0;
+			padding-left: 0!important;
 			margin-top:0px;
 		    display: block;
 		    text-transform: uppercase;
