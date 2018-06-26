@@ -618,3 +618,53 @@ function section_id_class( $classes ) {
 }
 
 add_filter('widget_text', 'do_shortcode');
+
+
+add_filter('the_content', 'gs_add_img_lazy_markup', 15);  // hook into filter and use priority 15 to make sure it is run after the srcset and sizes attributes have been added.
+
+/**
+ *
+ * Modified from: Sunyatasattva
+ * https://wordpress.stackexchange.com/questions/81522/change-html-structure-of-all-img-tags-in-wordpress
+ * @param $the_content
+ *
+ * @return string
+ *
+ *
+ * Initial use of code gave warning: DOMDocument::loadHTML(): Unexpected end tag : p
+ * Due to invalid HTML
+ *
+ * https://stackoverflow.com/questions/11819603/dom-loadhtml-doesnt-work-properly-on-a-server
+ *
+ * libxml_use_internal_errors(true);
+ */
+
+
+
+
+function gs_add_img_lazy_markup($the_content) {
+
+    libxml_use_internal_errors(true);
+
+    $post = new DOMDocument();
+
+    $post->loadHTML($the_content);
+
+    $imgs = $post->getElementsByTagName('img');
+
+    // Iterate each img tag
+    foreach( $imgs as $img ) {
+
+        if( $img->hasAttribute('data-src') ) continue;
+
+        if( $img->parentNode->tagName == 'noscript' ) continue;
+				$class = $img->getAttribute('class');
+				$img_id = explode('-',$class);
+				// echo end($img_id);
+				$div = $post->createElement("div", get_post_meta( end($img_id), 'image_author', true ));
+				$img->parentNode->insertBefore($div, $img->nextSibling);
+
+    };
+
+    return $post->saveHTML();
+}

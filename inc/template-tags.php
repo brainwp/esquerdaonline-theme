@@ -107,6 +107,7 @@ if ( ! function_exists( 'odin_the_custom_logo' ) ) {
  * If not, return the default get_post_thumbnail()
  */
 function eol_single_thumbnail($size='full', $post_id = null, $meta = null) {
+	$single_thumbnail = '';
 	echo '<div class="single-thumbnail">';
 	$post_id = ( $post_id ? $post_id : get_the_ID());
 	preg_match("/widget([^\s]+)/", $size, $size_thumb);
@@ -126,8 +127,11 @@ function eol_single_thumbnail($size='full', $post_id = null, $meta = null) {
 		$single_thumbnail = get_post_thumbnail_id( $post_id );
 	}
 	else{
+		if ($size != "") {
+			$size = "-".$size;
+		}
 		?>
-			<img src="<?php echo get_template_directory_uri() ?>/assets/images/img-default.jpg" alt="">
+			<img src="<?php echo get_template_directory_uri() ?>/assets/images/img-default<?php echo $size; ?>.jpg" alt="">
 		<?php
 	}
 	echo '</div>';
