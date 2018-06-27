@@ -36,14 +36,14 @@ aside#sidebar, aside#sidebar-colunistas {
 		overflow: hidden;
 		clear:both;
 		margin-top: 50px;
-
 		width: 100%;
 
 	}
 	.widget-container, .widget-content{
 		&:first-of-type{
-			.widget-content{
-				margin-top: 15px;
+			margin-top: 15px;
+			> .widget-content{
+				margin-top: 0px;
 				.widget-title{
 					line-height: 0.8;
 				}
