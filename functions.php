@@ -654,17 +654,17 @@ function gs_add_img_lazy_markup($the_content) {
 
     // Iterate each img tag
     foreach( $imgs as $img ) {
-
-        if( $img->hasAttribute('data-src') ) continue;
-
-        if( $img->parentNode->tagName == 'noscript' ) continue;
 				$class = $img->getAttribute('class');
 				$img_id = explode('-',$class);
-				// echo end($img_id);
-				$div = $post->createElement("div", get_post_meta( end($img_id), 'image_author', true ));
-				$img->parentNode->insertBefore($div, $img->nextSibling);
-
+				$autor = get_post_meta( end($img_id), 'image_author', true );
+				$i = $post->createElement("i",'');
+				$i->setAttribute('class','fas fa-camera');
+				$span = $post->createElement("span",'');
+				$span->setAttribute('class','image-author');
+				$span->appendChild($i);
+				$autor = $post->createTextNode($autor);
+				$span->appendChild($autor);
+				$img->parentNode->insertBefore($span, $img->nextSibling);
     };
-
     return $post->saveHTML();
 }

@@ -40,12 +40,18 @@ aside#sidebar, aside#sidebar-colunistas {
 		width: 100%;
 
 	}
-	.widget-colunistas{
+	.widget-container, .widget-content{
 		&:first-of-type{
 			.widget-content{
-				margin-top: 0;
+				margin-top: 15px;
+				.widget-title{
+					line-height: 0.8;
+				}
 			}
 		}
+	}
+	.widget-colunistas{
+
 		.widget-title{
 			padding-left: 0!important;
 		}
