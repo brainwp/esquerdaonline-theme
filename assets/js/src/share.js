@@ -45,7 +45,7 @@ jQuery(document).ready(function($) {
 	 * Single
 	 *
 	*/
-	$( 'body.single' ).on( 'click', 'i', function( e ){
+	$( 'body.single article .entry-header' ).on( 'click', 'i', function( e ){
 		e.preventDefault();
 		var url = window.location.href;
 		if ( $( this ).hasClass( 'fa-facebook-f' ) ) {
