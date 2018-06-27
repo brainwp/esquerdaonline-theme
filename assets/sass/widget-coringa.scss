@@ -42,15 +42,28 @@
 					.post-link-widget-text{
 						transition: all ease-in-out 100ms;
 						opacity: 0.5;
+						&:hover{
+							opacity: 1;
+						}
 					}
 				}
-				.social-icons-post{
-					display: block;
-				}
-				img{
-					filter: blur(2px);
-					transition: all ease-in-out 100ms;
-					opacity: 0.35;
+				figure{
+					.fas.fa-share-alt{
+						position: absolute;
+						color: #fff;
+						top: 10px;
+						left: 10px;
+						transition: all ease-in-out 100ms;
+						opacity: 0;
+					}
+					.social-icons-post{
+						display: block;
+					}
+					img{
+						filter: blur(2px);
+						transition: all ease-in-out 100ms;
+						opacity: 0.35;
+					}
 				}
 			}
 			&.tamanho-25:nth-of-type(4n+1){
@@ -177,6 +190,15 @@
 
 						}
 					}
+				}
+			}
+			figure{
+				.fas.fa-share-alt{
+					position: absolute;
+					color: #fff;
+					top: 10px;
+					left: 10px;
+					transition: all ease-in-out 100ms;
 				}
 			}
 		}
