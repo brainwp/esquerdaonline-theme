@@ -657,14 +657,17 @@ function gs_add_img_lazy_markup($the_content) {
 				$class = $img->getAttribute('class');
 				$img_id = explode('-',$class);
 				$autor = get_post_meta( end($img_id), 'image_author', true );
-				$i = $post->createElement("i",'');
-				$i->setAttribute('class','fas fa-camera');
-				$span = $post->createElement("span",'');
-				$span->setAttribute('class','image-author');
-				$span->appendChild($i);
-				$autor = $post->createTextNode($autor);
-				$span->appendChild($autor);
-				$img->parentNode->insertBefore($span, $img->nextSibling);
+				if ($autor) {
+					$i = $post->createElement("i",'');
+					$i->setAttribute('class','fas fa-camera');
+					$span = $post->createElement("span",'');
+					$span->setAttribute('class','image-author');
+					$span->appendChild($i);
+					$autor = $post->createTextNode($autor);
+					$span->appendChild($autor);
+					$img->parentNode->insertBefore($span, $img->nextSibling);
+				}
+
     };
     return $post->saveHTML();
 }

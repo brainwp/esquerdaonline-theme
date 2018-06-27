@@ -471,12 +471,19 @@ body.single, body.page-template-default {
 	font-weight: 400;
 	line-height: 22px;
 	.image-author{
+		float: left;
 		display: block;
 		color: $dark_main;
-		font-size: 13px;
+		font-size: 14px;
+		margin-right: 5px;
 		i{
 			margin-right: 5px;
 		}
+		&:after{
+			content: ' - '
+
+		}
+
 	}
 	figure{
 		padding: 0;
@@ -485,6 +492,7 @@ body.single, body.page-template-default {
 	.wp-caption-text{
 		font-size: 14px;
 		padding:0;
+		float: left;
 	}
 }
 a.show-social-icons {
