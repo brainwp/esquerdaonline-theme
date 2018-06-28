@@ -38,6 +38,7 @@ if ( ! $chamada ) {
 
 	<?php if ( in_array( 'foto-fundo', $classes_posts ) || in_array( 'foto-cima', $classes_posts ) ) : ?>
 	<figure class=" post-thumbnail">
+		<i class="fas fa-share-alt"></i>
 		<div class="col-md-12 social-icons-post">
 			<div class="icon-itself">
 				<a href="#">
@@ -94,6 +95,7 @@ if ( ! $chamada ) {
 	<?php endif; // foto-fundo?>
 	<?php if ( in_array( 'foto-esquerda', $classes_posts ) ) : ?>
 		<figure class=" post-thumbnail">
+			<i class="fas fa-share-alt"></i>
 			<div class="col-md-12 social-icons-post">
 				<div class="icon-itself">
 					<a href="#">
@@ -128,6 +130,7 @@ if ( ! $chamada ) {
 		<?php endif;?>
 		<?php if ( in_array( 'foto-meio', $classes_posts ) ) : ?>
 		<figure class=" post-thumbnail">
+			<i class="fas fa-share-alt"></i>
 			<div class="col-md-12 social-icons-post">
 				<div class="icon-itself">
 					<a href="#">
@@ -172,6 +175,7 @@ if ( ! $chamada ) {
 	</div>
 	<?php if ( in_array( 'foto-direita', $classes_posts ) ) : ?>
 		<figure class=" post-thumbnail">
+			<i class="fas fa-share-alt"></i>
 			<div class="col-md-12 social-icons-post">
 				<div class="icon-itself">
 					<a href="#">

@@ -24,11 +24,35 @@
 }
 .home .widget-colunistas{
 	.each-colunista {
+		article{
+			text-align: center;
+		}
+		&.tamanho-25{
+			.thumbnail-colunista{
+				width: 50%;
+			}
+			&:nth-of-type(4n+1){
+				clear:both;
+			}
+		}
+		&.tamanho-33{
+			.thumbnail-colunista{
+				width:30%;
+			}
+			&:nth-of-type(3n+1){
+				clear:both;
+			}
+		}
+		a.coluna-link{
+			display: block;
+		}
 		.thumbnail-colunista{
-			width:25%;
+			float: none;
+			margin: 0 auto
 		}
 		.colunista-name{
-			width:75%;
+			width:100%;
+			text-align:center;
 		}
 	}
 }

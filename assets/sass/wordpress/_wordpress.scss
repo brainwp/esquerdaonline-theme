@@ -23,17 +23,17 @@
 
 .alignright {
     @extend .pull-right;
-    margin: 0.5em 0 1em 1em;
+    margin: 15px 0 15px 30px;
 }
 
 .alignleft {
     @extend .pull-left;
-    margin: 0.5em 1em 1em 0;
+    margin: 15px  30px 15px 0;
 }
 
 .aligncenter {
     @extend .center-block;
-    margin: 0.5em auto;
+    margin: 15px auto;
 }
 
 // Content
@@ -165,8 +165,8 @@ img {
     &.aligncenter,
     &.aligncenter,
     &.alignnone {
-        margin-top: 1em;
-        margin-bottom: 2em;
+        margin-top: 15px;
+        margin-bottom: 15px;
     }
 }
 
@@ -178,15 +178,15 @@ img {
     }
     .wp-caption-text {
         display: inline-block;
-        padding: $thumbnail-caption-padding;
+        padding: 0;
         color: $thumbnail-caption-color;
         &:before {
-            color: #666;
-            content: '\2014';
-            font-size: 12px;
-            font-style: normal;
-            font-weight: bold;
-            margin-right: 5px;
+            // color: #666;
+            // content: '\2014';
+            // font-size: 12px;
+            // font-style: normal;
+            // font-weight: bold;
+            // margin-right: 5px;
         }
     }
 }
