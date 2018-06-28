@@ -38,29 +38,8 @@ class EOL_Tags_Widget extends WP_Widget {
 
 		// pega o termo da tag selecionada;
 		if (isset($instance[ 'tags_selecionadas' ])) {
-			$tags_selecionadas = esc_attr( $instance[ 'tags_selecionadas' ] );
-			$array_tags = explode(",", $tags_selecionadas);
-			?>
-			<span class="tag-links">
-			<?php
-			$count = count($array_tags);
-			foreach ($array_tags as $tag) {
-				$tag_obj = get_term_by( 'name', $tag, 'post_tag', $output = OBJECT, $filter = 'raw' );
-				$tag_link = get_term_link( $tag_obj );
-		    // If there was an error, continue to the next term.
-		    if ( is_wp_error( $tag_link ) ) {
-		        continue;
-		    }
-				echo '<a href="' . esc_url( $tag_link ) . '">' . $tag_obj->name . '</a>';
-				if ($tag != end($array_tags)){
-					echo " / ";
-				}
-		    // We successfully got a link. Print it out.
-
-			}
-			?>
-			</span>
-			<?php
+			$tags_selecionadas =  (isset($instance[ 'tags_selecionadas']) ? $instance[ 'tags_selecionadas']:"") ;
+			echo do_shortcode( '[eol_tags tags="'.$tags_selecionadas.'"]' );
 		}
 		echo $args['after_widget'];
 		?>

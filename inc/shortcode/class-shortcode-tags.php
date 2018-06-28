@@ -25,8 +25,29 @@
 		 * Registra os campos do ACF
 		 */
 		public function shortcode( $atts ) {
-			$altura =  ( isset($atts[ 'altura' ]) ? $atts[ 'altura'] :'30px' );
-			$html = '<div style="height:'.$altura.'" class="shortcode-linha"><div class="clearfix"></div></div>';
+			$html ="";
+			if (isset($atts['tags'])) {
+				$tags_selecionadas = $atts['tags'];
+				$array_tags = explode(",", $tags_selecionadas);
+				$html .= '<span class="tag-links">';
+				$count = count($array_tags);
+				foreach ($array_tags as $tag) {
+					$tag_obj = get_term_by( 'name', $tag, 'post_tag', $output = OBJECT, $filter = 'raw' );
+					$tag_link = get_term_link( $tag_obj );
+			    // If there was an error, continue to the next term.
+			    if ( is_wp_error( $tag_link ) ) {
+			        continue;
+			    }
+					$html .= '<a href="' . esc_url( $tag_link ) . '">' . $tag_obj->name . '</a>';
+					if ($tag != end($array_tags)){
+						$html .= " / ";
+					}
+			    // We successfully got a link. Print it out.
+
+				}
+				$html .= '</span>';
+			}
+
 			return $html;
 		}
 		/**
