@@ -39,6 +39,7 @@ class EOL_Tags_Widget extends WP_Widget {
 			?>
 			<span class="tag-links">
 			<?php
+			$count = count($array_tags);
 			foreach ($array_tags as $tag) {
 				$tag_obj = get_term_by( 'name', $tag, 'post_tag', $output = OBJECT, $filter = 'raw' );
 				$tag_link = get_term_link( $tag_obj );
@@ -46,9 +47,12 @@ class EOL_Tags_Widget extends WP_Widget {
 		    if ( is_wp_error( $tag_link ) ) {
 		        continue;
 		    }
-
+				echo '<a href="' . esc_url( $tag_link ) . '">' . $tag_obj->name . '</a>';
+				if ($tag != end($array_tags)){
+					echo " / ";
+				}
 		    // We successfully got a link. Print it out.
-		    echo '<a href="' . esc_url( $tag_link ) . '">' . $tag_obj->name . '</a>';
+
 			}
 			?>
 			</span>
