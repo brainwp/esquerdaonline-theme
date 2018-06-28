@@ -54,4 +54,7 @@
     }
     display:inline-block;
   }
+  div.wpcf7-validation-errors, div.wpcf7-acceptance-missing {
+    border: 2px solid $red_main;
+  }
 }
