@@ -32,13 +32,13 @@ class EOL_Widget_Video_Live extends WP_Widget {
 		 ?>
 		 <?php if ($text != ''): ?>
 			 <div class="faixa-topo">
-			 	<a href="#live-">
+			 	<a href="#live">
 					<?php echo $text;?>
 				</a>
 				<a id="fechar-topo" href="#">X</a>
 			 </div>
 		 <?php endif; ?>
-		 <div id="live-" class="widget-live-container widget-container <?php echo $classes; ?> ">
+		 <div id="live" class="widget-live-container widget-container <?php echo $classes; ?> ">
 			 <?php
 			$posts = apply_filters( 'widget_colunistas_posts', empty( $instance['posts'] ) ? 3 : $instance['posts'], $instance );
 			echo $args['before_widget'];
