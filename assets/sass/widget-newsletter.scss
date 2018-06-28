@@ -29,6 +29,9 @@
       border: solid 1px #d0482aa6;
       border-radius: 5px;
       padding: 5px;
+      &:focus, &active{
+        outline:0;
+      }
       &.wpcf7-submit{
         background-color:$red_main;
         color:#fff;
