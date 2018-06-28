@@ -129,23 +129,7 @@ class EOL_Taxonomy_Posts extends WP_Widget {
 
 				<div class="post-widget-li index-num-<?php echo $i;?>">
 					<figure class=" post-thumbnail"><div class="col-md-12 social-icons-post">
-						<div class="icon-itself">
-							<a href="#">
-								<i class="fab fa-facebook-f"></i>
-							</a>
-						</div>
-						<div class="icon-itself">
-							<a href="#">
-								<i class="fab fa-twitter"></i>
-							</a>
-						</div>
-
-						<div class="icon-itself">
-							<a href="#">
-								<i class="fab fa-google-plus"></i>
-							</a>
-						</div>
-
+						<?php eol_share_overlay();?>
 					</div>
 
 						<?php if ( 0 === $i ) {

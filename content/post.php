@@ -40,21 +40,7 @@ if ( ! $chamada ) {
 	<figure class=" post-thumbnail">
 		<i class="fas fa-share-alt"></i>
 		<div class="col-md-12 social-icons-post">
-			<div class="icon-itself">
-				<a href="#">
-					<i class="fab fa-facebook-f"></i>
-				</a>
-			</div>
-			<div class="icon-itself">
-				<a href="#">
-					<i class="fab fa-twitter"></i>
-				</a>
-			</div>
-			<div class="icon-itself">
-				<a href="#">
-					<i class="fab fa-google-plus"></i>
-				</a>
-			</div>
+			<?php eol_share_overlay();?>
 		</div>
 		<?php
 		echo '<a class="post-thumbnail-link" href="' . get_permalink() . '">';
@@ -97,21 +83,7 @@ if ( ! $chamada ) {
 		<figure class=" post-thumbnail">
 			<i class="fas fa-share-alt"></i>
 			<div class="col-md-12 social-icons-post">
-				<div class="icon-itself">
-					<a href="#">
-						<i class="fab fa-facebook-f"></i>
-					</a>
-				</div>
-				<div class="icon-itself">
-					<a href="#">
-						<i class="fab fa-twitter"></i>
-					</a>
-				</div>
-				<div class="icon-itself">
-					<a href="#">
-						<i class="fab fa-google-plus"></i>
-					</a>
-				</div>
+				<?php eol_share_overlay();?>
 			</div>
 			<?php
 			echo '<a class="post-thumbnail-link" href="' . get_permalink() . '">';
@@ -132,21 +104,7 @@ if ( ! $chamada ) {
 		<figure class=" post-thumbnail">
 			<i class="fas fa-share-alt"></i>
 			<div class="col-md-12 social-icons-post">
-				<div class="icon-itself">
-					<a href="#">
-						<i class="fab fa-facebook-f"></i>
-					</a>
-				</div>
-				<div class="icon-itself">
-					<a href="#">
-						<i class="fab fa-twitter"></i>
-					</a>
-				</div>
-				<div class="icon-itself">
-					<a href="#">
-						<i class="fab fa-google-plus"></i>
-					</a>
-				</div>
+				<?php eol_share_overlay();?>
 			</div>
 			<?php
 			echo '<a class="post-thumbnail-link" href="' . get_permalink() . '">';
@@ -177,21 +135,7 @@ if ( ! $chamada ) {
 		<figure class=" post-thumbnail">
 			<i class="fas fa-share-alt"></i>
 			<div class="col-md-12 social-icons-post">
-				<div class="icon-itself">
-					<a href="#">
-						<i class="fab fa-facebook-f"></i>
-					</a>
-				</div>
-				<div class="icon-itself">
-					<a href="#">
-						<i class="fab fa-twitter"></i>
-					</a>
-				</div>
-				<div class="icon-itself">
-					<a href="#">
-						<i class="fab fa-google-plus"></i>
-					</a>
-				</div>
+				<?php eol_share_overlay();?>
 			</div>
 			<?php
 			echo '<a class="post-thumbnail-link" href="' . get_permalink() . '">';

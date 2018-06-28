@@ -114,6 +114,15 @@ jQuery(document).ready(function($) {
 			eol_gplus_share( url );
 			return;
 		}
+		if ( $( this ).hasClass( 'fa-whatsapp' ) ) {
+			eol_whatsapp_share( url );
+			return;
+		}
+		if ( $( this ).hasClass( 'fa-telegram' ) ) {
+			eol_telegram_share( url );
+			return;
+		}
+
 		if ( $( this ).hasClass( 'fa-print' ) ) {
 			eol_print_share();
 			return;

@@ -174,3 +174,27 @@ function eol_single_thumbnail_meta($post_id, $single_thumbnail){
 function eol_widget_thumbnail($size,$id) {
 
 }
+function eol_share_overlay() {
+	echo '
+	<div class="icon-itself">
+		<a href="#">
+			<i class="fab fa-facebook-f"></i>
+		</a>
+	</div>
+	<div class="icon-itself">
+		<a href="#">
+			<i class="fab fa-twitter"></i>
+		</a>
+	</div>
+	<div class="icon-itself hidden-md hidden-lg">
+		<a href="#">
+			<i class="fab fa-whatsapp"></i>
+		</a>
+	</div>
+	<div class="icon-itself">
+		<a href="#">
+			<i class="fab fa-telegram"></i>
+		</a>
+	</div>
+	';
+}

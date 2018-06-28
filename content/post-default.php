@@ -22,23 +22,7 @@
 			<figure class="col-md-4 col-sm-12 post-thumbnail">
 
 				<div class="col-md-12 social-icons-post">
-					<div class="icon-itself">
-						<a href="#">
-							<i class="fab fa-facebook-f"></i>
-						</a>
-					</div>
-					<div class="icon-itself">
-						<a href="#">
-							<i class="fab fa-twitter"></i>
-						</a>
-					</div>
-
-					<div class="icon-itself">
-						<a href="#">
-							<i class="fab fa-google-plus"></i>
-						</a>
-					</div>
-
+					<?php eol_share_overlay();?>
 				</div>
 				<a href="<?php the_permalink();?>" class="show-social-icons">
 					<?php
