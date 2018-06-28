@@ -26,7 +26,7 @@
 		 */
 		public function shortcode( $atts = '30px') {
 			$altura =  ( isset($atts[ 'altura' ]) ? $atts[ 'altura'] :'30px' );
-			$html = '<div style="height:'.$altura.'" class="shortcode-linha"><div class="clearfix"></div></div>';
+			$html = '<div style="clear:both;height:'.$altura.'" class="shortcode-linha"><div class="clearfix"></div></div>';
 			return $html;
 		}
 		/**

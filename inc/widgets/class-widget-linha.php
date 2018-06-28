@@ -30,10 +30,12 @@ class EOL_Linha_Widget extends WP_Widget {
 	 */
 	public function widget( $args, $instance ) {
 		// numero de posts a ser exibido
+
+
+		echo $args['before_widget'];
 		$number =  (isset($instance[ 'number']) ? $instance[ 'number']:"30px") ;
-		echo do_shortcode( '[eol_linha altura='.$number.']' )
-		?>
-		<?php
+		echo do_shortcode( '[eol_linha altura='.$number.']' );
+		echo $args['after_widget'];
 	}
 
 	/**
