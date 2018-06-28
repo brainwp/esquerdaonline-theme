@@ -34,7 +34,7 @@ class EOL_Linha_Widget extends WP_Widget {
 
 		echo $args['before_widget'];
 		$number =  (isset($instance[ 'number']) ? $instance[ 'number']:"30px") ;
-		echo do_shortcode( '[eol_linha altura='.$number.']' )
+		echo do_shortcode( '[eol_linha altura='.$number.']' );
 		echo $args['after_widget'];
 	}
 
