@@ -89,6 +89,7 @@ class EOL_Tags_Widget extends WP_Widget {
 				<input class="widefat post-title" type="text" name="<?php echo $this->get_field_name( 'tags_selecionadas' ); ?>" value="<?php echo esc_attr($tags_selecionadas); ?>">
 				<input type="text" class="force-change" name="<?php echo $this->get_field_name( 'force_change' );?>" style="display:none;"/>
 			</p>
+		</div>
 		<?php
 	}
 }
