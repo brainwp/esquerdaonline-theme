@@ -31,6 +31,9 @@ class EOL_Tags_Widget extends WP_Widget {
 	public function widget( $args, $instance ) {
 
 		/** This filter is documented in wp-includes/widgets/class-wp-widget-pages.php */
+		?>
+		<div class="widget-container widget-tags-container">
+		<?php
 		echo $args['before_widget'];
 
 		// pega o termo da tag selecionada;
@@ -60,7 +63,9 @@ class EOL_Tags_Widget extends WP_Widget {
 			<?php
 		}
 		echo $args['after_widget'];
-
+		?>
+		</div>
+		<?php
 	}
 
 	/**
