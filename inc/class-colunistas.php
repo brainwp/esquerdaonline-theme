@@ -26,6 +26,20 @@
 
 			// Esconde as telas de edição da taxonomia
 			add_action( 'admin_footer', array( $this, 'hide_taxonomy') );
+
+			// Delete a taxonomia quando deleta o post
+			add_action( 'delete_post', array( $this, 'delete_term' ) );
+		}
+		public function delete_term( $post_id ) {
+			$post = get_post( $post_id );
+			$post_name = str_replace( '__trashed', '', $post->post_name );
+			if ( 'colunistas' != $post->post_type ) {
+				return;
+			}
+			$term = get_term_by( 'slug', $post_name, 'colunistas');
+			if ( $term && ! is_wp_error( $term ) ) {
+				wp_delete_term( $term->term_id, 'colunistas' );
+			}
 		}
 		/**
 		* Adiciona um termo com o nome do colunista em questão, quando o post do tipo colunista é salvo
@@ -36,6 +50,9 @@
 		*/
 		public function create_term( $post_id, $post, $update ) {
 			if ( term_exists( $post->post_name, 'colunistas' ) ) {
+				return;
+			}
+			if ( strpos( $post->post_name, '__trashed' ) > 0 ) {
 				return;
 			}
 			wp_insert_term( $post->post_title, 'colunistas', array( 'slug' => $post->post_name ) );
