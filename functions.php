@@ -671,3 +671,4 @@ function gs_add_img_lazy_markup($the_content) {
     };
     return $post->saveHTML();
 }
+add_filter('wpcf7_autop_or_not', '__return_false');
