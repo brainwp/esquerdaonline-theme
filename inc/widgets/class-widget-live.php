@@ -18,7 +18,7 @@ class EOL_Widget_Video_Live extends WP_Widget {
 	public function widget( $args, $instance ) {
 		/** This filter is documented in wp-includes/default-widgets.php */
 		$title = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
-
+		$text = apply_filters( 'widget_title', empty( $instance['text'] ) ? '' : $instance['text'], $instance, $this->id_base );
 		$classes = esc_attr( $instance[ 'classes' ] );
 		$url = esc_url_raw( $instance[ 'url'] );
 		/**
@@ -30,7 +30,12 @@ class EOL_Widget_Video_Live extends WP_Widget {
 		 * @param WP_Widget $instance    WP_Widget instance.
 		 */
 		 ?>
-		 <div class="widget-live-container widget-container <?php echo $classes; ?> ">
+		 <div class="faixa-topo">
+		 	<a href="#live-">
+				<?php (isset($instance['text'])? $instance['text'] : "Transmissão ao vivo! clique aqui para assistir." )?>
+			</a>
+		 </div>
+		 <div id="live-" class="widget-live-container widget-container <?php echo $classes; ?> ">
 			 <?php
 			$posts = apply_filters( 'widget_colunistas_posts', empty( $instance['posts'] ) ? 3 : $instance['posts'], $instance );
 			echo $args['before_widget'];
