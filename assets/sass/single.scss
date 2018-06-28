@@ -80,6 +80,12 @@ body.single, body.page-template-default {
 				i.fab.fa-twitter {
 				    color: #1da1f2;
 				}
+				i.fa-telegram {
+					color:$telegram_color;
+				}
+				i.fa-whatsapp {
+					color: $whatsapp_color;
+				}
 				i{
 					font-size:18px;
 				}

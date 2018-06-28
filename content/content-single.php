@@ -57,7 +57,7 @@
 						<i class="fab fa-telegram"></i>
 					</a>
 				</div>
-				<div class="icon-itself">
+				<div class="icon-itself hidden-md hidden-lg">
 					<a href="#">
 						<i class="fab fa-whatsapp"></i>
 					</a>
