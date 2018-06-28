@@ -18,7 +18,7 @@ class EOL_Widget_Video_Live extends WP_Widget {
 	public function widget( $args, $instance ) {
 		/** This filter is documented in wp-includes/default-widgets.php */
 		$title = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
-		$text = apply_filters( 'widget_title', empty( $instance['text'] ) ? '' : $instance['text'], $instance, $this->id_base );
+		$text = esc_attr( $instance[ 'text' ] );
 		$classes = esc_attr( $instance[ 'classes' ] );
 		$url = esc_url_raw( $instance[ 'url'] );
 		/**
@@ -30,11 +30,14 @@ class EOL_Widget_Video_Live extends WP_Widget {
 		 * @param WP_Widget $instance    WP_Widget instance.
 		 */
 		 ?>
-		 <div class="faixa-topo">
-		 	<a href="#live-">
-				<?php (isset($instance['text'])? $instance['text'] : "Transmissão ao vivo! clique aqui para assistir." )?>
-			</a>
-		 </div>
+		 <?php if ($text != ''): ?>
+			 <div class="faixa-topo">
+			 	<a href="#live-">
+					<?php echo $text;?>
+				</a>
+				<a id="fechar-topo" href="#">X</a>
+			 </div>
+		 <?php endif; ?>
 		 <div id="live-" class="widget-live-container widget-container <?php echo $classes; ?> ">
 			 <?php
 			$posts = apply_filters( 'widget_colunistas_posts', empty( $instance['posts'] ) ? 3 : $instance['posts'], $instance );
@@ -62,6 +65,7 @@ class EOL_Widget_Video_Live extends WP_Widget {
 	public function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
 		$instance['title'] = sanitize_text_field( $new_instance['title'] );
+		$instance['text'] = sanitize_text_field( $new_instance['text'] );
 		$instance['classes'] = sanitize_text_field( $new_instance['classes'] );
 		$instance['url'] = sanitize_text_field( $new_instance['url'] );
 
@@ -72,14 +76,18 @@ class EOL_Widget_Video_Live extends WP_Widget {
 	 * @param array $instance
 	 */
 	public function form( $instance ) {
-		$instance = wp_parse_args( (array) $instance, array( 'title' => '', 'classes' => '', 'url' => '' ) );
+		$instance = wp_parse_args( (array) $instance, array( 'title' => '', 'text' => '', 'classes' => 'tamanho-25', 'url' => '' ) );
 		$title = sanitize_text_field( $instance['title'] );
+		$text = sanitize_text_field( $instance['text'] );
 		$classes = sanitize_text_field( $instance['classes'] );
 		$url = sanitize_text_field( $instance['url'] );
 
 		?>
 		<p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:'); ?></label>
 		<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" /></p>
+
+		<p><label for="<?php echo $this->get_field_id('text'); ?>"><?php _e('Texto da faixa no topo:'); ?></label>
+		<input class="widefat" id="<?php echo $this->get_field_id('text'); ?>" name="<?php echo $this->get_field_name('text'); ?>" type="text" value="<?php echo esc_attr($text); ?>" /></p>
 
 		<p><label for="<?php echo $this->get_field_id('classes'); ?>"><?php _e('Classes CSS:'); ?></label>
 		<input class="widefat" id="<?php echo $this->get_field_id('classes'); ?>" name="<?php echo $this->get_field_name('classes'); ?>" type="text" value="<?php echo esc_attr($classes); ?>" /></p>

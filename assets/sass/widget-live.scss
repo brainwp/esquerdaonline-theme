@@ -22,3 +22,25 @@
 		}
 	}
 }
+.admin-bar {
+	.faixa-topo{
+		top:30px;
+	}
+}
+.faixa-topo{
+	opacity: 0.7;
+	z-index: 999;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background:black;
+	width: 100%;
+	padding:10px 4vw;
+	a{
+		color:white;
+		&#fechar-topo{
+			float: right;
+		}
+	}
+
+}
