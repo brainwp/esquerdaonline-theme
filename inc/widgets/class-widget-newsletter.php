@@ -35,6 +35,8 @@ class EOL_Newsletter_Widget extends WP_Widget {
 		<?php
 		echo $args['before_widget'];
 		$form =  (isset($instance[ 'form']) ? $instance[ 'form'] :"") ;
+		$title = apply_filters( 'widget_title', 'Newsletter' );
+		echo $args['before_title'] . $title . $args['after_title'];
 		echo do_shortcode( $form );
 		echo $args['after_widget'];
 		?>

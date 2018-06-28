@@ -37,16 +37,21 @@ aside#sidebar, aside#sidebar-colunistas {
 		clear:both;
 		margin-top: 50px;
 		width: 100%;
-
-	}
-	.widget-container, .widget-content{
 		&:first-of-type{
 			margin-top: 15px;
-			> .widget-content{
-				margin-top: 0px;
-				.widget-title{
-					line-height: 0.8;
-				}
+		}
+	}
+
+	.widget-container{
+		> .widget-content{
+			margin-top: 50px;
+		}
+		&:first-of-type{
+			.widget-content{
+				margin-top: 15px;
+			}
+			.widget-title{
+				line-height: 0.8;
 			}
 		}
 	}
