@@ -29,6 +29,23 @@ jQuery(document).ready(function($) {
 	var eol_twitter_share = function( url ) {
 		window.open( 'https://twitter.com/intent/tweet?text=' + url );
 	}
+	/**
+	 *
+	 * Share on whatsapp
+	 *
+	*/
+	var eol_whatsapp_share = function( url ) {
+		window.open( 'whatsapp://send?text=' + url );
+	}
+
+	/**
+	 *
+	 * Share on telegram
+	 *
+	*/
+	var eol_telegram_share = function( url ) {
+		window.open( 'https://telegram.me/share/url?url=' + url );
+	}
 
 	/**
 	 *
@@ -60,6 +77,15 @@ jQuery(document).ready(function($) {
 			eol_gplus_share( url );
 			return;
 		}
+		if ( $( this ).hasClass( 'fa-whatsapp' ) ) {
+			eol_whatsapp_share( url );
+			return;
+		}
+		if ( $( this ).hasClass( 'fa-telegram' ) ) {
+			eol_telegram_share( url );
+			return;
+		}
+
 		if ( $( this ).hasClass( 'fa-print' ) ) {
 			eol_print_share();
 			return;
