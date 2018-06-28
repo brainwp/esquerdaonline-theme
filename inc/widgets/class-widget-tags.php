@@ -6,16 +6,16 @@
  *
  * @see WP_Widget
  */
-class EOL_Posts_Widget extends WP_Widget {
+class EOL_Tags_Widget extends WP_Widget {
 
 	/**
 	 * Sets up a new widget instance.
 	 *
 	 */
 	public function __construct() {
-		$widget_ops = array('classname' => 'widget_eol_posts', 'description' => 'Widget de posts com repetidor' );
+		$widget_ops = array('classname' => 'widget_eol_tags', 'description' => 'Widget para exibir links de tags selecionadas' );
 		$control_ops = array('width' => 400, 'height' => 700);
-		parent::__construct('widget_eol_posts', __('Posts'), $widget_ops, $control_ops);
+		parent::__construct('widget_eol_tags', __('Tags'), $widget_ops, $control_ops);
 	}
 
 	/**
@@ -31,17 +31,9 @@ class EOL_Posts_Widget extends WP_Widget {
 	public function widget( $args, $instance ) {
 
 		/** This filter is documented in wp-includes/widgets/class-wp-widget-pages.php */
-		$title = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
 
-		// pega o termo da posição selecionada;
-		$posicao = absint( $instance[ 'posicao' ] );
-
-		// pega as classes do widget (global) e de cada post
-		$classes_widget = esc_attr( $instance[ 'classes_widget' ] );
-		$classes_posts = esc_attr( $instance[ 'classes_posts' ] );
-
-		// numero de posts a ser exibido
-		$number = absint( $instance[ 'number'] );
+		// pega o termo da tag selecionada;
+		$tags_selecionadas = esc_attr( $instance[ 'tags_selecionadas' ] );
 
 		$query = new WP_Query(
 			array(
@@ -208,5 +200,5 @@ class EOL_Posts_Widget extends WP_Widget {
  *
  */
 add_action( 'widgets_init', function(){
-	register_widget( 'EOL_Posts_Widget' );
+	register_widget( 'EOL_Tags_Widget' );
 } );
