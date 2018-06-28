@@ -1,0 +1,63 @@
+.widget-newsletter-container{
+  .widget-content{
+    .wpcf7-list-item-label{
+      display: block;
+      float: none;
+      width: 100%;
+    }
+    input{
+    }
+    p{
+
+    }
+    .wpcf7-checkbox{
+      text-align:center;
+      input{
+        height: 15px;
+        text-align: center;
+        width: 15px;
+        margin-top: 10px;
+      }
+      span.wpcf7-list-item{
+        margin:0 0 0 0;
+      }
+    }
+    input{
+      max-width:100%;
+      width: 100%;
+      background: #f7eeec;
+      border: solid 1px #d0482aa6;
+      border-radius: 5px;
+      padding: 5px;
+      &:focus, &active{
+        outline:0;
+      }
+      &.wpcf7-submit{
+        background-color:$red_main;
+        color:#fff;
+        margin-top:7px;
+      }
+
+    }
+  }
+  .wpcf7-form-control-wrap.estado{
+    border: solid 1px #d0482aa6;
+    background: #f7eeec;
+    padding: 5px;
+    display: inline-block;
+    border-radius: 5px;
+    select{
+      &:focus, &:hover, &:active{
+        outline:0!important;
+      }
+      background: transparent;
+      max-width: 100%;
+      border: none;
+      color: #413e3e;
+    }
+    display:inline-block;
+  }
+  div.wpcf7-validation-errors, div.wpcf7-acceptance-missing {
+    border: 2px solid $red_main;
+  }
+}

@@ -6,16 +6,16 @@
  *
  * @see WP_Widget
  */
-class EOL_Tags_Widget extends WP_Widget {
+class EOL_Newsletter_Widget extends WP_Widget {
 
 	/**
 	 * Sets up a new widget instance.
 	 *
 	 */
 	public function __construct() {
-		$widget_ops = array('classname' => 'widget_eol_tags', 'description' => 'Widget para exibir links de tags selecionadas' );
+		$widget_ops = array('classname' => 'widget_eol_linha', 'description' => 'Widget Newsletter' );
 		$control_ops = array('width' => 400, 'height' => 700);
-		parent::__construct('widget_eol_tags', __('Tags'), $widget_ops, $control_ops);
+		parent::__construct('widget_eol_newsletter', __('Newsletter'), $widget_ops, $control_ops);
 	}
 
 	/**
@@ -29,18 +29,15 @@ class EOL_Tags_Widget extends WP_Widget {
 	 * @param array $instance Settings for the current Text widget instance.
 	 */
 	public function widget( $args, $instance ) {
-
-		/** This filter is documented in wp-includes/widgets/class-wp-widget-pages.php */
+		// numero de posts a ser exibido
 		?>
-		<div class="widget-container widget-tags-container">
+		<div class="widget-newsletter-container widget-container">
 		<?php
 		echo $args['before_widget'];
-
-		// pega o termo da tag selecionada;
-		if (isset($instance[ 'tags_selecionadas' ])) {
-			$tags_selecionadas =  (isset($instance[ 'tags_selecionadas']) ? $instance[ 'tags_selecionadas']:"") ;
-			echo do_shortcode( '[eol_tags tags="'.$tags_selecionadas.'"]' );
-		}
+		$form =  (isset($instance[ 'form']) ? $instance[ 'form'] :"") ;
+		$title = apply_filters( 'widget_title', 'Newsletter' );
+		echo $args['before_title'] . $title . $args['after_title'];
+		echo do_shortcode( $form );
 		echo $args['after_widget'];
 		?>
 		</div>
@@ -60,7 +57,7 @@ class EOL_Tags_Widget extends WP_Widget {
 	 */
 	public function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
-		$instance['tags_selecionadas'] = sanitize_text_field( $new_instance['tags_selecionadas'] );
+		$instance[ 'form' ] =  $new_instance[ 'form'] ;
 		return $instance;
 	}
 
@@ -75,21 +72,21 @@ class EOL_Tags_Widget extends WP_Widget {
 	public function form( $instance ) {
 		$instance = wp_parse_args( (array) $instance,
 			array(
-				'tags_selecionadas' => '',
+				'form' => '[contact-form-7 id="927" title="Newsletter"]'
 			)
 		);
 		?>
 		<div class="form-container">
 			<?php
-			// campo de titulo "global"
-			$tags_selecionadas = sanitize_text_field( $instance['tags_selecionadas'] );
+			// numero de posts a ser exibido
+			$form = sanitize_text_field( $instance['form'] );
 			?>
 			<p>
-				<label>Tags por nome separadas por vírugula</label>
-				<input class="widefat post-title" type="text" name="<?php echo $this->get_field_name( 'tags_selecionadas' ); ?>" value="<?php echo esc_attr($tags_selecionadas); ?>">
-				<input type="text" class="force-change" name="<?php echo $this->get_field_name( 'force_change' );?>" style="display:none;"/>
+				<label>Shortcode do formulário</label>
+				<input class="widefat" type="text" name="<?php echo $this->get_field_name( 'form' ); ?>" value="<?php echo esc_attr($form); ?>">
 			</p>
-		</div>
+
+		</div><!-- .form-container -->
 		<?php
 	}
 }
@@ -100,5 +97,5 @@ class EOL_Tags_Widget extends WP_Widget {
  *
  */
 add_action( 'widgets_init', function(){
-	register_widget( 'EOL_Tags_Widget' );
+	register_widget( 'EOL_Newsletter_Widget' );
 } );

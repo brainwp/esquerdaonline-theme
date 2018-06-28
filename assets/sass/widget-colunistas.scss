@@ -1,3 +1,6 @@
+#sidebar-colunistas{
+	margin-bottom:35px;
+}
 @media (min-width:1401) {
 	.widget-colunistas{
 		.widget-content{
@@ -24,12 +27,17 @@
 }
 .home .widget-colunistas{
 	.each-colunista {
+		&.tamanho-20{
+			.thumbnail-colunista{
+				width: 55%;
+			}
+		}
 		article{
 			text-align: center;
 		}
 		&.tamanho-25{
 			.thumbnail-colunista{
-				width: 50%;
+				width: 35%;
 			}
 			&:nth-of-type(4n+1){
 				clear:both;
@@ -53,6 +61,13 @@
 		.colunista-name{
 			width:100%;
 			text-align:center;
+		}
+	}
+}
+.home .widget-colunistas{
+	.each-colunista {
+		a.post-title{
+			margin-top:0;
 		}
 	}
 }
