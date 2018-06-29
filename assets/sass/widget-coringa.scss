@@ -10,6 +10,10 @@
 	}
 }
 @media(min-width:991px){
+	.tamanho-20{
+		width:20%;
+		float:left;
+	}
 	.widget-eol-posts.widget-container {
 		&.titulo-gigante{
 			h2{
@@ -246,10 +250,7 @@
 	@extend .col-md-3;
 
 }
-.tamanho-20{
-	width:20%;
-	float:left;
-}
+
 .widget-eol-posts.widget-container {
 	overflow:hidden;
 	padding:0!important;
