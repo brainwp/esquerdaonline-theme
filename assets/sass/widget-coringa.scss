@@ -41,6 +41,38 @@
 		}
 
 		.each-post-widget{
+			figure{
+				background: #f34824;
+				position: relative;
+				> div a i{
+					opacity: 0.9;
+					font-size: 28px;
+					display: inline-block;
+					color: #fff !important;
+				}
+				> div a:hover i{
+					transition: all ease-in-out 100ms;
+					opacity: 1;
+				}
+				.social-icons-post{
+					padding: 0;
+					display: none;
+					text-align: center;
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					z-index: 99;
+					width: auto;
+					transform: translate(-50%, -50%);
+
+				}
+				&.post-thumbnail{
+					img{
+						max-width: 100%;
+						width: 100%;
+					}
+				}
+			}
 			&:hover{
 				&.foto-fundo{
 					.post-link-widget-text{
@@ -294,12 +326,17 @@
 		}
 	}
 	.each-post-widget{
+
 		overflow: hidden;
 		padding-left:$padding-noticia;
 		padding-right:$padding-noticia;
 		margin-bottom:$margin-bottom-noticia;
 		figure{
 			transition: all ease-in-out 100ms;
+			.icon-itself{
+				display: inline-block;
+				padding: 10px;
+			}
 
 			img{
 				transition: all ease-in-out 100ms;
@@ -345,39 +382,7 @@
 				}
 			}
 		}
-		figure{
-			background: #f34824;
-			position: relative;
-			> div a i{
-				opacity: 0.9;
-				font-size: 28px;
-				display: inline-block;
-				color: #fff !important;
-			}
-			> div a:hover i{
-				transition: all ease-in-out 100ms;
-				opacity: 1;
-			}
-			.social-icons-post{
-				display: none;
-				text-align: center;
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				z-index: 99;
-				transform: translate(-50%, -50%);
-				.icon-itself{
-					display: inline-block;
-					padding: 10px;
-				}
-			}
-			&.post-thumbnail{
-				img{
-					max-width: 100%;
-					width: 100%;
-				}
-			}
-		}
+
 	}
 	&.foto-fundo{
 		position: relative;
@@ -420,9 +425,21 @@
 					padding-right: 0;
 				}
 			}
-		}
-		.each-post-widget{
-
+			.post-thumbnail{
+				.single-thumbnail{
+					img{
+						width: 100%;
+					}
+				}
+				.social-icons-post{
+					.icon-itself{
+						float:right;
+						i{
+							font-size: 20px;
+						}
+					}
+				}
+			}
 			margin-top: 20px;
 			clear: both;
 			.tax-widget-titulo{
