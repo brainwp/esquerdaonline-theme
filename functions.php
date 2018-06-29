@@ -648,8 +648,8 @@ function gs_add_img_lazy_markup($the_content) {
 
     $post = new DOMDocument();
 
-    $post->loadHTML($the_content);
-
+    $post->loadHTML(mb_convert_encoding($the_content, 'HTML-ENTITIES', 'UTF-8'));
+	
     $imgs = $post->getElementsByTagName('img');
 
     // Iterate each img tag
@@ -669,7 +669,7 @@ function gs_add_img_lazy_markup($the_content) {
 				}
 
     };
-    return $post->saveHTML();
+    return $post->saveHTML($post->documentElement);
 }
 
 add_filter('pre_get_posts','eol_exclude_destaques');
