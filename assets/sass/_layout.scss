@@ -301,7 +301,7 @@ body {
 .tax-editorias{
 	.topo-editoria{
 		.widgettitle, .widget-title{
-			font-size:$widget_title_font_size;
+			font-size:$font_size_widget_titulo;
 			color:black;
 			@extend h1.page-title;
 			margin-bottom: 20px;

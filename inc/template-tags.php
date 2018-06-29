@@ -148,7 +148,7 @@ function eol_single_thumbnail($size='full', $post_id = null, $meta = null) {
 			$size = "-".$size;
 		}
 		?>
-			<img src="<?php echo get_template_directory_uri() ?>/assets/images/img-default<?php echo $size; ?>.jpg" alt="">
+			<img class="attachment-post-default-thumbnail size-post-default-thumbnail wp-post-image" src="<?php echo get_template_directory_uri() ?>/assets/images/img-default<?php echo $size; ?>.jpg" alt="">
 		<?php
 	}
 	echo '</div>';

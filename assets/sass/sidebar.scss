@@ -95,14 +95,14 @@ aside#sidebar, aside#sidebar-colunistas {
 
 
 	.widgettitle, .widget-title{
-		font-size:$widget_title_font_size;
+		font-size:$font_size_widget_titulo;
 		letter-spacing: 0;
 		font-family: $font_family_widget_titulo;
 		padding-left:0px!important;
 
 	}
 	h3 a{
-		font-size:$widget_title_font_size;
+		font-size:$font_size_widget_titulo;
 		color: $red_main;
 		letter-spacing: 0;
 		font-family: $font_family_widget_titulo;

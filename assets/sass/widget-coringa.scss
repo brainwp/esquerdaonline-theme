@@ -171,11 +171,10 @@
 			}
 			&.foto-meio{
 				.tax-widget-titulo{
+					margin-top: 0px;
 					display: flex;
-					height: 80px;
 					text-overflow: ellipsis;
 					align-items: center;
-					line-height: 1.3;
 					overflow:hidden;
 				}
 				.tax-widget-subtitulo{

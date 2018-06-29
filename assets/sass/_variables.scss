@@ -27,17 +27,40 @@ $padding-noticia:1vw;
 $margin-bottom-noticia:2vw;
 
 // font sizes
-$widget_title_font_size:18px;
-$sub_title_size: 22px;
 $caption_author_size: 13px;
-$content_body_size: 17px;
+$content_body_size: 18px;
 $navbar-padding-vertical:0;
+
+$font_size_h1: 44px;
+$font_size_sub_titulo: 22px;
+$font_size_widget_titulo: 18px;
+$font_size_p: 18px;
+// $font_size_manchete:
 
 // letter-spacing
 $letter_spacing_title:-0.1px;
 $letter_spacing_link:-0.4px;
+$letter_spacing_p: -0.1px;
+$letter_spacing_sub_title:-0.2px;
 
-$font_family_h1: "Knowledge Black";
-$font_family_sub_titulo: "Lato";
-$font_family_widget_titulo: "Lato";
-$font_family_p: "Lato";
+
+// Font families
+$font_family_h1: "Roboto Condensed";
+$font_family_sub_titulo: "Heebo";
+$font_family_widget_titulo: "Heebo";
+$font_family_p: "Heebo";
+$font_family_manchete: "Roboto Condensed";
+
+// Font weights
+$font_weight_h1: 800;
+$font_weight_sub_titulo:300;
+// $font_weight_widget_titulo:
+$font_weight_p: 400;
+// $font_weight_manchete:
+
+// Line height
+$line_height_h1: 43px;
+$line_height_sub_titulo: 28px;
+// $line_height_widget_titulo:
+$line_height_p: 31px;
+// $line_height_manchete:
