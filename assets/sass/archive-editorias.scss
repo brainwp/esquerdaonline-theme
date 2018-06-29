@@ -1,10 +1,17 @@
 body{
   &.tax-editorias{
+    .widget-eol-taxonomy-posts{
+      .tax-widget-titulo{
+        margin-top: 10px;
+      }
+    }
     &.term-editorial{
       .barra-editorias{
         background-image: url('../images/barra-vermelha.jpg');
       }
-
+    }
+    .widget-tags-container{
+      padding-top: 7px;
     }
     section.social-area, h1.page-title{
       padding-left: 15px;
@@ -27,7 +34,7 @@ body{
 			.container{
 				h5{
 					font-size: 15px;
-					padding-left: 55px;
+					// padding-left: 55px;
 					font-weight: bolder;
 					text-transform: uppercase;
 				}

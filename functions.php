@@ -671,3 +671,22 @@ function gs_add_img_lazy_markup($the_content) {
     };
     return $post->saveHTML();
 }
+
+add_filter('pre_get_posts','eol_exclude_destaques');
+
+function eol_exclude_destaques( $query ) {
+
+    if ( $query->is_tax( 'editorias' ) && $query->is_main_query() ) {
+        $query->set( 'tax_query', array(
+            'relation' => 'AND',
+            array(
+                'taxonomy' => '_featured_eo',
+                'field' => 'slug',
+                'terms' => 'destaque',
+                'operator' => 'NOT IN'
+            )
+        ) );
+    }
+
+    return $query;
+}
