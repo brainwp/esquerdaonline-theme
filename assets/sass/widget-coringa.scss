@@ -211,8 +211,13 @@
 				.fas.fa-share-alt{
 					position: absolute;
 					color: #fff;
-					top: 10px;
-					left: 10px;
+					top: 20px;
+					left: 20px;
+					height:23px;
+					width: 23px;
+					padding: 5px;
+					border-radius: 23px;
+					background:#33333385;
 					transition: all ease-in-out 100ms;
 				}
 			}
@@ -345,7 +350,7 @@
 			background: #f34824;
 			position: relative;
 			> div a i{
-				opacity: 0.7;
+				opacity: 0.9;
 				font-size: 28px;
 				display: inline-block;
 				color: #fff !important;
