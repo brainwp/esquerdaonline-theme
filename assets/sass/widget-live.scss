@@ -5,10 +5,6 @@
 		margin-bottom:30px;
 	}
 }
-.faixa-topo{
-	position:absolute;
-	top:0;
-}
 .widget-live-container{
 	padding-left:$padding-noticia;
 	padding-right:$padding-noticia;
@@ -22,17 +18,12 @@
 		}
 	}
 }
-.admin-bar {
-	.faixa-topo{
-		top:30px;
-	}
-}
+
 .faixa-topo{
 	z-index: 999;
-	position: fixed;
 	top: 0;
 	left: 0;
-	background:#000000a6;
+	background:#000000;
 	width: 100%;
 	padding:10px 4vw;
 	a{

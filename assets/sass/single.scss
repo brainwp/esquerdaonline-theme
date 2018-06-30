@@ -650,12 +650,15 @@ span.tag-links a {
 			}
 		}
 	}
-	body.single .icon-itself {
+	body.single .icon-itself, .tax-editorias .icon-itself {
 	    padding: 0px 10px!important;
-	    font-size: 28px;
+			font-size: 24px;
 			float: right;
 			&:first-child{
 				padding-right:0!important;
+			}
+			i{
+				color:$red_main!important;
 			}
 	}
 	.tag-links a {

@@ -129,6 +129,16 @@ else if( is_tax('editorias') ) {
 			<h5 class="col-md-12"><?php echo $term->name;  ?></h5>
 		</div>
 	</div>
-<?php  }?>
+<?php  }
+	?>
+	<div class="faixa-topo">
+	 <a href="#live">
+		 <?php echo 'text';?>
+	 </a>
+	 <a id="fechar-topo" href="#">X</a>
+	</div>
+	<?php
+
+?>
 	<div id="wrapper" class="container">
 		<div class="row">

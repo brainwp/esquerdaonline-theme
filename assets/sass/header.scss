@@ -219,6 +219,14 @@ nav#menu-institucional .navbar-nav li:first-child a {
 	body{
 		padding-top: 70px;
 	}
+	.admin-bar{
+		header#header{
+			top:32px;
+			#menu-open{
+				top:32px;
+			}
+		}
+	}
 	header#header{
 		z-index: 99;
 		background: #fff;
