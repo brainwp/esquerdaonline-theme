@@ -37,22 +37,7 @@
 					<i class="fas fa-times"></i>
 				</div>
 				<div class="social-icons pull-right">
-					<?php $links = get_theme_mod( 'social_links', false );?>
-					<?php if ( $links ) : ?>
-						<?php foreach( $links as $link ) : ?>
-							<?php $class = sprintf( 'fa-%s-%s', $link[ 'link_icon' ], $link[ 'link_icon' ][0] );?>
-							<?php if ( 'twitter' === $link[ 'link_icon'] ) {
-								$class = 'fa-twitter';
-							}
-							if ( 'instagram' === $link[ 'link_icon'] ) {
-								$class = 'fa-instagram';
-							}
-							?>
-							<a href="<?php echo esc_url( $link[ 'link_url'] );?>">
-								<i class="fab <?php echo $class;?>"></i>
-							</a>
-						<?php endforeach;?>
-					<?php endif;?>
+					<?php eol_socials(); ?>
 				</div><!-- .social-icons -->
 
 				<nav class="col-md-12 " id="menu-institucional" >

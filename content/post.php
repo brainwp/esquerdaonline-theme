@@ -57,7 +57,7 @@ if ( ! $chamada ) {
 				</a>
 			</h3>
 			<?php
-			if ( in_array( 'exibicao-chamada', $classes_posts ) && ! in_array( 'foto-cima', $classes_posts )  ) :
+			if ( in_array( 'exibicao-chamada', $classes_posts ) ) :
 				$chamada = '<div class="tax-widget-subtitulo">'.apply_filters( 'the_content', $chamada ).'</div>';
 				echo $chamada;
 			endif;?>
@@ -113,7 +113,7 @@ if ( ! $chamada ) {
 			?>
 		</figure>
 		<?php endif;?>
-		<?php if ( in_array( 'exibicao-chamada', $classes_posts )   && ! in_array( 'foto-fundo', $classes_posts )  ) : ?>
+		<?php if ( in_array( 'exibicao-chamada', $classes_posts )   && ! ( in_array( 'foto-fundo', $classes_posts ) || in_array( 'foto-cima', $classes_posts ) ) ) : ?>
 			<?php $chamada = '<div class="tax-widget-subtitulo">'.apply_filters( 'the_content', $chamada ).'</div>';
 			echo $chamada; ?>
 		<?php endif;?>

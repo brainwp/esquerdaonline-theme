@@ -647,9 +647,11 @@ function gs_add_img_lazy_markup($the_content) {
     libxml_use_internal_errors(true);
 
     $post = new DOMDocument();
-
+		if ($post =='') {
+			return;
+		}
     $post->loadHTML(mb_convert_encoding($the_content, 'HTML-ENTITIES', 'UTF-8'));
-	
+
     $imgs = $post->getElementsByTagName('img');
 
     // Iterate each img tag
