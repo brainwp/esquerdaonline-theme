@@ -642,34 +642,15 @@ function section_id_class( $classes ) {
 add_filter('widget_text', 'do_shortcode');
 
 
-//add_filter('the_content', 'gs_add_img_lazy_markup', 15);  // hook into filter and use priority 15 to make sure it is run after the srcset and sizes attributes have been added.
-
-/**
- *
- * Modified from: Sunyatasattva
- * https://wordpress.stackexchange.com/questions/81522/change-html-structure-of-all-img-tags-in-wordpress
- * @param $the_content
- *
- * @return string
- *
- *
- * Initial use of code gave warning: DOMDocument::loadHTML(): Unexpected end tag : p
- * Due to invalid HTML
- *
- * https://stackoverflow.com/questions/11819603/dom-loadhtml-doesnt-work-properly-on-a-server
- *
- * libxml_use_internal_errors(true);
- */
-
-
-
+// imprime credito na foto dentro da single
+add_filter('the_content', 'gs_add_img_lazy_markup', 15);  // hook into filter and use priority 15 to make sure it is run after the srcset and sizes attributes have been added.
 
 function gs_add_img_lazy_markup($the_content) {
 
     libxml_use_internal_errors(true);
 
     $post = new DOMDocument();
-		if ($post =='') {
+		if (!is_singular( ) || $post =='' || $the_content =="" ) {
 			return;
 		}
     $post->loadHTML(mb_convert_encoding($the_content, 'HTML-ENTITIES', 'UTF-8'));
