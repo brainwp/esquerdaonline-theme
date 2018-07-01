@@ -571,7 +571,6 @@ function eol_pre_update_page_on_front( $value, $old_value ) {
 	$widgets_table = get_option( 'sidebars_widgets', false );
 	if ( $widgets_table && isset( $widgets_table[ $widget ] ) ) {
 		$widgets_table[ 'home-widgets' ] = $widgets_table[ $widget ];
-		unset( $widgets_table[ $widget ] );
 		update_option( 'sidebars_widgets', $widgets_table );
 	}
 	return $value;
