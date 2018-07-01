@@ -32,7 +32,9 @@ class EOL_Posts_Widget extends WP_Widget {
 
 		/** This filter is documented in wp-includes/widgets/class-wp-widget-pages.php */
 		$title = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
-
+		if ( ! empty( $instance[ 'title_front'] ) ) {
+			$title = apply_filters( 'the_title', $instance[ 'title_front' ] );
+		}
 		// pega o termo da posição selecionada;
 		$posicao = absint( $instance[ 'posicao' ] );
 
@@ -87,6 +89,8 @@ class EOL_Posts_Widget extends WP_Widget {
 	public function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
 		$instance['title'] = sanitize_text_field( $new_instance['title'] );
+		$instance['title_front'] = sanitize_text_field( $new_instance['title_front'] );
+
 		$instance['classes_widget'] = esc_attr( sanitize_text_field( $new_instance['classes_widget'] ) );
 		$instance['classes_posts'] = esc_attr( sanitize_text_field( $new_instance['classes_posts'] ) );
 		$instance[ 'posicao' ] = absint( $new_instance[ 'posicao'] );
@@ -108,6 +112,7 @@ class EOL_Posts_Widget extends WP_Widget {
 		$instance = wp_parse_args( (array) $instance,
 			array(
 				'title' => '',
+				'title_front' => '',
 				'classes_widget' => 'titulo-pequeno tamanho-50',
 				'readmore' => '',
 				'posicao' => '',
@@ -126,6 +131,15 @@ class EOL_Posts_Widget extends WP_Widget {
 				<input class="widefat post-title" type="text" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo esc_attr($widget_title); ?>">
 				<input type="text" class="force-change" name="<?php echo $this->get_field_name( 'force_change' );?>" style="display:none;"/>
 			</p>
+			<?php
+			// campo de titulo "global" no front
+			$widget_title_front = sanitize_text_field( $instance['title_front'] );
+			?>
+			<p>
+				<label>Titulo do widget no site</label>
+				<input class="widefat post-title" type="text" name="<?php echo $this->get_field_name( 'title_front' ); ?>" value="<?php echo esc_attr($widget_title_front); ?>">
+			</p>
+
 			<?php
 			// campo de classes "global"
 			$classes = sanitize_text_field( $instance['classes_widget'] );
