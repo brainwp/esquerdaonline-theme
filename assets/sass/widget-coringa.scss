@@ -14,25 +14,29 @@
 		width:20%;
 		float:left;
 	}
-	.widget-eol-posts.widget-container {
-		.widget-title{
-			color: rgb(91,56,122);
-			font-size: 20px;
-			font-weight: 800;
-			line-height: 33px;
-			&:after{
-				font-size:25px;
-			}
-		}
-		&.editorial{
+	.home{
+		.widget-container{
 			.widget-title{
-				color: #fff;
 				font-size: 20px;
 				font-weight: 800;
 				line-height: 33px;
-				background-color: rgb(91,56,122);
+				&:after{
+					font-size:25px;
+				}
+			}
+			&.editorial{
+				.widget-title{
+					color: #fff;
+					font-size: 20px;
+					font-weight: 800;
+					line-height: 33px;
+					background-color: rgb(91,56,122);
+				}
 			}
 		}
+	}
+	.widget-eol-posts.widget-container {
+
 		.each-post-widget{
 			&.manchete{
 				.tax-widget-titulo{
