@@ -567,6 +567,9 @@ function de_cat_pra_edi(){
 
 function eol_pre_update_page_on_front( $value, $old_value ) {
 	$post = get_post( $value );
+	if ( ! $post || is_wp_error( $post ) ) {
+		return $value;
+	}
 	$widget = eol_get_widget_object_id( get_permalink( $post->ID ) );
 	$widgets_table = get_option( 'sidebars_widgets', false );
 	if ( $widgets_table && isset( $widgets_table[ $widget ] ) ) {
