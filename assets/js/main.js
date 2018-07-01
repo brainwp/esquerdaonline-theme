@@ -22,13 +22,6 @@ jQuery(document).ready(function($) {
 		  $( '#header .container' ).toggleClass( 'open' );
 
 	});
-	$( '#fechar-topo' ).click(function(e) {
-		e.preventDefault();
-			$( '.faixa-topo' ).fadeOut();
-
-	});
-	$( ' .faixa-topo a ' ).click(function() {
-			$( '.faixa-topo' ).fadeOut();
-	});
+	
 
 });

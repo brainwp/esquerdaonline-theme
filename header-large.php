@@ -130,13 +130,17 @@ else if( is_tax('editorias') ) {
 		</div>
 	</div>
 <?php  }
+		if (is_front_page()) {?>
+			<div style="display:none" class="faixa-topo">
+			 <a id="live-link" href="#live">
+				 <img src="<?php echo get_stylesheet_directory_uri() ?>/assets/images/live.gif" alt="">
+			 </a>
+			 <a id="fechar-topo" href="#"><i class="fa fa-times" aria-hidden="true"></i></a>
+			</div>
+			<?php
+		}
 	?>
-	<div class="faixa-topo">
-	 <a href="#live">
-		 <?php echo 'text';?>
-	 </a>
-	 <a id="fechar-topo" href="#">X</a>
-	</div>
+
 	<?php
 
 ?>

@@ -27,9 +27,14 @@
 	width: 100%;
 	padding:10px 4vw;
 	a{
+		text-decoration: none;
 		color:white;
 		&#fechar-topo{
 			float: right;
+			i{
+				font-size: 17px;
+    		margin-top: 7px;
+			}
 		}
 	}
 
