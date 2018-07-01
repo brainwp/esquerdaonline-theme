@@ -565,13 +565,31 @@ function de_cat_pra_edi(){
 }
 // add_action('wp_head', 'de_cat_pra_edi');
 
+function eol_pre_update_page_on_front( $value, $old_value ) {
+	$post = get_post( $value );
+	$widget = eol_get_widget_object_id( get_permalink( $post->ID ) );
+	$widgets_table = get_option( 'sidebars_widgets', false );
+	if ( $widgets_table && isset( $widgets_table[ $widget ] ) ) {
+		$widgets_table[ 'home-widgets' ] = $widgets_table[ $widget ];
+		unset( $widgets_table[ $widget ] );
+		update_option( 'sidebars_widgets', $widgets_table );
+	}
+	return $value;
+}
+add_filter( 'pre_update_option_page_on_front', 'eol_pre_update_page_on_front', 10, 2 );
 /**
  * Retorna o ID da widget area de termos de acordo com o URL do mesmo
  * @see eol_register_widget_area_by_object_id()
  * @return string
  */
-function eol_get_widget_object_id() {
-	$url = str_replace( '?' . $_SERVER[ 'QUERY_STRING'], '', $_SERVER[ 'REQUEST_URI'] );
+function eol_get_widget_object_id( $url_arg = false ) {
+	if ( ! $url_arg ) {
+		$url = str_replace( '?' . $_SERVER[ 'QUERY_STRING'], '', $_SERVER[ 'REQUEST_URI'] );
+	} else {
+		$url = $url_arg;
+		$url = str_replace( array( $_SERVER[ 'SERVER_NAME'], $_SERVER[ 'REQUEST_SCHEME'], '://'), '', $url );
+		$url = trim( $url );
+	}
 	if ( false != strpos( $url, 'customize.php') ) {
 		if ( isset( $_GET[ 'url'] ) && !empty( $_GET[ 'url'] ) ) {
 			$url = str_replace( array( $_SERVER[ 'SERVER_NAME'], $_SERVER[ 'REQUEST_SCHEME'] . '://' ), '', $_GET[ 'url' ] );
@@ -580,10 +598,12 @@ function eol_get_widget_object_id() {
 	}
 	return 'widget_' . str_replace( '/', '_', $url );
 }
+
 /**
  * Registra widget area para posts/paginas/termos de acordo com o 'slug' do mesmo
  * Em caso de termo, usa a função "eol_get_widget_term_id()"
  * @see eol_get_widget_term_id()
+ *
  */
 function eol_register_widget_area_by_object_id() {
 	register_sidebar( array(
@@ -620,7 +640,7 @@ function section_id_class( $classes ) {
 add_filter('widget_text', 'do_shortcode');
 
 
-add_filter('the_content', 'gs_add_img_lazy_markup', 15);  // hook into filter and use priority 15 to make sure it is run after the srcset and sizes attributes have been added.
+//add_filter('the_content', 'gs_add_img_lazy_markup', 15);  // hook into filter and use priority 15 to make sure it is run after the srcset and sizes attributes have been added.
 
 /**
  *
