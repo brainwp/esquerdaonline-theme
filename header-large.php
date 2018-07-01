@@ -37,22 +37,7 @@
 					<i class="fas fa-times"></i>
 				</div>
 				<div class="social-icons pull-right">
-					<?php $links = get_theme_mod( 'social_links', false );?>
-					<?php if ( $links ) : ?>
-						<?php foreach( $links as $link ) : ?>
-							<?php $class = sprintf( 'fa-%s-%s', $link[ 'link_icon' ], $link[ 'link_icon' ][0] );?>
-							<?php if ( 'twitter' === $link[ 'link_icon'] ) {
-								$class = 'fa-twitter';
-							}
-							if ( 'instagram' === $link[ 'link_icon'] ) {
-								$class = 'fa-instagram';
-							}
-							?>
-							<a href="<?php echo esc_url( $link[ 'link_url'] );?>">
-								<i class="fab <?php echo $class;?>"></i>
-							</a>
-						<?php endforeach;?>
-					<?php endif;?>
+					<?php eol_socials(); ?>
 				</div><!-- .social-icons -->
 
 				<nav class="col-md-12 " id="menu-institucional" >
@@ -115,7 +100,7 @@
 		?>
 	</div>
 	<?php
-} else if(is_object($post) && !is_tax() && !is_tag()  && has_term( '', 'colunistas', $post->ID )) {
+} else if(is_post_type_archive('colunistas') || ( is_object($post) && !is_tax() && !is_tag()  && has_term( '', 'colunistas', $post->ID ))) {
 		?>
 	<div class="barra-colunistas">
 		<div  class="container">
@@ -144,6 +129,16 @@ else if( is_tax('editorias') ) {
 			<h5 class="col-md-12"><?php echo $term->name;  ?></h5>
 		</div>
 	</div>
-<?php  }?>
+<?php  }
+	?>
+	<div class="faixa-topo">
+	 <a href="#live">
+		 <?php echo 'text';?>
+	 </a>
+	 <a id="fechar-topo" href="#">X</a>
+	</div>
+	<?php
+
+?>
 	<div id="wrapper" class="container">
 		<div class="row">

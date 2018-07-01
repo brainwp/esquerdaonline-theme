@@ -40,7 +40,7 @@ get_header('large'); ?>
 
 				</div>
 				<?php
-					the_archive_title( '<h1 class="page-title">', '</h1>' );
+					// the_archive_title( '<h1 class="page-title">', '</h1>' );
 				?>
 				<section class="social-area">
 					<div class="main-post-social no-padding continue-reading">

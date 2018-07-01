@@ -55,6 +55,14 @@ header#header {
 	.social-icons {
 		display: inline-block;
 		margin-left: 8px;
+		position: relative;
+		z-index: 99;
+		.fa-whatsapp{
+			color: #25d366;
+		}
+		.fa-telegram{
+			color: #0088cc;
+		}
 	}
 	.search-icon {
 		display: inline-block;
@@ -210,6 +218,14 @@ nav#menu-institucional .navbar-nav li:first-child a {
 @media (max-width: 991px){
 	body{
 		padding-top: 70px;
+	}
+	.admin-bar{
+		header#header{
+			top:32px;
+			#menu-open{
+				top:32px;
+			}
+		}
 	}
 	header#header{
 		z-index: 99;

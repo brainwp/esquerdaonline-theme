@@ -11,14 +11,7 @@
 
 
 <div class="postholder">
-	<article class="post-default <?php if( has_post_thumbnail() ){ echo "has-thumb";}else{ echo "hasnt-thumb";}?>">
-		<a href="<?php get_permalink();?>" class="the-date hidden-md hidden-lg col-sm-12 col-xs-12 moboltrue">
-			<?php printf( __( '%1$s de %2$s, %3$s', 'eol' ), get_the_date( 'd' ), get_the_date( 'F' ), get_the_date( 'Y' ) );?>
-			<?php if ( $meta = get_post_meta( get_the_ID(), 'the_author', true ) ) : ?>
-			<?php echo ' • ' . apply_filters( 'the_content', $meta );?>
-			<?php endif;?>
-		</a>
-
+	<article class="post-default has-thumb">
 			<figure class="col-md-4 col-sm-12 post-thumbnail">
 
 				<div class="col-md-12 social-icons-post">
@@ -53,7 +46,7 @@
 					}?>
 			</div><!-- .col-md-12 text-center -->
 			<!-- a.sub-title base-subtitulo -->
-				<a href="<?php get_permalink();?>" class="the-date hidden-sm hidden-xs">
+				<a href="<?php get_permalink();?>" class="the-date">
 					<?php printf( __( '%1$s de %2$s de %3$s', 'eol' ), get_the_date( 'd' ), get_the_date( 'F' ), get_the_date( 'Y' ) );?>
 					<?php if ( $meta = get_post_meta( get_the_ID(), 'the_author', true ) ) : ?>
 						<?php echo ' • ' . apply_filters( 'the_content', $meta );?>

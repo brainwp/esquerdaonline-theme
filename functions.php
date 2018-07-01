@@ -286,7 +286,7 @@ function odin_enqueue_scripts() {
 	$template_url = get_template_directory_uri();
 
 	// Loads fonts
-	wp_enqueue_style( 'google-font-roboto', 'https://fonts.googleapis.com/css?family=Heebo:400,700|Libre+Franklin:400,700|Roboto:400,500,600,700|Roboto+Condensed:400,700|Roboto+Slab:400,700|Source+Code+Pro:400,700|Source+Sans+Pro:400,700', array(), null, 'all' );
+	wp_enqueue_style( 'google-font-roboto', 'https://fonts.googleapis.com/css?family=Heebo:400,700|Merriweather|Bitter:400,700|Lora:400,700|Suez+One:400,700|Libre+Franklin:400,700|Roboto:400,500,600,700|Roboto+Condensed:400,700|Roboto+Slab:400,700|Source+Code+Pro:400,700|Source+Sans+Pro:400,700', array(), null, 'all' );
 	// Loads Odin main stylesheet.
 	wp_enqueue_style( 'odin-style', get_stylesheet_uri(), array(), null, 'all' );
 
@@ -667,8 +667,10 @@ function gs_add_img_lazy_markup($the_content) {
     libxml_use_internal_errors(true);
 
     $post = new DOMDocument();
-
-    $post->loadHTML($the_content);
+		if ($post =='') {
+			return;
+		}
+    $post->loadHTML(mb_convert_encoding($the_content, 'HTML-ENTITIES', 'UTF-8'));
 
     $imgs = $post->getElementsByTagName('img');
 
@@ -689,5 +691,24 @@ function gs_add_img_lazy_markup($the_content) {
 				}
 
     };
-    return $post->saveHTML();
+    return $post->saveHTML($post->documentElement);
+}
+
+add_filter('pre_get_posts','eol_exclude_destaques');
+
+function eol_exclude_destaques( $query ) {
+
+    if ( $query->is_tax( 'editorias' ) && $query->is_main_query() ) {
+        $query->set( 'tax_query', array(
+            'relation' => 'AND',
+            array(
+                'taxonomy' => '_featured_eo',
+                'field' => 'slug',
+                'terms' => 'destaque',
+                'operator' => 'NOT IN'
+            )
+        ) );
+    }
+
+    return $query;
 }

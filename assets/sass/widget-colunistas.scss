@@ -28,8 +28,14 @@
 .home .widget-colunistas{
 	.each-colunista {
 		&.tamanho-20{
+			&:hover{
+				.thumbnail-colunista{
+				
+				}
+			}
 			.thumbnail-colunista{
 				width: 55%;
+				max-width: 140px;
 			}
 		}
 		article{

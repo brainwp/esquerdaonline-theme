@@ -30,7 +30,7 @@ class EOL_Widget_Video_Live extends WP_Widget {
 		 * @param WP_Widget $instance    WP_Widget instance.
 		 */
 		 ?>
-		 <?php if ($text != ''): ?>
+		 <?php if ($text == ''): ?>
 			 <div class="faixa-topo">
 			 	<a href="#live">
 					<?php echo $text;?>

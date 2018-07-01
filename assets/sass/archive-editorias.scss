@@ -1,10 +1,21 @@
 body{
   &.tax-editorias{
+    .widget-eol-taxonomy-posts{
+      .tax-widget-titulo{
+        margin-top: 10px!important;
+      }
+    }
     &.term-editorial{
       .barra-editorias{
         background-image: url('../images/barra-vermelha.jpg');
+        h5{
+          padding-left:0;
+        }
       }
-
+    }
+    .widget-tags-container{
+      padding-top: 7px;
+      padding-left: 3px;
     }
     section.social-area, h1.page-title{
       padding-left: 15px;
@@ -20,14 +31,13 @@ body{
     .barra-editorias{
       background-image: url('../images/barra-azul.jpg');
       background-size: cover;
-
 			color: #FFF;
-			padding: 10px;
+			padding: 10px 0;
 			text-align: left;
 			.container{
 				h5{
 					font-size: 15px;
-					padding-left: 55px;
+					padding-left: 0px;
 					font-weight: bolder;
 					text-transform: uppercase;
 				}

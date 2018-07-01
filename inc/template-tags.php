@@ -45,7 +45,7 @@ if ( ! function_exists( 'odin_classes_page_sidebar_aside' ) ) {
 	 * @return string Classes name.
 	 */
 	function odin_classes_page_sidebar_aside() {
-		return 'col-md-4 hidden-xs hidden-print widget-area';
+		return 'col-md-4  hidden-print widget-area';
 	}
 }
 
@@ -148,7 +148,7 @@ function eol_single_thumbnail($size='full', $post_id = null, $meta = null) {
 			$size = "-".$size;
 		}
 		?>
-			<img src="<?php echo get_template_directory_uri() ?>/assets/images/img-default<?php echo $size; ?>.jpg" alt="">
+			<img class="attachment-post-default-thumbnail size-post-default-thumbnail wp-post-image" src="<?php echo get_template_directory_uri() ?>/assets/images/img-default<?php echo $size; ?>.jpg" alt="">
 		<?php
 	}
 	echo '</div>';
@@ -197,4 +197,28 @@ function eol_share_overlay() {
 		</a>
 	</div>
 	';
+}
+function eol_socials(){
+	$links = get_theme_mod( 'social_links', false );?>
+	<?php if ( $links ) : ?>
+		<?php foreach( $links as $link ) : ?>
+			<?php $class = sprintf( 'fa-%s-%s', $link[ 'link_icon' ], $link[ 'link_icon' ][0] );?>
+			<?php if ( 'twitter' === $link[ 'link_icon'] ) {
+				$class = 'fa-twitter';
+			}
+			if ( 'instagram' === $link[ 'link_icon'] ) {
+				$class = 'fa-instagram';
+			}
+			if ( 'whatsapp' === $link[ 'link_icon'] ) {
+				$class = 'fa-whatsapp';
+			}
+			if ( 'telegram' === $link[ 'link_icon'] ) {
+				$class = 'fa-telegram';
+			}
+			?>
+			<a target="_blank" href="<?php echo esc_url( $link[ 'link_url'] );?>">
+				<i class="fab <?php echo $class;?>"></i>
+			</a>
+		<?php endforeach;?>
+	<?php endif;
 }
