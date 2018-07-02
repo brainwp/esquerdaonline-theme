@@ -33,3 +33,14 @@ $posicao = new Odin_Taxonomy(
     'regioes', // Slug do Taxonomia.
     'post' // Nome do tipo de conteúdo que a taxonomia irá fazer parte.
 );
+// Taxonomia Especiais
+$especiais = new Odin_Taxonomy(
+    'Especiais', // Nome (Singular) da nova Taxonomia.
+    'especiais', // Slug do Taxonomia.
+    'post' // Nome do tipo de conteúdo que a taxonomia irá fazer parte.
+);
+/**
+ * Classe para configuração do comportamento da taxonomia colunistas
+ */
+require_once get_template_directory() . '/inc/class-especiais.php';
+
