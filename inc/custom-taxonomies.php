@@ -26,10 +26,17 @@ require_once get_template_directory() . '/inc/class-colunistas.php';
 $posicao = new Odin_Taxonomy(
     'Posição', // Nome (Singular) da nova Taxonomia.
     '_featured_eo', // Slug do Taxonomia.
-    array('post', 'especiais') // Nome do tipo de conteúdo que a taxonomia irá fazer parte.
+    array('post') // Nome do tipo de conteúdo que a taxonomia irá fazer parte.
 );
 $posicao = new Odin_Taxonomy(
-    'Regiões e estado', // Nome (Singular) da nova Taxonomia.
+    'Regiões e UF', // Nome (Singular) da nova Taxonomia.
     'regioes', // Slug do Taxonomia.
     'post' // Nome do tipo de conteúdo que a taxonomia irá fazer parte.
+);
+
+// para especiais
+$posicao = new Odin_Taxonomy(
+    'Tipo', // Nome (Singular) da nova Taxonomia.
+    'tipo', // Slug do Taxonomia.
+    'especiais' // Nome do tipo de conteúdo que a taxonomia irá fazer parte.
 );

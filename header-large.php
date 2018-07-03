@@ -107,7 +107,15 @@
 			<h5 class="col-md-12">Colunistas</h5>
 		</div>
 	</div>
+<?php  } else if(is_post_type_archive('especiais') || ( is_object($post) && !is_tax() && !is_tag()  && has_term( '', 'especiais', $post->ID ))) {
+		?>
+	<div class="barra-colunistas">
+		<div  class="container">
+			<h5 class="col-md-12">Especiais</h5>
+		</div>
+	</div>
 <?php  }
+
 else if( is_singular('post') ) {
 		?>
 	<div class="barra-editorias">

@@ -1,0 +1,19 @@
+.post-type-archive-especiais{
+  .each-dossie{
+    margin-bottom:25px;
+    &:nth-of-type(2n){
+      padding-right:0;
+    }
+    &:nth-of-type(2n+1){
+      padding-left:0;
+    }
+    article.post-default {
+        display: block;
+        figure{
+          margin-bottom:10px;
+        }
+
+    }
+  }
+
+}

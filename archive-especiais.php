@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying Archive pages for Editorias.
+ * The template for displaying Archive pages for especiais.
  *
  * Used to display archive-type pages if nothing more specific matches a query.
  * For example, puts together date-based pages if no date.php file exists.
@@ -25,14 +25,11 @@ get_header('large'); ?>
 				<div class="clearfix">
 
 				</div>
-				<?php
-					the_archive_title( '<h1 class="page-title">', '</h1>' );
-				?>
+				<h2 class="page-title widget-title">Dossiês</h2>
 				<section class="social-area">
 					<div class="main-post-social continue-reading">
 						<?php
 							// Start the Loop.
-							$colunistas_array=array();
 							while ( have_posts() ) : the_post();
 
 								/*
@@ -40,7 +37,7 @@ get_header('large'); ?>
 								 * use this in a child theme, then include a file called called content-___.php
 								 * (where ___ is the post format) and that will be used instead.
 								 */
-								 get_template_part( '/content/post-default' );
+								 get_template_part( '/content/especiais-dossies' );
 
 								// para sidebar:
 								$colunistas_array[get_the_title()] = get_the_permalink();
@@ -63,9 +60,30 @@ get_header('large'); ?>
 
 	</main><!-- #main -->
 	<aside id="sidebar" class="<?php echo odin_classes_page_sidebar_aside(); ?>" role="complementary">
+		<h2 class="widget-title">Coberturas especiais</h2>
 		<?php
-		dynamic_sidebar( 'editorias-archive-sidebar' )
-		?>
+		$args = array(
+			'post_type' => 'especiais',
+			'tax_query' =>array(
+				array(
+					'taxonomy' => 'tipo',
+					'field' => 'slug',
+					'terms' => array('cobertura'),
+					'operator'=> 'IN'
+				)
+			)
+		);
+		$custom_query = new WP_Query($args); // exclude category 9
+		while($custom_query->have_posts()) : $custom_query->the_post(); ?>
+
+			<div <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+				<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+				<?php printf( __( '%1$s de %2$s de %3$s', 'eol' ), get_the_date( 'd' ), get_the_date( 'F' ), get_the_date( 'Y' ) );?>
+			</div>
+
+		<?php endwhile; ?>
+		<?php wp_reset_postdata(); // reset the query ?>
+
 	</aside><!-- #sidebar -->
 
 <?php

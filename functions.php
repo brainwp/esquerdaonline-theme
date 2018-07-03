@@ -695,3 +695,19 @@ function eol_exclude_destaques( $query ) {
 
     return $query;
 }
+
+// altera query do archive especiais
+function archive_especiais($query) {
+  if ( !is_admin() && $query->is_main_query() && is_post_type_archive('especiais') ) {
+		$tax_query = array(
+			'taxonomy' => 'tipo',
+			'field' => 'slug',
+			'terms' => array('dossie'),
+						'operator'=> 'IN'
+		);
+		$query->tax_query->queries[] = $tax_query;
+		$query->query_vars['tax_query'] = $query->tax_query->queries;
+  }
+}
+
+add_action('pre_get_posts','archive_especiais');

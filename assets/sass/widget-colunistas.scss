@@ -25,12 +25,12 @@
 		}
 	}
 }
-.home .widget-colunistas{
+.page-template-page-home .widget-colunistas, .home .widget-colunistas, .page-template-page-sidebar-home .widget-colunistas{
 	.each-colunista {
 		&.tamanho-20{
 			&:hover{
 				.thumbnail-colunista{
-				
+
 				}
 			}
 			.thumbnail-colunista{
@@ -70,7 +70,7 @@
 		}
 	}
 }
-.home .widget-colunistas{
+.page-template-page-home .widget-colunistas, .home .widget-colunistas{
 	.each-colunista {
 		a.post-title{
 			margin-top:0;
