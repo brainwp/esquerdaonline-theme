@@ -55,6 +55,7 @@ header#header {
 	.social-icons {
 		display: inline-block;
 		margin-left: 8px;
+		margin-top:5px;
 		position: relative;
 		z-index: 99;
 		.fa-whatsapp{
@@ -157,10 +158,14 @@ nav#menu-institucional {
 	padding-left: 0px;
 	padding-right: 0px;
 	.navbar-nav>li>a {
-		padding-top: 0px;
+		padding-top: 5px;
 		padding-bottom: 5px;
 		color: $main_content_color;
-		font-weight: 400;
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 1px;
+    font-family: heebo;
+
 	}
 	.nav>li>a:hover, .nav>li>a:focus, .nav>li.current-menu-item>a{
 		background:none;

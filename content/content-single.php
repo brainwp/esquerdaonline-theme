@@ -7,8 +7,7 @@
  * @package Odin
  * @since 2.2.0
  */
-echo 'qqqq';
-echo eol_get_widget_object_id( get_permalink() );
+
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="col-md-12 entry-header">
