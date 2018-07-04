@@ -145,9 +145,9 @@ if ( ! $chamada ) {
 		</figure>
 	<?php endif;?>
 </div><!--flex-->
-	<?php if ( in_array( 'exibicao-relacionadas', $classes_posts )  ) : ?>
+	<?php if ( in_array( 'exibicao-coordenadas', $classes_posts )  ) : ?>
 		<div class="eol-post-relacionadas">
-			<?php echo do_shortcode( '[eol_relacionadas]' );?>
+			<?php echo do_shortcode( '[eol_coordenadas]' );?>
 		</div><!-- .eol-post-relacionadas -->
 	<?php endif;?>
 </article><!-- #post-## -->
