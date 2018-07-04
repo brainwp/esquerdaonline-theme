@@ -26,7 +26,7 @@ require_once get_template_directory() . '/inc/class-colunistas.php';
 $posicao = new Odin_Taxonomy(
     'Posição', // Nome (Singular) da nova Taxonomia.
     '_featured_eo', // Slug do Taxonomia.
-    array('post') // Nome do tipo de conteúdo que a taxonomia irá fazer parte.
+    array('post','especiais','videos') // Nome do tipo de conteúdo que a taxonomia irá fazer parte.
 );
 $posicao = new Odin_Taxonomy(
     'Regiões e UF', // Nome (Singular) da nova Taxonomia.
@@ -47,6 +47,13 @@ $especiais = new Odin_Taxonomy(
     'especiais', // Slug do Taxonomia.
     'post' // Nome do tipo de conteúdo que a taxonomia irá fazer parte.
 );
+
+// Taxonomia Especiais
+// $videos = new Odin_Taxonomy(
+//     'Posição', // Nome (Singular) da nova Taxonomia.
+//     'posicao', // Slug do Taxonomia.
+//     'videos' // Nome do tipo de conteúdo que a taxonomia irá fazer parte.
+// );
 /**
  * Classe para configuração do comportamento da taxonomia colunistas
  */

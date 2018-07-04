@@ -34,3 +34,22 @@ $especiais->set_labels(
         'all_items'	=> 'Ver todos especiais'
     )
 );
+
+// CPT Vídeos
+$videos = new Odin_Post_Type(
+    'Vídeo', // Nome (Singular) do Post Type.
+    'videos' // Slug do Post Type.
+);
+$videos->set_arguments(
+    array(
+        'supports' => array( 'title', 'editor', 'thumbnail' ),
+        'menu_icon' => 'dashicons-video-alt'
+    )
+);
+$videos->set_labels(
+    array(
+        'menu_name' => 'Vídeos',
+        'name'		=> 'Vídeos',
+        'all_items'	=> 'Ver todos vídeos'
+    )
+);
