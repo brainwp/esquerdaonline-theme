@@ -39,7 +39,7 @@
 
 		.each-post-widget{
 			&.manchete{
-				.tax-widget-titulo{
+				.tax-widget-titulo a {
 					font-family: 'Roboto Condensed';
 			    font-size: 40px;
 			    font-weight: 700;
@@ -47,68 +47,87 @@
 				}
 			}
 			&.titulo50peso{
-				font-family: heebo;
-		    font-size: 30px;
-		    font-weight: 600;
-		    line-height: 33px;
-		    letter-spacing: 0.4px;
+				.tax-widget-titulo a{
+					font-family: heebo;
+			    font-size: 30px;
+			    font-weight: 600;
+			    line-height: 33px;
+			    letter-spacing: 0.4px;
+				}
 			}
 			&.titulo50{
-				font-family: heebo;
-		    font-size: 30px;
-		    font-weight: 500;
-		    line-height: 33px;
-		    letter-spacing: 0.4px;
+				.tax-widget-titulo a{
+					font-family: heebo;
+			    font-size: 30px;
+			    font-weight: 500;
+			    line-height: 33px;
+			    letter-spacing: 0.4px;
+				}
 			}
 			&.titulo25{
-				font-family: heebo;
-				font-size: 25px;
-				font-weight: 500;
-				line-height: 33px;
-				letter-spacing: -0.3px;
+					.tax-widget-titulo a{
+					font-family: heebo;
+					font-size: 25px;
+					font-weight: 500;
+					line-height: 33px;
+					letter-spacing: -0.3px;
+				}
 			}
 			&.titulo25peso{
-				font-family: heebo;
-				font-size: 25px;
-				font-weight: 700;
-				line-height: 34px;
-				letter-spacing: -0.2px
+				.tax-widget-titulo a{
+					font-family: heebo;
+					font-size: 25px;
+					font-weight: 700;
+					line-height: 34px;
+					letter-spacing: -0.2px
+				}
 			}
 			&.titulolistaleve{
-				font-family: heebo;
-				font-size: 21px;
-				font-weight: 500;
-				line-height: 23px;
-				letter-spacing: -0.2px;
+				.tax-widget-titulo a{
+					font-family: heebo;
+					font-size: 21px;
+					font-weight: 500;
+					line-height: 23px;
+					letter-spacing: -0.2px;
+				}
 			}
 			&.titulolistapeso{
-				font-family: heebo;
-				font-size: 21px;
-				font-weight: 600;
-				line-height: 23px;
-				letter-spacing: -0.1px;
+				.tax-widget-titulo a{
+					font-family: heebo;
+					font-size: 21px;
+					font-weight: 600;
+					line-height: 23px;
+					letter-spacing: -0.1px;
+				}
 			}
 			&.titulocaixaalta{
-				font-family: heebo;
-				font-size: 24px;
-				font-weight: 700;
-				line-height: 29px;
-				letter-spacing: -0.1px;
-				text-transform: uppercase
+				.tax-widget-titulo a{
+					font-family: heebo;
+					font-size: 24px;
+					font-weight: 700;
+					line-height: 29px;
+					letter-spacing: -0.1px;
+					text-transform: uppercase
+				}
 			}
 			&.coordenada{
-				font-family: roboto condensed;
-				font-size: 18px;
-				font-weight: 600;
-				line-height: 26px;
-				letter-spacing: 0.3px;
+				.each-related-article{
+					font-family: roboto condensed;
+					font-size: 18px;
+					font-weight: 600;
+					line-height: 26px;
+					letter-spacing: 0.3px;
+
+				}
 			}
 			.tax-widget-subtitulo{
-				font-family: heebo;
-				font-size: 16px;
-				line-height: 19px;
-				font-weight: 300;
-				letter-spacing: 0.2px
+				p{
+					font-family: heebo;
+					font-size: 16px;
+					line-height: 19px;
+					font-weight: 300;
+					letter-spacing: 0.2px					
+				}
 			}
 			.tax-widget-autor, .tax-widget-data{
 				margin-left: 5px;

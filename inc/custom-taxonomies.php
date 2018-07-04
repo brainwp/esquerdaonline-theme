@@ -50,4 +50,4 @@ $especiais = new Odin_Taxonomy(
 /**
  * Classe para configuração do comportamento da taxonomia colunistas
  */
-require_once get_template_directory() . '/inc/class-especiais.php';
+// require_once get_template_directory() . '/inc/class-especiais.php';
