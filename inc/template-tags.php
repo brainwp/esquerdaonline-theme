@@ -110,7 +110,7 @@ function eol_single_thumbnail($size='full', $post_id = null, $meta = null) {
 	$single_thumbnail = '';
 	echo '<div class="single-thumbnail">';
 	$post_id = ( $post_id ? $post_id : get_the_ID());
-	preg_match("/widget([^\s]+)/", $size, $size_thumb);
+	preg_match("/alternativa([^\s]+)/", $size, $size_thumb);
 	// se single
 	if (is_single( $post_id )) {
 		// se vai mostrar a alternativa

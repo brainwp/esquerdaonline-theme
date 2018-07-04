@@ -50,7 +50,7 @@ if(function_exists("register_field_group"))
 			array (
 				'key' => 'field_5b3c7d2104f3f',
 				'label' => 'autor',
-				'name' => 'autor',
+				'name' => 'the_author',
 				'type' => 'text',
 				'default_value' => '',
 				'placeholder' => '',

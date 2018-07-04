@@ -49,7 +49,7 @@
 						$titulo = get_the_title( );
 						$chamada = get_post_meta( get_the_ID(), 'chamada', true );
 						$link = get_post_meta( get_the_ID(), 'link', true );
-						$autor = get_post_meta( get_the_ID(), 'autor', true );
+						$autor = get_post_meta( get_the_ID(), 'the_author', true );
 						$data = get_post_meta( get_the_ID(), 'data', true );
 						if ($count == 1) {
 							$html .='
