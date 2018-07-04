@@ -55,14 +55,14 @@
 		* @param bool $update Whether this is an existing post being updated or not.
 		*/
 		public function create_term( $post_id, $post, $update ) {
-			if ( term_exists( $post->post_name, 'colunistas' ) ) {
+			if ( term_exists( $post->post_name, 'especiais' ) ) {
 				return;
 			}
 			if ( strpos( $post->post_name, '__trashed' ) > 0 ) {
 				return;
 			}
-			wp_insert_term( $post->post_title, 'colunistas', array( 'slug' => $post->post_name ) );
-			wp_insert_term( $post->post_title . '-destaque', 'colunistas', array( 'slug' => $post->post_name . '-destaque' ) );
+			wp_insert_term( $post->post_title, 'especiais', array( 'slug' => $post->post_name ) );
+			wp_insert_term( $post->post_title . '-destaque', 'especiais', array( 'slug' => $post->post_name . '-destaque' ) );
 
 		}
 		/**
