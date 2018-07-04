@@ -49,11 +49,11 @@ $especiais = new Odin_Taxonomy(
 );
 
 // Taxonomia Especiais
-// $videos = new Odin_Taxonomy(
-//     'Posição', // Nome (Singular) da nova Taxonomia.
-//     'posicao', // Slug do Taxonomia.
-//     'videos' // Nome do tipo de conteúdo que a taxonomia irá fazer parte.
-// );
+$videos = new Odin_Taxonomy(
+    'Tag', // Nome (Singular) da nova Taxonomia.
+    'tag', // Slug do Taxonomia.
+    'videos' // Nome do tipo de conteúdo que a taxonomia irá fazer parte.
+);
 /**
  * Classe para configuração do comportamento da taxonomia colunistas
  */
