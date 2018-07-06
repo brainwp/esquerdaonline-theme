@@ -12,7 +12,7 @@
 
 <div class="postholder">
 	<article class="post-default has-thumb">
-			<figure class="col-md-4 col-sm-12 post-thumbnail">
+			<figure class="col-md-4 col-sm-12 no-padding post-thumbnail">
 
 				<div class="col-md-12 social-icons-post">
 					<?php eol_share_overlay();?>
