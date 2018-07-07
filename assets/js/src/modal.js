@@ -21,7 +21,7 @@ jQuery(document).ready(function($) {
         		},
         		success : function( response ) {
               $('#modal-content').html(response+'<div id="close-modal"><a href="#"><i class="fa fa-times" aria-hidden="true"></i></a></div>')
-               $("#modal-content iframe")[0].src += "&autoplay=1";
+               $("#modal-content iframe")[0].src += "&autoplay=1&loop=1";
         		}
         	});
           break;
@@ -31,7 +31,11 @@ jQuery(document).ready(function($) {
     //         break;
         default:
     }
-
+    $(document).keyup(function(e) {
+      if (e.keyCode === 27) $( '#modal' ).fadeOut('fast', function() {
+        $('#modal-content').html(" ");
+      });   // esc
+    });
   	// We can also pass the url value separately from ajaxurl for front end AJAX implementations
     $("#modal").on("click", "#close-modal a", function(e) {
       e.preventDefault();
