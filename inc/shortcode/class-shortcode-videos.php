@@ -26,23 +26,30 @@
 		 */
 		public function shortcode( $atts ) {
 			$html ="";
-			if (isset($atts['tags'])) {
-				$tags = $atts['tags'];
+			if (isset($atts['tag'])) {
+				$tag = $atts['tag'];
 				$number = (isset($atts['numero'])?$atts['numero']:5);
 				$query = new WP_Query(
 					array(
 						'posts_per_page' => $number,
 						'post_type' => array('videos'),
 						'tax_query' => array(
-							array(
-								'taxonomy' => 'tags',
-								'terms'    => $tags,
-							),
-						),
+				        array (
+				            'taxonomy' => 'tag',
+				            'field' => 'slug',
+				            'terms' => $tag,
+				        )
+				    ),
 					)
 				);
 				if ( $query->have_posts() ) {
-					$html = '<div class="videos">';
+					// echo "<h1>".$tag."</h1>";
+					$html = '
+						<div class="videos">
+							<div id="modal" class="modal">
+								<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+								<div id="modal-content"></div>
+							</div> ';
 					$count = 1;
 					while( $query->have_posts() && $count <= $number) {
 						$query->the_post();
@@ -51,38 +58,11 @@
 						$link = get_post_meta( get_the_ID(), 'link', true );
 						$autor = get_post_meta( get_the_ID(), 'the_author', true );
 						$data = get_post_meta( get_the_ID(), 'data', true );
-						if ($count == 1) {
-							$html .='
-							<div class="col-md-6 video-destaque">
-								<a href="#" class="video-open" data-src="'.$link.'" data-type="video">
+						$html .='
+							<div class="video-item  col-md-12">
+								<a href="#" data-title="'.$titulo.'" data-subtitle="'.$chamada.'" data-author="'.$autor.'" data-date="'.$data.'" class="modal-item-open video-open col-md-4" data-src="'.$link.'" data-type="video">
 									<i class="fas fa-play"></i>
-									'.eol_single_thumbnail($thumb_size, get_the_ID() ).'
-								</a>
-								<div class="titulo-video-destaque">
-									'.$titulo.'
-								</div>
-								<div class="chamada-video-destaque">
-									'.$chamada.'
-								</div>
-								<div class="data-video-destaque">
-									'.$data.'
-								</div>
-								<div class="autor-video-destaque">
-									'.$autor.'
-								</div>
-
-							</div><!--col-md-6 video-destaque-->
-							<div class="col-md-6 video-menores">';
-							$count++;
-						}
-						else{
-							$html .='
-							<div class="video-item col-md-12">
-								<a href="#" class="video-open col-md-4" data-src="'.$link.'" data-type="video">
-									<i class="fas fa-play"></i>
-									'.eol_single_thumbnail($thumb_size, get_the_ID() ).'
-								</a>
-								<div class="col-md-8 video-sm-text">
+								<div class="col-md-8 video-text">
 									<div class="titulo-video-destaque">
 										'.$titulo.'
 									</div>
@@ -95,10 +75,11 @@
 									<div class="autor-video-destaque">
 										'.$autor.'
 									</div>
-								</div><!--video-sm-text-->
+								</div><!--video-text-->
+								</a>
+
 							</div><!--video-item-->';
-							$count++;
-						}
+						$count++;
 					}
 					wp_reset_postdata();
 					$html .= '
@@ -106,11 +87,6 @@
 					</div><!--class="videos"-->';
 				}
 				?>
-
-
-
-
-
 				<?php
 			}
 

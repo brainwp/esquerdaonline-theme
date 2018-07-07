@@ -299,6 +299,9 @@ function odin_enqueue_scripts() {
 
 	// Grunt main file with Bootstrap, FitVids and others libs.
 	wp_enqueue_script( 'odin-main-min', $template_url . '/assets/js/main.min.js');
+	wp_localize_script( 'odin-main-min', 'odinAjax', array(
+		'ajax_url' => admin_url( 'admin-ajax.php' )
+	));
 	// Grunt watch livereload in the browser.
 	// wp_enqueue_script( 'odin-livereload', 'http://localhost:35729/livereload.js?snipver=1', array(), null, true );
 
@@ -711,3 +714,20 @@ function archive_especiais($query) {
 }
 
 add_action('pre_get_posts','archive_especiais');
+
+
+
+//
+//
+// $embed = wp_oembed_get( $url );
+// if ( $embed ) {
+// 	echo $embed;
+// }
+
+function get_video() {
+
+	echo wp_oembed_get($_POST['url']);
+	return;
+}
+add_action( 'wp_ajax_nopriv_get_video', 'get_video' );
+add_action( 'wp_ajax_get_video', 'get_video' );
