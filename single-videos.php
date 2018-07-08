@@ -4,7 +4,7 @@
      <?php
      while ( have_posts() ) : the_post();
 
-       echo $url = get_field('link', $post->ID);
+       $url = get_field('link', $post->ID);
        $embed = wp_oembed_get( $url , array( 'autoplay' => 1 ));
        if ( $embed ) {
        	echo $embed;
