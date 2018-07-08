@@ -107,11 +107,11 @@
 			<h5 class="col-md-12">Colunistas</h5>
 		</div>
 	</div>
-<?php  } else if(is_post_type_archive('especiais') || is_singular( $post_types = 'especiais' ) || ( is_object($post) && !is_tax() && !is_tag()  && has_term( '', 'especiais', $post->ID ))) {
+<?php  } else if(is_post_type_archive('especiais') || is_singular( $post_types = 'especiais' ) ) {
 		?>
 	<div class="barra-especiais">
 		<div  class="container">
-			<h5 class="col-md-12">Especiais</h5>
+			<h5 class="col-md-12"><?php $term_especial = wp_get_post_terms( get_the_ID(), 'tipo' );  echo $term_especial[0]->name; ?> </h5>
 		</div>
 	</div>
 <?php  }
