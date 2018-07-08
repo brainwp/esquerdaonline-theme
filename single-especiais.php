@@ -10,6 +10,7 @@
  		<div class="col-md-12 no-padding">
  			<?php
 			while ( have_posts() ) : the_post();
+        eol_single_thumbnail('full', get_the_ID() );
 				dynamic_sidebar( eol_get_widget_object_id() );
 			endwhile;
 		?>

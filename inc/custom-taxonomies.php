@@ -20,7 +20,8 @@ $colunistas = new Odin_Taxonomy(
 /**
  * Classe para configuração do comportamento da taxonomia colunistas
  */
-require_once get_template_directory() . '/inc/class-colunistas.php';
+ require_once get_template_directory() . '/inc/class-colunistas.php';
+ require_once get_template_directory() . '/inc/class-especiais.php';
 
 // Taxonomia Destaque
 $posicao = new Odin_Taxonomy(
@@ -57,4 +58,3 @@ $videos = new Odin_Taxonomy(
 /**
  * Classe para configuração do comportamento da taxonomia colunistas
  */
-// require_once get_template_directory() . '/inc/class-especiais.php';
