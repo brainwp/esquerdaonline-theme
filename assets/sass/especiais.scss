@@ -1,4 +1,20 @@
-.single-especiais, .single{
+.barra-especiais, .barra-colunistas, .barra-editorias, .barra-editoriais{}
+.term-dossie{
+  .social-area{
+    padding-top: 15px;
+  }
+}
+.term-cobertura{
+  .social-area{
+    padding-top: 15px;
+    .post-default{
+      .post-content{
+        padding:0!important;
+      }
+    }
+  }
+}
+.single-especiais, .tax-tipo, .post-type-archive-especiais{
   .barra-especiais{
     background-image: url(../images/barra-roxa.jpg);
     background-size: cover;
@@ -14,7 +30,56 @@
     }
   }
 }
+.post-type-archive-especiais{
+  aside#sidebar {
+    h2.widget-title{
+      line-height: 24px;
+    }
+    .type-especiais{
+      margin-bottom: 30px;
+      h3{
+        overflow: hidden;
+        margin-top:0;
+        margin-bottom: 2px;
+        a{
+          color:$dark_main;
+          &:hover{
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+  .each-dossie{
+    &:nth-of-type(2n+1){
+      clear: both;
+    }
+  }
+  .single-thumbnail{
+    width: 100%;
+    img{
+      width: 100%;
+    }
+  }
+}
 .single-especiais{
+  .widget-eol-posts.widget-container{
+    .each-post-widget.foto-fundo{
+      &:nth-of-type(3n+1){
+        padding-left:0px;
+        padding-right:10px;
+      }
+      &:nth-of-type(3n+2){
+        padding-right:5px;
+        padding-left:5px;
+      }
+      &:nth-of-type(3n+3){
+        padding-left:10px;
+        padding-right:0px;
+
+      }
+    }
+  }
   .single-thumbnail{
     width: 100%;
     img{
@@ -22,8 +87,6 @@
     }
   }
   #header-especiais{
-    margin-left: 1vw;
-    margin-right:1vw;
     margin-bottom: 4vw;
     position: relative;
     .fa-share-alt{
@@ -68,9 +131,6 @@
     }
   }
   .social-area {
-    .post-default{
-        padding-left: 1vw;
-        padding-right:1vw;
-    }
+
   }
 }
