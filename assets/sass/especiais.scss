@@ -1,4 +1,3 @@
-.barra-especiais, .barra-colunistas, .barra-editorias, .barra-editoriais{}
 .term-dossie{
   .social-area{
     padding-top: 15px;
@@ -12,6 +11,14 @@
         padding:0!important;
       }
     }
+  }
+}
+.single-especiais{
+  .no-thumb{
+
+  }
+  .main-post-social{
+    width:100%;
   }
 }
 .single-especiais, .tax-tipo, .post-type-archive-especiais{
@@ -63,7 +70,31 @@
   }
 }
 .single-especiais{
-  .widget-eol-posts.widget-container{
+  .com-thumb{
+    #especial-text{
+      background-repeat: no-repeat, repeat;
+      background-position: right top, left top;
+      background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(#000));
+      padding: 20px 20px 10px;
+      color: #fff;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      h1{
+        max-width: 80%
+      }
+      .sub-title{
+        max-width: 80%
+
+      }
+
+    }
+  }
+  #widgets-especiais{
+    margin-left:-1vw;
+    margin-right:-1vw;
+  }
+  #destaques.widget-eol-posts.widget-container{
     .each-post-widget.foto-fundo{
       &:nth-of-type(3n+1){
         padding-left:0px;
@@ -92,45 +123,29 @@
     .fa-share-alt{
       display:none;
     }
-    #especial-text{
-      background-repeat: no-repeat, repeat;
-      background-position: right top, left top;
-      background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(#000));
-      padding: 20px 20px 10px;
-      color: #fff;
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      h1{
-        max-width: 80%
-      }
-      .sub-title{
-        max-width: 80%
-
-      }
-
-    }
-    .social-icons-post{
-      position: absolute;
-      bottom: 23px;
-      right: 15px;
-      color: #fff;
-      position: absolute;
-      .icon-itself{
-        padding: 0px 10px !important;
-        font-size: 24px;
-        float: right;
-        i{
-          color: #fff
-
-        }
-      }
-    }
-    .single-thumbnail{
-
-    }
   }
   .social-area {
 
+  }
+}
+@media(min-width:991px){
+  .single-especiais{
+    #header-especiais{
+      .social-icons-post{
+        bottom: 23px;
+        right: 15px;
+        color: #fff;
+        position: absolute;
+        .icon-itself{
+          padding: 0px 10px !important;
+          font-size: 24px;
+          float: right;
+          i{
+            color: #fff
+
+          }
+        }
+      }
+    }
   }
 }

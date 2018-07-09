@@ -5,8 +5,16 @@
  * @package Odin
  * @since 2.2.0
  */
- get_header( 'large' ); ?>
- <main id="content" class="home <?php echo odin_classes_page_full(); ?>" tabindex="-1" role="main">
+ get_header( 'large' );
+
+ ?>
+ <main id="content" class="home <?php if ( !($single_thumbnail = get_post_meta( get_the_ID() , 'thumbnail_single', true ) || get_the_post_thumbnail( get_the_ID() , 'full' )) ) {
+   echo 'no-thumb ';
+ }
+ else{
+   echo "com-thumb ";
+ }
+ echo odin_classes_page_full(); ?>" tabindex="-1" role="main">
    <div class="col-md-12 no-padding">
      <?php
      while ( have_posts() ) : the_post();
@@ -30,6 +38,10 @@
       </div><!--  id="header-especiais" -->
       <div id="destaques" class="widget-eol-posts widget-container ">
         <?php
+        $terms = get_terms( array(
+            'taxonomy' => 'especiais',
+            'parent'   => 0
+        ) );
         $query_args = array(
           'posts_per_page'      => 3,
           'no_found_rows'       => true,
@@ -38,8 +50,8 @@
             'relation' => 'AND',
             array(
               'taxonomy' => 'especiais',
-              'field'    => 'slug',
-              'terms'    => $post->post_name.'-destaque',
+              'field'    => 'name',
+              'terms'    => $post->post_title.'-destaque',
             ),
           ),
 
@@ -80,10 +92,12 @@
           endforeach;
           wp_reset_postdata();
          ?>
+       </div><!--destaque-->
+
         <?php
         }
         $query_args = array(
-          'posts_per_page'      => 3,
+          'posts_per_page'      => -1,
           'no_found_rows'       => true,
           'post_status'         => 'publish',
           'tax_query' => array(
@@ -105,8 +119,10 @@
             <?php endwhile; wp_reset_postdata();?>
           </section>
         </div>
+        <section id="widgets-especiais">
+          <?php	dynamic_sidebar( eol_get_widget_object_id() ); ?>
+        </section>
         <?php
-				dynamic_sidebar( eol_get_widget_object_id() );
 			endwhile;
 
     ?>
