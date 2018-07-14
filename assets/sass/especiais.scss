@@ -70,24 +70,7 @@
   }
 }
 .single-especiais{
-  .com-thumb{
-    #especial-text{
-      padding: 20px 0 10px;
-      color: $dark_main;
-      position: relative;
-      bottom: 0;
-      h1{
-        color: $dark_main;
-        max-width: 80%
-      }
-      .sub-title{
-        color: $dark_main;
-        max-width: 80%
 
-      }
-
-    }
-  }
   #widgets-especiais{
     margin-left:-1vw;
     margin-right:-1vw;
@@ -118,6 +101,13 @@
   #header-especiais{
     margin-bottom: 4vw;
     position: relative;
+    overflow: hidden;
+    #especial-text{
+      padding-left:0;
+    }
+    .post-thumbnail{
+      margin-bottom: 20px;
+    }
     .fa-share-alt{
       display:none;
     }

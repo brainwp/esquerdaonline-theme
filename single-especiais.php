@@ -35,7 +35,10 @@
           </div><!-- sub-title -->
         </div>
       </div><!--  id="header-especiais" -->
-      <div id="destaques" class="widget-eol-posts widget-container ">
+      <section id="widgets-especiais">
+        <?php	dynamic_sidebar( eol_get_widget_object_id() ); ?>
+      </section>
+      <section id="destaques" class="widget-eol-posts widget-container ">
         <?php
         $terms = get_terms( array(
             'taxonomy' => 'especiais',
@@ -48,9 +51,14 @@
           'tax_query' => array(
             'relation' => 'AND',
             array(
-              'taxonomy' => 'especiais',
+              'taxonomy' => 'posicao',
               'field'    => 'name',
-              'terms'    => $post->post_title.'-destaque',
+              'terms'    => 'destaque',
+            ),
+            array(
+              'taxonomy' => 'especiais',
+              'field'    => 'slug',
+              'terms'    => $post->post_name,
             ),
           ),
 
@@ -91,7 +99,7 @@
           endforeach;
           wp_reset_postdata();
          ?>
-       </div><!--destaque-->
+       </section><!--destaque-->
 
         <?php
         }
@@ -118,9 +126,6 @@
             <?php endwhile; wp_reset_postdata();?>
           </section>
         </div>
-        <section id="widgets-especiais">
-          <?php	dynamic_sidebar( eol_get_widget_object_id() ); ?>
-        </section>
         <?php
 			endwhile;
 
