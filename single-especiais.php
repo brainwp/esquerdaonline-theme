@@ -20,21 +20,20 @@
      while ( have_posts() ) : the_post();
      ?>
      <div id="header-especiais" class="">
-        <div id="especial-text" class="">
+        <figure class=" post-thumbnail">
+          <?php eol_single_thumbnail('full', get_the_ID());?>
+        </figure>
+        <div class="col-md-3 pull-right social-icons-post">
+          <?php eol_share_overlay();?>
+        </div>
+        <div class="col-md-9" id="especial-text" class="">
           <?php the_title( '<h1 class="entry-title main-title">', '</h1>' );?>
           <div class="sub-title">
             <?php if ( $sub_title = get_post_meta( get_the_ID(), 'sub_title', true ) ) {
               echo apply_filters( 'the_content', $sub_title );
             }?>
-          </div><!-- .col-md-9 center-container -->
+          </div><!-- sub-title -->
         </div>
-        <figure class=" post-thumbnail">
-          <i class="fas fa-share-alt"></i>
-          <div class="col-md-12 social-icons-post">
-            <?php eol_share_overlay();?>
-          </div>
-          <?php eol_single_thumbnail('full', get_the_ID());?>
-        </figure>
       </div><!--  id="header-especiais" -->
       <div id="destaques" class="widget-eol-posts widget-container ">
         <?php

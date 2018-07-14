@@ -72,18 +72,16 @@
 .single-especiais{
   .com-thumb{
     #especial-text{
-      background-repeat: no-repeat, repeat;
-      background-position: right top, left top;
-      background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(#000));
-      padding: 20px 20px 10px;
-      color: #fff;
-      position: absolute;
+      padding: 20px 0 10px;
+      color: $dark_main;
+      position: relative;
       bottom: 0;
-      width: 100%;
       h1{
+        color: $dark_main;
         max-width: 80%
       }
       .sub-title{
+        color: $dark_main;
         max-width: 80%
 
       }
@@ -132,16 +130,16 @@
   .single-especiais{
     #header-especiais{
       .social-icons-post{
-        bottom: 23px;
-        right: 15px;
-        color: #fff;
-        position: absolute;
+        bottom: 0;
+        right: 0;
+        color: $red_main;
+        position: relative;
         .icon-itself{
           padding: 0px 10px !important;
           font-size: 24px;
           float: right;
           i{
-            color: #fff
+            color: $red_main;
 
           }
         }
