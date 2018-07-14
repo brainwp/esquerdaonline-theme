@@ -88,7 +88,32 @@
 			<!-- .line-3 -->
 		</div>
 	</header><!-- #header -->
-	<?php if( !is_tax() && is_singular( 'colunistas' ) ) {
+	<?php
+	if( is_singular('post') ) {
+				if (wp_get_post_terms( get_the_ID(), 'especiais' )) {
+					$tax = 'especiais';
+					$term = wp_get_post_terms( get_the_ID(), 'especiais' );
+					$barra = "Especiais - ". $term[0]->name;
+				}
+				elseif (wp_get_post_terms( get_the_ID(), 'colunistas' )) {
+					$tax = 'colunistas';
+					$barra = "Colunistas";
+				}
+				elseif (wp_get_post_terms( get_the_ID(), 'editorias' )) {
+					$tax = 'editorias';
+					$term = wp_get_post_terms( get_the_ID(), 'editorias' );
+					$barra = $term[0]->name;
+				}
+				?>
+				<div class="barra-<?php echo $tax;?>">
+					<div  class="container">
+						<h5 class="col-md-12 no-padding"><?php echo $barra;  ?></h5>
+				</div>
+			</div>
+			<?php
+			echo $header_especial;
+	}
+	elseif( !is_tax() && is_singular( 'colunistas' ) ) {
 		?>
 	<div class="archive-colunista">
     	<div class="barra-colunistas">
@@ -124,18 +149,6 @@ else if (is_singular( $post_types = 'especiais' ) || is_tax( 'tipo' ) ) {
 	</div>
 	<?php
 }
-
-else if( is_singular('post') ) {
-		?>
-	<div class="barra-editorias">
-		<div  class="container">
-			<?php
-			$term = wp_get_post_terms( get_the_ID(), 'editorias' );
-			?>
-			<h5 class="col-md-12"><?php echo $term[0]->name;  ?></h5>
-		</div>
-	</div>
-<?php  }
 else if( is_tax('editorias') ) {
 		?>
 	<div class="barra-editorias">
