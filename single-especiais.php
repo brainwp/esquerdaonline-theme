@@ -51,7 +51,7 @@
           'tax_query' => array(
             'relation' => 'AND',
             array(
-              'taxonomy' => 'posicao',
+              'taxonomy' => '_featured_eo',
               'field'    => 'name',
               'terms'    => 'destaque',
             ),
@@ -113,6 +113,12 @@
               'taxonomy' => 'especiais',
               'field'    => 'slug',
               'terms'    => $post->post_name,
+            ),
+            array(
+              'taxonomy' => '_featured_eo',
+              'field'    => 'name',
+              'terms'    => 'destaque',
+              'operator' => 'NOT IN',
             ),
           ),
 
