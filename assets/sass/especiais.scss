@@ -152,21 +152,48 @@
   }
 }
 .single.especial{
+  #header-especiais{
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 50px;
+    #especial-text{
+      .main-title{
+        position: absolute;
+        bottom: 15px;
+        left: 35px;
+        width: 90%;
+        a{
+          &:hover, &:active, &:focus{
+            text-decoration: none;
+            opacity: 0.8;
+          }
+          color: #fff;
+        }
+      }
+    }
+  }
   .barra-especiais {
-			background-image: url('../images/barra-roxa.jpg');
-			background-size: cover;
-			color: #FFF;
-			padding: 10px;
-			text-align: left;
-			.container{
-				h5{
-					font-size: 15px;
-					padding-left: 0px;
-				}
-			}
-	}
-	.barra-especiais h5 {
-			font-weight: bolder;
-			text-transform: uppercase;
-	}
+    a{
+      color:#fff;
+      &:hover{
+        text-decoration: none;
+        opacity: 0.8;
+      }
+    }
+    background-image: url('../images/barra-roxa.jpg');
+    background-size: cover;
+    color: #FFF;
+    padding: 10px;
+    text-align: left;
+    .container{
+      h5{
+        font-size: 15px;
+        padding-left: 0px;
+      }
+    }
+  }
+  .barra-especiais h5 {
+    font-weight: bolder;
+    text-transform: uppercase;
+  }
 }

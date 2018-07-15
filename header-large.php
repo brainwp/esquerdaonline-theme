@@ -93,7 +93,7 @@
 				if (wp_get_post_terms( get_the_ID(), 'especiais' )) {
 					$tax = 'especiais';
 					$term = wp_get_post_terms( get_the_ID(), 'especiais' );
-					$barra = "Especiais - ". $term[0]->name;
+					$barra = "<a href='".get_term_link($term[0], 'especiais')."'>Especiais - ". $term[0]->name."</a>";
 				}
 				elseif (wp_get_post_terms( get_the_ID(), 'colunistas' )) {
 					$tax = 'colunistas';

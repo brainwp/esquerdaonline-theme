@@ -222,3 +222,33 @@ function eol_socials(){
 		<?php endforeach;?>
 	<?php endif;
 }
+function eol_header_especiais(){
+	if (wp_get_post_terms( get_the_ID(), 'especiais' )) {
+		$tax = 'especiais';
+		$term = wp_get_post_terms( get_the_ID(), 'especiais' );
+		$especial = get_page_by_title( $term[0]->name, $output = OBJECT, $post_type = 'especiais' );
+	?>
+	<div id="header-especiais" class="">
+		 <figure class=" post-thumbnail">
+			 <a href="<?php echo get_the_permalink( $especial->ID ); ?>">
+			 	<?php eol_single_thumbnail('full', $especial->ID);?>
+			 </a>
+		 </figure>
+		 <div class="col-md-9" id="especial-text" class="">
+			 <h1 class="entry-title main-title">
+				<a href="<?php echo get_the_permalink( $especial->ID ); ?>">
+			 		<?php echo get_the_title( $especial->ID);?>
+				</a>
+		 	 </h1>
+			 <div class="sub-title">
+				 <a href="<?php echo get_the_permalink( $especial->ID ); ?>">
+				 <?php if ( $sub_title = get_post_meta( $especial->ID, 'sub_title', true ) ) {
+					 echo apply_filters( 'the_content', $sub_title );
+				 }?>
+			 	 </a>
+			 </div><!-- sub-title -->
+		 </div>
+	 </div><!--  id="header-especiais" -->
+	 <?php
+	 }
+}
