@@ -128,6 +128,11 @@ function eol_single_thumbnail($size='full', $post_id = null, $meta = null) {
 			// fazer imagem padrão ser utilizada no facebook.
 		}
 	}
+	elseif($size == 'especiais' && get_field('exibir_na_single',$post_id) ){
+		$single_thumbnail = get_post_meta( $post_id , 'thumbnail_single', true );
+		$single_thumbnail_img = wp_get_attachment_image_src( $single_thumbnail, 'full', false );
+		printf( '<img src="%s" alt="%s">', $single_thumbnail_img[0], esc_attr(get_the_title() ) );
+	}
 	// se é widget e é thumb-widget com imagem alternativa
 	elseif( isset($size_thumb[1] ) &&  $single_thumbnail = get_post_meta( $post_id , 'thumbnail_single', true )){
 		$single_thumbnail_img = wp_get_attachment_image_src( $single_thumbnail, 'full', false );
@@ -231,7 +236,7 @@ function eol_header_especiais(){
 	<div id="header-especiais" class="">
 		 <figure class=" post-thumbnail">
 			 <a href="<?php echo get_the_permalink( $especial->ID ); ?>">
-			 	<?php eol_single_thumbnail('full', $especial->ID);?>
+			 	<?php eol_single_thumbnail('especiais', $especial->ID);?>
 			 </a>
 		 </figure>
 		 <div class="col-md-9" id="especial-text" class="">

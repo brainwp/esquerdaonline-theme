@@ -59,6 +59,7 @@
 						$autor = get_post_meta( get_the_ID(), 'the_author', true );
 						$data = get_post_meta( get_the_ID(), 'data', true );
 						$html .='
+
 							<div class="video-item  col-md-12">
 								<a href="#" data-title="'.$titulo.'" data-subtitle="'.$chamada.'" data-author="'.$autor.'" data-date="'.$data.'" class="modal-item-open video-open col-md-4" data-src="'.$link.'" data-type="video">
 									<i class="fas fa-play"></i>

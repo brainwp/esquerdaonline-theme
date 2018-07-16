@@ -21,11 +21,6 @@
             eol_single_thumbnail('retangular-p',get_the_ID());
             ?>
           </a>
-
-
-
-
-
         </figure><!-- .col-md-5 pull-left thumbnail -->
         <div class="col-md-8 post-content">
           <?php if ( ! is_singular( 'post') ) {
