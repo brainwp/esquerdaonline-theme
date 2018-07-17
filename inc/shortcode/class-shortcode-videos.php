@@ -47,7 +47,6 @@
 					$html = '
 						<div class="videos">
 							<div id="modal" class="modal">
-								<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
 								<div id="modal-content"></div>
 							</div> ';
 					$count = 1;
