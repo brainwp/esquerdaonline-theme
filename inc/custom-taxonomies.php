@@ -20,22 +20,23 @@ $colunistas = new Odin_Taxonomy(
 /**
  * Classe para configuração do comportamento da taxonomia colunistas
  */
-require_once get_template_directory() . '/inc/class-colunistas.php';
+ require_once get_template_directory() . '/inc/class-colunistas.php';
+ require_once get_template_directory() . '/inc/class-especiais.php';
 
 // Taxonomia Destaque
 $posicao = new Odin_Taxonomy(
     'Posição', // Nome (Singular) da nova Taxonomia.
     '_featured_eo', // Slug do Taxonomia.
-    array('post') // Nome do tipo de conteúdo que a taxonomia irá fazer parte.
+    array('post','especiais','videos') // Nome do tipo de conteúdo que a taxonomia irá fazer parte.
 );
-$posicao = new Odin_Taxonomy(
+$regioes = new Odin_Taxonomy(
     'Regiões e UF', // Nome (Singular) da nova Taxonomia.
     'regioes', // Slug do Taxonomia.
     'post' // Nome do tipo de conteúdo que a taxonomia irá fazer parte.
 );
 
 // para especiais ( dossies ou Coberturas)
-$posicao = new Odin_Taxonomy(
+$tipo = new Odin_Taxonomy(
     'Tipo', // Nome (Singular) da nova Taxonomia.
     'tipo', // Slug do Taxonomia.
     'especiais' // Nome do tipo de conteúdo que a taxonomia irá fazer parte.
@@ -47,7 +48,13 @@ $especiais = new Odin_Taxonomy(
     'especiais', // Slug do Taxonomia.
     'post' // Nome do tipo de conteúdo que a taxonomia irá fazer parte.
 );
+
+// Taxonomia Especiais
+$videos = new Odin_Taxonomy(
+    'Tag', // Nome (Singular) da nova Taxonomia.
+    'tag', // Slug do Taxonomia.
+    'videos' // Nome do tipo de conteúdo que a taxonomia irá fazer parte.
+);
 /**
  * Classe para configuração do comportamento da taxonomia colunistas
  */
-require_once get_template_directory() . '/inc/class-especiais.php';

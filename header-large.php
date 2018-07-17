@@ -18,9 +18,11 @@
 		<link href="<?php echo get_template_directory_uri(); ?>/assets/images/favicon.ico" rel="shortcut icon" />
 	<?php endif; ?>
 	<?php wp_head(); ?>
+
 </head>
 
 <body <?php body_class(); ?>>
+	<div id="fb-root"></div>
 	<a id="skippy" class="sr-only sr-only-focusable" href="#content">
 		<div class="container">
 			<span class="skiplink-text"><?php _e( 'Skip to content', 'odin' ); ?></span>
@@ -88,7 +90,32 @@
 			<!-- .line-3 -->
 		</div>
 	</header><!-- #header -->
-	<?php if( !is_tax() && is_singular( 'colunistas' ) ) {
+	<?php
+	if( is_singular('post') ) {
+				if (wp_get_post_terms( get_the_ID(), 'especiais' )) {
+					$tax = 'especiais';
+					$term = wp_get_post_terms( get_the_ID(), 'especiais' );
+					$barra = "<a href='".get_term_link($term[0], 'especiais')."'>Especiais - ". $term[0]->name."</a>";
+				}
+				elseif (wp_get_post_terms( get_the_ID(), 'colunistas' )) {
+					$tax = 'colunistas';
+					$barra = "Colunistas";
+				}
+				elseif (wp_get_post_terms( get_the_ID(), 'editorias' )) {
+					$tax = 'editorias';
+					$term = wp_get_post_terms( get_the_ID(), 'editorias' );
+					$barra = $term[0]->name;
+				}
+				?>
+				<div class="barra-<?php echo $tax;?>">
+					<div  class="container">
+						<h5 class="col-md-12 no-padding"><?php echo $barra;  ?></h5>
+				</div>
+			</div>
+			<?php
+			echo $header_especial;
+	}
+	elseif( !is_tax() && is_singular( 'colunistas' ) ) {
 		?>
 	<div class="archive-colunista">
     	<div class="barra-colunistas">
@@ -107,26 +134,23 @@
 			<h5 class="col-md-12">Colunistas</h5>
 		</div>
 	</div>
-<?php  } else if(is_post_type_archive('especiais') || ( is_object($post) && !is_tax() && !is_tag()  && has_term( '', 'especiais', $post->ID ))) {
+<?php  } else if(is_post_type_archive('especiais')  ) {
 		?>
-	<div class="barra-colunistas">
+	<div class="barra-especiais">
 		<div  class="container">
 			<h5 class="col-md-12">Especiais</h5>
 		</div>
 	</div>
 <?php  }
-
-else if( is_singular('post') ) {
-		?>
-	<div class="barra-editorias">
+else if (is_singular( $post_types = 'especiais' ) || is_tax( 'tipo' ) ) {
+	?>
+	<div class="barra-especiais">
 		<div  class="container">
-			<?php
-			$term = wp_get_post_terms( get_the_ID(), 'editorias' );
-			?>
-			<h5 class="col-md-12"><?php echo $term[0]->name;  ?></h5>
+			<h5 class="col-md-12"><?php $term_especial = wp_get_post_terms( get_the_ID(), 'tipo' );  echo $term_especial[0]->name; ?> </h5>
 		</div>
 	</div>
-<?php  }
+	<?php
+}
 else if( is_tax('editorias') ) {
 		?>
 	<div class="barra-editorias">

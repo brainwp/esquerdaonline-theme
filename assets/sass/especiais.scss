@@ -1,0 +1,199 @@
+.term-dossie{
+  .social-area{
+    padding-top: 15px;
+  }
+}
+.term-cobertura{
+  .social-area{
+    padding-top: 15px;
+    .post-default{
+      .post-content{
+        padding:0!important;
+      }
+    }
+  }
+}
+.single-especiais{
+  .no-thumb{
+
+  }
+  .social-area{
+    .main-post-social{
+      width:100%;
+      .post-thumbnail.col-md-3{
+        width:25%;
+      }
+      .post-content.col-md-8{
+        width:75%;
+      }
+      .post-default{
+        a.the-title.base-titulo h4 {
+          font-size: 30px!important;
+        }
+      }
+    }
+  }
+}
+.single-especiais, .tax-tipo, .post-type-archive-especiais{
+  .barra-especiais{
+    background-image: url(../images/barra-roxa.jpg);
+    background-size: cover;
+    color: #FFF;
+    text-align: left;
+    padding-top:10px;
+    padding-bottom:10px;
+    h5{
+      font-size: 15px;
+      padding-left: 0px;
+      font-weight: bolder;
+      text-transform: uppercase;
+    }
+  }
+}
+.post-type-archive-especiais{
+  aside#sidebar {
+    h2.widget-title{
+      line-height: 24px;
+    }
+    .type-especiais{
+      margin-bottom: 30px;
+      h3{
+        overflow: hidden;
+        margin-top:0;
+        margin-bottom: 2px;
+        a{
+          color:$dark_main;
+          &:hover{
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+  .each-dossie{
+    &:nth-of-type(2n+1){
+      clear: both;
+    }
+  }
+  .single-thumbnail{
+    width: 100%;
+    img{
+      width: 100%;
+    }
+  }
+}
+.single-especiais{
+
+  #widgets-especiais{
+    margin-left:-1vw;
+    margin-right:-1vw;
+  }
+  #destaques.widget-eol-posts.widget-container{
+    clear: both;
+    .each-post-widget.foto-fundo{
+      &:nth-of-type(3n+1){
+        padding-left:0px;
+        padding-right:10px;
+      }
+      &:nth-of-type(3n+2){
+        padding-right:5px;
+        padding-left:5px;
+      }
+      &:nth-of-type(3n+3){
+        padding-left:10px;
+        padding-right:0px;
+
+      }
+    }
+  }
+  .single-thumbnail{
+    width: 100%;
+    img{
+      width: 100%;
+    }
+  }
+  #header-especiais{
+    margin-bottom: 4vw;
+    position: relative;
+    overflow: hidden;
+    #especial-text{
+      padding-left:0;
+    }
+    .post-thumbnail{
+      margin-bottom: 20px;
+    }
+    .fa-share-alt{
+      display:none;
+    }
+  }
+  .social-area {
+
+  }
+}
+@media(min-width:991px){
+  .single-especiais{
+    #header-especiais{
+      .social-icons-post{
+        bottom: 0;
+        right: 0;
+        color: $red_main;
+        position: relative;
+        .icon-itself{
+          padding: 0px 10px !important;
+          font-size: 24px;
+          float: right;
+          i{
+            color: $red_main;
+
+          }
+        }
+      }
+    }
+  }
+}
+.single.especial{
+  #header-especiais{
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 50px;
+    #especial-text{
+      .main-title{
+        position: absolute;
+        bottom: 15px;
+        left: 35px;
+        width: 90%;
+        a{
+          &:hover, &:active, &:focus{
+            text-decoration: none;
+            opacity: 0.8;
+          }
+          color: #fff;
+        }
+      }
+    }
+  }
+  .barra-especiais {
+    a{
+      color:#fff;
+      &:hover{
+        text-decoration: none;
+        opacity: 0.8;
+      }
+    }
+    background-image: url('../images/barra-roxa.jpg');
+    background-size: cover;
+    color: #FFF;
+    padding: 10px;
+    text-align: left;
+    .container{
+      h5{
+        font-size: 15px;
+        padding-left: 0px;
+      }
+    }
+  }
+  .barra-especiais h5 {
+    font-weight: bolder;
+    text-transform: uppercase;
+  }
+}

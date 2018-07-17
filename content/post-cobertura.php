@@ -10,25 +10,9 @@
 
 
 
-<div class="each-dossie col-md-6 ">
-	<article class="post-default   has-thumb">
-			<figure class="col-sm-12 no-padding post-thumbnail">
-
-				<div class="col-md-12 social-icons-post">
-					<?php eol_share_overlay();?>
-				</div>
-				<a href="<?php the_permalink();?>" class="show-social-icons">
-					<?php
-					eol_single_thumbnail('retangular-p',get_the_ID());
-					?>
-				</a>
-
-
-
-
-
-			</figure><!-- .col-md-5 pull-left thumbnail -->
-		<div class="col-md-12  post-content">
+<div class="postholder">
+	<article class="post-default has-thumb">
+		<div class="col-md-12 post-content">
 			<?php if ( ! is_singular( 'post') ) {
 				$terms = wp_get_post_terms( get_the_ID(), 'editorias' );
 				// if( $terms ) {

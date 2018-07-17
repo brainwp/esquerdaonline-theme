@@ -110,7 +110,7 @@ function eol_single_thumbnail($size='full', $post_id = null, $meta = null) {
 	$single_thumbnail = '';
 	echo '<div class="single-thumbnail">';
 	$post_id = ( $post_id ? $post_id : get_the_ID());
-	preg_match("/widget([^\s]+)/", $size, $size_thumb);
+	preg_match("/alternativa([^\s]+)/", $size, $size_thumb);
 	// se single
 	if (is_single( $post_id )) {
 		// se vai mostrar a alternativa
@@ -127,6 +127,11 @@ function eol_single_thumbnail($size='full', $post_id = null, $meta = null) {
 		else{
 			// fazer imagem padrão ser utilizada no facebook.
 		}
+	}
+	elseif($size == 'especiais' && get_field('exibir_na_single',$post_id) ){
+		$single_thumbnail = get_post_meta( $post_id , 'thumbnail_single', true );
+		$single_thumbnail_img = wp_get_attachment_image_src( $single_thumbnail, 'full', false );
+		printf( '<img src="%s" alt="%s">', $single_thumbnail_img[0], esc_attr(get_the_title() ) );
 	}
 	// se é widget e é thumb-widget com imagem alternativa
 	elseif( isset($size_thumb[1] ) &&  $single_thumbnail = get_post_meta( $post_id , 'thumbnail_single', true )){
@@ -221,4 +226,34 @@ function eol_socials(){
 			</a>
 		<?php endforeach;?>
 	<?php endif;
+}
+function eol_header_especiais(){
+	if (wp_get_post_terms( get_the_ID(), 'especiais' )) {
+		$tax = 'especiais';
+		$term = wp_get_post_terms( get_the_ID(), 'especiais' );
+		$especial = get_page_by_title( $term[0]->name, $output = OBJECT, $post_type = 'especiais' );
+	?>
+	<div id="header-especiais" class="">
+		 <figure class=" post-thumbnail">
+			 <a href="<?php echo get_the_permalink( $especial->ID ); ?>">
+			 	<?php eol_single_thumbnail('especiais', $especial->ID);?>
+			 </a>
+		 </figure>
+		 <div class="col-md-9" id="especial-text" class="">
+			 <h1 class="entry-title main-title">
+				<a href="<?php echo get_the_permalink( $especial->ID ); ?>">
+			 		<?php echo get_the_title( $especial->ID);?>
+				</a>
+		 	 </h1>
+			 <div class="sub-title">
+				 <a href="<?php echo get_the_permalink( $especial->ID ); ?>">
+				 <?php if ( $sub_title = get_post_meta( $especial->ID, 'sub_title', true ) ) {
+					 echo apply_filters( 'the_content', $sub_title );
+				 }?>
+			 	 </a>
+			 </div><!-- sub-title -->
+		 </div>
+	 </div><!--  id="header-especiais" -->
+	 <?php
+	 }
 }

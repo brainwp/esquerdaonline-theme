@@ -2,7 +2,7 @@
 	if ( ! defined( 'ABSPATH' ) )
 		exit; // Exit if accessed directly.
 	/**
-	 * Cria um shortcode para matérias relacionadas - com integração ao ACF
+	 * Cria um shortcode para matérias coordenadas - com integração ao ACF
 	 *
 	 */
 	class EOL_Shortcode_Related_Articles {
@@ -20,7 +20,7 @@
 			// add acf fields
 			$this->acf_fields();
 			// add the shortcode
-			add_shortcode( 'eol_relacionadas', array( $this, 'shortcode' ) );
+			add_shortcode( 'eol_coordenadas', array( $this, 'shortcode' ) );
 		}
 		/**
 		 * Registra os campos do ACF
@@ -29,7 +29,7 @@
 			if(	function_exists( 'register_field_group' ) ) {
 				register_field_group(array (
 					'id' => 'acf_materias-relacionadas',
-					'title' => 'Matérias relacionadas',
+					'title' => 'Matérias coordenadas',
 					'fields' => array (
 						array (
 							'key' => 'field_5aea7b0a65c83',

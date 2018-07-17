@@ -6,7 +6,10 @@
  * @since 2.2.0
  */
 
-get_header('large'); ?>
+get_header('large');
+eol_header_especiais();
+
+?>
 	<div id="primary" class="site-main col-md-12">
 		<main id="main-content" class="site-main" role="main">
 			<?php

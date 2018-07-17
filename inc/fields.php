@@ -7,6 +7,80 @@
 if(function_exists("register_field_group"))
 {
 	register_field_group(array (
+		'id' => 'acf_video',
+		'title' => 'video',
+		'fields' => array (
+			array (
+				'key' => 'field_5b3c7cb204f3c',
+				'label' => 'link',
+				'name' => 'link',
+				'type' => 'text',
+				'required' => 1,
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_5b3c7d1104f3d',
+				'label' => 'chamada',
+				'name' => 'chamada',
+				'type' => 'text',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_5b3c7d1804f3e',
+				'label' => 'data',
+				'name' => 'data',
+				'type' => 'text',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_5b3c7d2104f3f',
+				'label' => 'autor',
+				'name' => 'the_author',
+				'type' => 'text',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'videos',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'no_box',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
+
+	register_field_group(array (
 		'id' => 'acf_info-noticia',
 		'title' => 'Informações da notícia',
 		'fields' => array (
@@ -77,6 +151,15 @@ if(function_exists("register_field_group"))
 					'param' => 'post_type',
 					'operator' => '==',
 					'value' => 'post',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'especiais',
 					'order_no' => 0,
 					'group_no' => 0,
 				),

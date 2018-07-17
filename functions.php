@@ -299,6 +299,9 @@ function odin_enqueue_scripts() {
 
 	// Grunt main file with Bootstrap, FitVids and others libs.
 	wp_enqueue_script( 'odin-main-min', $template_url . '/assets/js/main.min.js');
+	wp_localize_script( 'odin-main-min', 'odinAjax', array(
+		'ajax_url' => admin_url( 'admin-ajax.php' )
+	));
 	// Grunt watch livereload in the browser.
 	// wp_enqueue_script( 'odin-livereload', 'http://localhost:35729/livereload.js?snipver=1', array(), null, true );
 
@@ -495,8 +498,26 @@ add_action( 'wp_enqueue_scripts', 'wpb_add_google_fonts' );
 // examples: section-about-us, section-start, section-nyc
 function colunistas_class($classes) {
 	global $post;
-	if( !is_tax() && !is_tag() && isset($post) && has_term( '', 'colunistas', $post->ID ) ) {
-		$classes[] = " single-colunistas";
+	if (is_object($post)) {
+		if( !is_tax() && !is_tag() && isset($post) && has_term( '', 'colunistas', $post->ID ) ) {
+			$classes[] .= " single-colunistas ";
+		}
+		$section_terms = get_the_terms( $post->ID, 'editorias' );
+		if ( $section_terms && ! is_wp_error( $section_terms ) ) {
+			foreach ($section_terms as $term) {
+				if ($term->slug == 'editorial') {
+					$classes[] = $term->slug;
+				} else{
+					$classes[] .= ' editoria editoria-' . $term->slug;
+				}
+			}
+		}
+		$section_terms = get_the_terms( $post->ID, 'especiais' );
+		if ( $section_terms && ! is_wp_error( $section_terms ) ) {
+			foreach ($section_terms as $term) {
+				$classes[] .= ' especial especial-' . $term->slug;
+			}
+		}
 	}
 	return $classes;
 }
@@ -634,20 +655,9 @@ add_filter( 'body_class', 'section_id_class' );
 // add classes to body based on custom taxonomy ('sections')
 // examples: section-about-us, section-start, section-nyc
 function section_id_class( $classes ) {
-    global $post;
-	if (is_object($post)) {
-		$section_terms = get_the_terms( $post->ID, 'editorias' );
-	    if ( $section_terms && ! is_wp_error( $section_terms ) ) {
-	        foreach ($section_terms as $term) {
-				if ($term->slug == 'editorial') {
-					$classes[] = $term->slug;
-				} else{
-					$classes[] = 'editoria editoria-' . $term->slug;
-				}
-	        }
-	    }
-	}
-    return $classes;
+	global $post;
+
+	return $classes;
 }
 
 add_filter('widget_text', 'do_shortcode');
@@ -717,8 +727,26 @@ function archive_especiais($query) {
 						'operator'=> 'IN'
 		);
 		$query->tax_query->queries[] = $tax_query;
+		$query->query_vars['posts_per_page'] = 4;
 		$query->query_vars['tax_query'] = $query->tax_query->queries;
   }
 }
 
 add_action('pre_get_posts','archive_especiais');
+
+
+
+//
+//
+// $embed = wp_oembed_get( $url );
+// if ( $embed ) {
+// 	echo $embed;
+// }
+
+function get_video() {
+
+	echo wp_oembed_get($_POST['url']);
+	return;
+}
+add_action( 'wp_ajax_nopriv_get_video', 'get_video' );
+add_action( 'wp_ajax_get_video', 'get_video' );
