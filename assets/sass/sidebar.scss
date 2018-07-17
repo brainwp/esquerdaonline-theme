@@ -29,6 +29,7 @@ aside#sidebar-colunistas {
 
 }
 aside#sidebar, aside#sidebar-colunistas {
+	overflow: hidden;
 	.widget-eol-posts {
 		clear:both;
 	}
