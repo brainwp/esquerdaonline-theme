@@ -1,4 +1,8 @@
 .videos{
+  a:hover{
+    text-decoration: none;
+    opacity: 0.8;
+  }
   overflow: hidden;
   .video-item{
     position: relative;
@@ -26,6 +30,9 @@
         height: 40px;
         transform: translate(-50%, -50%);
         width: 40px;
+      }
+      .video-widget-text{
+        font-size:20px;
       }
     }
     &:nth-of-type(n+3){
@@ -61,6 +68,8 @@
         padding-left:10px;
         width: 66%;
         float: left;
+        line-height: 20px;
+        font-size: 17px;
       }
     }
   }
