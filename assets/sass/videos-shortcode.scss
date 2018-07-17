@@ -1,0 +1,67 @@
+.videos{
+  overflow: hidden;
+  .video-item{
+    position: relative;
+    figure{
+      position: relative;
+      overflow: hidden;
+    }
+    &:nth-of-type(2){
+      width: 58%;
+      padding-left:0;
+      img{
+        width: 100%;
+      }
+
+      a.play-btn{
+        i{
+          position: absolute;
+        }
+        position: absolute;
+        background: #000;
+        border-radius: 112px;
+        padding: 11px 15px;
+        top: 50%;
+        left: 50%;
+        height: 40px;
+        transform: translate(-50%, -50%);
+        width: 40px;
+      }
+    }
+    &:nth-of-type(n+3){
+      display: flex;
+      align-items: center;
+      figure{
+        margin-bottom: 3%;
+        width:33%;
+        float:left;
+        position: relative;
+        overflow: hidden;
+        img{
+          width:100%;
+        }
+      }
+
+      a.play-btn{
+        i{
+          position: absolute;
+        }
+        position: absolute;
+        background: #000;
+        border-radius: 112px;
+        padding: 5px 7px;
+        top: 50%;
+        left: 50%;
+        font-size: 10px;
+        height: 20px;
+        transform: translate(-50%, -50%);
+        width: 20px;
+      }
+      .video-widget-text{
+        padding-left:10px;
+        width: 66%;
+        float: left;
+      }
+    }
+  }
+}
