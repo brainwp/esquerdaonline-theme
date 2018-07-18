@@ -120,9 +120,15 @@ class EOL_Duplicador {
 				// atualiza a tabela com o novo widget na area da página nova
 				update_option( 'sidebars_widgets', $widgets_table );
 
-				print_r($widgets_options) ;
-
+				// print_r($widgets_options) ;
 			}
+      ?>
+      <a href="<?php echo $new_page_url ?>">Visitar a nova página</a>
+      <br>
+      <?php
+      edit_post_link( 'Editar a página', '', '', $new_page_id );
+
+
 		}
 	}
 	function cria_pagina($title){
