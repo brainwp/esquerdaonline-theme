@@ -750,3 +750,4 @@ function get_video() {
 }
 add_action( 'wp_ajax_nopriv_get_video', 'get_video' );
 add_action( 'wp_ajax_get_video', 'get_video' );
+require_once get_template_directory() . '/inc/class-duplicador.php';
