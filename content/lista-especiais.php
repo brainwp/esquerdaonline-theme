@@ -11,7 +11,7 @@
   <div class="main-post-social">
     <div class="postholder">
       <article class="post-default has-thumb">
-        <figure class="col-md-4 col-sm-12 no-padding post-thumbnail">
+        <figure class="col-md-3 col-sm-12 no-padding post-thumbnail">
 
           <div class="col-md-12 social-icons-post">
             <?php eol_share_overlay();?>
@@ -22,7 +22,7 @@
             ?>
           </a>
         </figure><!-- .col-md-5 pull-left thumbnail -->
-        <div class="col-md-8 post-content">
+        <div class="col-md-9 post-content">
           <?php if ( ! is_singular( 'post') ) {
             $terms = wp_get_post_terms( get_the_ID(), 'editorias' );
             // if( $terms ) {
