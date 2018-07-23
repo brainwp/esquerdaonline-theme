@@ -1,4 +1,18 @@
+.single h2.video {
+    clear: both;
+}
+
+h2.video{
+	font-size: 20px;
+	font-weight: 800;
+	line-height: 33px;
+}
 .videos{
+	margin-bottom: 2vw;
+  .video-text-overlay{
+	  position: relative;
+	  width: 100%;
+  }
   a:hover{
     text-decoration: none;
     opacity: 0.8;
@@ -33,6 +47,33 @@
       }
       .video-widget-text{
         font-size:20px;
+		color:$dark_main;
+		a{
+			color:$dark_main;
+		}
+		.video-text{
+			background-repeat: no-repeat, repeat;
+		    background-position: right top, left top;
+		    background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(#000));
+		    padding: 20px 20px 10px;
+		    color: #fff;
+		    position: absolute;
+		    bottom: 0;
+		    width: 100%;
+		}
+		.titulo-video-destaque{
+			font-family: heebo;
+			font-size: 25px;
+			font-weight: 700;
+			line-height: 34px;
+			letter-spacing: 0px
+		}
+		.data-video-destaque, .autor-video-destaque{
+			margin-left: 5px;
+			font-size: 10px;
+			letter-spacing: 1px;
+			text-transform: uppercase;
+		}
       }
     }
     &:nth-of-type(n+3){
@@ -70,6 +111,24 @@
         float: left;
         line-height: 20px;
         font-size: 17px;
+		color:$dark_main;
+		a{
+			color:$dark_main;
+		}
+		.titulo-video-destaque{
+			font-family: heebo;
+			font-size: 20px;
+			font-weight: 400;
+			line-height: 23px;
+			letter-spacing: 0px
+		}
+		.data-video-destaque, .autor-video-destaque{
+			margin-right: 5px;
+			font-size: 10px;
+			float:left;
+			letter-spacing: 1px;
+			text-transform: uppercase;
+		}
       }
     }
   }
