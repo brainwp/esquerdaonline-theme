@@ -66,7 +66,7 @@ class EOL_Linha_Widget extends WP_Widget {
 	public function form( $instance ) {
 		$instance = wp_parse_args( (array) $instance,
 			array(
-				'number' => '30px'
+				'number' => '1px'
 			)
 		);
 		?>
