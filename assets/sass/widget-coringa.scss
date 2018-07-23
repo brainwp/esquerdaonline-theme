@@ -336,6 +336,36 @@
 
 			}
 		}
+		&.especial{
+			background: #af93932e;
+	    padding: 10px 15px!important;
+	    margin-top: -10px;
+			.each-post-widget{
+				&:hover {
+					figure {
+						img{
+							filter:  none;
+					    transition: all ease-in-out 100ms;
+					    opacity: 1;
+						}
+						.social-icons-post{
+							display: none;
+						}
+					}
+				}
+				figure{
+					.fas.fa-share-alt{
+						display: none;
+					}
+					border-radius: 10%;
+					overflow: hidden;
+					img{
+						transform: scale(1.5);
+					}
+				}
+			}
+		}
+
 		&.editorial{
 			.widget-title{
 				margin:0 1vw;

@@ -24,10 +24,10 @@ class EOL_Recent_Posts_Taxonomy extends WP_Widget {
 	public function __construct() {
 		$widget_ops = array(
 			'classname'                   => 'eol_widget_recent_posts_taxonomy',
-			'description'                 => '',
+			'description'                 => 'Ultimos posts da taxonomia/colunista/especial do post atual ou da editoria selecionada',
 			'customize_selective_refresh' => true,
 		);
-		parent::__construct( 'eol_widget_recent_posts_taxonomy', __( 'Ultimos posts da categoria do post atual' ), $widget_ops );
+		parent::__construct( 'eol_widget_recent_posts_taxonomy', __( 'Editoria/colunista/especial' ), $widget_ops );
 		$this->alt_option_name = 'eol_widget_recent_posts_taxonomy';
 	}
 
@@ -48,8 +48,7 @@ class EOL_Recent_Posts_Taxonomy extends WP_Widget {
 		/**
 		 * Pega a editoria se selecionada alguma
 		*/
-		$term = isset( $instance['editoria'] ) ? absint( $instance['editoria'] ) : 'false';
-
+		$term = isset( $instance['editoria'] ) ? absint( $instance['editoria'] ) : false;
 		if ( ! $number ) {
 			$number = 5;
 		}
@@ -64,10 +63,16 @@ class EOL_Recent_Posts_Taxonomy extends WP_Widget {
 		if ( is_singular( 'post' ) || is_int( $term ) ) {
 			$veja_mais = "Veja Mais";
 			// se nao tem termo selecionado no widget
-			if ( 0 === $term ) {
+			if ( !$term || 0 === $term || $term == false || $term == '') {
 				$post = get_queried_object();
 				$query_args['post__not_in'] = array($post->ID);
-				if ( has_term( '', 'colunistas', $post->ID )) {
+				if ( has_term( '', 'especiais', $post->ID )) {
+					$term = wp_get_post_terms( $post->ID, 'especiais', array( 'fields' => 'all' ) );
+					$tax = 'especiais';
+					$title ="Mais deste especial";
+					$veja_mais = "Veja todos";
+				}
+				elseif ( has_term( '', 'colunistas', $post->ID )) {
 					$term = wp_get_post_terms( $post->ID, 'colunistas', array( 'fields' => 'all' ) );
 					$tax = 'colunistas';
 					$title =$term[0]->name;

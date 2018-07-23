@@ -18,7 +18,7 @@ class EOL_Widget_Video_Live extends WP_Widget {
 	public function widget( $args, $instance ) {
 		/** This filter is documented in wp-includes/default-widgets.php */
 		$title = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
-		$text = esc_attr( $instance[ 'text' ] );
+		$text = esc_attr( empty( $instance['text'] ) ? '' : $instance['text'] );
 		$classes = esc_attr( $instance[ 'classes' ] );
 		$url = esc_url_raw( $instance[ 'url'] );
 		/**

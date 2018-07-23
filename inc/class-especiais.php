@@ -33,7 +33,6 @@
 		public function delete_term( $post_id ) {
 			$post = get_post( $post_id );
 			$post_name = str_replace( '__trashed', '', $post->post_name );
-			$post_name_destaque = $post_name . '-destaque';
 			if ( 'especiais' != $post->post_type ) {
 				return;
 			}
@@ -41,10 +40,7 @@
 			if ( $term && ! is_wp_error( $term ) ) {
 				wp_delete_term( $term->term_id, 'especiais' );
 			}
-			$term = get_term_by( 'slug', $post_name_destaque, 'especiais');
-			if ( $term && ! is_wp_error( $term ) ) {
-				wp_delete_term( $term->term_id, 'especiais' );
-			}
+
 
 		}
 		/**
@@ -62,7 +58,7 @@
 				return;
 			}
 			wp_insert_term( $post->post_title, 'especiais', array( 'slug' => $post->post_name ) );
-			wp_insert_term( $post->post_title . '-destaque', 'especiais', array( 'slug' => $post->post_name . '-destaque' ) );
+			
 
 		}
 		/**

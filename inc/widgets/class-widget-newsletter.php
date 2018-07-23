@@ -30,8 +30,10 @@ class EOL_Newsletter_Widget extends WP_Widget {
 	 */
 	public function widget( $args, $instance ) {
 		// numero de posts a ser exibido
+		$classes =  (isset($instance[ 'classe']) ? $instance[ 'classe'] :"") ;
+
 		?>
-		<div class="widget-newsletter-container widget-container">
+		<div class="widget-newsletter-container <?php echo $classes ?> widget-container">
 		<?php
 		echo $args['before_widget'];
 		$form =  (isset($instance[ 'form']) ? $instance[ 'form'] :"") ;
@@ -58,6 +60,7 @@ class EOL_Newsletter_Widget extends WP_Widget {
 	public function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
 		$instance[ 'form' ] =  $new_instance[ 'form'] ;
+		$instance[ 'classe' ] =  $new_instance[ 'classe'] ;
 		return $instance;
 	}
 
@@ -72,7 +75,8 @@ class EOL_Newsletter_Widget extends WP_Widget {
 	public function form( $instance ) {
 		$instance = wp_parse_args( (array) $instance,
 			array(
-				'form' => '[contact-form-7 id="927" title="Newsletter"]'
+				'form' => '[contact-form-7 id="927" title="Newsletter"]',
+				'classe' => 'tamanho-50'
 			)
 		);
 		?>
@@ -80,10 +84,15 @@ class EOL_Newsletter_Widget extends WP_Widget {
 			<?php
 			// numero de posts a ser exibido
 			$form = sanitize_text_field( $instance['form'] );
+			$classe = sanitize_text_field( $instance['classe'] );
 			?>
 			<p>
 				<label>Shortcode do formulário</label>
 				<input class="widefat" type="text" name="<?php echo $this->get_field_name( 'form' ); ?>" value="<?php echo esc_attr($form); ?>">
+			</p>
+			<p>
+				<label>Classes</label>
+				<input class="widefat" type="text" name="<?php echo $this->get_field_name( 'classe' ); ?>" value="<?php echo esc_attr($classe); ?>">
 			</p>
 
 		</div><!-- .form-container -->

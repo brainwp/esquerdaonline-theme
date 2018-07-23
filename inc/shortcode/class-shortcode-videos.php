@@ -47,7 +47,6 @@
 					$html = '
 						<div class="videos">
 							<div id="modal" class="modal">
-								<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
 								<div id="modal-content"></div>
 							</div> ';
 					$count = 1;
@@ -58,26 +57,33 @@
 						$link = get_post_meta( get_the_ID(), 'link', true );
 						$autor = get_post_meta( get_the_ID(), 'the_author', true );
 						$data = get_post_meta( get_the_ID(), 'data', true );
+						$thumb = get_the_post_thumbnail( get_the_ID() , 'retangular-p' );
 						$html .='
-							<div class="video-item  col-md-12">
-								<a href="#" data-title="'.$titulo.'" data-subtitle="'.$chamada.'" data-author="'.$autor.'" data-date="'.$data.'" class="modal-item-open video-open col-md-4" data-src="'.$link.'" data-type="video">
-									<i class="fas fa-play"></i>
-								<div class="col-md-8 video-text">
-									<div class="titulo-video-destaque">
-										'.$titulo.'
-									</div>
-									<div class="chamada-video-destaque">
-										'.$chamada.'
-									</div>
-									<div class="data-video-destaque">
-										'.$data.'
-									</div>
-									<div class="autor-video-destaque">
-										'.$autor.'
-									</div>
-								</div><!--video-text-->
-								</a>
 
+							<div class="video-item  col-md-5">
+								<figure>'.$thumb.'
+								<a href="#" data-title="'.$titulo.'" data-subtitle="'.$chamada.'" data-author="'.$autor.'" data-date="'.$data.'" class="play-btn modal-item-open video-open " data-src="'.$link.'" data-type="video">
+									<i class="fas fa-play"></i>
+								</a>
+								</figure>
+								<div class="video-widget-text">
+									<a href="#" data-title="'.$titulo.'" data-subtitle="'.$chamada.'" data-author="'.$autor.'" data-date="'.$data.'" class="modal-item-open video-open " data-src="'.$link.'" data-type="video">
+									<div class=" video-text">
+										<div class="titulo-video-destaque">
+											'.$titulo.'
+										</div>
+										<div class="chamada-video-destaque">
+											'.$chamada.'
+										</div>
+										<div class="data-video-destaque">
+											'.$data.'
+										</div>
+										<div class="autor-video-destaque">
+											'.$autor.'
+										</div>
+									</div><!--video-text-->
+									</a>
+								</div><!-- class="video-widget-text"-->
 							</div><!--video-item-->';
 						$count++;
 					}
