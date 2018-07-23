@@ -181,9 +181,9 @@ class Brasa_Slider {
 	 */
 	private function register_cpt(){
 		$labels = array(
-			'name'                => _x( 'Brasa Sliders', 'Post Type General Name', 'brasa-slider' ),
-			'singular_name'       => _x( 'Brasa Slider', 'Post Type Singular Name', 'brasa-slider' ),
-			'menu_name'           => __( 'Brasa Slider', 'brasa-slider' ),
+			'name'                => _x( 'Galerias', 'Post Type General Name', 'brasa-slider' ),
+			'singular_name'       => _x( 'Galeria', 'Post Type Singular Name', 'brasa-slider' ),
+			'menu_name'           => __( 'Galeria', 'brasa-slider' ),
 			'parent_item_colon'   => __( 'Slider parent', 'brasa-slider' ),
 			'all_items'           => __( 'All sliders', 'brasa-slider' ),
 			'view_item'           => __( 'View slider', 'brasa-slider' ),
@@ -197,7 +197,7 @@ class Brasa_Slider {
 			);
 		$args = array(
 			'label'               => __( 'brasa_slider_cpt', 'brasa-slider' ),
-			'description'         => __( 'Brasa Slider', 'brasa-slider' ),
+			'description'         => __( 'Galerias', 'brasa-slider' ),
 			'labels'              => $labels,
 			'supports'            => array( 'title', ),
 			'hierarchical'        => false,
@@ -209,7 +209,7 @@ class Brasa_Slider {
 			'menu_position'       => 5,
 			'menu_icon'           => 'dashicons-images-alt',
 			'can_export'          => true,
-			'has_archive'         => false,
+			'has_archive'         => true,
 			'exclude_from_search' => true,
 			'publicly_queryable'  => false,
 			'rewrite'             => false,
