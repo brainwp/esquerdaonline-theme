@@ -34,7 +34,7 @@ class EOL_Duplicador {
 
 		?>
 		<div class="wrap">
-			<h2>Duplicador Revolucionario de Modelos</h2>
+			<h2>Duplicador Revolucionário de Modelos</h2>
 		</div>
 		<div>
 			<form class="" action="" method="post">
