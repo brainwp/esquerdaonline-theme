@@ -155,9 +155,18 @@ if(function_exists("register_field_group"))
 					'group_no' => 0,
 				),
 			),
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'especiais',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
 		),
 		'options' => array (
-			'position' => 'side',
+			'position' => 'acf_after_title',
 			'layout' => 'default',
 			'hide_on_screen' => array (
 			),

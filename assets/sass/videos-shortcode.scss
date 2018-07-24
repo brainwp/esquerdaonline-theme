@@ -1,0 +1,135 @@
+.single h2.video {
+    clear: both;
+}
+
+h2.video{
+	font-size: 20px;
+	font-weight: 800;
+	line-height: 33px;
+}
+.videos{
+	margin-bottom: 2vw;
+  .video-text-overlay{
+	  position: relative;
+	  width: 100%;
+  }
+  a:hover{
+    text-decoration: none;
+    opacity: 0.8;
+  }
+  overflow: hidden;
+  .video-item{
+    position: relative;
+    figure{
+      position: relative;
+      overflow: hidden;
+    }
+    &:nth-of-type(2){
+      width: 58%;
+      padding-left:0;
+      img{
+        width: 100%;
+      }
+
+      a.play-btn{
+        i{
+          position: absolute;
+        }
+        position: absolute;
+        background: #000;
+        border-radius: 112px;
+        padding: 11px 15px;
+        top: 50%;
+        left: 50%;
+        height: 40px;
+        transform: translate(-50%, -50%);
+        width: 40px;
+      }
+      .video-widget-text{
+        font-size:20px;
+		color:$dark_main;
+		a{
+			color:$dark_main;
+		}
+		.video-text{
+			background-repeat: no-repeat, repeat;
+		    background-position: right top, left top;
+		    background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(#000));
+		    padding: 20px 20px 10px;
+		    color: #fff;
+		    position: absolute;
+		    bottom: 0;
+		    width: 100%;
+		}
+		.titulo-video-destaque{
+			font-family: heebo;
+			font-size: 25px;
+			font-weight: 700;
+			line-height: 34px;
+			letter-spacing: 0px
+		}
+		.data-video-destaque, .autor-video-destaque{
+			margin-left: 5px;
+			font-size: 10px;
+			letter-spacing: 1px;
+			text-transform: uppercase;
+		}
+      }
+    }
+    &:nth-of-type(n+3){
+      display: flex;
+      align-items: center;
+      figure{
+        margin-bottom: 3%;
+        width:33%;
+        float:left;
+        position: relative;
+        overflow: hidden;
+        img{
+          width:100%;
+        }
+      }
+
+      a.play-btn{
+        i{
+          position: absolute;
+        }
+        position: absolute;
+        background: #000;
+        border-radius: 112px;
+        padding: 5px 7px;
+        top: 50%;
+        left: 50%;
+        font-size: 10px;
+        height: 20px;
+        transform: translate(-50%, -50%);
+        width: 20px;
+      }
+      .video-widget-text{
+        padding-left:10px;
+        width: 66%;
+        float: left;
+        line-height: 20px;
+        font-size: 17px;
+		color:$dark_main;
+		a{
+			color:$dark_main;
+		}
+		.titulo-video-destaque{
+			font-family: heebo;
+			font-size: 20px;
+			font-weight: 400;
+			line-height: 23px;
+			letter-spacing: 0px
+		}
+		.data-video-destaque, .autor-video-destaque{
+			margin-right: 5px;
+			font-size: 10px;
+			float:left;
+			letter-spacing: 1px;
+			text-transform: uppercase;
+		}
+      }
+    }
+  }
+}

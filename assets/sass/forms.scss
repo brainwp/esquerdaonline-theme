@@ -1,0 +1,57 @@
+.wpcf7 > label {
+	margin-bottom: 3px;
+}
+.wpcf7 input[type="text"],
+.wpcf7 input[type="email"],
+.wpcf7 input[type="tel"],
+.wpcf7 .wpcf7-form-control-wrap.estado {
+	border-radius: 0;
+	margin-top: 3px;
+	padding: 6px 12px;
+}
+.wpcf7 .wpcf7-form-control-wrap.estado {
+	padding: 6px 6px 6px 12px;
+	cursor: pointer;
+}
+.wpcf7 .wpcf7-form-control-wrap select {
+	cursor: pointer;
+}
+.wpcf7 input[type="tel"] {
+	max-width: 185px;
+}
+.wpcf7 .wpcf7-list-item .wpcf7-list-item-label {
+	  float: left;
+    margin: 29px 0 0 0;
+    width: auto;
+    font-size: 0.9em;
+}
+.wpcf7 .wpcf7-list-item input[type="checkbox"] {
+	float: left;
+	margin: 31px 0 0 5px;
+	width: auto;
+}
+.wpcf7 input[type="submit"] {
+	border-radius: 0;
+	clear: both;
+	float: left;
+	margin-top: 10px !important;
+	padding: 8px 12px;
+	width: auto;
+}
+.wpcf7 #whats-telegram{
+	text-align:center;
+}
+.wpcf7 .wpcf7-submit{
+	    overflow: hidden;
+    margin-bottom: 15px;
+}
+.wpcf7  h4, .wpcf7 #whats-telegram  p{
+	text-align:left;
+	width:100%;
+	overflow:hidden;
+}
+.wpcf7 i{
+	font-size:40px;
+	margin:10px
+
+}
