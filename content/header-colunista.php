@@ -1,5 +1,5 @@
 <?php
-if ($term_list = wp_get_post_terms($post->ID, 'colunistas', array("fields" => "slugs"))) {
+if ($term_list = wp_get_post_terms($post->ID, 'colunistas_tax', array("fields" => "slugs"))) {
 	$the_slug = $term_list[0];
 	$args = array(
 	  'name'        => $the_slug,

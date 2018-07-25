@@ -36,9 +36,9 @@
 			if ( 'colunistas' != $post->post_type ) {
 				return;
 			}
-			$term = get_term_by( 'slug', $post_name, 'colunistas');
+			$term = get_term_by( 'slug', $post_name, 'colunistas_tax');
 			if ( $term && ! is_wp_error( $term ) ) {
-				wp_delete_term( $term->term_id, 'colunistas' );
+				wp_delete_term( $term->term_id, 'colunistas_tax' );
 			}
 		}
 		/**
@@ -49,20 +49,20 @@
 		* @param bool $update Whether this is an existing post being updated or not.
 		*/
 		public function create_term( $post_id, $post, $update ) {
-			if ( term_exists( $post->post_name, 'colunistas' ) ) {
+			if ( term_exists( $post->post_name, 'colunistas_tax' ) ) {
 				return;
 			}
 			if ( strpos( $post->post_name, '__trashed' ) > 0 ) {
 				return;
 			}
-			wp_insert_term( $post->post_title, 'colunistas', array( 'slug' => $post->post_name ) );
+			wp_insert_term( $post->post_title, 'colunistas_tax', array( 'slug' => $post->post_name ) );
 		}
 		/**
 		 * Esconde as telas de edição/removação da taxonomia
 		 */
 		public function hide_taxonomy() {
 			$style = '';
-			$style .= 'a[href="edit-tags.php?taxonomy=colunistas"],div#colunistas-adder
+			$style .= 'a[href="edit-tags.php?taxonomy=colunistas_tax"],div#colunistas_tax-adder
 			{ display:none !important;}';
 			echo '<style type="text/css">' . $style . '</style>';
 		}

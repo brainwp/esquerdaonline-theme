@@ -14,7 +14,7 @@ $editoria = new Odin_Taxonomy(
 // Taxonomia Colunistas
 $colunistas = new Odin_Taxonomy(
     'Colunista', // Nome (Singular) da nova Taxonomia.
-    'colunistas', // Slug do Taxonomia.
+    'colunistas_tax', // Slug do Taxonomia.
     'post' // Nome do tipo de conteúdo que a taxonomia irá fazer parte.
 );
 /**
