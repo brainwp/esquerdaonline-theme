@@ -22,6 +22,6 @@ jQuery(document).ready(function($) {
 		  $( '#header .container' ).toggleClass( 'open' );
 
 	});
-	
+
 
 });
