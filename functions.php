@@ -484,7 +484,7 @@ function atualiza_data_colunista( $post_id ) {
  	wp_update_post( $args );
 	add_action( 'save_post', 'atualiza_data_colunista' );
 }
-add_action( 'save_post', 'atualiza_data_colunista' );
+//add_action( 'save_post', 'atualiza_data_colunista' );
 
 function wpb_add_google_fonts() {
 
@@ -742,3 +742,6 @@ add_action( 'wp_ajax_get_video', 'get_video' );
 
 // adiciona o duplicador revolucionario
 require_once get_template_directory() . '/inc/class-duplicador.php';
+
+//adiciona "fork" do brasa slider para servir como CPT de galeria
+require_once get_template_directory() . '/inc/galeria/brasa-slider.php';

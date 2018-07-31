@@ -31,7 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  */
 function brasa_slider_get_template_html( $template_name ) {
 	ob_start();
-	brasa_slider_locate_template( array( $template_name ), true );
+	get_template_part( 'inc/galeria/templates/' . $template_name );
 	return ob_get_clean();
 }
 /**
@@ -122,8 +122,8 @@ class Brasa_Slider {
 	 * @return null
 	 */
 	public function __construct() {
-		define(			'BRASA_SLIDER_URL', plugin_dir_url( __FILE__ ) );
-		define(			'BRASA_SLIDER_DIR', plugin_dir_path( __FILE__ ) );
+		define(			'BRASA_SLIDER_URL', get_template_directory_uri() . '/inc/galeria/' );
+		define(			'BRASA_SLIDER_DIR', get_template_directory() . '/inc/galeria/' );
 		add_image_size(	'brasa_slider_img', 1006, 408, true );
 
 		add_action(		'init',				array( $this, 'init' ) ); //init
@@ -181,8 +181,8 @@ class Brasa_Slider {
 	 */
 	private function register_cpt(){
 		$labels = array(
-			'name'                => _x( 'Brasa Sliders', 'Post Type General Name', 'brasa-slider' ),
-			'singular_name'       => _x( 'Brasa Slider', 'Post Type Singular Name', 'brasa-slider' ),
+			'name'                => _x( 'Galerias', 'Post Type General Name', 'brasa-slider' ),
+			'singular_name'       => _x( 'Galeria', 'Post Type Singular Name', 'brasa-slider' ),
 			'menu_name'           => __( 'Brasa Slider', 'brasa-slider' ),
 			'parent_item_colon'   => __( 'Slider parent', 'brasa-slider' ),
 			'all_items'           => __( 'All sliders', 'brasa-slider' ),
@@ -441,4 +441,4 @@ class Brasa_Slider {
 new Brasa_Slider();
 
 // Add class to support Rest API
-require_once( BRASA_SLIDER_DIR . 'inc/rest-api-class.php' );
+//require_once( BRASA_SLIDER_DIR . 'inc/rest-api-class.php' );

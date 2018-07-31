@@ -6,9 +6,15 @@ $ids = esc_textarea( get_post_meta( $slider->ID, 'brasa_slider_ids', true ) );
 $ids = explode(',', $ids);
 $size = (!empty($atts['size'])) ? $atts['size'] : esc_textarea( get_post_meta( $slider->ID, 'brasa_slider_size', true ) );
 $brasa_slider_id = $slider->ID;
+var_dump( count( $ids ) );
 ?>
 <div class="col-md-12 is_slider" id="slider-<?php echo esc_attr( $slider->post_name );?>" data-json="<?php echo esc_attr( $cfg ); ?>">
-	<?php foreach ( $ids as $id ) :
+	<?php
+	$i = 0;
+	foreach ( $ids as $id ) :
+		if ( 0 === $i ) {
+			echo '<div class="col-md-12 first-slider>';
+		}
 		$brasa_slider_item_id = $id;
 		if(get_post_type($id) == 'attachment'){
 			$img = $id;
@@ -22,5 +28,14 @@ $brasa_slider_id = $slider->ID;
 		    	<img src="<?php echo esc_url( $img[0] );?>" class="img_slider">
 		    </a>
 		</div>
+		<?php if ( 0 === $i ) {
+			echo '</div>';
+			echo '<div class="galeria-slider">';
+		}
+		if ( count( $ids ) === $i ) {
+			echo '</div>';
+		}
+		$i++;
+		?>
 	<?php endforeach;?>
 </div>
