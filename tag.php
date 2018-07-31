@@ -19,7 +19,7 @@
 get_header('large'); ?>
 
 	<main id="content" class="<?php echo odin_classes_page_sidebar(); ?>" tabindex="-1" role="main">
-
+			<?php var_dump( have_posts() );?>
 			<?php if ( have_posts() ) :?>
 
 				<div class="clearfix">

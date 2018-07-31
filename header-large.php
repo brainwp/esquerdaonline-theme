@@ -22,6 +22,10 @@
 </head>
 
 <body <?php body_class(); ?>>
+	<?php
+	global $wp_query;
+	var_dump( $wp_query );
+	?>
 	<div id="fb-root"></div>
 	<a id="skippy" class="sr-only sr-only-focusable" href="#content">
 		<div class="container">
