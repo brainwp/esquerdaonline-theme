@@ -26,7 +26,10 @@ get_header('large'); ?>
 
 				</div>
 				<h1 class="page-title">
-					<?php echo get_queried_object()->post_title;?>
+					<span>
+						<?php echo get_queried_object()->post_title;?>
+					</span>
+					>
 				</h1><!-- .page-title -->
 				<?php
 					the_title( '<h1 class="page-title">', '</h1>' );
