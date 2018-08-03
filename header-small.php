@@ -75,7 +75,9 @@
 					);
 				?>
 				<a href="#" class="search-icon" data-open="false">
-
+				</a>
+				<a href="#" class="close-search-icon">
+					<i class="fas fa-times-circle"></i>
 				</a>
 			</nav><!-- .col-md-5 pull-right menu-editorias -->
 		</div>
