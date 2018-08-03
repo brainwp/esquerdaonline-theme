@@ -72,7 +72,7 @@
 
 			<?php odin_the_custom_logo(); ?>
 
-			<div class="search-container col-md-7 text-right">
+			<div class="search-container col-md-10 text-right">
 				<?php get_search_form( true );?>
 			</div><!-- .search-container -->
 

@@ -80,10 +80,13 @@
 							)
 						);
 					?>
-					<div class="search-container col-md-7 text-right">
+					<div class="search-container col-md-10 text-right">
 						<?php get_search_form( true );?>
 					</div><!-- .search-container -->
 					<a href="#" class="search-icon" data-open="false">
+					</a>
+					<a href="#" class="close-search-icon">
+						<i class="fas fa-times-circle"></i>
 					</a>
 				</nav><!-- .col-md-5 pull-right menu-editorias -->
 			</div>

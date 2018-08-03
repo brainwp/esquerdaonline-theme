@@ -75,6 +75,31 @@ header#header {
 		background-position: center;
 		background-size: cover;
 	}
+	#searchform {
+		input[name="s"] {
+			border:none;
+			border-bottom:1px solid $red_main;
+			box-shadow: none !important;
+		}
+		.input-group {
+			display: block;
+		}
+	}
+	.close-search-icon {
+		display: inline-block;
+		position: absolute;
+		top: 12px;
+		font-size:18px;
+		right: 19px;
+		width:0px;
+		opacity: 0;
+		transition:400ms ease all;
+	}
+	.close-search-icon.open {
+		transition:400ms ease all;
+		width:20px;
+		opacity: 1;
+	}
 
 	.social-icons a:hover {
 		text-decoration: none;
