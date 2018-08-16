@@ -97,6 +97,9 @@
 		<section class="content-it-self">
 			<?php
 			the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'odin' ) );
+			if ( 'brasa_slider_cpt' === get_post_type( get_the_ID() ) ) {
+				echo apply_filters( 'the_content', '[brasa_slider id="'. get_the_ID() .'"]' );
+			}
 			wp_link_pages( array(
 				'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'odin' ) . '</span>',
 				'after'       => '</div>',

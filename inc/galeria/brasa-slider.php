@@ -209,10 +209,10 @@ class Brasa_Slider {
 			'menu_position'       => 5,
 			'menu_icon'           => 'dashicons-images-alt',
 			'can_export'          => true,
-			'has_archive'         => false,
+			'has_archive'         => true,
 			'exclude_from_search' => true,
-			'publicly_queryable'  => false,
-			'rewrite'             => false,
+			'publicly_queryable'  => true,
+			'rewrite'             => true,
 			'capability_type'     => 'page',
 			);
 		register_post_type( 'brasa_slider_cpt', $args );
@@ -431,7 +431,7 @@ class Brasa_Slider {
 		$GLOBALS['atts']	= $atts;
 
 		if ( ! empty( $slider ) && isset( $slider ) ) {
-			$html = brasa_slider_get_template_html( 'slider.php' );
+			$html = brasa_slider_get_template_html( 'slider' );
 		    return $html;
 		} else {
 			return false;
