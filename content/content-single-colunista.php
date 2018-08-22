@@ -14,7 +14,7 @@
 		global $post;
 		$last_post = new WP_Query( array(
 			'posts_per_page' => 10,
-			'colunistas' => $post->post_name
+			'colunistas_tax' => $post->post_name
 		));
 		?>
 		<?php if ( $last_post->have_posts() ) : ?>
