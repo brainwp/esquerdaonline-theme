@@ -124,7 +124,7 @@ class Brasa_Slider {
 	public function __construct() {
 		define(			'BRASA_SLIDER_URL', get_template_directory_uri() . '/inc/galeria/' );
 		define(			'BRASA_SLIDER_DIR', get_template_directory() . '/inc/galeria/' );
-		add_image_size(	'brasa_slider_img', 1006, 408, true );
+		add_image_size(	'brasa_slider_img', 150, 150, true );
 
 		add_action(		'init',				array( $this, 'init' ) ); //init
 		add_action(		'admin_init', 		array( $this, 'admin_scripts' ), 9999999 );
