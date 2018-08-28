@@ -35,7 +35,7 @@
 						'post_type' => array('videos'),
 						'tax_query' => array(
 				        array (
-				            'taxonomy' => 'tag',
+				            'taxonomy' => 'video_tags',
 				            'field' => 'slug',
 				            'terms' => $tag,
 				        )
