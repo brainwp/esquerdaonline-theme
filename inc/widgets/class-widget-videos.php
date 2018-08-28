@@ -36,9 +36,12 @@ class EOL_Videos_Widget extends WP_Widget {
 		<div class="widget-videos-container <?php echo $classes ?> widget-container">
 		<?php
 		echo $args['before_widget'];
-		$form =  (isset($instance[ 'form']) ? $instance[ 'form'] :"") ;
-		$title = apply_filters( 'widget_title', 'Newsletter' );
-		echo do_shortcode( '[eol_videos tag="'.$form.'"]' );
+		$form =  (isset($instance[ 'form']) ? $instance[ 'form'] :"");
+		$title = apply_filters( 'widget_title', $instance[ 'title' ] );
+		if ( ! $title ) {
+			$title = '';
+		}
+		echo do_shortcode( '[eol_videos tag="'.$form.'" title="'.$title.'"]' );
 		echo $args['after_widget'];
 		?>
 		</div>
@@ -58,8 +61,10 @@ class EOL_Videos_Widget extends WP_Widget {
 	 */
 	public function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
-		$instance[ 'form' ] =  $new_instance[ 'form'] ;
-		$instance[ 'classe' ] =  $new_instance[ 'classe'] ;
+		$instance[ 'title' ] =  sanitize_text_field( $new_instance[ 'title'] );
+		$instance[ 'form' ] =  sanitize_text_field( $new_instance[ 'form'] );
+
+		$instance[ 'classe' ] =  sanitize_text_field( $new_instance[ 'classe'] ) ;
 		return $instance;
 	}
 
@@ -84,7 +89,14 @@ class EOL_Videos_Widget extends WP_Widget {
 			// numero de posts a ser exibido
 			$form = sanitize_text_field( $instance['form'] );
 			$classe = sanitize_text_field( $instance['classe'] );
+			$title = sanitize_text_field( $instance['title'] );
+
 			?>
+			<p>
+				<label>Título</label>
+				<input class="widefat" type="text" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo esc_attr($title); ?>">
+			</p>
+
 			<p>
 				<label>Tag da galeria de vídeo</label>
 				<input class="widefat" type="text" name="<?php echo $this->get_field_name( 'form' ); ?>" value="<?php echo esc_attr($form); ?>">
