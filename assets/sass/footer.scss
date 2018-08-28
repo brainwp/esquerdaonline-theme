@@ -38,8 +38,8 @@ footer#footer {
 		}
 		a {
 			background: $white_main;
-			color: $red_main;
-			margin-right:10px;
+			color: $red_main !important;
+			margin-right:2px;
 			height:27px;
 			width: 27px;
 			display: inline-block;
@@ -48,8 +48,13 @@ footer#footer {
 				font-size: 16px;
 				padding-left: 7px;
 				padding-top: 6px;
+				color: $red_main !important;
+			}
+			i.fa-facebook-f {
+				padding-left:10px;
 			}
 		}
+
 	}
 	.nav-footer {
 		@media screen and (max-width:720px ) {

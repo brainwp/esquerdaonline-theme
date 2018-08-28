@@ -49,6 +49,9 @@ header#header {
 		font-size: 18px;
 		color: $main_content_color;
 		padding-left: 10px;
+		i {
+			color:$red_main !important;
+		}
 	}
 
 	box-shadow: 0 4px 7px -2px rgba(0,0,0,0.09);
@@ -58,12 +61,6 @@ header#header {
 		margin-top:5px;
 		position: relative;
 		z-index: 99;
-		.fa-whatsapp{
-			color: #25d366;
-		}
-		.fa-telegram{
-			color: #0088cc;
-		}
 	}
 	.search-icon {
 		display: inline-block;
@@ -105,17 +102,6 @@ header#header {
 		text-decoration: none;
 	}
 
-	.fa-facebook-f {
-		color: #4267b2;
-	}
-
-	i.fab.fa-twitter {
-		color: #1da1f2;
-	}
-
-	i.fab.fa-instagram {
-		color: mediumvioletred;
-	}
 	.container {
 		padding-left: 0px;
 		padding-right: 0px;
