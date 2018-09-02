@@ -25,7 +25,11 @@
 		 * Registra os campos do ACF
 		 */
 		public function shortcode( $atts ) {
-			$html ="<h2 class='video widgettitle widget-title'>videos</h2>";
+			if ( isset( $atts[ 'title'] ) && ! empty( $atts[ 'title'] ) ) {
+				$html ="<h2 class='video widgettitle widget-title'>{$atts['title']}</h2>";
+			} else {
+				$html = '';
+			}
 			if (isset($atts['tag'])) {
 				$tag = $atts['tag'];
 				$number = (isset($atts['numero'])?$atts['numero']:5);
@@ -35,7 +39,7 @@
 						'post_type' => array('videos'),
 						'tax_query' => array(
 				        array (
-				            'taxonomy' => 'tag',
+				            'taxonomy' => 'video_tags',
 				            'field' => 'slug',
 				            'terms' => $tag,
 				        )
