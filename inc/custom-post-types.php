@@ -12,7 +12,10 @@ $colunistas = new Odin_Post_Type(
 $colunistas->set_arguments(
     array(
         'supports' => array( 'title', 'editor', 'thumbnail' ),
-        'menu_icon' => 'dashicons-groups'
+        'menu_icon' => 'dashicons-groups',
+        'rewrite' 	=> array(
+        	'pages'		=> true
+        ),
     )
 );
 

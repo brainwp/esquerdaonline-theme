@@ -12,9 +12,11 @@
 	<div class="col-md-12 post-colunista no-padding">
 		<?php 	// pega o ultimo post do colunista e o exibe;
 		global $post;
+
 		$last_post = new WP_Query( array(
-			'posts_per_page' => 10,
-			'colunistas_tax' => $post->post_name
+			'posts_per_page'	=> 10,
+			'colunistas_tax'	=> $post->post_name,
+			'paged'				=> absint( get_query_var( 'page', 1 ) )
 		));
 		?>
 		<?php if ( $last_post->have_posts() ) : ?>
@@ -37,6 +39,7 @@
 				</article>
 			<?php endwhile; wp_reset_postdata();?>
 		<?php endif; ?>
+		<?php echo odin_pagination_custom( 2, 1, false, $last_post );?>
 	</div>
 </article><!-- #post-## -->
 
