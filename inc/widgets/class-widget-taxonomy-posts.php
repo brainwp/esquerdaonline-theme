@@ -125,7 +125,7 @@ class EOL_Taxonomy_Posts extends WP_Widget {
 			?>
 			<?php foreach ( $r->posts as $recent_post ) : ?>
 				<?php
-				if ( is_single( 'post' ) ) {
+				if ( is_tax( 'editorias') ) {
 					$GLOBALS[ 'featured_posts_editorias' ][] = $recent_post->ID;
 				}
 				setup_postdata( $recent_post );

@@ -544,9 +544,13 @@ add_action( 'template_redirect', 'single_colunistas_redirect' );
 // Remove destacadas do loop principal de editorias;
 add_action( 'pre_get_posts', 'remove_editoria' );
 function remove_editoria( $query ) {
-    if( $query->is_main_query() && $query->is_tax('editoria') ) {
+    if( $query->is_main_query() && is_tax( 'editorias') ) {
+    	ob_start();
+    	dynamic_sidebar( 'editorias-archive-topo' );
+    	ob_end_clean();
     	if ( isset( $GLOBALS[ 'featured_posts_editorias'] ) && is_array( $GLOBALS[ 'featured_posts_editorias'] ) ) {
     		$query->set( 'post__not_in', $GLOBALS[ 'featured_posts_editorias'] );
+    		unset( $GLOBALS[ 'featured_posts_editorias' ] );
     	}
 
     }
