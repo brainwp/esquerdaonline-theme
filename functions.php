@@ -499,7 +499,7 @@ add_action( 'wp_enqueue_scripts', 'wpb_add_google_fonts' );
 function colunistas_class($classes) {
 	global $post;
 	if (is_object($post)) {
-		if( !is_tax() && !is_tag() && isset($post) && has_term( '', 'colunistas', $post->ID ) ) {
+		if( !is_tax() && !is_tag() && isset($post) && has_term( '', 'colunistas_tax', $post->ID ) ) {
 			$classes[] .= " single-colunistas ";
 		}
 		$section_terms = get_the_terms( $post->ID, 'editorias' );
