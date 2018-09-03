@@ -49,10 +49,7 @@
 				if ( $query->have_posts() ) {
 					// echo "<h1>".$tag."</h1>";
 					$html .= '
-						<div class="videos">
-							<div id="modal" class="modal">
-								<div id="modal-content"></div>
-							</div> ';
+						<div class="videos">';
 					$count = 1;
 					while( $query->have_posts() && $count <= $number) {
 						$query->the_post();

@@ -7,6 +7,7 @@ $ids = explode(',', $ids);
 $size = (!empty($atts['size'])) ? $atts['size'] : esc_textarea( get_post_meta( $slider->ID, 'brasa_slider_size', true ) );
 $brasa_slider_id = $slider->ID;
 ?>
+<div class="each-galeria-brasa">
 <div class="col-md-12 first-slider galeria-eol">
 	<?php foreach ( $ids as $id ) :
 		$brasa_slider_item_id = $id;
@@ -15,10 +16,11 @@ $brasa_slider_id = $slider->ID;
 		} else {
 			$img = get_post_thumbnail_id($id);
 		}
-		$size = apply_filters('brasa_slider_img_size', $size);
+		$size = 'large';
+		$img_full = wp_get_attachment_image_src( $img, 'full', false );
 		$img = wp_get_attachment_image_src( $img, $size, false );?>
-		<a <?php echo get_post_meta($slider->ID, 'brasa_slider_link_window_' . $id, true ) ?  "target='_blank'" : ''; ?> href="<?php echo esc_url( get_post_meta($slider->ID, 'brasa_slider_id' . $id, true ) );?>">
-		    	<img src="<?php echo esc_url( $img[0] );?>" class="img_slider">
+		<a href="#">
+		    	<img src="<?php echo esc_url( $img[0] );?>" class="img_slider modal-item-open" data-src="<?php echo esc_url( $img_full[0] );?>" data-type="image">
 		</a>
 		<?php unset( $ids[0] );?>
 		<?php break;?>
@@ -34,13 +36,14 @@ $brasa_slider_id = $slider->ID;
 			$img = get_post_thumbnail_id($id);
 		}
 		$size = apply_filters('brasa_slider_img_size', $size);
-		$img = wp_get_attachment_image_src( $img, $size, false );
 		$img_full = wp_get_attachment_image_src( $img, 'full', false );
+		$img = wp_get_attachment_image_src( $img, $size, false );
 		?>
 		<div class="slick_slide" data-full="<?php echo $img_full;?>">
-			<a <?php echo get_post_meta($slider->ID, 'brasa_slider_link_window_' . $id, true ) ?  "target='_blank'" : ''; ?> href="<?php echo esc_url( get_post_meta($slider->ID, 'brasa_slider_id' . $id, true ) );?>">
-		    	<img src="<?php echo esc_url( $img[0] );?>" class="img_slider">
+			<a href="#">
+		    	<img src="<?php echo esc_url( $img[0] );?>" class="modal-item-open" data-src="<?php echo esc_url( $img_full[0] );?>" data-type="image">
 		    </a>
 		</div>
 	<?php endforeach;?>
 </div>
+</div><!-- .each-galeria-brasa -->

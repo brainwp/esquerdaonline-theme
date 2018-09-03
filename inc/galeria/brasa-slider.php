@@ -212,7 +212,9 @@ class Brasa_Slider {
 			'has_archive'         => true,
 			'exclude_from_search' => true,
 			'publicly_queryable'  => true,
-			'rewrite'             => true,
+			'rewrite'             => array(
+				'slug'	=> 'galerias'
+			),
 			'capability_type'     => 'page',
 			);
 		register_post_type( 'brasa_slider_cpt', $args );
