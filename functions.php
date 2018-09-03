@@ -532,7 +532,7 @@ function single_colunistas_redirect() {
         $post = get_queried_object();
         // Determine if term has a parent;
         // I *think* this will work; if not see above
-				if( has_term( '', 'colunistas', $post) ) {
+				if( has_term( '', 'colunistas_tax', $post) ) {
 					include(get_template_directory() . '/single-noticia-colunista.php');
 					exit;
 				}

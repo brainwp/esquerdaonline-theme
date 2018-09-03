@@ -72,7 +72,7 @@
 		?>
 	</section>
     <div class="">
-        <?php if( has_term( '', 'colunistas' ) ) {
+        <?php if( has_term( '', 'colunistas_tax' ) ) {
             get_template_part( '/content/header', 'colunista' );
         } ?>
 
