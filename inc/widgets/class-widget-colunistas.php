@@ -47,6 +47,7 @@ class EOL_Widget_Colunistas extends WP_Widget {
 					<div class="each-colunista  <?php echo $classes_noticias; ?>">
 					<?php
 					$query->the_post();
+					$GLOBALS[ 'classes_noticias' ] = $classes_noticias;
 					get_template_part( 'content/each-colunista' );
 					 ?>
 				 </div> <!--each-colunista-->

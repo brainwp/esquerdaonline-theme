@@ -1,3 +1,7 @@
+<?php
+$classes = explode( ' ', $GLOBALS[ 'classes_noticias'] );
+var_dump( $classes );
+?>
 	<a href="<?php the_permalink();?>" class="coluna-link">
 		<div class="col-md-2 thumbnail-colunista">
 			<?php the_post_thumbnail( 'thumbnail' );?>
@@ -20,7 +24,6 @@
 				<a href="<?php the_permalink();?>" class="post-title">
 					<?php the_title();?>
 				</a>
-
 			</article>
 		<?php endwhile; wp_reset_postdata();?>
 	<?php endif;?>
