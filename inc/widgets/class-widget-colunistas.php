@@ -20,6 +20,8 @@ class EOL_Widget_Colunistas extends WP_Widget {
 		$title = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
 		$classes = apply_filters( 'widget_title', empty( $instance['classes'] ) ? 'tamanho-100' : $instance['classes'], $instance);
 		$classes_noticias = apply_filters( 'widget_title', empty( $instance['classes-noticias'] ) ? 'tamanho-100' : $instance['classes-noticias'], $instance);
+		$classes_array = explode( ' ', $classes );
+
 		/**
 		 * Filter the content of the Text widget.
 		 *
@@ -29,8 +31,11 @@ class EOL_Widget_Colunistas extends WP_Widget {
 		 * @param WP_Widget $instance    WP_Widget instance.
 		 */
 		$posts = apply_filters( 'widget_colunistas_posts', empty( $instance['posts'] ) ? 3 : $instance['posts'], $instance );
-		?>
-		<div class="widget-colunistas widget-container no-padding  <?php echo $classes; ?> ">
+		if ( in_array( 'estilo-home', $classes_array ) ) : ?>
+			<div class="widget-colunistas widget-container <?php echo $classes; ?> ">
+		<?php else : ?>
+			<div class="widget-colunistas widget-container no-padding <?php echo $classes; ?> ">
+		<?php endif;?>
 			<?php
 			echo $args['before_widget'];
 			if ( ! empty( $title ) ) {
@@ -41,9 +46,12 @@ class EOL_Widget_Colunistas extends WP_Widget {
 				'posts_per_page' => $posts
 			) );
 			if ( $query->have_posts() ) {
-				echo '<div class="widget-colunistas">';
+				if ( in_array( 'estilo-home', $classes_array ) ) {
+					echo '<div class="widget-colunistas fundo-cinza">';
+				} else {
+					echo '<div class="widget-colunistas">';
+				}
 				while( $query->have_posts() ) {?>
-
 					<div class="each-colunista  <?php echo $classes_noticias; ?>">
 					<?php
 					$query->the_post();
@@ -57,7 +65,11 @@ class EOL_Widget_Colunistas extends WP_Widget {
 				echo '</div>';
 			}
 			?>
-			<a class="colunistas-link" href="<?php echo get_home_url( '','/colunistas')?>">Veja Mais</a>
+			<div class="col-md-12 text-right">
+				<a class="colunistas-link" href="<?php echo get_home_url( '','/colunistas')?>">
+					<i class="fas fa-angle-right"></i> Todas as colunas
+				</a>
+			</div><!-- .col-md-12 text-center -->
 			<?php
 			echo $args['after_widget'];
 			?>

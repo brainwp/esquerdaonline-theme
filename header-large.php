@@ -102,7 +102,7 @@
 				}
 				elseif (wp_get_post_terms( get_the_ID(), 'colunistas' )) {
 					$tax = 'colunistas';
-					$barra = "Colunistas";
+					$barra = "Colunas";
 				}
 				elseif (wp_get_post_terms( get_the_ID(), 'editorias' )) {
 					$tax = 'editorias';
@@ -123,18 +123,18 @@
 	<div class="archive-colunista">
     	<div class="barra-colunistas">
     		<div  class="container">
-    			<h5 class="col-md-12 no-padding">Colunistas</h5>
+    			<h5 class="col-md-12 no-padding">Colunas</h5>
     		</div>
     	</div><?php
     	get_template_part( '/content/header', 'colunista' );
 		?>
 	</div>
 	<?php
-} else if(is_post_type_archive('colunistas') || ( is_object($post) && !is_tax() && !is_tag()  && has_term( '', 'colunistas', $post->ID ))) {
+} else if(is_post_type_archive('colunistas') || ( is_object($post) && !is_tax() && !is_tag()  && has_term( '', 'colunistas_tax', $post->ID ))) {
 		?>
 	<div class="barra-colunistas">
 		<div  class="container">
-			<h5 class="col-md-12">Colunistas</h5>
+			<h5 class="col-md-12">Colunas</h5>
 		</div>
 	</div>
 <?php  } else if(is_post_type_archive('especiais')  ) {

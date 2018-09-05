@@ -1,8 +1,8 @@
 	<a href="<?php the_permalink();?>" class="coluna-link">
-		<div class="col-md-2 thumbnail-colunista">
+		<div class="col-md-5 thumbnail-colunista">
 			<?php the_post_thumbnail( 'thumbnail' );?>
 		</div><!-- .col-md-2 thumbnail-colunista -->
-		<h4 class="col-md-10 colunista-name">
+		<h4 class="col-md-7 colunista-name">
 			<?php the_title();?>
 		</h4><!-- .col-md-10-colunista-name -->
 	</a>
@@ -20,7 +20,6 @@
 				<a href="<?php the_permalink();?>" class="post-title">
 					<?php the_title();?>
 				</a>
-
 			</article>
 		<?php endwhile; wp_reset_postdata();?>
 	<?php endif;?>
