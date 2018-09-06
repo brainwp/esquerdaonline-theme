@@ -40,3 +40,9 @@
 	padding-top:20px;
 	padding-bottom: 20px;
 }
+.widget-title {
+	font-size:20px !important;
+	&:after {
+		font-size:25px !important;
+	}
+}
