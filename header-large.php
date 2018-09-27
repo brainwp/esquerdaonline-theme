@@ -22,6 +22,8 @@
 </head>
 
 <body <?php body_class(); ?>>
+
+
 	<div id="fb-root"></div>
 	<a id="skippy" class="sr-only sr-only-focusable" href="#content">
 		<div class="container">
@@ -61,7 +63,10 @@
 			<!-- .line-1 -->
 			<div class="col-md-12 menu-line-2">
 				<?php odin_the_custom_logo(); ?>
-
+				<!-- <div class="hidden-sm-up">
+					<a href="#" class="search-icon" data-open="false">
+					</a>
+				</div> -->
 			</div>
 			<!-- .line-2 -->
 			<div class="col-sm-12 menu-line-3 ">
