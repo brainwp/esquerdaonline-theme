@@ -44,6 +44,12 @@ class EOL_Videos_Widget extends WP_Widget {
 		echo do_shortcode( '[eol_videos tag="'.$form.'" title="'.$title.'"]' );
 		echo $args['after_widget'];
 		?>
+		<div class="text-right col-md-12">
+			<a href="<?php echo get_post_type_archive_link('videos');?>" class="colunistas-link">
+				<i class="fas fa-angle-right"></i>
+				Todos vídeos
+			</a>
+		</div><!-- .text-right col-md-12 -->
 		</div>
 		<?php
 	}
