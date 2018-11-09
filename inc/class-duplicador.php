@@ -34,7 +34,7 @@ class EOL_Duplicador {
 
 		?>
 		<div class="wrap">
-			<h2>Duplicador Revolucionario de Modelos</h2>
+			<h2>Duplicador Revolucionário de Modelos</h2>
 		</div>
 		<div>
 			<form class="" action="" method="post">
@@ -62,8 +62,8 @@ class EOL_Duplicador {
 		<?php
 
 		if (isset($_POST['page_title']) && $_POST['page_title'] == "") {
-				echo 'Falta o título.';
-				return;
+			echo 'Falta o título.';
+			return;
 		}
 		if (isset($_POST['page_id']) && check_admin_referer('duplicador_nonce')) {
 			// the button has been pressed AND we've passed the security check
@@ -79,12 +79,14 @@ class EOL_Duplicador {
 		// print_r($array);
 		// array_push($array,'teste2');
 		// echo "<br>";
-		// print_r($array);
-		// die;
+
 		$url = get_permalink( $id );
 		$widget_object_id = eol_get_widget_object_id( $url );
 		$widgets_table = get_option( 'sidebars_widgets', false );
+
 		if ( $widgets_table && isset( $widgets_table[ $widget_object_id ] ) ) {
+
+
 			// print_r($widgets_table);
 			// die;
 			// pega widgets da pagina a ser copiada
@@ -122,13 +124,17 @@ class EOL_Duplicador {
 
 				// print_r($widgets_options) ;
 			}
-      ?>
-      <a href="<?php echo $new_page_url ?>">Visitar a nova página</a>
-      <br>
-      <?php
-      edit_post_link( 'Editar a página', '', '', $new_page_id );
+			?>
+			<a href="<?php echo $new_page_url ?>">Visitar a nova página</a>
+			<br>
+			<?php
+			edit_post_link( 'Editar a página', '', '', $new_page_id );
 
 
+		}
+		else{
+			echo "não tem widgets";
+			return;
 		}
 	}
 	function cria_pagina($title){

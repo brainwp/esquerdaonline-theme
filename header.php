@@ -21,6 +21,9 @@
 </head>
 
 <body <?php body_class(); ?>>
+	<div id="modal" class="modal">
+		<div id="modal-content"></div>
+	</div>
 	<a id="skippy" class="sr-only sr-only-focusable" href="#content">
 		<div class="container">
 			<span class="skiplink-text"><?php _e( 'Skip to content', 'odin' ); ?></span>
@@ -72,7 +75,7 @@
 
 			<?php odin_the_custom_logo(); ?>
 
-			<div class="search-container col-md-7 text-right">
+			<div class="search-container col-md-10 text-right">
 				<?php get_search_form( true );?>
 			</div><!-- .search-container -->
 
@@ -81,7 +84,7 @@
 					wp_nav_menu(
 						array(
 							'theme_location' => 'main-menu',
-							'depth'          => 1,
+							'depth'          => 2,
 							'container'      => false,
 							'menu_class'     => 'nav navbar-nav',
 							'fallback_cb'    => 'Odin_Bootstrap_Nav_Walker::fallback',
@@ -95,6 +98,5 @@
 			</nav><!-- .col-md-5 pull-right menu-editorias -->
 		</div>
 	</header><!-- #header -->
-
 	<div id="wrapper" class="container">
 		<div class="row">

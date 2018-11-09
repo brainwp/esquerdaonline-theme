@@ -28,13 +28,20 @@
 
 					<?php if ( $links ) : ?>
 						<?php foreach( $links as $link ) : ?>
-							<?php $class = sprintf( 'fa-%s-%s', $link[ 'link_icon' ], $link[ 'link_icon' ][0] );?>
+							<?php $class = sprintf( 'fa-%s-f', $link[ 'link_icon' ] );?>
 							<?php if ( 'twitter' === $link[ 'link_icon'] ) {
 								$class = 'fa-twitter';
 							}
 							if ( 'instagram' === $link[ 'link_icon'] ) {
 								$class = 'fa-instagram';
 							}
+							if ( 'whatsapp' === $link[ 'link_icon'] ) {
+								$class = 'fa-whatsapp';
+							}
+							if ( 'telegram' === $link[ 'link_icon'] ) {
+								$class = 'fa-telegram-plane';
+							}
+
 							?>
 							<a href="<?php echo esc_url( $link[ 'link_url'] );?>">
 								<i class="fab <?php echo $class;?>"></i>
@@ -60,8 +67,8 @@
 				<?php endfor;?>
 			</div><!-- .col-md-7 nav-footer -->
 			<div class="col-md-3 madeby">
-				<a href="https://maismovimento.org">
-					<img src="<?php echo get_template_directory_uri();?>/assets/images/maismovimento.png" alt="<?php _e( 'Mantido pelo MAIS - Movimento por uma Alternativa Independente e Socialista', 'eol');?>" title="<?php _e( 'Mantido pelo MAIS - Movimento por uma Alternativa Independente e Socialista', 'eol');?>">
+				<a href="https://resistenciapsol50.com.br">
+					<img src="<?php echo get_template_directory_uri();?>/assets/images/resistencia.png" alt="<?php _e( 'Mantido pela Resistencia - Corrente interna do PSOL', 'eol');?>" title="<?php _e( 'Mantido pela Resistencia - Corrente interna do PSOL', 'eol');?>">
 				</a>
 				<a href="https://brasa.art.br">
 					<img src="<?php echo get_template_directory_uri();?>/assets/images/brasa.png" alt="<?php _e( 'Desenvolvido em WordPress pela Brasa.art.br', 'eol' );?>" title="<?php _e( 'Desenvolvido em WordPress pela Brasa.art.br', 'eol' );?>">

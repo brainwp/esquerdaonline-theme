@@ -22,6 +22,9 @@
 </head>
 
 <body <?php body_class(); ?>>
+	<div id="modal" class="modal">
+		<div id="modal-content"></div>
+	</div>
 	<div id="fb-root"></div>
 	<a id="skippy" class="sr-only sr-only-focusable" href="#content">
 		<div class="container">
@@ -72,7 +75,7 @@
 						wp_nav_menu(
 							array(
 								'theme_location' => 'main-menu',
-								'depth'          => 1,
+								'depth'          => 2,
 								'container'      => false,
 								'menu_class'     => 'nav navbar-nav',
 								'fallback_cb'    => 'Odin_Bootstrap_Nav_Walker::fallback',
@@ -80,10 +83,13 @@
 							)
 						);
 					?>
-					<div class="search-container col-md-7 text-right">
+					<div class="search-container col-md-10 text-right">
 						<?php get_search_form( true );?>
 					</div><!-- .search-container -->
 					<a href="#" class="search-icon" data-open="false">
+					</a>
+					<a href="#" class="close-search-icon">
+						<i class="fas fa-times-circle"></i>
 					</a>
 				</nav><!-- .col-md-5 pull-right menu-editorias -->
 			</div>

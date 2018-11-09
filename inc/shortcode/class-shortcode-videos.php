@@ -25,7 +25,11 @@
 		 * Registra os campos do ACF
 		 */
 		public function shortcode( $atts ) {
-			$html ="";
+			if ( isset( $atts[ 'title'] ) && ! empty( $atts[ 'title'] ) ) {
+				$html ="<h2 class='video widgettitle widget-title'>{$atts['title']}</h2>";
+			} else {
+				$html = '';
+			}
 			if (isset($atts['tag'])) {
 				$tag = $atts['tag'];
 				$number = (isset($atts['numero'])?$atts['numero']:5);
@@ -35,7 +39,7 @@
 						'post_type' => array('videos'),
 						'tax_query' => array(
 				        array (
-				            'taxonomy' => 'tag',
+				            'taxonomy' => 'video_tags',
 				            'field' => 'slug',
 				            'terms' => $tag,
 				        )
@@ -44,11 +48,8 @@
 				);
 				if ( $query->have_posts() ) {
 					// echo "<h1>".$tag."</h1>";
-					$html = '
-						<div class="videos">
-							<div id="modal" class="modal">
-								<div id="modal-content"></div>
-							</div> ';
+					$html .= '
+						<div class="videos">';
 					$count = 1;
 					while( $query->have_posts() && $count <= $number) {
 						$query->the_post();
@@ -68,20 +69,21 @@
 								</figure>
 								<div class="video-widget-text">
 									<a href="#" data-title="'.$titulo.'" data-subtitle="'.$chamada.'" data-author="'.$autor.'" data-date="'.$data.'" class="modal-item-open video-open " data-src="'.$link.'" data-type="video">
-									<div class=" video-text">
-										<div class="titulo-video-destaque">
-											'.$titulo.'
-										</div>
-										<div class="chamada-video-destaque">
-											'.$chamada.'
-										</div>
-										<div class="data-video-destaque">
-											'.$data.'
-										</div>
-										<div class="autor-video-destaque">
-											'.$autor.'
-										</div>
-									</div><!--video-text-->
+									<div class=" video-text-overlay">
+										<div class=" video-text">
+											<div class="titulo-video-destaque">
+												'.$titulo.'
+											</div>
+
+											<div class="data-video-destaque">
+												'.$data.'
+											</div>
+											<div class="autor-video-destaque">
+												'.$autor.'
+											</div>
+										</div><!--video-text-->
+									</div>
+
 									</a>
 								</div><!-- class="video-widget-text"-->
 							</div><!--video-item-->';

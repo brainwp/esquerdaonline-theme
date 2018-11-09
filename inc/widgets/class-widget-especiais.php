@@ -110,7 +110,7 @@ class EOL_Lista_Especiais extends WP_Widget {
 		echo $args['after_widget'];
 		?>
 	</div>
-	<?php 
+	<?php
 	}
 
 	/**

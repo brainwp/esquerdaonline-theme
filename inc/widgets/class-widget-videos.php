@@ -6,16 +6,16 @@
  *
  * @see WP_Widget
  */
-class EOL_Linha_Widget extends WP_Widget {
+class EOL_Videos_Widget extends WP_Widget {
 
 	/**
 	 * Sets up a new widget instance.
 	 *
 	 */
 	public function __construct() {
-		$widget_ops = array('classname' => 'widget_eol_linha', 'description' => 'Widget separador' );
+		$widget_ops = array('classname' => 'widget_eol_linha', 'description' => 'Galeria de Vídeo' );
 		$control_ops = array('width' => 400, 'height' => 700);
-		parent::__construct('widget_eol_linha', __('Linha'), $widget_ops, $control_ops);
+		parent::__construct('widget_eol_videos', __('Galeria de Vídeo'), $widget_ops, $control_ops);
 	}
 
 	/**
@@ -30,12 +30,22 @@ class EOL_Linha_Widget extends WP_Widget {
 	 */
 	public function widget( $args, $instance ) {
 		// numero de posts a ser exibido
+		$classes =  (isset($instance[ 'classe']) ? $instance[ 'classe'] :"") ;
 
-
+		?>
+		<div class="widget-videos-container <?php echo $classes ?> widget-container">
+		<?php
 		echo $args['before_widget'];
-		$number =  (isset($instance[ 'number']) ? $instance[ 'number']:"1px") ;
-		echo do_shortcode( '[eol_linha altura='.$number.']' );
+		$form =  (isset($instance[ 'form']) ? $instance[ 'form'] :"");
+		$title = apply_filters( 'widget_title', $instance[ 'title' ] );
+		if ( ! $title ) {
+			$title = '';
+		}
+		echo do_shortcode( '[eol_videos tag="'.$form.'" title="'.$title.'"]' );
 		echo $args['after_widget'];
+		?>
+		</div>
+		<?php
 	}
 
 	/**
@@ -51,7 +61,10 @@ class EOL_Linha_Widget extends WP_Widget {
 	 */
 	public function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
-		$instance[ 'number' ] =  $new_instance[ 'number'] ;
+		$instance[ 'title' ] =  sanitize_text_field( $new_instance[ 'title'] );
+		$instance[ 'form' ] =  sanitize_text_field( $new_instance[ 'form'] );
+
+		$instance[ 'classe' ] =  sanitize_text_field( $new_instance[ 'classe'] ) ;
 		return $instance;
 	}
 
@@ -66,18 +79,31 @@ class EOL_Linha_Widget extends WP_Widget {
 	public function form( $instance ) {
 		$instance = wp_parse_args( (array) $instance,
 			array(
-				'number' => '1px'
+				'form' => '',
+				'classe' => 'tamanho-50'
 			)
 		);
 		?>
 		<div class="form-container">
 			<?php
 			// numero de posts a ser exibido
-			$number = sanitize_text_field( $instance['number'] );
+			$form = sanitize_text_field( $instance['form'] );
+			$classe = sanitize_text_field( $instance['classe'] );
+			$title = sanitize_text_field( $instance['title'] );
+
 			?>
 			<p>
-				<label>altura</label>
-				<input class="widefat" type="text" name="<?php echo $this->get_field_name( 'number' ); ?>" value="<?php echo esc_attr($number); ?>">
+				<label>Título</label>
+				<input class="widefat" type="text" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo esc_attr($title); ?>">
+			</p>
+
+			<p>
+				<label>Tag da galeria de vídeo</label>
+				<input class="widefat" type="text" name="<?php echo $this->get_field_name( 'form' ); ?>" value="<?php echo esc_attr($form); ?>">
+			</p>
+			<p>
+				<label>Classes</label>
+				<input class="widefat" type="text" name="<?php echo $this->get_field_name( 'classe' ); ?>" value="<?php echo esc_attr($classe); ?>">
 			</p>
 
 		</div><!-- .form-container -->
@@ -91,5 +117,5 @@ class EOL_Linha_Widget extends WP_Widget {
  *
  */
 add_action( 'widgets_init', function(){
-	register_widget( 'EOL_Linha_Widget' );
+	register_widget( 'EOL_Videos_Widget' );
 } );

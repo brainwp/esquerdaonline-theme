@@ -31,7 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  */
 function brasa_slider_get_template_html( $template_name ) {
 	ob_start();
-	brasa_slider_locate_template( array( $template_name ), true );
+	get_template_part( 'inc/galeria/templates/' . $template_name );
 	return ob_get_clean();
 }
 /**
@@ -122,9 +122,15 @@ class Brasa_Slider {
 	 * @return null
 	 */
 	public function __construct() {
+<<<<<<< HEAD
 		define(			'BRASA_SLIDER_URL', get_template_directory_uri().'/inc/galeria/' );
 		define(			'BRASA_SLIDER_DIR', get_template_directory().'/inc/galeria/' );
 		add_image_size(	'brasa_slider_img', 1006, 408, true );
+=======
+		define(			'BRASA_SLIDER_URL', get_template_directory_uri() . '/inc/galeria/' );
+		define(			'BRASA_SLIDER_DIR', get_template_directory() . '/inc/galeria/' );
+		add_image_size(	'brasa_slider_img', 150, 150, true );
+>>>>>>> d480e4629055edf05d4b953ad877263bfa27f3af
 
 		add_action(		'init',				array( $this, 'init' ) ); //init
 		add_action(		'admin_init', 		array( $this, 'admin_scripts' ), 9999999 );
@@ -183,7 +189,11 @@ class Brasa_Slider {
 		$labels = array(
 			'name'                => _x( 'Galerias', 'Post Type General Name', 'brasa-slider' ),
 			'singular_name'       => _x( 'Galeria', 'Post Type Singular Name', 'brasa-slider' ),
+<<<<<<< HEAD
 			'menu_name'           => __( 'Galeria', 'brasa-slider' ),
+=======
+			'menu_name'           => __( 'Brasa Slider', 'brasa-slider' ),
+>>>>>>> d480e4629055edf05d4b953ad877263bfa27f3af
 			'parent_item_colon'   => __( 'Slider parent', 'brasa-slider' ),
 			'all_items'           => __( 'All sliders', 'brasa-slider' ),
 			'view_item'           => __( 'View slider', 'brasa-slider' ),
@@ -211,8 +221,10 @@ class Brasa_Slider {
 			'can_export'          => true,
 			'has_archive'         => true,
 			'exclude_from_search' => true,
-			'publicly_queryable'  => false,
-			'rewrite'             => false,
+			'publicly_queryable'  => true,
+			'rewrite'             => array(
+				'slug'	=> 'galerias'
+			),
 			'capability_type'     => 'page',
 			);
 		register_post_type( 'brasa_slider_cpt', $args );
@@ -431,7 +443,7 @@ class Brasa_Slider {
 		$GLOBALS['atts']	= $atts;
 
 		if ( ! empty( $slider ) && isset( $slider ) ) {
-			$html = brasa_slider_get_template_html( 'slider.php' );
+			$html = brasa_slider_get_template_html( 'slider' );
 		    return $html;
 		} else {
 			return false;
@@ -441,4 +453,4 @@ class Brasa_Slider {
 new Brasa_Slider();
 
 // Add class to support Rest API
-require_once( BRASA_SLIDER_DIR . 'inc/rest-api-class.php' );
+//require_once( BRASA_SLIDER_DIR . 'inc/rest-api-class.php' );

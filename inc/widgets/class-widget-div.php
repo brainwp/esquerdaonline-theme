@@ -6,16 +6,16 @@
  *
  * @see WP_Widget
  */
-class EOL_Linha_Widget extends WP_Widget {
+class EOL_Div_Widget extends WP_Widget {
 
 	/**
 	 * Sets up a new widget instance.
 	 *
 	 */
 	public function __construct() {
-		$widget_ops = array('classname' => 'widget_eol_linha', 'description' => 'Widget separador' );
-		$control_ops = array('width' => 400, 'height' => 700);
-		parent::__construct('widget_eol_linha', __('Linha'), $widget_ops, $control_ops);
+		$widget_ops = array('classname' => 'eol_div_widget', 'description' => 'Widget separador' );
+		$control_ops = array('width' => 400, 'height' => 300);
+		parent::__construct('eol_div_widget', __('Abre DIV'), $widget_ops, $control_ops);
 	}
 
 	/**
@@ -32,10 +32,8 @@ class EOL_Linha_Widget extends WP_Widget {
 		// numero de posts a ser exibido
 
 
-		echo $args['before_widget'];
-		$number =  (isset($instance[ 'number']) ? $instance[ 'number']:"1px") ;
-		echo do_shortcode( '[eol_linha altura='.$number.']' );
-		echo $args['after_widget'];
+		$classes =  (isset($instance[ 'classes']) ? $instance[ 'classes']: 'tamanho-100') ;
+		echo '<div class="' . $classes . '">';
 	}
 
 	/**
@@ -51,7 +49,7 @@ class EOL_Linha_Widget extends WP_Widget {
 	 */
 	public function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
-		$instance[ 'number' ] =  $new_instance[ 'number'] ;
+		$instance[ 'classes' ] =  $new_instance[ 'classes'] ;
 		return $instance;
 	}
 
@@ -66,18 +64,18 @@ class EOL_Linha_Widget extends WP_Widget {
 	public function form( $instance ) {
 		$instance = wp_parse_args( (array) $instance,
 			array(
-				'number' => '1px'
+				'classes' => 'tamanho-100'
 			)
 		);
 		?>
 		<div class="form-container">
 			<?php
-			// numero de posts a ser exibido
-			$number = sanitize_text_field( $instance['number'] );
+			// classes
+			$classes = sanitize_text_field( $instance['classes'] );
 			?>
 			<p>
-				<label>altura</label>
-				<input class="widefat" type="text" name="<?php echo $this->get_field_name( 'number' ); ?>" value="<?php echo esc_attr($number); ?>">
+				<label>Classes</label>
+				<input class="widefat" type="text" name="<?php echo $this->get_field_name( 'classes' ); ?>" value="<?php echo esc_attr($classes); ?>">
 			</p>
 
 		</div><!-- .form-container -->
@@ -91,5 +89,5 @@ class EOL_Linha_Widget extends WP_Widget {
  *
  */
 add_action( 'widgets_init', function(){
-	register_widget( 'EOL_Linha_Widget' );
+	register_widget( 'EOL_Div_Widget' );
 } );

@@ -6,16 +6,16 @@
  *
  * @see WP_Widget
  */
-class EOL_Linha_Widget extends WP_Widget {
+class EOL_Div_Close_Widget extends WP_Widget {
 
 	/**
 	 * Sets up a new widget instance.
 	 *
 	 */
 	public function __construct() {
-		$widget_ops = array('classname' => 'widget_eol_linha', 'description' => 'Widget separador' );
-		$control_ops = array('width' => 400, 'height' => 700);
-		parent::__construct('widget_eol_linha', __('Linha'), $widget_ops, $control_ops);
+		$widget_ops = array('classname' => 'EOL_Div_Close_Widget', 'description' => 'Widget separador' );
+		$control_ops = array('width' => 400, 'height' => 300);
+		parent::__construct('EOL_Div_Close_Widget', __('Fecha DIV'), $widget_ops, $control_ops);
 	}
 
 	/**
@@ -32,10 +32,7 @@ class EOL_Linha_Widget extends WP_Widget {
 		// numero de posts a ser exibido
 
 
-		echo $args['before_widget'];
-		$number =  (isset($instance[ 'number']) ? $instance[ 'number']:"1px") ;
-		echo do_shortcode( '[eol_linha altura='.$number.']' );
-		echo $args['after_widget'];
+		echo '</div>';
 	}
 
 	/**
@@ -51,7 +48,6 @@ class EOL_Linha_Widget extends WP_Widget {
 	 */
 	public function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
-		$instance[ 'number' ] =  $new_instance[ 'number'] ;
 		return $instance;
 	}
 
@@ -64,24 +60,6 @@ class EOL_Linha_Widget extends WP_Widget {
 	 * @param array $instance Current settings.
 	 */
 	public function form( $instance ) {
-		$instance = wp_parse_args( (array) $instance,
-			array(
-				'number' => '1px'
-			)
-		);
-		?>
-		<div class="form-container">
-			<?php
-			// numero de posts a ser exibido
-			$number = sanitize_text_field( $instance['number'] );
-			?>
-			<p>
-				<label>altura</label>
-				<input class="widefat" type="text" name="<?php echo $this->get_field_name( 'number' ); ?>" value="<?php echo esc_attr($number); ?>">
-			</p>
-
-		</div><!-- .form-container -->
-		<?php
 	}
 }
 
@@ -91,5 +69,5 @@ class EOL_Linha_Widget extends WP_Widget {
  *
  */
 add_action( 'widgets_init', function(){
-	register_widget( 'EOL_Linha_Widget' );
+	register_widget( 'EOL_Div_Close_Widget' );
 } );

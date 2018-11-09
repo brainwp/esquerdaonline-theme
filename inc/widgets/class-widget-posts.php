@@ -31,7 +31,7 @@ class EOL_Posts_Widget extends WP_Widget {
 	public function widget( $args, $instance ) {
 
 		/** This filter is documented in wp-includes/widgets/class-wp-widget-pages.php */
-		$title = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
+		// $title = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
 		if ( ! empty( $instance[ 'title_front'] ) ) {
 			$title = apply_filters( 'the_title', $instance[ 'title_front' ] );
 		}

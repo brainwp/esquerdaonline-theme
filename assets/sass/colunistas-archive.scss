@@ -1,26 +1,21 @@
-.post-type-archive-especiais{
-	.barra-colunistas {
-			background-image: url('../images/barra-roxa.jpg');
-			background-size: cover;
+.barra-colunistas {
+	background-image: url('../images/barra-roxa.jpg');
+	background-size: cover;
 
-			color: #FFF;
-			padding: 10px;
-			text-align: left;
-			.container{
-				h5{
-					font-size: 15px;
-					padding-left: 0px;
-				}
-			}
-
-	}
-	.barra-colunistas h5 {
-			font-weight: bolder;
-			text-transform: uppercase;
-
-
+	color: #FFF;
+	padding: 10px;
+	text-align: left;
+	.container{
+		h5{
+			font-size: 15px;
+			padding-left: 0px;
+		}
 	}
 
+}
+.barra-colunistas h5 {
+	font-weight: bolder;
+	text-transform: uppercase;
 }
 .single-post.single-colunistas, .single-colunistas, .post-type-archive-colunistas{
 	&.colunistas-template-default{
@@ -142,7 +137,7 @@
 	    float: left;
 	}
 }
-.post-type-archive-colunistas{
+.post-type-archive-colunistas, {
 	.post-colunista{
 		article {
 			.post-title{
@@ -153,7 +148,7 @@
 		}
 	}
 }
-.post-type-archive-colunistas, .single-colunistas, .tax-editorias, .tag, .tax-regioes{
+.post-type-archive-colunistas, .single-colunistas, .tax-editorias, .tag, .tax-regioes, body.blog, body.search {
 	&.archive{
 		.thumbnail-colunista {
 				img.wp-post-image{
