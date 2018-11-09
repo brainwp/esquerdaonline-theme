@@ -122,15 +122,9 @@ class Brasa_Slider {
 	 * @return null
 	 */
 	public function __construct() {
-<<<<<<< HEAD
-		define(			'BRASA_SLIDER_URL', get_template_directory_uri().'/inc/galeria/' );
-		define(			'BRASA_SLIDER_DIR', get_template_directory().'/inc/galeria/' );
-		add_image_size(	'brasa_slider_img', 1006, 408, true );
-=======
 		define(			'BRASA_SLIDER_URL', get_template_directory_uri() . '/inc/galeria/' );
 		define(			'BRASA_SLIDER_DIR', get_template_directory() . '/inc/galeria/' );
 		add_image_size(	'brasa_slider_img', 150, 150, true );
->>>>>>> d480e4629055edf05d4b953ad877263bfa27f3af
 
 		add_action(		'init',				array( $this, 'init' ) ); //init
 		add_action(		'admin_init', 		array( $this, 'admin_scripts' ), 9999999 );
@@ -189,11 +183,7 @@ class Brasa_Slider {
 		$labels = array(
 			'name'                => _x( 'Galerias', 'Post Type General Name', 'brasa-slider' ),
 			'singular_name'       => _x( 'Galeria', 'Post Type Singular Name', 'brasa-slider' ),
-<<<<<<< HEAD
-			'menu_name'           => __( 'Galeria', 'brasa-slider' ),
-=======
-			'menu_name'           => __( 'Brasa Slider', 'brasa-slider' ),
->>>>>>> d480e4629055edf05d4b953ad877263bfa27f3af
+			'menu_name'           => __( 'Galerias', 'brasa-slider' ),
 			'parent_item_colon'   => __( 'Slider parent', 'brasa-slider' ),
 			'all_items'           => __( 'All sliders', 'brasa-slider' ),
 			'view_item'           => __( 'View slider', 'brasa-slider' ),
