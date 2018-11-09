@@ -13,7 +13,7 @@ class EOL_Videos_Widget extends WP_Widget {
 	 *
 	 */
 	public function __construct() {
-		$widget_ops = array('classname' => 'widget_eol_linha', 'description' => 'Galeria de Vídeo' );
+		$widget_ops = array('classname' => 'widget_eol_videos', 'description' => 'Galeria de Vídeo' );
 		$control_ops = array('width' => 400, 'height' => 700);
 		parent::__construct('widget_eol_videos', __('Galeria de Vídeo'), $widget_ops, $control_ops);
 	}
@@ -31,7 +31,6 @@ class EOL_Videos_Widget extends WP_Widget {
 	public function widget( $args, $instance ) {
 		// numero de posts a ser exibido
 		$classes =  (isset($instance[ 'classe']) ? $instance[ 'classe'] :"") ;
-
 		?>
 		<div class="widget-videos-container <?php echo $classes ?> widget-container">
 		<?php
@@ -80,6 +79,7 @@ class EOL_Videos_Widget extends WP_Widget {
 		$instance = wp_parse_args( (array) $instance,
 			array(
 				'form' => '',
+				'title' => '',
 				'classe' => 'tamanho-50'
 			)
 		);

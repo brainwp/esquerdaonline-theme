@@ -36,6 +36,7 @@ class EOL_Galeria_Widget extends WP_Widget {
 	public function widget( $args, $instance ) {
 		// numero de posts a ser exibido
 		$classes =  (isset($instance[ 'classe']) ? $instance[ 'classe'] :"") ;
+		$title =  (isset($instance[ 'title']) ? $instance[ 'title'] :"") ;
 
 		?>
 		<div class="widget-galeria-container <?php echo $classes ?> widget-container">
@@ -44,7 +45,7 @@ class EOL_Galeria_Widget extends WP_Widget {
 		$shortcode =  (isset($instance[ 'shortcode']) ? $instance[ 'shortcode'] :"");
 		$title = apply_filters( 'widget_title', $instance[ 'title' ] );
 		if ( ! $title ) {
-			$title = '';
+			$title = 'asss';
 		}
 		echo do_shortcode( $shortcode );
 		echo $args['after_widget'];
@@ -85,7 +86,8 @@ class EOL_Galeria_Widget extends WP_Widget {
 		$instance = wp_parse_args( (array) $instance,
 			array(
 				'shortcode' => '',
-				'classe' => 'tamanho-50'
+				'classe' => 'tamanho-50',
+				'title' => ''
 			)
 		);
 		?>
