@@ -16,8 +16,45 @@ class EOL_Posts_Widget extends WP_Widget {
 		$widget_ops = array('classname' => 'widget_eol_posts', 'description' => 'Widget de posts com repetidor' );
 		$control_ops = array('width' => 400, 'height' => 700);
 		parent::__construct('widget_eol_posts', __('Posts'), $widget_ops, $control_ops);
+		// add ajax action to list terms
+		add_action( 'wp_ajax_widget_eol_posts_terms_search', array( $this, 'wp_ajax_widget_eol_posts_terms_search' ) );
 	}
-
+	/**
+	 * Exec ajax to show terms list
+	 * @return null
+	 */
+	public function wp_ajax_widget_eol_posts_terms_search() {
+		check_ajax_referer( 'wp_ajax_widget_eol_posts_terms_search', 'nonce' );
+		if ( ! isset( $_REQUEST[ 'key'] ) ) {
+			wp_die( 'Error 1!' );
+		}
+		$taxonomies = array(
+			'editorias',
+			'post_tag',
+			'colunistas_tax',
+			'regioes',
+			'video_tags'
+		);
+		$args = array(
+			'taxonomy'      => $taxonomies, // taxonomy name
+			'orderby'       => 'id',
+			'order'         => 'ASC',
+			'hide_empty'    => true,
+			'fields'        => 'all',
+			'name__like'    => sanitize_text_field( $_REQUEST[ 'key'] ),
+			'number'		=> 500
+		);
+		$terms = get_terms( $args );
+		if ( ! $terms || empty( $terms ) || is_wp_error( $terms ) ) {
+			wp_die( 'Nenhum termo encontrado com esse nome :(' );
+		}
+		foreach( $terms as $term ) {
+			$link = get_term_link( $term );
+			printf( '<a href="%s" class="each-term-link">%s (%s)</a>', $link, $term->name, $term->taxonomy );
+			echo '<br>';
+		}
+		wp_die();
+	}
 	/**
 	 * Outputs the content for the current Text widget instance.
 	 *
@@ -60,13 +97,25 @@ class EOL_Posts_Widget extends WP_Widget {
 		if ( $query->have_posts() ) {
 			printf( '<div class="widget-eol-posts widget-container %s">', esc_attr( $instance[ 'classes_widget' ] ) );
 			if ( ! empty( $title ) ) {
-				echo $args['before_title'] . $title . $args['after_title'];
+				if ( isset( $instance[ 'readmore'] ) && ! empty( $instance[ 'readmore'] ) ) {
+					printf( '<a href="%s">', $instance[ 'readmore'] );
+					echo $args['before_title'] . $title . $args['after_title'];
+					echo '</a>';
+				} else {
+					echo $args['before_title'] . $title . $args['after_title'];
+				}
 			}
 			// coloca o widget atual numa variavel global para
 			$GLOBALS[ 'current_widget' ] = $instance;
 			while( $query->have_posts() ) {
 				$query->the_post();
 				get_template_part( 'content/post' );
+			}
+			$widget_classes_global = explode( ' ', $instance[ 'classes_widget' ] );
+			if ( in_array( 'leia-mais', $widget_classes_global ) ) {
+				if ( isset( $instance[ 'readmore'] ) && ! empty( $instance[ 'readmore'] ) ) {
+					printf( '<a href="%s" class="colunistas-link"><i class="fas fa-angle-right"></i> %s</a>', $instance[ 'readmore'], __( 'Leia mais', 'eol' ) );
+				}
 			}
 			echo '</div>';
 			wp_reset_postdata();
@@ -96,6 +145,7 @@ class EOL_Posts_Widget extends WP_Widget {
 		$instance[ 'posicao' ] = absint( $new_instance[ 'posicao'] );
 		$instance['readmore'] = sanitize_text_field( $new_instance['readmore'] );
 		$instance[ 'number' ] = absint( $new_instance[ 'number'] );
+
 
 		return $instance;
 	}
@@ -158,7 +208,7 @@ class EOL_Posts_Widget extends WP_Widget {
 			?>
 			<p>
 				<label>
-					Posição (Precisa descrever melhor)<br>
+					Posição<br>
 				</label>
 				<?php if( ! is_wp_error( $terms ) && ! empty( $terms ) ) : ?>
 					<select name="<?php echo $this->get_field_name( 'posicao' ); ?>" required>
@@ -199,7 +249,9 @@ class EOL_Posts_Widget extends WP_Widget {
 				<label>
 					Link Leia Mais
 				</label>
-				<input class="widefat" type="text" name="<?php echo $this->get_field_name( 'readmore' ); ?>" value="<?php echo esc_attr($readmore); ?>">
+				<?php $eol_widget_search_link_nonce = wp_create_nonce( 'wp_ajax_widget_eol_posts_terms_search' );?>
+				<input class="widefat eol-widget-search-link" type="text" name="<?php echo $this->get_field_name( 'readmore' ); ?>" value="<?php echo esc_attr($readmore); ?>" data-nonce="<?php echo esc_attr( $eol_widget_search_link_nonce);?>">
+				<span class="term-list"></span>
 			</p>
 
 			<?php
