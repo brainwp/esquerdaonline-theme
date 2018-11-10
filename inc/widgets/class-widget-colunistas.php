@@ -47,7 +47,7 @@ class EOL_Widget_Colunistas extends WP_Widget {
 			) );
 			if ( $query->have_posts() ) {
 				if ( in_array( 'estilo-home', $classes_array ) ) {
-					echo '<div class="widget-colunistas fundo-cinza">';
+					echo '<div class="widget-colunistas fundo-cinza-colunas">';
 				} else {
 					echo '<div class="widget-colunistas">';
 				}
