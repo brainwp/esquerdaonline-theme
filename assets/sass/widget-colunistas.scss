@@ -2,13 +2,12 @@
 	margin-bottom:35px;
 }
 @media (min-width:1401) {
-	.widget-colunistas{
+	.widget-colunistas, .each-post-widget{
 		.widget-content{
 			margin-bottom:15px;
 			.colunistas-link{
 				padding: 15px;
 				font-size: 18px;
-				font-weight: 700;
 			}
 		}
 		.widget-title{
@@ -77,13 +76,12 @@
 		}
 	}
 }
-.widget-colunistas{
+.widget-colunistas, .leia-mais .each-post-widget {
 	.widget-content{
 		margin-bottom:$margin-bottom-noticia;
 		.colunistas-link{
 			padding: $padding-noticia;
 			font-size: 18px;
-			font-weight: 700;
 		}
 	}
 	.widget-title{
@@ -165,4 +163,35 @@
 		margin-top:20px;
 	}
 
+}
+body.home .each-colunista .thumbnail-colunista {
+	width:125px;
+}
+.colunistas-link {
+	display: inline-block;
+	color:rgba( 0, 0, 0, 0.6 );
+	font-size:16px !important;
+	padding: 0 !important;
+	float: right;
+}
+.colunistas-link i {
+	color: black;
+}
+.colunistas-link:hover {
+	transition: 300ms ease all;
+	color:black;
+}
+.widget-colunistas.estilo-home {
+	h3.widget-title {
+		padding: 0 !important;
+	}
+	.each-colunista {
+		margin-bottom: 0 !important;
+	}
+	.text-right {
+		padding: 0;
+	}
+	.colunistas-link {
+		margin-top:7px;
+	}
 }

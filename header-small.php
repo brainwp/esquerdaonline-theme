@@ -91,7 +91,7 @@
 	<div class="archive-colunista">
     	<div class="barra-colunistas">
     		<div  class="container">
-    			<h5 class="col-md-12 no-padding">Colunistas</h5>
+    			<h5 class="col-md-12 no-padding">Colunas</h5>
     		</div>
     	</div><?php
     	get_template_part( '/content/header', 'colunista' );
@@ -102,9 +102,10 @@
 		?>
 	<div class="barra-colunistas">
 		<div  class="container">
-			<h5 class="col-md-12">Colunistas</h5>
+			<h5 class="col-md-12">Colunas</h5>
 		</div>
 	</div>
 <?php  }?>
 	<div id="wrapper" class="container">
+
 		<div class="row">

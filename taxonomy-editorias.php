@@ -47,6 +47,7 @@ get_header('large'); ?>
 						<?php
 							// Start the Loop.
 							$colunistas_array=array();
+
 							while ( have_posts() ) : the_post();
 
 								/*

@@ -502,7 +502,7 @@ add_action( 'wp_enqueue_scripts', 'wpb_add_google_fonts' );
 function colunistas_class($classes) {
 	global $post;
 	if (is_object($post)) {
-		if( !is_tax() && !is_tag() && isset($post) && has_term( '', 'colunistas', $post->ID ) ) {
+		if( !is_tax() && !is_tag() && isset($post) && has_term( '', 'colunistas_tax', $post->ID ) ) {
 			$classes[] .= " single-colunistas ";
 		}
 		$section_terms = get_the_terms( $post->ID, 'editorias' );
@@ -535,7 +535,7 @@ function single_colunistas_redirect() {
         $post = get_queried_object();
         // Determine if term has a parent;
         // I *think* this will work; if not see above
-				if( has_term( '', 'colunistas', $post) ) {
+				if( has_term( '', 'colunistas_tax', $post) ) {
 					include(get_template_directory() . '/single-noticia-colunista.php');
 					exit;
 				}
@@ -545,17 +545,16 @@ add_action( 'template_redirect', 'single_colunistas_redirect' );
 
 // Remove destacadas do loop principal de editorias;
 // Remove destacadas do loop principal de editorias;
-//add_action( 'pre_get_posts', 'remove_editoria' );
+add_action( 'pre_get_posts', 'remove_editoria' );
 function remove_editoria( $query ) {
-    if( $query->is_main_query() && $query->is_tax('editoria') ) {
-		$tax_query = array(
-			'taxonomy' => '_featured_eo',
-			'field' => 'slug',
-			'terms' => array('destaque'),
-            'operator'=> 'NOT IN'
-		);
-		$query->tax_query->queries[] = $tax_query;
-   		$query->query_vars['tax_query'] = $query->tax_query->queries;
+    if( $query->is_main_query() && is_tax( 'editorias') ) {
+    	ob_start();
+    	dynamic_sidebar( 'editorias-archive-topo' );
+    	ob_end_clean();
+    	if ( isset( $GLOBALS[ 'featured_posts_editorias'] ) && is_array( $GLOBALS[ 'featured_posts_editorias'] ) ) {
+    		$query->set( 'post__not_in', $GLOBALS[ 'featured_posts_editorias'] );
+    		unset( $GLOBALS[ 'featured_posts_editorias' ] );
+    	}
 
     }
 }

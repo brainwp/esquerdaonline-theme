@@ -119,9 +119,15 @@ class EOL_Taxonomy_Posts extends WP_Widget {
 		}
 		?>
 		<div class="widget-eol-taxonomy-posts">
-			<?php $i = 0;?>
+			<?php
+			$i = 0;
+			$GLOBALS[ 'featured_posts_editorias' ] = array();
+			?>
 			<?php foreach ( $r->posts as $recent_post ) : ?>
 				<?php
+				if ( is_tax( 'editorias') ) {
+					$GLOBALS[ 'featured_posts_editorias' ][] = $recent_post->ID;
+				}
 				setup_postdata( $recent_post );
 				$post_title = get_the_title( $recent_post->ID );
 				$title      = ( ! empty( $post_title ) ) ? $post_title : __( '(no title)' );
@@ -157,7 +163,7 @@ class EOL_Taxonomy_Posts extends WP_Widget {
 									<a href="<?php the_permalink( $recent_post->ID ); ?>" ><?php echo $title;?></a>
 								</h3>
 								<?php echo $chamada; ?>
-					
+
 								<?php if ( false && $author = get_post_meta( $recent_post->ID, 'the_author', true )) { ?>
 								<div class="tax-widget-autor">
 									<?php
