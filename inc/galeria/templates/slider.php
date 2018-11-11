@@ -8,7 +8,7 @@ $size = (!empty($atts['size'])) ? $atts['size'] : esc_textarea( get_post_meta( $
 $brasa_slider_id = $slider->ID;
 ?>
 <div class="each-galeria-brasa">
-<div class="col-md-12 first-slider galeria-eol">
+<div id="main-slide" class="col-md-12 first-slider galeria-eol">
 	<?php foreach ( $ids as $id ) :
 		$brasa_slider_item_id = $id;
 		if(get_post_type($id) == 'attachment'){
@@ -26,7 +26,7 @@ $brasa_slider_id = $slider->ID;
 		<?php break;?>
 	<?php endforeach;?>
 </div><!-- .col-md-12 first-slider galeria-eol -->
-<div class="col-md-12 is_slider" id="slider-<?php echo esc_attr( $slider->post_name );?>" data-json="<?php echo esc_attr( $cfg ); ?>">
+<div class="col-md-12 navegacao-slider is_slider" id="slider-<?php echo esc_attr( $slider->post_name );?>" data-json="<?php echo esc_attr( $cfg ); ?>">
 	<?php
 	foreach ( $ids as $id ) :
 		$brasa_slider_item_id = $id;
@@ -40,7 +40,7 @@ $brasa_slider_id = $slider->ID;
 		$img = wp_get_attachment_image_src( $img, $size, false );
 		?>
 		<div class="slick_slide" data-full="<?php echo $img_full;?>">
-			<a href="#">
+			<a href="#" data-src="<?php echo esc_url( $img_full[0] );?>">
 		    	<img src="<?php echo esc_url( $img[0] );?>" class="modal-item-open" data-src="<?php echo esc_url( $img_full[0] );?>" data-type="image">
 		    </a>
 		</div>
