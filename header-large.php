@@ -22,14 +22,9 @@
 </head>
 
 <body <?php body_class(); ?>>
-<<<<<<< HEAD
-
-
-=======
 	<div id="modal" class="modal">
 		<div id="modal-content"></div>
 	</div>
->>>>>>> 73d8fdc06d57b842f5c29ce8c3899db5f60c9b15
 	<div id="fb-root"></div>
 	<a id="skippy" class="sr-only sr-only-focusable" href="#content">
 		<div class="container">
