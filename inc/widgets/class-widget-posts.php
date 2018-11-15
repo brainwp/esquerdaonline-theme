@@ -45,18 +45,21 @@ class EOL_Posts_Widget extends WP_Widget {
 		// numero de posts a ser exibido
 		$number = absint( $instance[ 'number'] );
 
-		$query = new WP_Query(
-			array(
-				'posts_per_page' => $number,
-				'post_type' => array('post', 'especiais', 'videos'),
-				'tax_query' => array(
-					array(
-						'taxonomy' => '_featured_eo',
-						'terms'    => $posicao,
-					),
-				),
-			)
+
+		$args = array(
+			'posts_per_page' => $number,
+			'post_type' => array('post', 'especiais', 'videos'),
 		);
+		if ($posicao !='' ) {
+			$args['tax_query'] =
+			array(
+				array(
+					'taxonomy' => '_featured_eo',
+					'terms'    => $posicao,
+				)
+			);
+		}
+		$query = new WP_Query($args);
 		if ( $query->have_posts() ) {
 			printf( '<div class="widget-eol-posts widget-container %s">', esc_attr( $instance[ 'classes_widget' ] ) );
 			if ( ! empty( $title ) ) {
