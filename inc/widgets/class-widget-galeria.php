@@ -36,6 +36,8 @@ class EOL_Galeria_Widget extends WP_Widget {
 	public function widget( $args, $instance ) {
 		// numero de posts a ser exibido
 		$classes =  (isset($instance[ 'classe']) ? $instance[ 'classe'] :"") ;
+		$title =  (isset($instance[ 'title']) ? $instance[ 'title'] :"") ;
+		preg_match("/thumb-([^\s]+)/", $classes, $thumb_array);
 
 		?>
 		<div class="widget-galeria-container <?php echo $classes ?> widget-container">
@@ -46,7 +48,7 @@ class EOL_Galeria_Widget extends WP_Widget {
 		if ( ! $title ) {
 			$title = '';
 		}
-		echo do_shortcode( $shortcode );
+		echo do_shortcode( '[brasa_slider id="'.$shortcode.'" size="'.$thumb_array[1].'"]' );
 		echo $args['after_widget'];
 		?>
 		</div>
@@ -85,7 +87,8 @@ class EOL_Galeria_Widget extends WP_Widget {
 		$instance = wp_parse_args( (array) $instance,
 			array(
 				'shortcode' => '',
-				'classe' => 'tamanho-50'
+				'classe' => 'tamanho-50 thumb-quadrada',
+				'title' => ''
 			)
 		);
 		?>
@@ -103,11 +106,12 @@ class EOL_Galeria_Widget extends WP_Widget {
 			</p>
 
 			<p>
-				<label>Shortcode da galeria</label>
+				<label>Id da galeria</label>
 				<input class="widefat" type="text" name="<?php echo $this->get_field_name( 'shortcode' ); ?>" value="<?php echo esc_attr($shortcode); ?>">
 			</p>
 			<p>
-				<label>Classes</label>
+				<label class="widget-classes">Classes</label>
+				<spam class="widget-instructions"><br>Para determinar o padrão da imagem use 'thumb-quadrada' ou 'thumb-retangular'</spam>
 				<input class="widefat" type="text" name="<?php echo $this->get_field_name( 'classe' ); ?>" value="<?php echo esc_attr($classe); ?>">
 			</p>
 
