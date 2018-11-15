@@ -19,6 +19,8 @@ class EOL_Widget_Video_Live extends WP_Widget {
 		/** This filter is documented in wp-includes/default-widgets.php */
 		$title = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
 		$text = esc_attr( empty( $instance['text'] ) ? '' : $instance['text'] );
+		$description = esc_attr( empty( $instance['description'] ) ? '' : $instance['description'] );
+
 		$classes = esc_attr( $instance[ 'classes' ] );
 		$url = esc_url_raw( $instance[ 'url'] );
 		/**
@@ -42,6 +44,7 @@ class EOL_Widget_Video_Live extends WP_Widget {
 			if ( ! empty( $title ) ) {
 				echo $args['before_title'] . $title . $args['after_title'];
 			}
+			echo '<span class="sub-title">' . $description . '</span>';
 			$embed = wp_oembed_get( $url );
 			if ( $embed ) {
 				echo $embed;
@@ -63,6 +66,7 @@ class EOL_Widget_Video_Live extends WP_Widget {
 		$instance = $old_instance;
 		$instance['title'] = sanitize_text_field( $new_instance['title'] );
 		$instance['text'] = sanitize_text_field( $new_instance['text'] );
+		$instance['description'] = sanitize_text_field( $new_instance['description'] );
 		$instance['classes'] = sanitize_text_field( $new_instance['classes'] );
 		$instance['url'] = sanitize_text_field( $new_instance['url'] );
 
@@ -76,6 +80,7 @@ class EOL_Widget_Video_Live extends WP_Widget {
 		$instance = wp_parse_args( (array) $instance, array( 'title' => '', 'text' => '', 'classes' => 'tamanho-25', 'url' => '' ) );
 		$title = sanitize_text_field( $instance['title'] );
 		$text = sanitize_text_field( $instance['text'] );
+		$description = sanitize_text_field( $instance['description'] );
 		$classes = sanitize_text_field( $instance['classes'] );
 		$url = sanitize_text_field( $instance['url'] );
 
@@ -85,6 +90,11 @@ class EOL_Widget_Video_Live extends WP_Widget {
 
 		<p><label for="<?php echo $this->get_field_id('text'); ?>"><?php _e('Texto da faixa no topo:'); ?></label>
 		<input class="widefat" id="<?php echo $this->get_field_id('text'); ?>" name="<?php echo $this->get_field_name('text'); ?>" type="text" value="<?php echo esc_attr($text); ?>" /></p>
+
+
+		<p><label for="<?php echo $this->get_field_id('description'); ?>"><?php _e('Texto de descrição (abaixo do titulo / opcional):'); ?></label>
+		<input class="widefat" id="<?php echo $this->get_field_id('description'); ?>" name="<?php echo $this->get_field_name('description'); ?>" type="text" value="<?php echo esc_attr($description); ?>" /></p>
+
 
 		<p><label for="<?php echo $this->get_field_id('classes'); ?>"><?php _e('Classes CSS:'); ?></label>
 		<input class="widefat" id="<?php echo $this->get_field_id('classes'); ?>" name="<?php echo $this->get_field_name('classes'); ?>" type="text" value="<?php echo esc_attr($classes); ?>" /></p>
