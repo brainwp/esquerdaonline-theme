@@ -14,10 +14,6 @@ jQuery(function($){
 		$('#brasa_slider_sortable_ul').append('<li class="brasa_slider_item is_item" id="'+id+'" data-post-id="'+id+'">'+html+'</li>');
 		$('#brasa_slider_result').html('');
 	});
-	$(document).on('click','#brasa_slider_sortable .rm-item',function(e){
-		$(this).parent('li').hide('slow').remove();
-		$('#'+$(this).attr('data-post-id')).hide('slow').remove();
-	});
 	var updateInput = function(){
 		var posts = [];
 		var i = 0;

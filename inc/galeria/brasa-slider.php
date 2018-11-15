@@ -124,7 +124,7 @@ class Brasa_Slider {
 	public function __construct() {
 		define(			'BRASA_SLIDER_URL', get_template_directory_uri() . '/inc/galeria/' );
 		define(			'BRASA_SLIDER_DIR', get_template_directory() . '/inc/galeria/' );
-		add_image_size(	'brasa_slider_img', 1006, 408, true );
+		add_image_size(	'brasa_slider_img', 150, 150, true );
 
 		add_action(		'init',				array( $this, 'init' ) ); //init
 		add_action(		'admin_init', 		array( $this, 'admin_scripts' ), 9999999 );
@@ -183,21 +183,21 @@ class Brasa_Slider {
 		$labels = array(
 			'name'                => _x( 'Galerias', 'Post Type General Name', 'brasa-slider' ),
 			'singular_name'       => _x( 'Galeria', 'Post Type Singular Name', 'brasa-slider' ),
-			'menu_name'           => __( 'Brasa Slider', 'brasa-slider' ),
-			'parent_item_colon'   => __( 'Slider parent', 'brasa-slider' ),
-			'all_items'           => __( 'All sliders', 'brasa-slider' ),
-			'view_item'           => __( 'View slider', 'brasa-slider' ),
-			'add_new_item'        => __( 'Add New Slider', 'brasa-slider' ),
+			'menu_name'           => __( 'Galerias', 'brasa-slider' ),
+			'parent_item_colon'   => __( 'Galeria Pai', 'brasa-slider' ),
+			'all_items'           => __( 'Todas Galerias', 'brasa-slider' ),
+			'view_item'           => __( 'Ver Galeria', 'brasa-slider' ),
+			'add_new_item'        => __( 'Adicionar nova Galeria', 'brasa-slider' ),
 			'add_new'             => __( 'Add New', 'brasa-slider' ),
-			'edit_item'           => __( 'Edit Slider', 'brasa-slider' ),
-			'update_item'         => __( 'Update Slider', 'brasa-slider' ),
-			'search_items'        => __( 'Search Slider', 'brasa-slider' ),
+			'edit_item'           => __( 'Editar Galeria', 'brasa-slider' ),
+			'update_item'         => __( 'Atualizar Galeria', 'brasa-slider' ),
+			'search_items'        => __( 'Buscar Galeria', 'brasa-slider' ),
 			'not_found'           => __( 'Not found', 'brasa-slider' ),
 			'not_found_in_trash'  => __( 'Not found in Trash', 'brasa-slider' ),
 			);
 		$args = array(
 			'label'               => __( 'brasa_slider_cpt', 'brasa-slider' ),
-			'description'         => __( 'Brasa Slider', 'brasa-slider' ),
+			'description'         => __( 'Galerias', 'brasa-slider' ),
 			'labels'              => $labels,
 			'supports'            => array( 'title', ),
 			'hierarchical'        => false,
@@ -209,10 +209,12 @@ class Brasa_Slider {
 			'menu_position'       => 5,
 			'menu_icon'           => 'dashicons-images-alt',
 			'can_export'          => true,
-			'has_archive'         => false,
+			'has_archive'         => true,
 			'exclude_from_search' => true,
-			'publicly_queryable'  => false,
-			'rewrite'             => false,
+			'publicly_queryable'  => true,
+			'rewrite'             => array(
+				'slug'	=> 'galerias'
+			),
 			'capability_type'     => 'page',
 			);
 		register_post_type( 'brasa_slider_cpt', $args );
@@ -431,7 +433,7 @@ class Brasa_Slider {
 		$GLOBALS['atts']	= $atts;
 
 		if ( ! empty( $slider ) && isset( $slider ) ) {
-			$html = brasa_slider_get_template_html( 'slider.php' );
+			$html = brasa_slider_get_template_html( 'slider' );
 		    return $html;
 		} else {
 			return false;

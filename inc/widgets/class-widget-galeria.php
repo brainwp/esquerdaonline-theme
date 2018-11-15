@@ -6,16 +6,21 @@
  *
  * @see WP_Widget
  */
-class EOL_Videos_Widget extends WP_Widget {
+class EOL_Galeria_Widget extends WP_Widget {
 
 	/**
 	 * Sets up a new widget instance.
 	 *
 	 */
 	public function __construct() {
-		$widget_ops = array('classname' => 'widget_eol_videos', 'description' => 'Galeria de Vídeo' );
+		$widget_ops = array('classname' => 'widget_eol_galeria', 'description' => 'Galeria de fotos' );
 		$control_ops = array('width' => 400, 'height' => 700);
-		parent::__construct('widget_eol_videos', __('Galeria de Vídeo'), $widget_ops, $control_ops);
+		parent::__construct('widget_eol_galeria', __('Galeria de Imagens'), $widget_ops, $control_ops);
+		$this->remove_widget_padrao();
+	}
+
+	public function remove_widget_padrao() {
+		unregister_widget('WP_Widget_Media_Gallery');
 	}
 
 	/**
@@ -31,24 +36,21 @@ class EOL_Videos_Widget extends WP_Widget {
 	public function widget( $args, $instance ) {
 		// numero de posts a ser exibido
 		$classes =  (isset($instance[ 'classe']) ? $instance[ 'classe'] :"") ;
+		$title =  (isset($instance[ 'title']) ? $instance[ 'title'] :"") ;
+		preg_match("/thumb-([^\s]+)/", $classes, $thumb_array);
+
 		?>
-		<div class="widget-videos-container <?php echo $classes ?> widget-container">
+		<div class="widget-galeria-container <?php echo $classes ?> widget-container">
 		<?php
 		echo $args['before_widget'];
-		$form =  (isset($instance[ 'form']) ? $instance[ 'form'] :"");
+		$shortcode =  (isset($instance[ 'shortcode']) ? $instance[ 'shortcode'] :"");
 		$title = apply_filters( 'widget_title', $instance[ 'title' ] );
 		if ( ! $title ) {
 			$title = '';
 		}
-		echo do_shortcode( '[eol_videos tag="'.$form.'" title="'.$title.'"]' );
+		echo do_shortcode( '[brasa_slider id="'.$shortcode.'" size="'.$thumb_array[1].'"]' );
 		echo $args['after_widget'];
 		?>
-		<div class="text-right col-md-12">
-			<a href="<?php echo get_post_type_archive_link('videos');?>" class="colunistas-link">
-				<i class="fas fa-angle-right"></i>
-				Todos os vídeos
-			</a>
-		</div><!-- .text-right col-md-12 -->
 		</div>
 		<?php
 	}
@@ -67,7 +69,7 @@ class EOL_Videos_Widget extends WP_Widget {
 	public function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
 		$instance[ 'title' ] =  sanitize_text_field( $new_instance[ 'title'] );
-		$instance[ 'form' ] =  sanitize_text_field( $new_instance[ 'form'] );
+		$instance[ 'shortcode' ] =  sanitize_text_field( $new_instance[ 'shortcode'] );
 
 		$instance[ 'classe' ] =  sanitize_text_field( $new_instance[ 'classe'] ) ;
 		return $instance;
@@ -84,16 +86,16 @@ class EOL_Videos_Widget extends WP_Widget {
 	public function form( $instance ) {
 		$instance = wp_parse_args( (array) $instance,
 			array(
-				'form' => '',
-				'title' => '',
-				'classe' => 'tamanho-50'
+				'shortcode' => '',
+				'classe' => 'tamanho-50 thumb-quadrada',
+				'title' => ''
 			)
 		);
 		?>
 		<div class="form-container">
 			<?php
 			// numero de posts a ser exibido
-			$form = sanitize_text_field( $instance['form'] );
+			$shortcode = sanitize_text_field( $instance['shortcode'] );
 			$classe = sanitize_text_field( $instance['classe'] );
 			$title = sanitize_text_field( $instance['title'] );
 
@@ -104,11 +106,12 @@ class EOL_Videos_Widget extends WP_Widget {
 			</p>
 
 			<p>
-				<label>Tag da galeria de vídeo</label>
-				<input class="widefat" type="text" name="<?php echo $this->get_field_name( 'form' ); ?>" value="<?php echo esc_attr($form); ?>">
+				<label>Id da galeria</label>
+				<input class="widefat" type="text" name="<?php echo $this->get_field_name( 'shortcode' ); ?>" value="<?php echo esc_attr($shortcode); ?>">
 			</p>
 			<p>
-				<label>Classes</label>
+				<label class="widget-classes">Classes</label>
+				<spam class="widget-instructions"><br>Para determinar o padrão da imagem use 'thumb-quadrada' ou 'thumb-retangular'</spam>
 				<input class="widefat" type="text" name="<?php echo $this->get_field_name( 'classe' ); ?>" value="<?php echo esc_attr($classe); ?>">
 			</p>
 
@@ -123,5 +126,5 @@ class EOL_Videos_Widget extends WP_Widget {
  *
  */
 add_action( 'widgets_init', function(){
-	register_widget( 'EOL_Videos_Widget' );
+	register_widget( 'EOL_Galeria_Widget' );
 } );

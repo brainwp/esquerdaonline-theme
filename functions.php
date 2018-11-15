@@ -424,6 +424,9 @@ require_once get_template_directory() . '/inc/fields.php';
  	include $filename;
  }
 
+ // galeria brasa slider
+ include get_template_directory() . '/inc/galeria/brasa-slider.php';
+
 /**
  * Load custom taxonomies
  */

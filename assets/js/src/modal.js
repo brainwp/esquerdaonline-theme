@@ -3,10 +3,10 @@ jQuery(document).ready(function($) {
 
 	$( '.modal-item-open' ).click(function(e) {
 		e.preventDefault();
+		console.log( 'ahoyw');
 		$( '.lds-ellipsis' ).fadeIn();
-		$( '#modal' ).fadeIn();
 		var type = $(this).attr('data-type');
-		// console.log(type);
+		console.log(type);
 		switch(type) {
 			case 'video':
 			function youtube_parser(url){
@@ -17,7 +17,7 @@ jQuery(document).ready(function($) {
 					//valid
 					video_id = match[7];
 					return video_id;
-				}else{
+				} else {
 					//invalid
 					return false;
 				}
@@ -68,10 +68,14 @@ jQuery(document).ready(function($) {
 					}
 				}, 2000)
 			}
-			$('#modal-content').append('<div id="close-modal"><a href="#"><i class="fa fa-times" aria-hidden="true"></i></a></div>')
+			$('#modal-content').append('<div id="close-modal"><a href="#"><i class="fa fa-times" aria-hidden="true"></i></a></div>');
 
 
-
+			break;
+			case 'image':
+				$( '#modal' ).addClass( 'data-image' );
+				$( '#modal-content' ).append( '<img src="'+ $(this).attr( 'data-src') +'">');
+				$('#modal-content').append('<div id="close-modal"><a href="#"><i class="fa fa-times" aria-hidden="true"></i></a></div>');
 			break;
 			//
 			//     case image:
@@ -82,10 +86,12 @@ jQuery(document).ready(function($) {
 
 
 		}
+		$( '#modal' ).fadeIn();
 
 		$(document).keyup(function(e) {
 			if (e.keyCode === 27) $( '#modal' ).fadeOut('fast', function() {
 				$('#modal-content').html(" ");
+				$( '#modal' ).removeClass( 'data-image' );
 			});   // esc
 		});
 		// We can also pass the url value separately from ajaxurl for front end AJAX implementations
@@ -93,7 +99,11 @@ jQuery(document).ready(function($) {
 			e.preventDefault();
 			$( '#modal' ).fadeOut('fast', function() {
 				$('#modal-content').html(" ");
+				$( '#modal' ).removeClass( 'data-image' );
 			});
+		});
+		$( "#modal" ).on( 'click', function( e ) {
+			$( '#modal-content #close-modal a' ).trigger( 'click' );
 		});
 	});
 });

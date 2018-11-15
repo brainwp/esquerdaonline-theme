@@ -52,9 +52,6 @@
 #brasa_slider_search{
 	padding:10px;
 }
-#edit-slug-box{
-	display:none;
-}
 .brasa_slider_item:hover{
 	transition:200ms all ease;
 	border:1px solid #7ACEF4;

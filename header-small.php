@@ -21,6 +21,9 @@
 </head>
 
 <body <?php body_class(); ?>>
+	<div id="modal" class="modal">
+		<div id="modal-content"></div>
+	</div>
 	<a id="skippy" class="sr-only sr-only-focusable" href="#content">
 		<div class="container">
 			<span class="skiplink-text"><?php _e( 'Skip to content', 'odin' ); ?></span>
