@@ -65,7 +65,7 @@ class EOL_Posts_Widget extends WP_Widget {
 	 *                        'before_widget', and 'after_widget'.
 	 * @param array $instance Settings for the current Text widget instance.
 	 */
-	public function widget( $args, $instance ) {
+	public function widget( $widget_args, $instance ) {
 
 		/** This filter is documented in wp-includes/widgets/class-wp-widget-pages.php */
 		// $title = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
@@ -102,18 +102,20 @@ class EOL_Posts_Widget extends WP_Widget {
 			if ( ! empty( $title ) ) {
 				if ( isset( $instance[ 'readmore'] ) && ! empty( $instance[ 'readmore'] ) ) {
 					printf( '<a href="%s">', $instance[ 'readmore'] );
-					echo $args['before_title'] . $title . $args['after_title'];
+					echo $widget_args['before_title'] . $title . $widget_args['after_title'];
 					echo '</a>';
 				} else {
-					echo $args['before_title'] . $title . $args['after_title'];
+					echo $widget_args['before_title'] . $title . $widget_args['after_title'];
 				}
 			}
 			// coloca o widget atual numa variavel global para
 			$GLOBALS[ 'current_widget' ] = $instance;
+			echo '<div class="background">';
 			while( $query->have_posts() ) {
 				$query->the_post();
 				get_template_part( 'content/post' );
 			}
+			echo '</div>';
 			$widget_classes_global = explode( ' ', $instance[ 'classes_widget' ] );
 			if ( in_array( 'leia-mais', $widget_classes_global ) ) {
 				if ( isset( $instance[ 'readmore'] ) && ! empty( $instance[ 'readmore'] ) ) {

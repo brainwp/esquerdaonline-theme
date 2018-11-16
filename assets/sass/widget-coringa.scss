@@ -337,9 +337,15 @@
 			}
 		}
 		&.especial{
-			background: #af93932e;
-	    padding: 10px 15px!important;
-	    margin-top: -10px;
+			.widget-title {
+				padding-left: 0 !important;
+			}
+			.background {
+				display: inline-block;
+				background: #af93932e;
+	    		padding: 10px 15px!important;
+	    		margin-top: -10px;
+			}
 			.each-post-widget{
 				&:hover {
 					figure {
