@@ -34,17 +34,17 @@ class EOL_Videos_Widget extends WP_Widget {
 		?>
 		<div class="widget-videos-container <?php echo $classes ?> widget-container">
 		<?php
-		echo $args['before_widget'];
+		//echo $args['before_widget'];
 		$form =  (isset($instance[ 'form']) ? $instance[ 'form'] :"");
 		$title = apply_filters( 'widget_title', $instance[ 'title' ] );
 		if ( ! $title ) {
 			$title = '';
 		}
 		echo do_shortcode( '[eol_videos tag="'.$form.'" title="'.$title.'"]' );
-		echo $args['after_widget'];
+		//echo $args['after_widget'];
 		?>
 		<div class="text-right col-md-12">
-			<a href="<?php echo get_post_type_archive_link('videos');?>" class="colunistas-link">
+			<a href="<?php echo get_post_type_archive_link('videos');?>" class="video-link colunistas-link">
 				<i class="fas fa-angle-right"></i>
 				Todos os vídeos
 			</a>

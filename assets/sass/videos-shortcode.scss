@@ -27,6 +27,9 @@ h2.video{
     &:nth-of-type(1){
       width: 58%;
       padding-left:0;
+      @media screen and ( max-width: 600px ) {
+      	width:100%;
+      }
       img{
         width: 100%;
       }
@@ -66,7 +69,11 @@ h2.video{
 			font-size: 25px;
 			font-weight: 700;
 			line-height: 34px;
-			letter-spacing: 0px
+			letter-spacing: 0px;
+			@media screen and ( max-width: 600px ) {
+				font-size:19px;
+				line-height: 24px;
+			}
 		}
 		.data-video-destaque, .autor-video-destaque{
 			margin-left: 5px;
@@ -120,7 +127,8 @@ h2.video{
 			font-size: 20px;
 			font-weight: 400;
 			line-height: 23px;
-			letter-spacing: 0px
+			letter-spacing: 0px;
+			color: $white_main;
 		}
 		.data-video-destaque, .autor-video-destaque{
 			margin-right: 5px;

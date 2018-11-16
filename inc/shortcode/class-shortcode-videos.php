@@ -26,7 +26,8 @@
 		 */
 		public function shortcode( $atts ) {
 			if ( isset( $atts[ 'title'] ) && ! empty( $atts[ 'title'] ) ) {
-				$html ="<h2 class='video widgettitle widget-title'>{$atts['title']}</h2>";
+				$html = "<h2 class='video widgettitle widget-title'>{$atts['title']}</h2>";
+				$html = sprintf( '<a href="%s">%s</a>', get_post_type_archive_link( 'videos'), $html );
 			} else {
 				$html = '';
 			}
@@ -91,7 +92,6 @@
 					}
 					wp_reset_postdata();
 					$html .= '
-						</div><!--col-md-6 video-menores-->
 					</div><!--class="videos"-->';
 				}
 				?>
