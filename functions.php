@@ -344,7 +344,7 @@ add_action( 'admin_enqueue_scripts', 'odin_admin_enqueue_scripts', 1 );
  * @return string      New URI.
  */
 function odin_stylesheet_uri( $uri, $dir ) {
-	return $dir . '/assets/css/style.css';
+	return $dir . '/assets/css/style.min.css';
 }
 
 add_filter( 'stylesheet_uri', 'odin_stylesheet_uri', 10, 2 );

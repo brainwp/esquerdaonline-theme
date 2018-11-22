@@ -75,7 +75,7 @@ module.exports = function( grunt ) {
 					style: 'compressed'
 				},
 				files: {
-					'<%= dirs.css %>/style.css': '<%= dirs.sass %>/style.scss',
+					'<%= dirs.css %>/style.min.css': '<%= dirs.sass %>/style.scss',
 					'<%= dirs.css %>/style-admin.css': '<%= dirs.sass %>/admin/style.scss'
 				}
 			}
