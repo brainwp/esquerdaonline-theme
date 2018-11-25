@@ -59,6 +59,9 @@
 						$link = get_post_meta( get_the_ID(), 'link', true );
 						$autor = get_post_meta( get_the_ID(), 'the_author', true );
 						$data = get_post_meta( get_the_ID(), 'data', true );
+						if ( ! $data || empty( $data ) ) {
+							$data = get_the_date( 'd/m/Y' );
+						}
 						$thumb = get_the_post_thumbnail( get_the_ID() , 'retangular-p' );
 						$html .='
 

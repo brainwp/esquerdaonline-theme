@@ -32,6 +32,7 @@ h2.video{
       }
       img{
         width: 100%;
+        padding-bottom:7px;
       }
 
       a.play-btn{
@@ -96,6 +97,16 @@ h2.video{
           width:100%;
         }
       }
+      @media screen and ( max-width: 700px ) {
+      	display:flex;
+      	width:100%;
+      	clear:both;
+      	padding-top:15px;
+
+      	figure {
+      		width:45%;
+      	}
+      }
 
       a.play-btn{
         i{
@@ -119,6 +130,10 @@ h2.video{
         line-height: 20px;
         font-size: 17px;
 		color:$white_main;
+		@media screen and ( max-width: 700px ) {
+			width:54%;
+			float:right;
+		}
 		a{
 			color:$white_main;
 		}
