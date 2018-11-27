@@ -24,6 +24,10 @@
 <body <?php body_class(); ?>>
 	<div id="modal" class="modal">
 		<div id="modal-content"></div>
+		<div class="modal-share" style="display:none;">
+			<span><?php _e( 'Compartilhe!', 'eol' );?></span>
+			<?php eol_share_overlay();?>
+		</div><!-- .modal-share -->
 	</div>
 	<div id="fb-root"></div>
 	<a id="skippy" class="sr-only sr-only-focusable" href="#content">

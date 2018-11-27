@@ -129,4 +129,41 @@ jQuery(document).ready(function($) {
 		}
 
 	});
+	/**
+	 *
+	 * Share posts on modal
+	 *
+	*/
+	$( document ).on( 'click', '.modal-share i', function( e ){
+		e.preventDefault();
+		var url = $( '#modal-content' ).find( '.modal-share' ).attr( 'data-url' );
+		console.log( 'url' );
+		if ( $( this ).hasClass( 'fa-facebook-f' ) ) {
+			eol_fb_share( url );
+			return;
+		}
+		if ( $( this ).hasClass( 'fa-twitter' ) ) {
+			eol_twitter_share( url );
+			return;
+		}
+		if ( $( this ).hasClass( 'fa-google-plus' ) ) {
+			eol_gplus_share( url );
+			return;
+		}
+		if ( $( this ).hasClass( 'fa-whatsapp' ) ) {
+			eol_whatsapp_share( url );
+			return;
+		}
+		if ( $( this ).hasClass( 'fa-telegram' ) ) {
+			eol_telegram_share( url );
+			return;
+		}
+
+		if ( $( this ).hasClass( 'fa-print' ) ) {
+			eol_print_share();
+			return;
+		}
+
+	});
+
 });

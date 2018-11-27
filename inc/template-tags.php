@@ -191,7 +191,7 @@ function eol_share_overlay() {
 			<i class="fab fa-twitter"></i>
 		</a>
 	</div>
-	<div class="icon-itself hidden-md hidden-lg">
+	<div class="icon-itself">
 		<a href="#">
 			<i class="fab fa-whatsapp"></i>
 		</a>

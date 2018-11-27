@@ -69,8 +69,11 @@ jQuery(document).ready(function($) {
 				}, 2000)
 			}
 			$('#modal-content').append('<div id="close-modal"><a href="#"><i class="fa fa-times" aria-hidden="true"></i></a></div>');
-
-
+			console.log( $( '#modal-content .modal-share' ).html() );
+			$( '#modal .modal-share' ).clone().appendTo( '#modal-content' );
+			var $modal_share = $( '#modal-content' ).find( '.modal-share' );
+			$modal_share.attr( 'style', '' );
+			$modal_share.attr( 'data-url', $( this ).attr( 'data-url') );
 			break;
 			case 'image':
 				$( '#modal' ).addClass( 'data-image' );
@@ -101,9 +104,6 @@ jQuery(document).ready(function($) {
 				$('#modal-content').html(" ");
 				$( '#modal' ).removeClass( 'data-image' );
 			});
-		});
-		$( "#modal" ).on( 'click', function( e ) {
-			$( '#modal-content #close-modal a' ).trigger( 'click' );
 		});
 	});
 });
