@@ -23,7 +23,7 @@
 <body <?php body_class(); ?>>
 	<div id="modal" class="modal">
 		<div id="modal-content"></div>
-		<div class="modal-share" style="display:none;">
+		<div class="modal-share" style="display:none;opacity:0;">
 			<span><?php _e( 'Compartilhe!', 'eol' );?></span>
 			<?php eol_share_overlay();?>
 		</div><!-- .modal-share -->

@@ -4,6 +4,7 @@ jQuery(document).ready(function($) {
 	$( '.modal-item-open' ).click(function(e) {
 		e.preventDefault();
 		console.log( 'ahoyw');
+		$link_elem = $( this );
 		$( '.lds-ellipsis' ).fadeIn();
 		var type = $(this).attr('data-type');
 		console.log(type);
@@ -69,12 +70,21 @@ jQuery(document).ready(function($) {
 				}, 2000)
 			}
 			$('#modal-content').append('<div id="close-modal"><a href="#"><i class="fa fa-times" aria-hidden="true"></i></a></div>');
-			console.log( $( '#modal-content .modal-share' ).html() );
-			$( '#modal .modal-share' ).clone().appendTo( '#modal-content' );
-			var $modal_share = $( '#modal-content' ).find( '.modal-share' );
-			$modal_share.attr( 'style', '' );
-			$modal_share.attr( 'data-url', $( this ).attr( 'data-url') );
-			break;
+			setTimeout( function(){
+				$( '#modal .modal-share' ).clone().appendTo( '#modal-content' );
+				var $modal_share = $( '#modal-content' ).find( '.modal-share' );
+				$modal_share.attr( 'style', '' );
+				$modal_share.attr( 'data-url', $link_elem.attr( 'data-url') );
+				if ( $link_elem.attr( 'data-download') ) {
+					$( '#modal-content' ).append( '<div style="width:100%;clear:both;"></div>');
+					console.log( 'tem download?');
+					$( '#modal .modal-download' ).clone().appendTo( '#modal-content' );
+					var $modal_download = $( '#modal-content' ).find( '.modal-download' );
+					$modal_download.attr( 'style', '' );
+					$modal_download.find( 'a' ).attr( 'href', $link_elem.attr( 'data-download') );
+				}
+			}, 3400 );
+ 			break;
 			case 'image':
 				$( '#modal' ).addClass( 'data-image' );
 				$( '#modal-content' ).append( '<img src="'+ $(this).attr( 'data-src') +'">');

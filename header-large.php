@@ -24,9 +24,15 @@
 <body <?php body_class(); ?>>
 	<div id="modal" class="modal">
 		<div id="modal-content"></div>
-		<div class="modal-share" style="display:none;">
+		<div class="modal-share" style="display:none;opacity:0;">
 			<span><?php _e( 'Compartilhe!', 'eol' );?></span>
 			<?php eol_share_overlay();?>
+		</div><!-- .modal-share -->
+		<div class="modal-download" style="display:none;opacity:0;">
+			<a href="#">
+				<span><?php _e( 'Baixa e espalhe!', 'eol' );?></span>
+				<i class="fa fa-download" aria-hidden="true"></i>
+			</a>
 		</div><!-- .modal-share -->
 	</div>
 	<div id="fb-root"></div>

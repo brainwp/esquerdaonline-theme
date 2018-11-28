@@ -63,17 +63,18 @@
 							$data = get_the_date( 'd/m/Y' );
 						}
 						$permalink = get_permalink( get_the_ID() );
+						$download = get_post_meta( get_the_ID(), 'download_url', true );
 						$thumb = get_the_post_thumbnail( get_the_ID() , 'retangular-p' );
 						$html .='
 
 							<div class="video-item  col-md-5">
 								<figure>'.$thumb.'
-								<a href="#" data-url="'.$permalink.'" data-title="'.$titulo.'" data-subtitle="'.$chamada.'" data-author="'.$autor.'" data-date="'.$data.'" class="play-btn modal-item-open video-open " data-src="'.$link.'" data-type="video">
+								<a href="#" data-download="'.$download.'" data-url="'.$permalink.'" data-title="'.$titulo.'" data-subtitle="'.$chamada.'" data-author="'.$autor.'" data-date="'.$data.'" class="play-btn modal-item-open video-open " data-src="'.$link.'" data-type="video">
 									<i class="fas fa-play"></i>
 								</a>
 								</figure>
 								<div class="video-widget-text">
-									<a href="#" data-url="'.$permalink.'" data-title="'.$titulo.'" data-subtitle="'.$chamada.'" data-author="'.$autor.'" data-date="'.$data.'" class="modal-item-open video-open " data-src="'.$link.'" data-type="video">
+									<a href="#" data-download="'.$download.'" data-url="'.$permalink.'" data-title="'.$titulo.'" data-subtitle="'.$chamada.'" data-author="'.$autor.'" data-date="'.$data.'" class="modal-item-open video-open " data-src="'.$link.'" data-type="video">
 									<div class=" video-text-overlay">
 										<div class=" video-text">
 											<div class="titulo-video-destaque">
