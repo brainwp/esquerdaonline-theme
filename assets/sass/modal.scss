@@ -20,7 +20,7 @@
   #modal-content{
     background: black;
     position: relative;
-    top: 45%;
+    top: 44%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -130,6 +130,14 @@
     opacity: 1;
     transition:400ms ease all;
     margin-top:10px;
+    &.noparent {
+    	position: absolute;
+    	bottom: -48px;
+    	left:0;
+    	right:0;
+    	margin:0 auto;
+    	width: 230px;
+    }
 
     span {
     	opacity: 0.9;

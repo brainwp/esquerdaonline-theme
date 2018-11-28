@@ -27,6 +27,13 @@
 			<span><?php _e( 'Compartilhe!', 'eol' );?></span>
 			<?php eol_share_overlay();?>
 		</div><!-- .modal-share -->
+		<div class="modal-download" style="display:none;opacity:0;">
+			<a href="#">
+				<span><?php _e( 'Baixe e espalhe!', 'eol' );?></span>
+				<i class="fa fa-download" aria-hidden="true"></i>
+			</a>
+		</div><!-- .modal-share -->
+
 	</div>
 	<a id="skippy" class="sr-only sr-only-focusable" href="#content">
 		<div class="container">

@@ -30,7 +30,7 @@
 		</div><!-- .modal-share -->
 		<div class="modal-download" style="display:none;opacity:0;">
 			<a href="#">
-				<span><?php _e( 'Baixa e espalhe!', 'eol' );?></span>
+				<span><?php _e( 'Baixe e espalhe!', 'eol' );?></span>
 				<i class="fa fa-download" aria-hidden="true"></i>
 			</a>
 		</div><!-- .modal-share -->

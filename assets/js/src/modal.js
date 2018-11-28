@@ -71,6 +71,8 @@ jQuery(document).ready(function($) {
 			}
 			$('#modal-content').append('<div id="close-modal"><a href="#"><i class="fa fa-times" aria-hidden="true"></i></a></div>');
 			setTimeout( function(){
+				$( '#modal-content' ).append( '<div style="width:100%;clear:both;"></div>');
+
 				$( '#modal .modal-share' ).clone().appendTo( '#modal-content' );
 				var $modal_share = $( '#modal-content' ).find( '.modal-share' );
 				$modal_share.attr( 'style', '' );
@@ -82,6 +84,8 @@ jQuery(document).ready(function($) {
 					var $modal_download = $( '#modal-content' ).find( '.modal-download' );
 					$modal_download.attr( 'style', '' );
 					$modal_download.find( 'a' ).attr( 'href', $link_elem.attr( 'data-download') );
+				} else {
+					$modal_share.addClass( 'noparent' );
 				}
 			}, 3400 );
  			break;
