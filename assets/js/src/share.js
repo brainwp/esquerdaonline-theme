@@ -35,7 +35,13 @@ jQuery(document).ready(function($) {
 	 *
 	*/
 	var eol_whatsapp_share = function( url ) {
-		window.open( 'whatsapp://send?text=' + url );
+		if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+			window.open( 'whatsapp://send?text=' + url );
+			console.log( 'deu mobile?');
+		} else {
+			console.log( 'deu desktop?')
+			window.open( 'https://web.whatsapp.com/send?text=' + url );
+		}
 	}
 
 	/**
