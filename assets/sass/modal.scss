@@ -138,6 +138,9 @@
     	margin:0 auto;
     	width: 230px;
     }
+    @media screen and ( max-width: 720px ) {
+    	margin-top:35%;
+    }
 
     span {
     	opacity: 0.9;
