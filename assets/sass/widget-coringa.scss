@@ -602,8 +602,10 @@
 		}
 	}
 }
-.widget-eol-posts.widget-container article.foto-pequena {
-	figure .icon-itself {
-		padding:1px;
+@media screen and ( min-width: 991px ) {
+	.widget-eol-posts.widget-container article.foto-pequena {
+		figure .icon-itself {
+			padding:1px;
+		}
 	}
 }
