@@ -100,7 +100,10 @@
 			if ( ! is_array( $posts ) && empty( $posts ) ) {
 				return '';
 			}
-			$html = '<div class="eol_related_articles">';
+			$html = '<div class="col-md-12 eol-related-articles-title">';
+			$html .= '<h4 class="area-title">' . __( 'Mais sobre esse <span>assunto</span>', 'eol' ) . '&nbsp;&gt;</h4>';
+			$html .= '</div>';
+			$html .= '<div class="col-md-12 eol_related_articles">';
 			foreach ( $posts as $related_id ) {
 				$html .= '<a class="each-related-article" href="' . get_permalink( $related_id ) . '">';
 				$html .= '<i class="fas fa-angle-right"></i>'.get_the_title( $related_id );
