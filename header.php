@@ -86,6 +86,11 @@
 				</div><!-- .social-icons -->
 			</div><!-- .col-md-4 site-logo -->
 
+			<a href="#" class="search-icon-mobile hidden-md hidden-lg" data-open="false">
+			</a>
+			<div class="search-container-mobile col-md-10 text-right" style="display:none;">
+				<?php get_search_form( true );?>
+			</div><!-- .search-container -->
 
 			<?php odin_the_custom_logo(); ?>
 

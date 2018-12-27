@@ -74,11 +74,13 @@
 			<!-- .line-1 -->
 			<div class="col-md-12 menu-line-2">
 				<?php odin_the_custom_logo(); ?>
-				<!-- <div class="hidden-sm-up">
-					<a href="#" class="search-icon" data-open="false">
-					</a>
-				</div> -->
 			</div>
+			<a href="#" class="search-icon-mobile hidden-md hidden-lg" data-open="false">
+			</a>
+			<div class="search-container-mobile col-md-10 text-right" style="display:none;">
+				<?php get_search_form( true );?>
+			</div><!-- .search-container -->
+
 			<!-- .line-2 -->
 			<div class="col-sm-12 menu-line-3 ">
 

@@ -1,4 +1,7 @@
 header#header {
+	.search-icon-mobile {
+		display: none;
+	}
 	.fechar-menu{
 		display: none;
 	}
@@ -338,6 +341,29 @@ nav#menu-institucional .navbar-nav li:first-child a {
 		.search-icon{
 			display: none;
 		}
+		.search-icon-mobile {
+			background-image: url('../images/search.png');
+			width: 28px;
+			height: 28px;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+			display: inline-block;
+			position: absolute;
+			right: 10px;
+			top: 13px;
+			z-index: 10;
+		}
+		.search-container-mobile {
+			position: absolute;
+			width: 101vw;
+			left: 0;
+			top:55px;
+			z-index: 10;
+			margin: 0;
+			padding: 0;
+		}
+
 		ul{
 			width: 100%;
 			li{
