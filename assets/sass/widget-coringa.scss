@@ -293,6 +293,22 @@
 					letter-spacing: -0.2px;
 				}
 			}
+			&.titulolistapequeno{
+				margin-bottom: 5px;
+				.tax-widget-data {
+					margin-left: 0;
+				}
+				.tax-widget-titulo {
+					margin-bottom:0;
+					margin-top: 0;
+				}
+				.tax-widget-titulo a{
+					font-family: heebo;
+					font-size: 16px;
+					letter-spacing:initial;
+				}
+			}
+
 			&.titulolistapeso{
 				.tax-widget-titulo a{
 					font-family: heebo;
