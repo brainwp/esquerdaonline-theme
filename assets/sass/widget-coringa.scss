@@ -390,7 +390,15 @@
 				}
 			}
 		}
-
+		&.alinhar-imagens {
+			.background {
+				display: flex;
+				justify-content: center;
+				justify-items: center;
+				align-content: center;
+				align-items: center;
+			}
+		}
 		&.editorial{
 			.widget-title{
 				margin:0 1vw;
