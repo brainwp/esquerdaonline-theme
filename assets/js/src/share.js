@@ -171,5 +171,16 @@ jQuery(document).ready(function($) {
 		}
 
 	});
-
+	var link_copy = new ClipboardJS( '.icon-itself .fa-link', {
+		trigger: function( trigger ) {
+			console.log( 'qqq' );
+			return this;
+		},
+    	text: function(trigger) {
+        	return $( trigger  ).attr( 'data-href' );
+    	},
+	});
+	link_copy.on('success', function(e) {
+		alert( $( e.trigger ).attr( 'data-text-success') );
+	});
 });

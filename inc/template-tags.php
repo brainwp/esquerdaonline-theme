@@ -180,6 +180,12 @@ function eol_widget_thumbnail($size,$id) {
 
 }
 function eol_share_overlay() {
+	$link = '';
+	if ( get_the_permalink( get_the_ID() ) ) {
+		$link = get_the_permalink( get_the_ID() );
+	}
+	$link_text = esc_attr( __( 'Copiar link', 'eol' ) );
+	$text_copy_success = esc_attr( __( 'Link copiado com sucesso!', 'eol' ) );
 	echo '
 	<div class="icon-itself">
 		<a href="#">
@@ -201,6 +207,12 @@ function eol_share_overlay() {
 			<i class="fab fa-telegram"></i>
 		</a>
 	</div>
+	<div class="icon-itself">
+		<a href="#" title="'.$link_text.'">
+			<i class="fas fa-link" data-href="'.$link.'" data-text-success="'.$text_copy_success.'"></i>
+		</a>
+	</div>
+
 	';
 }
 function eol_socials(){
