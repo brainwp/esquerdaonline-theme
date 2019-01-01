@@ -20,7 +20,7 @@
 				<i class="fab fa-telegram"></i>
 			</a>
 		</div>
-		<div class="icon-itself hidden-md hidden-lg">
+		<div class="icon-itself">
 			<a href="#">
 				<i class="fab fa-whatsapp"></i>
 			</a>
