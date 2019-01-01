@@ -24,38 +24,7 @@
 			</div><!-- .col-md-12 text-center -->
 			<div class=" text-center">
 				<div class=" social-icons-post">
-					<div class="icon-itself">
-						<a href="#">
-							<i class="fab fa-facebook-f"></i>
-						</a>
-					</div>
-					<div class="icon-itself">
-						<a href="#">
-							<i class="fab fa-twitter"></i>
-						</a>
-					</div>
-					<div class="icon-itself">
-						<a href="#">
-							<i class="fab fa-telegram"></i>
-						</a>
-					</div>
-					<div class="icon-itself hidden-md hidden-lg">
-						<a href="#">
-							<i class="fab fa-whatsapp"></i>
-						</a>
-					</div>
-
-					<div class="icon-itself">
-						<a href="#">
-							<i class="fab fa-google-plus"></i>
-						</a>
-					</div>
-					<div class="icon-itself">
-						<a href="#">
-							<i class="fas fa-print"></i>
-						</a>
-					</div>
-
+					<?php get_template_part( '/parts/share-buttons' );?>
 				</div><!-- .col-md-6 social-icons-post -->
 				<div class=" center-container text-center entry-meta">
 					<?php odin_posted_on(); ?>

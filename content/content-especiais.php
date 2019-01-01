@@ -42,32 +42,7 @@
 				</div><!-- .col-md-9 center-container -->
 			</div><!-- .col-md-6 text-center -->
 			<div class="col-md-6 social-icons-post text-left">
-				<div class="icon-itself">
-					<a href="#">
-						<i class="fab fa-facebook-f"></i>
-					</a>
-				</div>
-				<div class="icon-itself">
-					<a href="#">
-						<i class="fab fa-twitter"></i>
-					</a>
-				</div>
-				<div class="icon-itself">
-					<a href="#">
-						<i class="fab fa-google-plus"></i>
-					</a>
-				</div>
-				<div class="icon-itself">
-					<a href="#">
-						<i class="fab fa-instagram"></i>
-					</a>
-				</div>
-				<div class="icon-itself">
-					<a href="#">
-						<i class="fas fa-print"></i>
-					</a>
-				</div>
-
+				<?php get_template_part( '/parts/share-buttons' );?>
 			</div><!-- .col-md-6 social-icons-post -->
 		</div><!-- .col-md-10 center-container -->
 	</header><!-- .entry-header -->
