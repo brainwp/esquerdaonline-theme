@@ -209,6 +209,18 @@ function odin_widgets_init() {
 	);
 	register_sidebar(
 		array(
+			'name' => __( 'Vídeos Sidebar', 'odin' ),
+			'id' => 'videos-sidebar',
+			'description' => __( 'Vídeos Sidebar', 'odin' ),
+			'before_widget' => '',
+			'after_widget' => '',
+			'before_title' => '<h3 class="widgettitle widget-title">',
+			'after_title' => '</h3>',
+		)
+	);
+
+	register_sidebar(
+		array(
 			'name' => __( 'Home', 'odin' ),
 			'id' => 'home-widgets',
 			'description' => __( 'Home', 'odin' ),

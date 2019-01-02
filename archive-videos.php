@@ -60,7 +60,7 @@ get_header('large'); ?>
 	</main><!-- #main -->
 	<aside id="sidebar" class="<?php echo odin_classes_page_sidebar_aside(); ?>" role="complementary">
 		<?php
-		dynamic_sidebar( '' )
+		dynamic_sidebar( 'videos-sidebar' )
 		?>
 	</aside><!-- #sidebar -->
 
