@@ -20,6 +20,7 @@ jQuery(document).ready(function($) {
 	$( '#menu-open, .fechar-menu' ).click(function(e) {
 		e.preventDefault();
 		  $( '#header .container' ).toggleClass( 'open' );
+		  $( '#header' ).toggleClass( 'open' );
 
 	});
 

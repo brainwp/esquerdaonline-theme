@@ -27,10 +27,7 @@ if ( is_array( $response ) ) {
 			}
 			$search_post = get_page_by_title( $post->title, OBJECT, 'post' );
 			$have_post = false;
-			if ( $search_post && ! is_wp_error( $search_post ) ) {
-				$have_post = true;
-				break;
-			}
+
 			$tags = array();
 			if ( isset( $post->pure_taxonomies->tags ) && ! empty( $post->pure_taxonomies->tags ) ) {
 				foreach ( $post->pure_taxonomies->tags as $tag ) {
