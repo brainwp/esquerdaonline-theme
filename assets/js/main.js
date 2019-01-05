@@ -19,9 +19,22 @@ jQuery(document).ready(function($) {
 	$( '.odin-tooltip' ).tooltip();
 	$( '#menu-open, .fechar-menu' ).click(function(e) {
 		e.preventDefault();
-		  $( '#header .container' ).toggleClass( 'open' );
-		  $( '#header' ).toggleClass( 'open' );
-
+		if ( ! $( '#header' ).hasClass( 'open' ) ) {
+			$( '#header .container .menu-line-1 nav' ).css( 'display', 'block' );
+			$( '#header .container .menu-line-1 .social-icons' ).css( 'display', 'block' );
+			$( '#header .container .menu-line-3 nav' ).css( 'display', 'block' );
+			
+			$( '#header .container' ).addClass( 'open' );
+			$( '#header' ).addClass( 'open' );
+		} else {
+			$( '#header .container' ).removeClass( 'open' );
+			$( '#header' ).removeClass( 'open' );
+			setTimeout( function(){
+				$( '#header .container .menu-line-1 nav' ).css( 'display', 'none');
+				$( '#header .container .menu-line-1 .social-icons' ).css( 'display', 'none');
+				$( '#header .container .menu-line-3 nav' ).css( 'display', 'none' );
+			}, 1000 );
+		}
 	});
 
 
