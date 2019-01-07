@@ -30,6 +30,10 @@ aside#sidebar-colunistas {
 }
 aside#sidebar, aside#sidebar-colunistas {
 	overflow: hidden;
+	@media screen and (max-width: 991px ){
+    	padding-left: 15px !important;
+    	padding-right: 15px;
+    }
 	.widget-eol-posts {
 		clear:both;
 	}
