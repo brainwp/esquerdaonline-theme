@@ -725,7 +725,7 @@ function archive_especiais($query) {
 		$tax_query = array(
 			'taxonomy' => 'tipo',
 			'field' => 'slug',
-			'terms' => array('dossie'),
+			'terms' => array('dossies'),
 						'operator'=> 'IN'
 		);
 		$query->tax_query->queries[] = $tax_query;

@@ -43,7 +43,7 @@ get_header('large'); ?>
 								$colunistas_array[get_the_title()] = get_the_permalink();
 							endwhile;
 							// Page navigation.
-							$term = get_term_by( 'name', 'dossie', 'tipo', $output = OBJECT, $filter = 'raw' );
+							$term = get_term_by( 'slug', 'dossies', 'tipo', $output = OBJECT, $filter = 'raw' );
 							$link = get_term_link( $term, $taxonomy = 'tipo')
 
 							?>
@@ -52,6 +52,7 @@ get_header('large'); ?>
 						else :
 							// If no content, include the "No posts found" template.
 							get_template_part( 'content', 'none' );
+							echo 'qqqq';
 
 						endif;
 					?>
@@ -87,7 +88,7 @@ get_header('large'); ?>
 
 		<?php endwhile; ?>
 		<?php wp_reset_postdata(); // reset the query
-		$term_cobertura = get_term_by( 'name', 'cobertura', 'tipo', $output = OBJECT, $filter = 'raw' );
+		$term_cobertura = get_term_by( 'slug', 'cobertura', 'tipo', $output = OBJECT, $filter = 'raw' );
 		$link = get_term_link( $term_cobertura, $taxonomy = 'tipo')
 		?>
 		<a class="especiais-link" href="<?php echo $link; ?>">Veja Mais</a>
