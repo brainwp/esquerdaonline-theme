@@ -50,8 +50,8 @@ function odin_pagination( $mid = 2, $end = 1, $show = false, $query = null ) {
 					'end_size'  => $end,
 					'mid_size'  => $mid,
 					'type'      => 'list',
-					'prev_text' => __( '&laquo; Previous', 'odin' ),
-					'next_text' => __( 'Next &raquo;', 'odin' ),
+					'prev_text' => __( '&laquo; Anterior', 'eol' ),
+					'next_text' => __( 'Próximo &raquo;', 'eol' ),
 				)
 			);
 
@@ -108,8 +108,8 @@ function odin_pagination_custom( $mid = 2, $end = 1, $show = false, $query = nul
 					'end_size'  => $end,
 					'mid_size'  => $mid,
 					'type'      => 'list',
-					'prev_text' => __( '&laquo; Previous', 'odin' ),
-					'next_text' => __( 'Next &raquo;', 'odin' ),
+					'prev_text' => __( '&laquo; Anterior', 'odin' ),
+					'next_text' => __( 'Próximo &raquo;', 'odin' ),
 				)
 			);
 
