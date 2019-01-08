@@ -19,6 +19,7 @@
      <?php
      while ( have_posts() ) : the_post();
      ?>
+     <?php if ( has_post_thumbnail() ) : ?>
      <div id="header-especiais" class="">
         <figure class=" post-thumbnail">
           <?php eol_single_thumbnail('full', get_the_ID());?>
@@ -35,6 +36,7 @@
           </div><!-- sub-title -->
         </div>
       </div><!--  id="header-especiais" -->
+      <?php endif;?>
       <section id="widgets-especiais">
         <?php	dynamic_sidebar( eol_get_widget_object_id() ); ?>
       </section>

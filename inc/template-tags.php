@@ -255,6 +255,7 @@ function eol_header_especiais(){
 		$term = wp_get_post_terms( get_the_ID(), 'especiais' );
 		$especial = get_page_by_title( $term[0]->name, $output = OBJECT, $post_type = 'especiais' );
 	?>
+	<?php if ( has_post_thumbnail( $especial->ID ) ) : ?>
 	<div id="header-especiais" class="">
 		 <figure class=" post-thumbnail">
 			 <a href="<?php echo get_the_permalink( $especial->ID ); ?>">
@@ -276,6 +277,7 @@ function eol_header_especiais(){
 			 </div><!-- sub-title -->
 		 </div>
 	 </div><!--  id="header-especiais" -->
+	<?php endif;?>
 	 <?php
 	 }
 }
