@@ -43,7 +43,7 @@
 	}
 }
 
-.widget-galeria-container{
+.widget-galeria-container, .single-brasa_slider_cpt{
 	.galeria-link {
 		margin-bottom:15px;
 	}
@@ -57,7 +57,7 @@
 	    bottom: 0;
 	    width: 100%;
 	}
-	.widget-content{
+	.widget-content, #main-content{
 		.each-galeria-brasa{
 			.blur{
 				-webkit-filter: blur(5px);

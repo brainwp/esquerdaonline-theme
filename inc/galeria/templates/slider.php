@@ -5,6 +5,25 @@ $cfg = (!empty($atts['json'])) ? $atts['json'] : get_post_meta($slider->ID,'bras
 $ids = esc_textarea( get_post_meta( $slider->ID, 'brasa_slider_ids', true ) );
 $ids = explode(',', $ids);
 $size = (!empty($atts['size'])) ? $atts['size'] : esc_textarea( get_post_meta( $slider->ID, 'brasa_slider_size', true ) );
+global $_wp_additional_image_sizes;
+// echo $size;
+if (!array_key_exists($size, $_wp_additional_image_sizes)) {
+	$full_size = $size.'-g';
+	$small_size = $size.'-p';
+}
+elseif(strpos($size,'retangular' ) !== false ){
+	$full_size = 'retangular-g';
+	$small_size = 'retangular-p';
+
+}
+elseif(strpos($size,'quadrada') !== false ){
+	$full_size = 'quadrada-g';
+	$small_size = 'quadrada-p';
+}
+else{
+	$full_size = $size;
+	$small_size = $size;
+}
 $brasa_slider_id = $slider->ID;
 ?>
 <div class="each-galeria-brasa">
@@ -17,8 +36,8 @@ $brasa_slider_id = $slider->ID;
 		} else {
 			$img = get_post_thumbnail_id($id);
 		}
-		$img_full = wp_get_attachment_image_src( $img, $size.'-g', false );
-		$img = wp_get_attachment_image_src( $img, $size.'-p', false );?>
+		$img_full = wp_get_attachment_image_src( $img, $full_size, false );
+		$img = wp_get_attachment_image_src( $img, $small_size, false );?>
 		<a href="#">
 		    	<img src="<?php echo esc_url( $img_full[0] );?>" class="img_slider modal-item-open" data-src="<?php echo esc_url( $img_full[0] );?>" data-type="image">
 		</a>
@@ -45,8 +64,8 @@ $brasa_slider_id = $slider->ID;
 		} else {
 			$img = get_post_thumbnail_id($id);
 		}
-		$img_full = wp_get_attachment_image_src( $img, $size.'-g', false );
-		$img = wp_get_attachment_image_src( $img, $size.'-p', false );?>
+		$img_full = wp_get_attachment_image_src( $img, $full_size, false );
+		$img = wp_get_attachment_image_src( $img, $small_size, false );?>
 		<div class="slick_slide" data-full="<?php echo $img_full;?>">
 			<a href="#" data-src="<?php echo esc_url( $img_full[0] );?>">
 		    	<img src="<?php echo esc_url( $img[0] );?>" class="modal-item-open" data-src="<?php echo esc_url( $img_full[0] );?>" data-type="image">
