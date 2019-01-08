@@ -39,7 +39,7 @@ $brasa_slider_id = $slider->ID;
 		$img_full = wp_get_attachment_image_src( $img, $full_size, false );
 		$img = wp_get_attachment_image_src( $img, $small_size, false );?>
 		<a href="#">
-		    	<img src="<?php echo esc_url( $img_full[0] );?>" class="img_slider modal-item-open" data-src="<?php echo esc_url( $img_full[0] );?>" data-type="image">
+		    	<img src="<?php echo esc_url( $img_full[0] );?>" class="img_slider modal-item-open" data-src="<?php echo esc_url( $img_full[0] );?>" data-type="image" data-url="<?php echo get_permalink( $brasa_slider_id );?>">
 		</a>
 		<?php unset( $ids[0] );?>
 		<?php break;?>

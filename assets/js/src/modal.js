@@ -93,6 +93,24 @@ jQuery(document).ready(function($) {
 				$( '#modal' ).addClass( 'data-image' );
 				$( '#modal-content' ).append( '<img src="'+ $(this).attr( 'data-src') +'">');
 				$('#modal-content').append('<div id="close-modal"><a href="#"><i class="fa fa-times" aria-hidden="true"></i></a></div>');
+			setTimeout( function(){
+				$( '#modal-content' ).append( '<div style="width:100%;clear:both;"></div>');
+
+				$( '#modal .modal-share' ).clone().appendTo( '#modal-content' );
+				var $modal_share = $( '#modal-content' ).find( '.modal-share' );
+				$modal_share.attr( 'style', '' );
+				$modal_share.attr( 'data-url', $link_elem.attr( 'data-url') );
+				if ( $link_elem.attr( 'data-download') ) {
+					$( '#modal-content' ).append( '<div style="width:100%;clear:both;"></div>');
+					console.log( 'tem download?');
+					$( '#modal .modal-download' ).clone().appendTo( '#modal-content' );
+					var $modal_download = $( '#modal-content' ).find( '.modal-download' );
+					$modal_download.attr( 'style', '' );
+					$modal_download.find( 'a' ).attr( 'href', $link_elem.attr( 'data-download') );
+				}
+				console.log( '..')
+			}, 1000 );
+
 			break;
 			//
 			//     case image:
@@ -119,5 +137,16 @@ jQuery(document).ready(function($) {
 				$( '#modal' ).removeClass( 'data-image' );
 			});
 		});
+		$( '#modal' ).on( 'click', function(e) {
+			if ( $(e.target).closest( '#modal-content' ).length ) {
+				return;
+			}
+			e.preventDefault();
+			$( '#modal' ).fadeOut('fast', function() {
+				$('#modal-content').html(" ");
+				$( '#modal' ).removeClass( 'data-image' );
+			});
+		});
+
 	});
 });
