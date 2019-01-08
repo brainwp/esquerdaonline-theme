@@ -39,7 +39,7 @@ get_header('large'); ?>
 								 * use this in a child theme, then include a file called called content-___.php
 								 * (where ___ is the post format) and that will be used instead.
 								 */
-								 get_template_part( '/content/post-default' );
+								 get_template_part( '/content/post-galeria' );
 
 								// para sidebar:
 								$colunistas_array[get_the_title()] = get_the_permalink();
