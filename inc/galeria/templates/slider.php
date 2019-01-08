@@ -25,13 +25,15 @@ $brasa_slider_id = $slider->ID;
 		<?php unset( $ids[0] );?>
 		<?php break;?>
 	<?php endforeach;?>
-	<div class="overlay-post-link-widget-text">
-		<div class="post-link-widget-text" >
-			<h3 class="tax-widget-titulo">
-				<?php echo $slider->post_title;?>
-			</h3>
+	<?php if (!is_singular('brasa_slider_cpt')): ?>
+		<div class="overlay-post-link-widget-text">
+			<div class="post-link-widget-text" >
+				<h3 class="tax-widget-titulo">
+					<?php echo $slider->post_title;?>
+				</h3>
+			</div>
 		</div>
-	</div>
+	<?php endif; ?>
 </div><!-- .col-md-12 first-slider galeria-eol -->
 
 <div class="navegacao-slider is_slider" id="slider-<?php echo esc_attr( $slider->post_name );?>" data-json="<?php echo esc_attr( $cfg ); ?>">
