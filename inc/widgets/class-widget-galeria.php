@@ -41,28 +41,27 @@ class EOL_Galeria_Widget extends WP_Widget {
 
 		?>
 		<div class="widget-galeria-container <?php echo $classes ?> widget-container">
-		<?php
-		echo $args['before_widget'];
-		$shortcode =  (isset($instance[ 'shortcode']) ? $instance[ 'shortcode'] :"");
-		$title = apply_filters( 'widget_title', $instance[ 'title' ] );
-		if ( ! $title ) {
-			$title = '';
-		}
-		echo $args['before_widget'];
-		if ( $title ) {
-			echo $args['before_title'] . $title . $args['after_title'];
-		}
-		echo do_shortcode( '[brasa_slider id="'.$shortcode.'" size="'.$thumb_array[1].'"]' );
-		?>
-		<div class="text-right col-md-12">
-			<a href="<?php echo get_post_type_archive_link('brasa_slider_cpt');?>" class="video-link colunistas-link galeria-link">
-				<i class="fas fa-angle-right"></i>
-				Todas as Galerias
-			</a>
-		</div><!-- .text-right col-md-12 -->
-		<?php
-		echo $args['after_widget'];
-		?>
+			<?php
+			echo $args['before_widget'];
+			$shortcode =  (isset($instance[ 'shortcode']) ? $instance[ 'shortcode'] :"");
+			$title = apply_filters( 'widget_title', $instance[ 'title' ] );
+			if ( ! $title ) {
+				$title = '';
+			}
+			if ( $title ) {
+				echo $args['before_title'] . $title . $args['after_title'];
+			}
+			echo do_shortcode( '[brasa_slider id="'.$shortcode.'" size="'.$thumb_array[1].'"]' );
+			?>
+			<div class="text-right col-md-12">
+				<a href="<?php echo get_post_type_archive_link('brasa_slider_cpt');?>" class="video-link colunistas-link galeria-link">
+					<i class="fas fa-angle-right"></i>
+					Todas as Galerias
+				</a>
+			</div><!-- .text-right col-md-12 -->
+			<?php
+			echo $args['after_widget'];
+			?>
 		</div>
 		<?php
 	}
