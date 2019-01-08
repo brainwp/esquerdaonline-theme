@@ -48,6 +48,10 @@ class EOL_Galeria_Widget extends WP_Widget {
 		if ( ! $title ) {
 			$title = '';
 		}
+		echo $args['before_widget'];
+		if ( $title ) {
+			echo $args['before_title'] . $title . $args['after_title'];
+		}
 		echo do_shortcode( '[brasa_slider id="'.$shortcode.'" size="'.$thumb_array[1].'"]' );
 		echo $args['after_widget'];
 		?>
