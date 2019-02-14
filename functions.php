@@ -274,6 +274,18 @@ function odin_widgets_init() {
 			'after_title' => '</h3>',
 		)
 	);
+	register_sidebar(
+		array(
+			'name' => __( 'Home - Area de Baixo', 'odin' ),
+			'id' => 'home-widgets-baixo',
+			'description' => __( 'Home - Area de Baixo', 'odin' ),
+			'before_widget' => '',
+			'after_widget' => '',
+			'before_title' => '<h3 class="widgettitle widget-title">',
+			'after_title' => '</h3>',
+		)
+	);
+
 }
 
 add_action( 'widgets_init', 'odin_widgets_init' );

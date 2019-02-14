@@ -340,6 +340,7 @@ nav#menu-institucional .navbar-nav li:first-child a {
 		width: 100%; /* Full width */
 		&.open {
 			//position: relative;
+			max-height: inherit !important;
 		}
 		.search-icon{
 			display: none;
@@ -459,9 +460,11 @@ nav#menu-institucional .navbar-nav li:first-child a {
 		.container{
 			width: 100%;
 			position: fixed;
-			overflow-y: scroll;
 			height: auto;
+			max-height:60px;
 			&.open{
+				max-height: none !important;
+				overflow-y: scroll;
 				height: 100%;
 				z-index: 999;
 				.menu-line-1, .menu-line-3, .menu-line-1 {
