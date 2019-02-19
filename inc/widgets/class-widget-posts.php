@@ -117,9 +117,9 @@ class EOL_Posts_Widget extends WP_Widget {
 			}
 			echo '</div>';
 			$widget_classes_global = explode( ' ', $instance[ 'classes_widget' ] );
-			if ( in_array( 'leia-mais', $widget_classes_global ) ) {
+			if ( in_array( 'link-no-final', $widget_classes_global ) ) {
 				if ( isset( $instance[ 'readmore'] ) && ! empty( $instance[ 'readmore'] ) ) {
-					printf( '<a href="%s" class="colunistas-link"><i class="fas fa-angle-right"></i> %s</a>', $instance[ 'readmore'], __( 'Leia mais', 'eol' ) );
+					printf( '<a href="%s" class="colunistas-link"><i class="fas fa-angle-right"></i> %s</a>', $instance[ 'readmore'], __( 'Ver todas', 'eol' ) );
 				}
 			}
 			echo '</div>';
