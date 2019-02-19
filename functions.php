@@ -77,6 +77,7 @@ if ( ! function_exists( 'odin_setup_features' ) ) {
 		 * Add post_thumbnails suport.
 		 */
 		add_theme_support( 'post-thumbnails' );
+		add_image_size( 'quadrada-icone', 80, 60, true );
 		add_image_size( 'post-default-thumbnail', 330, 185, true );
 		// add_image_size( 'retangular-p', 330, 185, true );
 		add_image_size( 'retangular-p', 400, 225, true );

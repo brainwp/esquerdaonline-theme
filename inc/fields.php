@@ -157,6 +157,17 @@ if(function_exists("register_field_group"))
 				'default_value' => '',
 				'layout' => 'horizontal',
 			),
+			array (
+				'key' => 'field_5a9fe8078y8tfuvuhge9',
+				'label' => 'Imagem Tipo Icone ( 80x60px )',
+				'name' => 'thumbnail_icone',
+				'type' => 'image',
+				'instructions' => 'Essa imagem será utilizada em widgets com a classe thumb-icone',
+				'save_format' => 'object',
+				'preview_size' => 'quadrada-icone',
+				'library' => 'all',
+			),
+
 		),
 		'location' => array (
 			array (

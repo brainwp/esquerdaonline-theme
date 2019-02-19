@@ -21,11 +21,14 @@ $widget_size = (isset($tamanho_widget_array[1]) ? $tamanho_widget_array[1] : '10
 // echo $post_size;
 // echo $widget_size;
 $tamanho_total = $widget_size * $post_size / 100;
-if ($tamanho_total >= 50 ) {
-	$thumb_size = $thumb_size.'-g';
-}
-else{
-	$thumb_size = $thumb_size.'-p';
+if ( ! in_array( 'thumb-icone', $classes_posts ) ) {
+	if ($tamanho_total >= 50 ) {
+		$thumb_size = $thumb_size.'-g';
+	} else{
+		$thumb_size = $thumb_size.'-p';
+	}
+} else {
+	$thumb_size = 'thumb-icone';
 }
 
 $chamada = get_post_meta( get_the_ID(), 'chamada', true );

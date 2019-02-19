@@ -128,6 +128,15 @@ function eol_single_thumbnail($size='full', $post_id = null, $meta = null) {
 			// fazer imagem padrão ser utilizada no facebook.
 		}
 	}
+	elseif ( 'thumb-icone' === $size ) {
+		if ( $field = get_post_meta( $post_id, 'thumbnail_icone', true ) ) {
+			$single_thumbnail_img = wp_get_attachment_image_src( $field, 'quadrada-icone', false );
+			printf( '<img src="%s" alt="%s" class="size-quadrada-icone">', $single_thumbnail_img[0], esc_attr(get_the_title() ) );
+		} elseif ( $single_thumbnail_img = get_the_post_thumbnail( $post_id , 'quadrada-icone' ) ) {
+			echo $single_thumbnail_img;
+			$single_thumbnail = get_post_thumbnail_id( $post_id );
+		}
+	}
 	elseif($size == 'especiais' && get_field('exibir_na_single',$post_id) ){
 		$single_thumbnail = get_post_meta( $post_id , 'thumbnail_single', true );
 		$single_thumbnail_img = wp_get_attachment_image_src( $single_thumbnail, 'full', false );
@@ -147,7 +156,7 @@ function eol_single_thumbnail($size='full', $post_id = null, $meta = null) {
 	elseif($single_thumbnail_img = get_the_post_thumbnail( $post_id , $size )) {
 		echo $single_thumbnail_img;
 		$single_thumbnail = get_post_thumbnail_id( $post_id );
-	}
+	} 
 	else{
 		if (get_post_type($post_id) == 'brasa_slider_cpt' ) {
 

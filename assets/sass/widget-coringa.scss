@@ -49,6 +49,11 @@
 						width: 100%;
 					}
 				}
+				img.size-quadrada-icone {
+					width:80px !important;
+					height: 60px !important;
+					transform: none !important;
+				}
 			}
 			&:hover{
 				&.foto-fundo{
