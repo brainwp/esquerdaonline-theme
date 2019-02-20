@@ -28,13 +28,6 @@
 					</a>
 				</div>
 				<?php endif;?>
-				<?php if ( $value = get_post_meta( get_the_ID(), 'google_plus', true ) ) : ?>
-				<div class="icon-itself">
-					<a href="<?php echo esc_url( $value );?>">
-						<i class="fab fa-google-plus"></i>
-					</a>
-				</div>
-				<?php endif;?>
 				<?php if ( $value = get_post_meta( get_the_ID(), 'instagram', true ) ) : ?>
 				<div class="icon-itself">
 					<a href="<?php echo esc_url( $value );?>">

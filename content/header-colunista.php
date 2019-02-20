@@ -72,13 +72,6 @@ $content = apply_filters('the_content', $content);
 					</a>
 				</div>
 				<?php endif;?>
-				<?php if ( $value = get_post_meta( $post_id, 'google_plus', true ) ) : ?>
-				<div class="icon-itself">
-					<a href="<?php echo esc_url( $value );?>">
-						<i class="fab fa-google-plus"></i>
-					</a>
-				</div>
-				<?php endif;?>
 				<?php if ( $value = get_post_meta( $post_id, 'instagram', true ) ) : ?>
 				<div class="icon-itself">
 					<a href="<?php echo esc_url( $value );?>">

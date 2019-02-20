@@ -32,9 +32,6 @@ class EOL_Widget_Share_Site extends WP_Widget {
 				<a target="_blank" href="https://twitter.com/intent/tweet?text=<?php echo home_url();?>">
 						<i class="fab fa-twitter"></i>
 				</a>
-				<a target="_blank" href="https://plus.google.com/share?url=https://esquerdaonline.com.br">
-					<i class="fab fa-google-plus"></i>
-				</a>
 			</div><!-- .widget-share-site -->
 			<?php
 			echo $args['after_widget'];?>
