@@ -34,7 +34,7 @@
 	<div class="col-md-6 text-center">
 		<div class="col-md-12 center-container text-right author">
 			<?php if ( $author = get_post_meta( get_the_ID(), 'the_author', true ) ) {
-				printf( __( 'Por %s', 'eol' ), apply_filters( 'the_title', $author) );
+				echo esc_textarea( $author );
 			}
 			?>
 		</div><!-- .col-md-9 center-container -->
