@@ -25,6 +25,10 @@ get_header('large'); ?>
 				<div class="clearfix">
 
 				</div>
+				<h1 class="page-title">
+					<span>Vídeos</span>
+					>
+				</h1><!-- .page-title -->
 				<section class="social-area">
 					<div class="main-post-social continue-reading">
 						<?php
