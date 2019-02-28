@@ -750,6 +750,17 @@ function archive_especiais($query) {
 add_action('pre_get_posts','archive_especiais');
 
 
+// Remove páginas do archive de search
+function eol_search_remove_pages($query) {
+  if ( !is_admin() && $query->is_main_query() && isset( $_GET[ 's'] ) ) {
+  	$query->set( 'post_type', array( 'post', 'especiais', 'videos', 'brasa_slider_cpt' ) );
+  }
+}
+
+add_action('pre_get_posts','eol_search_remove_pages');
+
+
+
 
 //
 //
