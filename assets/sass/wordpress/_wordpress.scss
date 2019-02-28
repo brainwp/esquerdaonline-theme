@@ -172,14 +172,25 @@ img {
 
 .wp-caption {
     @extend .thumbnail;
+    border: 0;
+    border-radius: 0;
     &.aligncenter,
     &.alignnone {
         clear: both !important;
+        float:left;
     }
     .wp-caption-text {
+        line-height: 14px;
+        background: $red_main;
+        color:$white_main !important;
+        border-top:1px solid $colunistas_bg;
+        font-family:"Roboto Condensed" !important;
+        padding-left:10px !important;
+        padding-right: 10px !important;
         display: inline-block;
         padding: 0;
         color: $thumbnail-caption-color;
+        margin-bottom: 0 !important;
         &:before {
             // color: #666;
             // content: '\2014';
@@ -188,6 +199,10 @@ img {
             // font-weight: bold;
             // margin-right: 5px;
         }
+    }
+    figcaption.wp-caption-text {
+        background: none !important;
+        color: $dark_main !important;
     }
 }
 
