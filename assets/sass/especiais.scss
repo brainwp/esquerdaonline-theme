@@ -150,6 +150,9 @@
       }
     }
   }
+  body.single-especiais #destaques figure.post-thumbnail img {
+    height:380px;
+  }
 }
 .single.especial{
   #header-especiais{
@@ -214,4 +217,8 @@
 			}
 		}
 	}
+  body.single-especiais .main-post-social figure {
+    width: 100% !important;
+  }
+
 }
