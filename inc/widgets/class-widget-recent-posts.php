@@ -44,6 +44,9 @@ class EOL_Recent_Posts_Taxonomy extends WP_Widget {
 		if ( ! isset( $args['widget_id'] ) ) {
 			$args['widget_id'] = $this->id;
 		}
+		if ( ! empty( $instance[ 'title' ] ) ){
+			$title = $instance[ 'title' ];
+		}
 		$number = ( ! empty( $instance['number'] ) ) ? absint( $instance['number'] ) : 5;
 		/**
 		 * Pega a editoria se selecionada alguma
@@ -69,19 +72,19 @@ class EOL_Recent_Posts_Taxonomy extends WP_Widget {
 				if ( has_term( '', 'especiais', $post->ID )) {
 					$term = wp_get_post_terms( $post->ID, 'especiais', array( 'fields' => 'all' ) );
 					$tax = 'especiais';
-					$title ="Mais deste especial";
+					$title = $term[0]->name;
 					$veja_mais = "Veja todos";
 				}
 				elseif ( has_term( '', 'colunistas', $post->ID )) {
 					$term = wp_get_post_terms( $post->ID, 'colunistas', array( 'fields' => 'all' ) );
 					$tax = 'colunistas';
-					$title =$term[0]->name;
+					$title = $term[0]->name;
 					$veja_mais = "Todas da coluna";
 
 				} else {
 					$term = wp_get_post_terms( $post->ID, 'editorias', array( 'fields' => 'all' ) );
 					$tax = 'editorias';
-					$title = "Mais desta editoria";
+					$title = $term->name;
 					// $title = apply_filters( 'widget_title', $term[0]->name, $instance, $this->id_base );
 
 				}
@@ -94,7 +97,6 @@ class EOL_Recent_Posts_Taxonomy extends WP_Widget {
 			if ( $term && ! is_wp_error( $term ) ) {
 				$query_args[ $tax ] = $term[0]->slug;
 			}
-			$title = ( ! empty( $instance['title'] ) ) ? $instance['title'] : $title;
 			/** This filter is documented in wp-includes/widgets/class-wp-widget-pages.php */
 			$title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
 
