@@ -276,9 +276,7 @@ class Brasa_Slider {
 	 * @return write
 	 */
 	public function render_search_meta($post){
-		_e('<input type="text" id="search_brasa_slider" placeholder="Search.. ">','brasa-slider');
-		_e('<a id="search-bt-slider" class="button button-primary button-large">Search!</a>','brasa-slider');
-		_e('<a class="button button-primary button-large select-image-brasa">Or select image</a>','brasa-slider');
+		_e('<a class="button button-primary button-large select-image-brasa">Adicionar nova imagem na Galeria</a>','brasa-slider');
 		echo '<div id="brasa_slider_result" data-url="'.home_url().'"></div>';
 	}
 	/**
@@ -303,8 +301,10 @@ class Brasa_Slider {
 			foreach ($ids as $id) {
 				echo '<li class="brasa_slider_item is_item" data-post-id="'.$id.'" id="'.$id.'">';
 				echo '<div class="title_item">';
-	      		echo get_the_title($id);
-	   			echo '</div><!-- title_item -->';
+				if ( 'attachment' == get_post_type( $id ) && wp_get_attachment_caption( $id ) ){
+					echo wp_get_attachment_caption( $id );
+				}
+ 	   			echo '</div><!-- title_item -->';
 				echo '<div class="thumb_item">';
 				if(get_post_type($id) == 'attachment'){
 					$image_attributes = wp_get_attachment_image_src($id,'medium',false);
@@ -315,6 +315,8 @@ class Brasa_Slider {
 				}
 				$slide_window_meta = get_post_meta($post->ID, 'brasa_slider_link_window_'.$id, true );
 			   	echo sprintf(__('<a class="rm-item" data-post-id="%s">Remove this</a>','brasa-slider'),$id);
+			   	echo sprintf(__('<a class="edit-item" data-post-id="%s">Editar</a>','brasa-slider'),$id);
+
 			    echo '</div><!-- thumb_item -->';
 	   		    echo '<div class="container_brasa_link" style="width:70%;margin-left:30%;">';
 	      		echo '<label class="link">Link (URL):</label><br>';
@@ -364,6 +366,7 @@ class Brasa_Slider {
 					echo '<label class="link-window"> Abrir em nova janela</label><br>';
 	      			echo '</div>';
 	      			_e('<a class="rm-item" data-post-id="' . get_the_ID() . '">Remove this</a>', 'brasa-slider' );
+	      			_e('<a class="edit-item" data-post-id="' . get_the_ID() . '">Editar</a>', 'brasa-slider' );
 	      			echo '</div>';
 	      		}
 	      	}

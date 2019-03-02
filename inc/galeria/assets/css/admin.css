@@ -102,3 +102,7 @@ body.post-type-brasa_slider_cpt #brasa_slider_sortable_ul li {
 body.post-type-brasa_slider_cpt #brasa_slider_sortable_ul li.ui-sortable-helper {
 	cursor:grabbing;
 }
+
+#brasa_slider_search h2, #search_brasa_slider, #search-bt-slider, #brasa-slider-metabox{
+	display: none !important;
+}

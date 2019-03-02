@@ -26,6 +26,11 @@ else{
 }
 $brasa_slider_id = $slider->ID;
 ?>
+<?php if (!is_singular('brasa_slider_cpt')): ?>
+	<h3 class="galeria-title">
+		<?php echo apply_filters( 'the_title', $slider->post_title );?>
+	</h3><!-- .galeria-title -->
+<?php endif;?>
 <div class="each-galeria-brasa">
 <div id="main-slide" class=" first-slider galeria-eol">
 	<div class="loader"></div>
@@ -41,18 +46,15 @@ $brasa_slider_id = $slider->ID;
 		<a href="#">
 		    	<img src="<?php echo esc_url( $img_full[0] );?>" class="img_slider modal-item-open" data-src="<?php echo esc_url( $img_full[0] );?>" data-type="image" data-url="<?php echo get_permalink( $brasa_slider_id );?>">
 		</a>
-		<?php unset( $ids[0] );?>
 		<?php break;?>
 	<?php endforeach;?>
-	<?php if (!is_singular('brasa_slider_cpt')): ?>
-		<div class="overlay-post-link-widget-text">
-			<div class="post-link-widget-text" >
-				<h3 class="tax-widget-titulo">
-					<?php echo $slider->post_title;?>
-				</h3>
-			</div>
+	<div class="overlay-post-link-widget-text">
+		<div class="post-link-widget-text" >
+			<h3 class="tax-widget-titulo each-image-title">
+				<?php echo wp_get_attachment_caption( $ids[0] );?>
+			</h3>
 		</div>
-	<?php endif; ?>
+	</div>
 </div><!-- .col-md-12 first-slider galeria-eol -->
 
 <div class="navegacao-slider is_slider" id="slider-<?php echo esc_attr( $slider->post_name );?>" data-json="<?php echo esc_attr( $cfg ); ?>">
@@ -66,9 +68,9 @@ $brasa_slider_id = $slider->ID;
 		}
 		$img_full = wp_get_attachment_image_src( $img, $full_size, false );
 		$img = wp_get_attachment_image_src( $img, $small_size, false );?>
-		<div class="slick_slide" data-full="<?php echo $img_full;?>">
+		<div class="slick_slide galeria-id-<?php echo $id;?>" data-full="<?php echo $img_full;?>" >
 			<a href="#" data-src="<?php echo esc_url( $img_full[0] );?>">
-		    	<img src="<?php echo esc_url( $img[0] );?>" class="modal-item-open" data-src="<?php echo esc_url( $img_full[0] );?>" data-type="image">
+		    	<img src="<?php echo esc_url( $img[0] );?>" class="modal-item-open" data-src="<?php echo esc_url( $img_full[0] );?>" data-type="image" data-caption="<?php echo esc_attr( wp_get_attachment_caption( $id ) );?>">
 		    </a>
 		</div>
 	<?php endforeach;?>

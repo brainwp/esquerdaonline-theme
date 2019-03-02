@@ -29,6 +29,33 @@ jQuery(function($){
 	$(document).on('submit', '#post',function(e){
 		updateInput();
 	});
+	$(document).on('click','#brasa_slider_sortable .rm-item',function(e){
+		$(this).parent('li').hide('slow').remove();
+		$('#'+$(this).attr('data-post-id')).hide('slow').remove();
+	});
+	$( document ).on( 'click', '.brasa_slider_item .edit-item', function(e) {
+		var editFrame;
+		var $el = $( this );
+		// Create the media frame.
+		editFrame = wp.media.frames.downloadable_file = wp.media({
+			multiple: false,
+			post_id: $( this ).attr( 'data-post-id' ),
+			select: $( this ).attr( 'data-post-id' ),
+			library: {
+				id: $( this ).attr( 'data-post-id' ),
+				attachment: $( this ).attr( 'data-post-id' ),
+				post_id: $( this ).attr( 'data-post-id' ),
+				include: new Array( $( this ).attr( 'data-post-id' ) )
+			}
+		});
+		editFrame.on( 'select', function () {
+			var caption = editFrame.state().get( 'selection' ).first().toJSON().caption;
+			$( '#' + $el.attr( 'data-post-id' ) ).find( '.title_item' ).html( caption );
+		});
+		editFrame.open();
+
+		console.log( 'editaaaaaaaaaaaaaaaaaaa11qqqqar' );
+	});
 	$('body').on('click',function(e){
 		updateInput();
 	});
@@ -71,7 +98,8 @@ jQuery(function($){
 					+'<input type="checkbox" name="brasa_slider_link_window_'+attachment.id+'"  value="true">'
 					+'<label class="link-window"> Abrir em nova janela</label><br>'
 	      			+'</div>'
-	      			+'<a class="rm-item" data-post-id="'+attachment.id+'">Remove this</a>'
+	      			+'<a class="rm-item" data-post-id="'+attachment.id+'">Remover</a>'
+	      			+'<a class="edit-item" data-post-id="'+attachment.id+'">Editar</a>'
 	      			+'</li>';
 	      		$('#brasa_slider_sortable_ul').append(html);
 	      		updateInput();
