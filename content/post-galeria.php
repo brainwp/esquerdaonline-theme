@@ -3,13 +3,10 @@
  * Template part: Post Galeria;
  * Exibe o bloco padrão de posts
  */
+$ids = esc_textarea( get_post_meta( get_the_ID(), 'brasa_slider_ids', true ) );
+$ids = explode(',', $ids );
+$images_num = count($ids);
 ?>
-
-
-
-
-
-
 <div class="postholder">
 	<article class="post-default has-thumb">
 		<figure class="col-md-4 col-sm-12 no-padding post-thumbnail">
@@ -39,11 +36,15 @@
 				<h4>
 					<?php the_title();?>
 				</h4>
+				<h5>
+					<i class="far fa-images"></i>
+					<?php printf( '%s Imagens', $images_num );?>
+				</h5>
 			</a>
 			<div class="col-md-12 sub-title-main no-padding">
-					<?php if ( $sub_title = get_post_meta( get_the_ID(), 'sub_title', true ) ) {
-						echo apply_filters( 'the_content', $sub_title );
-					}?>
+				<?php if ( $sub_title = get_post_meta( get_the_ID(), 'sub_title', true ) ) {
+					echo apply_filters( 'the_content', $sub_title );
+				}?>
 			</div><!-- .col-md-12 text-center -->
 			<!-- a.sub-title base-subtitulo -->
 				<a href="<?php get_permalink();?>" class="the-date">
