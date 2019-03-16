@@ -49,11 +49,6 @@
 						width: 100%;
 					}
 				}
-				img.size-quadrada-icone {
-					width:80px !important;
-					height: 60px !important;
-					transform: none !important;
-				}
 			}
 			&:hover{
 				&.foto-fundo{
@@ -654,6 +649,25 @@
 			i {
 				font-size:20px;
 			}
+		}
+	}
+}
+.each-post-widget.thumb-icone {
+	img.size-quadrada-icone {
+		width:80px !important;
+		height: 60px !important;
+		transform: none !important;
+	}
+	@media screen and ( max-width: 990px ) {
+		a.post-thumbnail-link {
+			width:80px;
+			height: 60px;
+		}
+		figure {
+			border-radius:0 !important;
+		}
+		img.size-quadrada-icone {
+			border-radius:20px;
 		}
 	}
 }
