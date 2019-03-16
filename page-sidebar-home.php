@@ -16,5 +16,10 @@ get_header( 'large' ); ?>
 			<?php dynamic_sidebar( eol_get_widget_object_id() );?>
 		</div><!-- .col-md-12 -->
 	</main><!-- #main -->
+	<?php if ( is_front_page() ) : ?>
+		<div class="col-md-12 no-padding">
+			<?php dynamic_sidebar( 'home-widgets-baixo' );?>
+		</div><!-- .col-md-12 -->
+	<?php endif;?>
 <?php
 get_footer();

@@ -101,7 +101,7 @@
 				return '';
 			}
 			$html = '';
-			if ( ! is_home() && ! is_front_page() ) {
+			if ( ! is_home() && ! is_front_page() && ! is_page_template( 'page-sidebar-home.php' ) ) {
 				$html .= '<div class="col-md-12 eol-related-articles-title">';
 				$html .= '<h4 class="area-title">' . __( 'Mais sobre esse <span>assunto</span>', 'eol' ) . '&nbsp;&gt;</h4>';
 				$html .= '</div>';

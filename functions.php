@@ -622,6 +622,7 @@ function eol_pre_update_page_on_front( $value, $old_value ) {
 	if ( $widgets_table && isset( $widgets_table[ $widget ] ) ) {
 		$widgets_table[ 'home-widgets' ] = $widgets_table[ $widget ];
 		update_option( 'sidebars_widgets', $widgets_table );
+		update_post_meta( $post->ID, '_wp_page_template', 'page-home.php' );
 	}
 	return $value;
 }
