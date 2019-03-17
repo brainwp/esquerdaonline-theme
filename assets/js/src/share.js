@@ -102,11 +102,14 @@ jQuery(document).ready(function($) {
 	 * Share posts on hover
 	 *
 	*/
-	$( document ).on( 'click', 'figure i', function( e ){
+	$( document ).on( 'click', 'figure i, .widget-galeria-container .social-icons-post i', function( e ){
 		e.preventDefault();
 		var url = $( this ).parent().parent().parent().parent().find( '.show-social-icons' ).attr( 'href' );
 		if ( ! url ) {
 			var url = $( this ).parent().parent().parent().parent().find( '.post-thumbnail-link' ).attr( 'href' );
+			if ( ! url ) {
+				var url = $( this ).parent().parent().parent().attr( 'data-share' );
+			}
 		}
 		if ( $( this ).hasClass( 'fa-facebook-f' ) ) {
 			eol_fb_share( url );

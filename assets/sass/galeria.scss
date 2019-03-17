@@ -47,6 +47,32 @@
 	.galeria-link {
 		margin-bottom:15px;
 	}
+	.social-icons-post {
+		float: right;
+		display: flex;
+		align-items: center;
+		align-content: center;
+		align-self: center;
+		margin-top:20px;
+		a {
+			padding-left: 10px;
+		}
+
+		a i{
+			opacity: 0.9;
+			font-size: 25px;
+			display: inline-block;
+			color: $red_main !important;
+		}
+		> a:hover i{
+			transition: all ease-in-out 100ms;
+			opacity: 1;
+		}
+	}
+	.galeria-title {
+		display: inline-block;
+		width: 68%;
+	}
 	.post-link-widget-text{
 		background-repeat: no-repeat, repeat;
 	    background-position: right top, left top;
@@ -59,6 +85,7 @@
 	}
 	.widget-content, #main-content{
 		.each-galeria-brasa{
+			clear: both;
 			.blur{
 				-webkit-filter: blur(5px);
 				-moz-filter: blur(5px);
@@ -69,8 +96,20 @@
 
 			#main-slide{
 				position: relative;
+				background: $galeria_bg;
+				text-align: center;
+				height: 364px;
 				a img{
-					width: 100%;
+					max-width: 95%;
+					max-height:360px;
+					margin: 0;
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+				}
+				.overlay-post-link-widget-text {
+					text-align: left;
 				}
 			}
 			.is_slider .slick_slide{

@@ -31,6 +31,9 @@ $brasa_slider_id = $slider->ID;
 		<?php echo apply_filters( 'the_title', $slider->post_title );?>
 	</h3><!-- .galeria-title -->
 <?php endif;?>
+<div class="social-icons-post" data-share="<?php echo get_permalink( $slider->ID );?>">
+	<?php eol_share_overlay( get_permalink( $slider->ID ) );?>
+</div><!-- .col-md-12 social-icons-post -->
 <div class="each-galeria-brasa">
 <div id="main-slide" class=" first-slider galeria-eol">
 	<div class="loader"></div>
@@ -72,15 +75,16 @@ $brasa_slider_id = $slider->ID;
 		} else {
 			$img = get_post_thumbnail_id($id);
 		}
+		$img_top = wp_get_attachment_image_src( $img, 'full', false );
 		$img_full = wp_get_attachment_image_src( $img, $full_size, false );
 		$img = wp_get_attachment_image_src( $img, $small_size, false );
 		$author = get_post_meta( $ids[0], 'image_author', true );
 		if ( ! $author ) {
 			$author = '';
 		} ?>
-		<div class="slick_slide galeria-id-<?php echo $id;?>" data-full="<?php echo $img_full;?>" >
-			<a href="#" data-src="<?php echo esc_url( $img_full[0] );?>">
-		    	<img src="<?php echo esc_url( $img[0] );?>" class="modal-item-open" data-src="<?php echo esc_url( $img_full[0] );?>" data-type="image" data-caption="<?php echo esc_attr( wp_get_attachment_caption( $id ) );?>" data-author="<?php echo $author;?>">
+		<div class="slick_slide galeria-id-<?php echo $id;?>" data-full="<?php echo $img_full[0];?>" >
+			<a href="#" data-src="<?php echo esc_url( $img_top[0] );?>">
+		    	<img src="<?php echo esc_url( $img[0] );?>" class="modal-item-open" data-src="<?php echo esc_url( $img_top[0] );?>" data-type="image" data-caption="<?php echo esc_attr( wp_get_attachment_caption( $id ) );?>" data-author="<?php echo $author;?>">
 		    </a>
 		</div>
 	<?php endforeach;?>

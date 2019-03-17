@@ -198,9 +198,8 @@ function eol_single_thumbnail_meta($post_id, $single_thumbnail){
 function eol_widget_thumbnail($size,$id) {
 
 }
-function eol_share_overlay() {
-	$link = '';
-	if ( get_the_permalink( get_the_ID() ) ) {
+function eol_share_overlay( $link = false ) {
+	if ( ! $link && get_the_permalink( get_the_ID() ) ) {
 		$link = get_the_permalink( get_the_ID() );
 	}
 	$link_text = esc_attr( __( 'Copiar link', 'eol' ) );
