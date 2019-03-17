@@ -91,6 +91,8 @@ jQuery(document).ready(function($) {
  			break;
 			case 'image':
 				$( '#modal' ).addClass( 'data-image' );
+				$( 'body,html').css( 'overflow', 'hidden' );
+				$( '#modal' ).css( 'overflow-y', 'scroll' );
 				$( '#modal-content' ).append( '<img src="'+ $(this).attr( 'data-src') +'">');
 				$('#modal-content').append('<div id="close-modal"><a href="#"><i class="fa fa-times" aria-hidden="true"></i></a></div>');
 			setTimeout( function(){
@@ -127,12 +129,14 @@ jQuery(document).ready(function($) {
 			if (e.keyCode === 27) $( '#modal' ).fadeOut('fast', function() {
 				$('#modal-content').html(" ");
 				$( '#modal' ).removeClass( 'data-image' );
+				$( 'body,html' ).attr( 'style', '' );
 			});   // esc
 		});
 		// We can also pass the url value separately from ajaxurl for front end AJAX implementations
 		$("#modal").on("click", "#close-modal a", function(e) {
 			e.preventDefault();
 			$( '#modal' ).fadeOut('fast', function() {
+				$( 'body,html' ).attr( 'style', '' );
 				$('#modal-content').html(" ");
 				$( '#modal' ).removeClass( 'data-image' );
 			});
@@ -144,6 +148,7 @@ jQuery(document).ready(function($) {
 			e.preventDefault();
 			$( '#modal' ).fadeOut('fast', function() {
 				$('#modal-content').html(" ");
+				$( 'body,html' ).attr( 'style', '' );
 				$( '#modal' ).removeClass( 'data-image' );
 			});
 		});
