@@ -53,6 +53,12 @@ $brasa_slider_id = $slider->ID;
 			<h3 class="tax-widget-titulo each-image-title">
 				<?php echo wp_get_attachment_caption( $ids[0] );?>
 			</h3>
+			<h5 class="tax-widget-titulo each-image-title-author">
+				<?php if ( $field = get_post_meta( $ids[0], 'image_author', true ) ) : ?>
+					<i class="fas fa-camera hidden-sm hidden-xs"></i> <?php echo $field;?>
+				<?php endif;?>
+			</h5>
+
 		</div>
 	</div>
 </div><!-- .col-md-12 first-slider galeria-eol -->
@@ -67,10 +73,14 @@ $brasa_slider_id = $slider->ID;
 			$img = get_post_thumbnail_id($id);
 		}
 		$img_full = wp_get_attachment_image_src( $img, $full_size, false );
-		$img = wp_get_attachment_image_src( $img, $small_size, false );?>
+		$img = wp_get_attachment_image_src( $img, $small_size, false );
+		$author = get_post_meta( $ids[0], 'image_author', true );
+		if ( ! $author ) {
+			$author = '';
+		} ?>
 		<div class="slick_slide galeria-id-<?php echo $id;?>" data-full="<?php echo $img_full;?>" >
 			<a href="#" data-src="<?php echo esc_url( $img_full[0] );?>">
-		    	<img src="<?php echo esc_url( $img[0] );?>" class="modal-item-open" data-src="<?php echo esc_url( $img_full[0] );?>" data-type="image" data-caption="<?php echo esc_attr( wp_get_attachment_caption( $id ) );?>">
+		    	<img src="<?php echo esc_url( $img[0] );?>" class="modal-item-open" data-src="<?php echo esc_url( $img_full[0] );?>" data-type="image" data-caption="<?php echo esc_attr( wp_get_attachment_caption( $id ) );?>" data-author="<?php echo $author;?>">
 		    </a>
 		</div>
 	<?php endforeach;?>
