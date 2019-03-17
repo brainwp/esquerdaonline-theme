@@ -31,9 +31,6 @@ get_header('large'); ?>
 					</span>
 					>
 				</h1><!-- .page-title -->
-				<?php
-					the_title( '<h1 class="page-title">', '</h1>' );
-				?>
 				<section class="social-area">
 					<div class="main-post-social continue-reading">
 						<?php
