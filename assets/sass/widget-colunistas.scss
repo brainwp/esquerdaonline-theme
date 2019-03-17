@@ -1,6 +1,26 @@
 #sidebar-colunistas{
 	margin-bottom:35px;
 }
+.widget-colunistas {
+	overflow: inherit !important;
+	&.slick-slider {
+		margin-bottom: 0 !important;
+	}
+	.slick-prev, .slick-next {
+		&:before {
+			color: #d0482a;
+		}
+	}
+	@media screen and ( max-width: 900px ) {
+		.slick-prev {
+			left:-9px;
+		}
+		.slick-next {
+			right:-9px;
+		}
+	}
+
+}
 @media (min-width:1401) {
 	.widget-colunistas, .each-post-widget{
 		.widget-content{
@@ -100,6 +120,9 @@
 		}
 		&.tamanho-100{
 			clear:both;
+		}
+		&.slick-slide {
+			clear:inherit !important;
 		}
 
 
