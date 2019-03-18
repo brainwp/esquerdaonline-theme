@@ -23,6 +23,31 @@ if(function_exists("register_field_group"))
 				'formatting' => 'html',
 				'maxlength' => '',
 			),
+			array(
+				'key' => 'field_5c90189524d15',
+				'label' => 'Deseja usar a imagem (thumbnail) do vídeo no YouTube?',
+				'name' => 'youtube_img',
+				'type' => 'radio',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'choices' => array(
+					'false' => 'Não',
+					'true' => 'Sim',
+				),
+				'allow_null' => 0,
+				'other_choice' => 0,
+				'default_value' => '',
+				'layout' => 'vertical',
+				'return_format' => 'value',
+				'save_other_choice' => 0,
+			),
+
 			array (
 				'key' => 'field_5b3c7d1104f3d',
 				'label' => 'chamada',

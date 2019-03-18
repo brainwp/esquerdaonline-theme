@@ -54,7 +54,7 @@
             'relation' => 'AND',
             array(
               'taxonomy' => '_featured_eo',
-              'field'    => 'name',
+              'field'    => 'slug',
               'terms'    => 'destaque-especial-2',
             ),
             array(
@@ -118,7 +118,7 @@
             ),
             array(
               'taxonomy' => '_featured_eo',
-              'field'    => 'name',
+              'field'    => 'slug',
               'terms'    => 'destaque-especial-2',
               'operator' => 'NOT IN',
             ),

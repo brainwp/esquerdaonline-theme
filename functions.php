@@ -780,5 +780,9 @@ add_action( 'wp_ajax_get_video', 'get_video' );
 // adiciona o duplicador revolucionario
 require_once get_template_directory() . '/inc/class-duplicador.php';
 
+// adiciona classe para baixar thumbnail de acordo com vídeo do youtube
+require_once get_template_directory() . '/inc/class-yt-thumbnail.php';
+
+
 //adiciona "fork" do brasa slider para servir como CPT de galeria
 require_once get_template_directory() . '/inc/galeria/brasa-slider.php';
