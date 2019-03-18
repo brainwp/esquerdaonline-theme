@@ -119,7 +119,11 @@ class EOL_Posts_Widget extends WP_Widget {
 			$widget_classes_global = explode( ' ', $instance[ 'classes_widget' ] );
 			if ( in_array( 'link-no-final', $widget_classes_global ) ) {
 				if ( isset( $instance[ 'readmore'] ) && ! empty( $instance[ 'readmore'] ) ) {
-					printf( '<a href="%s" class="colunistas-link"><i class="fas fa-angle-right"></i> %s</a>', $instance[ 'readmore'], __( 'Ver todas', 'eol' ) );
+					$text = __( 'Ver todas', 'eol' );
+					if ( in_array( 'especial', $widget_classes_global ) ) {
+						$text = __( 'Todos os especiais', 'eol' );
+					}
+					printf( '<a href="%s" class="colunistas-link"><i class="fas fa-angle-right"></i> %s</a>', $instance[ 'readmore'], $text );
 				}
 			}
 			echo '</div>';

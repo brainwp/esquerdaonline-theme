@@ -653,7 +653,11 @@
 	}
 }
 .each-post-widget.thumb-icone {
+	figure {
+		background: none !important;
+	}
 	img.size-quadrada-icone {
+		background: none !important;
 		width:80px !important;
 		height: 60px !important;
 		transform: none !important;
