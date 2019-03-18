@@ -43,17 +43,12 @@ get_header('large'); ?>
 								$colunistas_array[get_the_title()] = get_the_permalink();
 							endwhile;
 							// Page navigation.
-							$term = get_term_by( 'slug', 'dossies', 'tipo', $output = OBJECT, $filter = 'raw' );
-							$link = get_term_link( $term, $taxonomy = 'tipo')
-
+							echo odin_pagination_custom_especiais();
 							?>
-							<a class="especiais-link" href="<?php echo $link; ?>">Veja Mais</a>
 							<?php
 						else :
 							// If no content, include the "No posts found" template.
 							get_template_part( 'content', 'none' );
-							echo 'qqqq';
-
 						endif;
 					?>
 
@@ -69,6 +64,7 @@ get_header('large'); ?>
 		<?php
 		$args = array(
 			'post_type' => 'especiais',
+			'posts_per_page' => get_option( 'posts_per_page', 10 ),
 			'tax_query' =>array(
 				array(
 					'taxonomy' => 'tipo',
@@ -89,9 +85,15 @@ get_header('large'); ?>
 		<?php endwhile; ?>
 		<?php wp_reset_postdata(); // reset the query
 		$term_cobertura = get_term_by( 'slug', 'cobertura', 'tipo', $output = OBJECT, $filter = 'raw' );
-		$link = get_term_link( $term_cobertura, $taxonomy = 'tipo')
+		$link = get_term_link( $term_cobertura, $taxonomy = 'tipo');
 		?>
-		<a class="especiais-link" href="<?php echo $link; ?>">Veja Mais</a>
+		<div class="text-right col-md-12">
+			<a href="<?php echo $link . '/page/2/';?>" class="video-link colunistas-link">
+				<i class="fas fa-angle-right"></i>
+				Todos as coberturas
+			</a>
+		</div><!-- .text-right col-md-12 -->
+
 	</aside><!-- #sidebar -->
 
 <?php

@@ -15,5 +15,10 @@
 
     }
   }
+  @media screen and ( min-width: 900px ) {
+  	.single-thumbnail img {
+  		height: 210px;
+  	}
+  }
 
 }

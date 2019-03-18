@@ -743,7 +743,6 @@ function archive_especiais($query) {
 						'operator'=> 'IN'
 		);
 		$query->tax_query->queries[] = $tax_query;
-		$query->query_vars['posts_per_page'] = 4;
 		$query->query_vars['tax_query'] = $query->tax_query->queries;
   }
 }
