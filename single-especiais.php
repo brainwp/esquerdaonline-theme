@@ -55,7 +55,7 @@
             array(
               'taxonomy' => '_featured_eo',
               'field'    => 'name',
-              'terms'    => 'destaque',
+              'terms'    => 'destaque-especial-2',
             ),
             array(
               'taxonomy' => 'especiais',
@@ -119,7 +119,7 @@
             array(
               'taxonomy' => '_featured_eo',
               'field'    => 'name',
-              'terms'    => 'destaque',
+              'terms'    => 'destaque-especial-2',
               'operator' => 'NOT IN',
             ),
           ),

@@ -153,6 +153,9 @@
   body.single-especiais #destaques figure.post-thumbnail img {
     height:380px;
   }
+  body.single-especiais #destaques .post-default figure.post-thumbnail img {
+  	height: auto !important;
+  }
 }
 .single.especial{
   #header-especiais{
