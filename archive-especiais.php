@@ -87,13 +87,14 @@ get_header('large'); ?>
 		$term_cobertura = get_term_by( 'slug', 'cobertura', 'tipo', $output = OBJECT, $filter = 'raw' );
 		$link = get_term_link( $term_cobertura, $taxonomy = 'tipo');
 		?>
+		<?php if ( $term_cobertura->count > get_option( 'posts_per_page', 10 ) ) : ?>
 		<div class="text-right col-md-12">
-			<a href="<?php echo $link . '/page/2/';?>" class="video-link colunistas-link">
+			<a href="<?php echo $link . 'page/2/';?>" class="video-link colunistas-link">
 				<i class="fas fa-angle-right"></i>
 				Todos as coberturas
 			</a>
 		</div><!-- .text-right col-md-12 -->
-
+		<?php endif;?>
 	</aside><!-- #sidebar -->
 
 <?php

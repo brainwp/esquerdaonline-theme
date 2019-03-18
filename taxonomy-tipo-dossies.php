@@ -21,7 +21,10 @@ get_header('large'); ?>
 	<main id="content" class="<?php echo odin_classes_page_sidebar(); ?>" tabindex="-1" role="main">
 
 			<?php if ( have_posts() ) :?>
-
+				<h1 class="page-title">
+					<span>Dossiês</span>
+					>
+				</h1><!-- .page-title -->
 				<div class="clearfix">
 
 				</div>
