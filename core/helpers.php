@@ -199,19 +199,23 @@ function odin_pagination_custom_especiais_single( $mid = 2, $end = 1, $show = fa
 		$total_pages = $wp_query->max_num_pages;
 
 		if ( is_object( $query ) && null != $query ) {
-			$total_pages = $query->max_num_pages;
+			// $total_pages = $query->max_num_pages;
+			$published_posts = $query->queried_object->count;
+		    $posts_per_page = $query->query['posts_per_page'];
+		    $page_number_max = ceil($published_posts / $posts_per_page);
 		}
-		print_r($query);
-		if ( $total_pages > 1 ) {
+
+
+		if ( $page_number_max > 1 ) {
 			$url_base = $wp_rewrite->pagination_base;
 			$big = 999999999;
 
 			// Sets the paginate_links arguments.
 			$arguments = apply_filters( 'odin_pagination_args', array(
-					'base'      => get_term_link( 'dossies', 'tipo' ) . '/page/%#%',
+					'base'      => get_permalink( get_the_id() ) . '?pagina=%#%',
 					'format'    => '%#%',
-					'current'   => max( 1, get_query_var( 'page' ) ),
-					'total'     => $total_pages,
+					'current'   => 1,
+					'total'     => $page_number_max,
 					'show_all'  => $show,
 					'end_size'  => $end,
 					'mid_size'  => $mid,
@@ -220,6 +224,9 @@ function odin_pagination_custom_especiais_single( $mid = 2, $end = 1, $show = fa
 					'next_text' => __( 'Próximo &raquo;', 'odin' ),
 				)
 			);
+			if (isset($_GET['pagina'])) {
+				$arguments['current'] = $_GET[ 'pagina' ];
+			}
 
 			$pagination = '<div class="pagination-wrap">' . paginate_links( $arguments ) . '</div>';
 
