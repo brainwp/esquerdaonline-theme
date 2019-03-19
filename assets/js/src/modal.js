@@ -53,20 +53,20 @@ jQuery(document).ready(function($) {
 				$('#modal-content').append('<div id="close-modal"><a href="#"><i class="fa fa-times" aria-hidden="true"></i></a></div>')
 			}
 			else if(url.includes("facebook")){
-				var height = $( window ).height() / 2;
-				var width = Math.floor( $( window ).width() / 3 );
+				var height = parseInt($( window ).height() / 2.5);
+				console.log('height');
+				console.log(height);
 				$('#modal-content').html('<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>');
 				var data = {
 					'action': 'get_video',
 					'url': url,
-					'width': width,
 					'height': height,
 				};
 				// since 2.8 ajaxurl is always defined in the admin header and points to admin-ajax.php
 				jQuery.post(odinAjax.ajax_url, data, function(response) {
 					$( '#modal-content' ).append( response );
 				});
-				$( '#modal-content' ).append( '<iframe src="https://www.facebook.com/plugins/video.php?href='+url+'&show_text=0&width='+width+'" width="'+width+'" height="'+height+'" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>' );
+				$( '#modal-content' ).append( '<iframe src="https://www.facebook.com/plugins/video.php?href='+url+'&show_text=0&height='+height+'" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>' );
 			}
 			$('#modal-content').append('<div id="close-modal"><a href="#"><i class="fa fa-times" aria-hidden="true"></i></a></div>');
 			setTimeout( function(){
