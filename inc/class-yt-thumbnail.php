@@ -37,7 +37,7 @@
 			}
 			parse_str( parse_url( $video_url, PHP_URL_QUERY ), $yt_vars );
 			$id = $yt_vars['v'];
-			$image_url = sprintf( 'https://img.youtube.com/vi/%s/maxresdefault.jpg', $id );
+			$image_url = sprintf( 'https://i.ytimg.com/vi/%s/hqdefault.jpg', $id );
 			return $image_url;
 		}
 		/**
@@ -56,7 +56,7 @@
 				return;
 			}
 			$value = get_field( 'youtube_img' );
-			if ( $value && 'true' === $value ) {
+			if ( $value || 'true' === $value ) {
 				$image_url = $this->get_youtube_image( $link );
 				if ( ! $image_url ) {
 					return;

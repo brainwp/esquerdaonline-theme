@@ -116,7 +116,7 @@
 				if (wp_get_post_terms( get_the_ID(), 'especiais' )) {
 					$tax = 'especiais';
 					$term = wp_get_post_terms( get_the_ID(), 'especiais' );
-					$barra = "<a href='".get_term_link($term[0], 'especiais')."'>Especiais - ". $term[0]->name."</a>";
+					$barra = "<a href='".get_post_type_archive_link( 'especiais' )."'>Especiais</a>";
 				}
 				elseif (wp_get_post_terms( get_the_ID(), 'colunistas_tax' )) {
 					$tax = 'colunistas';
@@ -166,7 +166,7 @@
 else if (is_singular( $post_types = 'especiais' ) || is_tax( 'tipo' ) ) {
 	?>
 	<div class="barra-especiais">
-		<div  class="container">
+		<div class="container">
 			<h5 class="col-md-12"><?php $term_especial = wp_get_post_terms( get_the_ID(), 'tipo' );  echo $term_especial[0]->name; ?> </h5>
 		</div>
 	</div>

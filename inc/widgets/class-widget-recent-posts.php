@@ -72,7 +72,6 @@ class EOL_Recent_Posts_Taxonomy extends WP_Widget {
 				if ( has_term( '', 'especiais', $post->ID )) {
 					$term = wp_get_post_terms( $post->ID, 'especiais', array( 'fields' => 'all' ) );
 					$tax = 'especiais';
-					$title = $term[0]->name;
 					$veja_mais = "Veja todos";
 				}
 				elseif ( has_term( '', 'colunistas', $post->ID )) {

@@ -156,7 +156,7 @@ function eol_single_thumbnail($size='full', $post_id = null, $meta = null) {
 	elseif($single_thumbnail_img = get_the_post_thumbnail( $post_id , $size )) {
 		echo $single_thumbnail_img;
 		$single_thumbnail = get_post_thumbnail_id( $post_id );
-	} 
+	}
 	else{
 		if (get_post_type($post_id) == 'brasa_slider_cpt' ) {
 
