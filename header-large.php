@@ -22,6 +22,8 @@
 </head>
 
 <body <?php body_class(); ?>>
+	<div id="fb-root"></div>
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v3.2&appId=334035897045245&autoLogAppEvents=1"></script>
 	<div id="modal" class="modal">
 		<div id="modal-content"></div>
 		<div class="modal-share" style="display:none;opacity:0;">
@@ -35,7 +37,6 @@
 			</a>
 		</div><!-- .modal-share -->
 	</div>
-	<div id="fb-root"></div>
 	<a id="skippy" class="sr-only sr-only-focusable" href="#content">
 		<div class="container">
 			<span class="skiplink-text"><?php _e( 'Skip to content', 'odin' ); ?></span>
@@ -180,6 +181,22 @@ else if( is_tax('editorias') ) {
 			$term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) ); ;
 			?>
 			<h5 class="col-md-12"><?php echo $term->name;  ?></h5>
+		</div>
+	</div>
+<?php }
+else if( is_post_type_archive( 'videos' ) || 'videos' === get_post_type( get_the_ID() )  ) {
+		?>
+	<div class="barra-videos">
+		<div  class="container">
+			<h5 class="col-md-12">Vídeos</h5>
+		</div>
+	</div>
+<?php  }
+else if( is_post_type_archive( 'brasa_slider_cpt' ) || 'brasa_slider_cpt' === get_post_type( get_the_ID() )  ) {
+		?>
+	<div class="barra-videos">
+		<div  class="container">
+			<h5 class="col-md-12">Fotogalerias</h5>
 		</div>
 	</div>
 <?php  }

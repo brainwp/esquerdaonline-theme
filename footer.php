@@ -16,7 +16,7 @@
 
 	<footer id="footer" role="contentinfo" class="col-md-12">
 		<div class="container">
-			<div class="col-md-2 logo-social">
+			<div class="col-md-3 logo-social">
 				<?php $image = get_theme_mod( 'footer_logo', false ); ?>
 				<?php if ( $image ) :?>
 					<a href="<?php home_url();?>" class="site-logo">
@@ -41,6 +41,9 @@
 							if ( 'telegram' === $link[ 'link_icon'] ) {
 								$class = 'fa-telegram-plane';
 							}
+							if ( 'youtube' === $link[ 'link_icon'] ) {
+								$class = 'fas fa-play';
+							}
 
 							?>
 							<a href="<?php echo esc_url( $link[ 'link_url'] );?>">
@@ -50,7 +53,7 @@
 					<?php endif;?>
  				</div><!-- .pull-right social-icons -->
 			</div><!-- .col-md-3 logo-social -->
-			<div class="col-md-7 nav-footer">
+			<div class="col-md-6 nav-footer">
 				<?php for ( $i = 1; $i < 5; $i++ ) : ?>
 					<?php $theme_location = sprintf( 'menu-footer-%s', $i );?>
 					<nav class="nav-footer-each col-md-3">

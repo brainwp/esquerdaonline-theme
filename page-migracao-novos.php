@@ -93,8 +93,8 @@ if ( is_array( $response ) ) {
 				update_post_meta( $thumbnail_id, 'image_author', $post->better_featured_image->image_author );
 			}
 			echo '<br>Cadastrando ACF';
-			foreach ( $post->acf as $key => $value) {
-				update_post_meta( $add_new_post, $key, $value );
+			foreach ( $post->meta_fields as $key => $value ) {
+				update_post_meta( $add_new_post, $key, $value[0] );
 			}
 			echo '<br>---------------<br>';
 		}

@@ -141,3 +141,16 @@
 		}
 	}
 }
+.barra-videos, .barra-galerias {
+	background: $galeria_color;
+	color: #FFF;
+	padding: 10px;
+	text-align: left;
+	.container{
+		h5{
+			font-size: 15px;
+			font-weight: bolder;
+			text-transform: uppercase;
+		}
+	}
+}

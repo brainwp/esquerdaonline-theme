@@ -230,16 +230,19 @@
 body.single, body.page-template-default {
 	&.editoria{
 		.barra-editorias {
-			background-image: url('../images/barra-azul.jpg');
+			background: $especiais_single_color;
 		}
 	}
 	&.editorial{
 		.barra-editorias {
-			background-image: url('../images/barra-vermelha.jpg');
+			background:$editorial_color;
 		}
 	}
+	.barra-videos {
+		background: $galeria_color;
+	}
 
-	.barra-editorias {
+	.barra-editorias, .barra-videos, .barra-galerias {
 			background-size: cover;
 
 			color: #FFF;
@@ -375,9 +378,6 @@ body.single, body.page-template-default {
 		font-family: $font_family_h1;
 		font-weight: $font_weight_h1;
 		line-height: $line_height_h1;
-		color:$especiais_single_color;
-
-
 	}
 	.editoria {
 		a {

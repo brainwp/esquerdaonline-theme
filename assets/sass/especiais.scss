@@ -36,8 +36,7 @@
 }
 .single-especiais, .tax-tipo, .post-type-archive-especiais{
   .barra-especiais{
-    background-image: url(../images/barra-roxa.jpg);
-    background-size: cover;
+    background: $especiais_single_color;
     color: #FFF;
     text-align: left;
     padding-top:10px;
@@ -131,6 +130,11 @@
   }
 }
 @media(min-width:991px){
+	#header-especiais {
+		img {
+			width:100%;
+		}
+	}
   .single-especiais{
     #header-especiais{
       .social-icons-post{
@@ -191,8 +195,7 @@
         opacity: 0.8;
       }
     }
-    background-image: url('../images/barra-roxa.jpg');
-    background-size: cover;
+    background:$especiais_single_color;
     color: #FFF;
     padding: 10px;
     text-align: left;
@@ -208,11 +211,9 @@
     text-transform: uppercase;
   }
 }
-.single-especial {
-	#especial-text {
-		.main-title {
-			color:$especiais_single_color;
-		}
+#especial-text {
+	.main-title {
+		color:$especiais_single_color;
 	}
 }
 @media screen and ( max-width: 991px ) {
