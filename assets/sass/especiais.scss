@@ -208,6 +208,13 @@
     text-transform: uppercase;
   }
 }
+.single-especial {
+	#especial-text {
+		.main-title {
+			color:$especiais_single_color;
+		}
+	}
+}
 @media screen and ( max-width: 991px ) {
 	body.single-post.especial {
 		#header-especiais {
