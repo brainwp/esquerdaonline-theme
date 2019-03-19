@@ -183,6 +183,22 @@ else if( is_tax('editorias') ) {
 			<h5 class="col-md-12"><?php echo $term->name;  ?></h5>
 		</div>
 	</div>
+<?php }
+else if( is_post_type_archive( 'videos' ) || 'videos' === get_post_type( get_the_ID() )  ) {
+		?>
+	<div class="barra-videos">
+		<div  class="container">
+			<h5 class="col-md-12">Vídeos</h5>
+		</div>
+	</div>
+<?php  }
+else if( is_post_type_archive( 'brasa_slider_cpt' ) || 'brasa_slider_cpt' === get_post_type( get_the_ID() )  ) {
+		?>
+	<div class="barra-videos">
+		<div  class="container">
+			<h5 class="col-md-12">Fotogalerias</h5>
+		</div>
+	</div>
 <?php  }
 		if (is_front_page()) {?>
 			<div style="display:none" class="faixa-topo">

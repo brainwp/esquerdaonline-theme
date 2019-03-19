@@ -7,7 +7,7 @@ body{
     }
     &.term-editorial{
       .barra-editorias{
-        background-image: url('../images/barra-vermelha.jpg');
+        background:$editorial_color;
         h5{
           padding-left:0;
         }
@@ -33,8 +33,7 @@ body{
       padding-right: 0px;
     }
     .barra-editorias{
-      background-image: url('../images/barra-azul.jpg');
-      background-size: cover;
+      background:$especiais_single_color;
 			color: #FFF;
 			padding: 10px 0;
 			text-align: left;
