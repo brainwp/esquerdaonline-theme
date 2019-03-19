@@ -175,6 +175,70 @@ function odin_pagination_custom_especiais( $mid = 2, $end = 1, $show = false, $q
 
 
 /**
+ * Pagination.
+ *
+ * @since  2.2.0
+ *
+ * @global array $wp_query   Current WP Query.
+ * @global array $wp_rewrite URL rewrite rules.
+ *
+ * @param  int   $mid   Total of items that will show along with the current page.
+ * @param  int   $end   Total of items displayed for the last few pages.
+ * @param  bool  $show  Show all items.
+ * @param  mixed $query Custom query.
+ *
+ * @return string       Return the pagination.
+ * paginacao dos posts de um especial dossie
+ */
+function odin_pagination_custom_especiais_single( $mid = 2, $end = 1, $show = false, $query = null ) {
+	// Prevent show pagination number if Infinite Scroll of JetPack is active
+	if ( ! isset( $_GET[ 'infinity' ] ) ) {
+
+		global $wp_query, $wp_rewrite;
+
+		$total_pages = $wp_query->max_num_pages;
+
+		if ( is_object( $query ) && null != $query ) {
+			// $total_pages = $query->max_num_pages;
+			$published_posts = $query->queried_object->count;
+		    $posts_per_page = $query->query['posts_per_page'];
+		    $page_number_max = ceil($published_posts / $posts_per_page);
+		}
+
+
+		if ( $page_number_max > 1 ) {
+			$url_base = $wp_rewrite->pagination_base;
+			$big = 999999999;
+
+			// Sets the paginate_links arguments.
+			$arguments = apply_filters( 'odin_pagination_args', array(
+					'base'      => get_permalink( get_the_id() ) . '?pagina=%#%',
+					'format'    => '%#%',
+					'current'   => 1,
+					'total'     => $page_number_max,
+					'show_all'  => $show,
+					'end_size'  => $end,
+					'mid_size'  => $mid,
+					'type'      => 'list',
+					'prev_text' => __( '&laquo; Anterior', 'odin' ),
+					'next_text' => __( 'Próximo &raquo;', 'odin' ),
+				)
+			);
+			if (isset($_GET['pagina'])) {
+				$arguments['current'] = $_GET[ 'pagina' ];
+			}
+
+			$pagination = '<div class="pagination-wrap">' . paginate_links( $arguments ) . '</div>';
+
+			return $pagination;
+		}
+	}
+}
+
+
+
+
+/**
  * Related Posts.
  *
  * Usage:

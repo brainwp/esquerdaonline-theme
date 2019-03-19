@@ -110,7 +110,7 @@
         <?php
         }
         $query_args = array(
-          'posts_per_page'      => -1,
+          'posts_per_page'      => 10,
           'no_found_rows'       => true,
           'post_status'         => 'publish',
           'tax_query' => array(
@@ -129,6 +129,9 @@
           ),
 
         );
+		if (isset($_GET['pagina'])) {
+			$query_args['paged'] = $_GET[ 'pagina' ];
+		}
         $s = new WP_Query($query_args);
 
         ?>
@@ -143,6 +146,7 @@
 
     ?>
  		</div><!-- .col-md-12 -->
+		<?php echo odin_pagination_custom_especiais_single($mid = 2, $end = 1, $show = false, $s); ?>
  	</main><!-- #main -->
  <?php
  get_footer();
