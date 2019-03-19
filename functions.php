@@ -771,7 +771,7 @@ add_action('pre_get_posts','eol_search_remove_pages');
 
 function get_video() {
 
-	echo wp_oembed_get($_POST['url']);
+	echo wp_oembed_get($_POST['url'], array( 'width' => $_POST[ 'width'], 'height' => $_POST[ 'height' ] ) );
 	return;
 }
 add_action( 'wp_ajax_nopriv_get_video', 'get_video' );

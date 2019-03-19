@@ -43,7 +43,9 @@ get_header('large'); ?>
 								$colunistas_array[get_the_title()] = get_the_permalink();
 							endwhile;
 							// Page navigation.
+							echo '<div class="clearfix col-md-12">';
 							echo odin_pagination_custom_especiais();
+							echo '</div>';
 							?>
 							<?php
 						else :

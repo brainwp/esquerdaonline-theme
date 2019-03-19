@@ -19,10 +19,14 @@
      <?php
      while ( have_posts() ) : the_post();
      ?>
-     <?php if ( has_post_thumbnail() ) : ?>
+     <?php if ( has_post_thumbnail() || get_post_meta( get_the_ID(), 'thumbnail_single', true ) ) : ?>
      <div id="header-especiais" class="">
         <figure class=" post-thumbnail">
-          <?php eol_single_thumbnail('full', get_the_ID());?>
+          <?php if ( $image_id = get_post_meta( get_the_ID(), 'thumbnail_single', true ) ) : ?>
+          	<?php echo wp_get_attachment_image( $image_id, 'full', false, '' );?>
+          <?php else : ?>
+          	<?php eol_single_thumbnail('full', get_the_ID());?>
+          <?php endif;?>
         </figure>
         <div class="col-md-3 pull-right social-icons-post">
           <?php eol_share_overlay();?>

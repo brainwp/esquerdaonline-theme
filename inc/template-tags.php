@@ -250,6 +250,9 @@ function eol_socials(){
 			if ( 'telegram' === $link[ 'link_icon'] ) {
 				$class = 'fa-telegram';
 			}
+			if ( 'youtube' === $link[ 'link_icon'] ) {
+				$class = 'fa-youtube';
+			}
 			?>
 			<a target="_blank" href="<?php echo esc_url( $link[ 'link_url'] );?>">
 				<i class="fab <?php echo $class;?>"></i>
@@ -263,7 +266,31 @@ function eol_header_especiais(){
 		$term = wp_get_post_terms( get_the_ID(), 'especiais' );
 		$especial = get_page_by_title( $term[0]->name, $output = OBJECT, $post_type = 'especiais' );
 	?>
-	<?php if ( has_post_thumbnail( $especial->ID ) ) : ?>
+	<?php if ( $image_id = get_post_meta( $especial->ID, 'thumbnail_single', true ) ) : ?>
+	<div id="header-especiais" class="">
+		 <figure class=" post-thumbnail">
+			 <a href="<?php echo get_the_permalink( $especial->ID ); ?>">
+			 	<div class="single-thumbnail">
+			 		<?php echo wp_get_attachment_image( $image_id, 'full', false, '' );?>
+			 	</div><!-- .single-thumbnail -->
+			 </a>
+		 </figure>
+		 <div class="col-md-9" id="especial-text" class="">
+			 <h1 class="entry-title main-title">
+				<a href="<?php echo get_the_permalink( $especial->ID ); ?>">
+			 		<?php echo get_the_title( $especial->ID);?>
+				</a>
+		 	 </h1>
+			 <div class="sub-title">
+				 <a href="<?php echo get_the_permalink( $especial->ID ); ?>">
+				 <?php if ( $sub_title = get_post_meta( $especial->ID, 'sub_title', true ) ) {
+					 echo apply_filters( 'the_content', $sub_title );
+				 }?>
+			 	 </a>
+			 </div><!-- sub-title -->
+		 </div>
+	 </div><!--  id="header-especiais" -->
+	<?php elseif ( has_post_thumbnail( $especial->ID ) ) : ?>
 	<div id="header-especiais" class="">
 		 <figure class=" post-thumbnail">
 			 <a href="<?php echo get_the_permalink( $especial->ID ); ?>">

@@ -48,6 +48,7 @@ function eol_customize_init( $wp_customize ) {
 					'google-plus' => 'Google +',
 					'whatsapp' => 'WhatsApp',
 					'telegram' => 'Telegram',
+					'youtube' 	=> 'YouTube'
 				),
 			),
 			'link_url' => array(

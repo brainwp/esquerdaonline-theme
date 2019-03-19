@@ -153,7 +153,7 @@ function odin_pagination_custom_especiais( $mid = 2, $end = 1, $show = false, $q
 
 			// Sets the paginate_links arguments.
 			$arguments = apply_filters( 'odin_pagination_args', array(
-					'base'      => get_term_link( 'dossies', 'tipo' ) . '/page/%#%',
+					'base'      => get_post_type_archive_link( 'especiais' ) . '/page/%#%',
 					'format'    => '%#%',
 					'current'   => max( 1, get_query_var( 'page' ) ),
 					'total'     => $total_pages,

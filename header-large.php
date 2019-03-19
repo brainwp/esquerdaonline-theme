@@ -22,6 +22,8 @@
 </head>
 
 <body <?php body_class(); ?>>
+	<div id="fb-root"></div>
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v3.2&appId=334035897045245&autoLogAppEvents=1"></script>
 	<div id="modal" class="modal">
 		<div id="modal-content"></div>
 		<div class="modal-share" style="display:none;opacity:0;">
@@ -35,7 +37,6 @@
 			</a>
 		</div><!-- .modal-share -->
 	</div>
-	<div id="fb-root"></div>
 	<a id="skippy" class="sr-only sr-only-focusable" href="#content">
 		<div class="container">
 			<span class="skiplink-text"><?php _e( 'Skip to content', 'odin' ); ?></span>

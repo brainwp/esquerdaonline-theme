@@ -131,6 +131,11 @@
   }
 }
 @media(min-width:991px){
+	#header-especiais {
+		img {
+			width:100%;
+		}
+	}
   .single-especiais{
     #header-especiais{
       .social-icons-post{
@@ -208,11 +213,9 @@
     text-transform: uppercase;
   }
 }
-.single-especial {
-	#especial-text {
-		.main-title {
-			color:$especiais_single_color;
-		}
+#especial-text {
+	.main-title {
+		color:$especiais_single_color;
 	}
 }
 @media screen and ( max-width: 991px ) {
