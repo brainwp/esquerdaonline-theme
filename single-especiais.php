@@ -106,7 +106,7 @@
         <?php
         }
         $query_args = array(
-          'posts_per_page'      => -1,
+          'posts_per_page'      => 5,
           'no_found_rows'       => true,
           'post_status'         => 'publish',
           'tax_query' => array(
@@ -139,6 +139,7 @@
 
     ?>
  		</div><!-- .col-md-12 -->
+		<?php odin_pagination_custom_especiais_single($mid = 2, $end = 1, $show = false, $s); ?>
  	</main><!-- #main -->
  <?php
  get_footer();
