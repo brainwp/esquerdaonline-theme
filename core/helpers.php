@@ -155,7 +155,7 @@ function odin_pagination_custom_especiais( $mid = 2, $end = 1, $show = false, $q
 			$arguments = apply_filters( 'odin_pagination_args', array(
 					'base'      => get_post_type_archive_link( 'especiais' ) . '/page/%#%',
 					'format'    => '%#%',
-					'current'   => max( 1, get_query_var( 'page' ) ),
+					'current'   => max( 1, get_query_var( 'paged' ) ),
 					'total'     => $total_pages,
 					'show_all'  => $show,
 					'end_size'  => $end,
