@@ -770,8 +770,15 @@ add_action('pre_get_posts','eol_search_remove_pages');
 // }
 
 function get_video() {
-
-	echo wp_oembed_get($_POST['url'], array( 'width' => $_POST[ 'width'], 'height' => $_POST[ 'height' ] ) );
+	$id = $_POST['id'];
+	$data = file_get_contents("https://graph.facebook.com/$id/thumbnails?access_token=$facebook_access_token");
+	if ($data !== FALSE)
+	{
+		 $result=json_decode($data);
+		 $thumbnail=$result->data[0]->uri;
+		 print_r($result);
+	}
+	// echo wp_oembed_get($_POST['url'], array( 'width' => $_POST[ 'width'], 'height' => $_POST[ 'height' ] ) );
 	return;
 }
 add_action( 'wp_ajax_nopriv_get_video', 'get_video' );

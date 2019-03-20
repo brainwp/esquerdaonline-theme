@@ -53,21 +53,37 @@ jQuery(document).ready(function($) {
 				$('#modal-content').append('<div id="close-modal"><a href="#"><i class="fa fa-times" aria-hidden="true"></i></a></div>')
 			}
 			else if(url.includes("facebook")){
-				var height = parseInt($( window ).height() / 2.5);
-				console.log('height');
-				console.log(height);
+				var height = parseInt($( window ).height() / 2);
+				var width = parseInt($( window ).width() / 2);
+				// console.log('height');
+				// console.log(height);
 				$('#modal-content').html('<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>');
+
+				// since 2.8 ajaxurl is always defined in the admin header and points to admin-ajax.php
+				var myString = url;
+				var myRegexp = /(?:https?:\/\/)?(?:www.|web.|m.)?facebook.com\/(?:video.php\?v=\d+|photo.php\?v=\d+|\?v=\d+)|\S+\/videos\/((\S+)\/(\d+)|(\d+))\/?/g;
+				var match = myRegexp.exec(myString);
 				var data = {
 					'action': 'get_video',
 					'url': url,
 					'height': height,
+					'id':match[1]
 				};
-				// since 2.8 ajaxurl is always defined in the admin header and points to admin-ajax.php
-				jQuery.post(odinAjax.ajax_url, data, function(response) {
-					$( '#modal-content' ).append( response );
-				});
-				$( '#modal-content' ).append( '<iframe src="https://www.facebook.com/plugins/video.php?href='+url+'&show_text=0&height='+height+'" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>' );
+				// jQuery.post(odinAjax.ajax_url, data, function(response) {
+				// 	$( '#modal-content' ).append( response );
+				// });
+				// $( '#modal-content' ).append( '<iframe src="https://www.facebook.com/plugins/video.php?href='+url+'&show_text=0" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>' );
+				$( '#modal-content' ).append( '<div class="fb-video" data-width="500" data-allowfullscreen="true" data-href="'+url+'"></div>' );
+
+				FB.XFBML.parse(document.getElementById('#modal-content'));
+	            //Autoplay
+	            FB.Event.subscribe('xfbml.ready', function(msg) {
+	                if (msg.type === 'video') {
+	                    msg.instance.play();
+	                }
+	            });
 			}
+			$('#modal').addClass('aberto');
 			$('#modal-content').append('<div id="close-modal"><a href="#"><i class="fa fa-times" aria-hidden="true"></i></a></div>');
 			setTimeout( function(){
 				$( '#modal-content' ).append( '<div style="width:100%;clear:both;"></div>');
@@ -78,7 +94,7 @@ jQuery(document).ready(function($) {
 				$modal_share.attr( 'data-url', $link_elem.attr( 'data-url') );
 				if ( $link_elem.attr( 'data-download') ) {
 					$( '#modal-content' ).append( '<div style="width:100%;clear:both;"></div>');
-					console.log( 'tem download?');
+					// console.log( 'tem download?');
 					$( '#modal .modal-download' ).clone().appendTo( '#modal-content' );
 					var $modal_download = $( '#modal-content' ).find( '.modal-download' );
 					$modal_download.attr( 'style', '' );
@@ -103,13 +119,13 @@ jQuery(document).ready(function($) {
 				$modal_share.attr( 'data-url', $link_elem.attr( 'data-url') );
 				if ( $link_elem.attr( 'data-download') ) {
 					$( '#modal-content' ).append( '<div style="width:100%;clear:both;"></div>');
-					console.log( 'tem download?');
+					// console.log( 'tem download?');
 					$( '#modal .modal-download' ).clone().appendTo( '#modal-content' );
 					var $modal_download = $( '#modal-content' ).find( '.modal-download' );
 					$modal_download.attr( 'style', '' );
 					$modal_download.find( 'a' ).attr( 'href', $link_elem.attr( 'data-download') );
 				}
-				console.log( '..')
+				// console.log( '..')
 			}, 1000 );
 
 			break;
@@ -138,6 +154,7 @@ jQuery(document).ready(function($) {
 				$( 'body,html' ).attr( 'style', '' );
 				$('#modal-content').html(" ");
 				$( '#modal' ).removeClass( 'data-image' );
+				$('#modal').removeClass('aberto');
 			});
 		});
 		$( '#modal' ).on( 'click', function(e) {
