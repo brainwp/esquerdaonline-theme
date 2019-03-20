@@ -94,7 +94,10 @@ if ( is_array( $response ) ) {
 			}
 			echo '<br>Cadastrando ACF';
 			foreach ( $post->meta_fields as $key => $value ) {
-				update_post_meta( $add_new_post, $key, $value[0] );
+				if ( $key != '_thumbnail_id' ) {
+					update_post_meta( $add_new_post, $key, $value[0] );
+				}
+
 			}
 			echo '<br>---------------<br>';
 		}

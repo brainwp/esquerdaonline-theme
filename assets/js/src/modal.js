@@ -139,7 +139,12 @@ jQuery(document).ready(function($) {
 
 
 		}
-		$( '#modal' ).fadeIn();
+		if ( 'image' === type) {
+			$( '#modal' ).css( 'display', 'flex' ).hide().fadeIn();
+		} else {
+			$( '#modal' ).fadeIn();
+		}
+
 
 		$(document).keyup(function(e) {
 			if (e.keyCode === 27) $( '#modal' ).fadeOut('fast', function() {

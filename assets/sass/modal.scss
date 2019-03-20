@@ -16,20 +16,28 @@
 	  align-items: center;
   }
   &.data-image{
+  	justify-content: center;
+  	@media screen and ( min-width: 900px ) {
+  		.modal-share {
+  			margin-left: auto;
+  			margin-right: auto;
+  			left: 0;
+  			right: 0;
+  			width:263px;
+  			position: absolute;
+  	}
+
+  	}
 	#modal-content{
+		margin-top:55px;
+		width: inherit !important;
 		img{
 			width: initial;
 			max-width: 90vw;
 			max-height: 82vh;
 		}
-		width: 100%;
-	    display: flex;
 	    transition: 600ms ease all;
 	    height: 100%;
-	    justify-content: center;
-	    flex-flow: column;
-	    flex-wrap: wrap;
-	    align-items: center;
 	}
   }
   #modal-content{
