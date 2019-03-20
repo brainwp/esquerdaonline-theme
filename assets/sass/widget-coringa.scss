@@ -228,6 +228,9 @@
 			font-size: 20px;
 			font-weight: 800;
 			line-height: 33px;
+			@media screen and ( max-width: 900px ) {
+				position: absolute;
+			}
 			&:after{
 				font-size:25px;
 			}
@@ -259,25 +262,29 @@
 				}
 			}
 			&.titulo50peso{
-				.tax-widget-titulo a{
-					font-family: heebo;
-					font-size: 30px;
-					font-weight: 600;
-					line-height: 33px;
-					letter-spacing: 0.4px;
+				@media screen and ( min-width: 900px ) {
+					.tax-widget-titulo a{
+						font-family: heebo;
+						font-size: 30px;
+						font-weight: 600;
+						line-height: 33px;
+						letter-spacing: 0.4px;
+					}
 				}
 			}
 			&.titulo50{
-				.tax-widget-titulo a{
-					font-family: heebo;
-					font-size: 30px;
-					font-weight: 500;
-					line-height: 33px;
-					letter-spacing: 0.4px;
+				@media screen and ( min-width: 900px ) {
+					.tax-widget-titulo a{
+						font-family: heebo;
+						font-size: 30px;
+						font-weight: 500;
+						line-height: 33px;
+						letter-spacing: 0.4px;
+					}
 				}
 			}
 			&.titulo25{
-					.tax-widget-titulo a{
+				.tax-widget-titulo a{
 					font-family: heebo;
 					font-size: 25px;
 					font-weight: 500;
@@ -426,18 +433,23 @@
 				font-weight: 800;
 				line-height: 33px;
 				background-color: $editorial_color;
+				@media screen and ( max-width: 900px ) {
+					top:-10px;
+				}
 				&:after{
 					color:$red-main;
 					font-size: 25px;
 				}
 			}
 			.each-post-widget{
-				.tax-widget-titulo a{
-					margin-bottom: 15px;
-					font-size: 28px;
-					font-weight: 600;
-					line-height: 34px;
-					letter-spacing: 0.2px;
+				@media screen and ( min-width: 900px ) {
+					.tax-widget-titulo a{
+						margin-bottom: 15px;
+						font-size: 28px;
+						font-weight: 600;
+						line-height: 34px;
+						letter-spacing: 0.2px;
+					}
 				}
 				&.manchete{
 					.tax-widget-titulo a{
@@ -481,8 +493,13 @@
 	overflow:hidden;
 	padding:0!important;
 	&.esconder-titulo{
-		.widget-title{
-			visibility:hidden;
+		.widget-title {
+			visibility: hidden;
+		}
+		@media screen and ( max-width: 900px ) {
+			.widget-title{
+				display:none !important;
+			}
 		}
 	}
 	a{
@@ -526,6 +543,9 @@
 			.icon-itself{
 				display: inline-block;
 				padding: 10px;
+				@media screen and ( max-width: 900px ) {
+					padding:6px;
+				}
 			}
 
 			img{
@@ -600,6 +620,11 @@
 
 	}
 	.sem-foto {
+		@media screen and ( max-width: 900px ) {
+			.widget-title {
+				position: relative !important;
+			}
+		}
 
 	}
 }
@@ -670,6 +695,59 @@
 		}
 		img.size-quadrada-icone {
 			border-radius:20px;
+		}
+	}
+}
+.widget-container.widget-estados-container, .widget-videos-container, .widget-live-container, .widget-container.especial, .widget-newsletter-container{
+	.widget-title{
+		position: relative !important;
+	}
+}
+
+.social-foto-meio {
+	display: none;
+	@media screen and ( max-width: 900px ) {
+		display: inline-block;
+		position: absolute;
+		right: 0;
+		top: 7px;
+		float: right;
+		.icon-itself {
+			display: inline-block;
+			float: right;
+			i {
+				font-size:20px;
+				padding-left: 6px;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 900px ) {
+	.widget-eol-posts article.foto-meio:first-child figure .social-icons-post{
+		display: none;
+	}
+	.widget-container.foto-cima .widget-title {
+		top:-5px;
+	}
+	.tax-widget-subtitulo {
+		display: none !important;
+	}
+	.widget-galeria-container .widget-title {
+		margin-top: -5px;
+	}
+	.widget-galeria-container .social-icons-post {
+		position: absolute;
+		z-index: 999;
+		right: 0;
+		top: -20px;
+		.icon-itself {
+			display: inline-block;
+			float: right;
+			i {
+				font-size:20px;
+				padding-left: 6px;
+			}
 		}
 	}
 }
