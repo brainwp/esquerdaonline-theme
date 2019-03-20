@@ -219,18 +219,6 @@
 @media screen and ( max-width: 991px ) {
 	body.single-post.especial {
 		#header-especiais {
-			display: flex;
-			flex-wrap: wrap-reverse;
-			h1.main-title {
-				position: relative !important;
-				left: inherit !important;
-				bottom:inherit !important;
-				width: 100% !important;
-				text-align: center;
-				a {
-					color:$dark_main !important;
-				}
-			}
 		}
 	}
   body.single-especiais .main-post-social figure {

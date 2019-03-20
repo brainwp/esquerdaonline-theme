@@ -7,11 +7,19 @@
  */
 
 get_header('large');
-eol_header_especiais();
 ?>
-
+	<?php if ( ! wp_is_mobile() ) : ?>
+	<div class="col-md-12 no-padding">
+		<?php eol_header_especiais();?>
+	</div><!-- .col-md-12 no-padding -->
+	<?php endif;?>
 	<div id="primary" class="<?php echo odin_classes_page_sidebar(); ?>">
 		<main id="main-content" class="site-main" role="main">
+			<?php if ( wp_is_mobile() ) : ?>
+				 <div class="col-md-12 no-padding">
+						<?php eol_header_especiais();?>
+				</div><!-- .col-md-12 no-padding -->
+			<?php endif;?>
 			<?php
 				// Start the Loop.
 				while ( have_posts() ) : the_post();
