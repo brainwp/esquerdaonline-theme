@@ -31,6 +31,11 @@ class EOL_Widget_Colunistas extends WP_Widget {
 		 * @param WP_Widget $instance    WP_Widget instance.
 		 */
 		$posts = apply_filters( 'widget_colunistas_posts', empty( $instance['posts'] ) ? 3 : $instance['posts'], $instance );
+		if ( is_page_template( 'page-sidebar-home.php' ) || is_front_page() ) {
+			if ( ! in_array( 'estilo-home', $classes_array ) ) {
+				$classes_array[] = 'estilo-home';
+			}
+		}
 		if ( in_array( 'estilo-home', $classes_array ) ) : ?>
 			<div class="widget-colunistas widget-container <?php echo $classes; ?> ">
 		<?php else : ?>

@@ -279,7 +279,7 @@ function eol_header_especiais(){
 		 <figure class=" post-thumbnail">
 			 <a href="<?php echo get_the_permalink( $especial->ID ); ?>">
 			 	<div class="single-thumbnail">
-			 		<?php echo wp_get_attachment_image( $image_id, 'full', false, '' );?>
+			 	    <?php echo wp_get_attachment_image( $image_id, 'full', false, '' );?>
 			 	</div><!-- .single-thumbnail -->
 			 </a>
 		 </figure>

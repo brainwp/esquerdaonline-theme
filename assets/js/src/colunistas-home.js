@@ -6,14 +6,14 @@
 jQuery(document).ready(function($) {
 	console.log( 'qqq1' );
 	// checa se existe elemento com a classe .carrossel
-	if ( 0 === $( '.widget-colunistas.carrossel' ).length ) {
-		console.log( 'qqq' );
+	if ( ! $( 'body' ).hasClass( 'home' ) && ! $( 'body ').hasClass( 'page-template-page-sidebar-home' ) ) {
+		console.log( 'errr' );
 		return;
 	}
 	var eol_colunistas_slider = function(){
 		if ( $( window ).width() >= 900 ) {
 			console.log( 'qqq3' );
-			$( '.widget-colunistas.carrossel' ).each( function(){
+			$( '.widget-colunistas' ).each( function(){
 				$( this ).find( '.widget-colunistas' ).slick({
 					infinite: true,
 					slidesToShow: 5,
@@ -21,7 +21,7 @@ jQuery(document).ready(function($) {
 				});
 			});
 		} else {
-			$( '.widget-colunistas.carrossel' ).each( function(){
+			$( '.widget-colunistas' ).each( function(){
 				console.log( 'qq44' );
 				$( this ).find( '.widget-colunistas' ).slick({
 					infinite: true,

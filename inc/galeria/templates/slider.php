@@ -30,10 +30,10 @@ $brasa_slider_id = $slider->ID;
 	<h3 class="galeria-title">
 		<?php echo apply_filters( 'the_title', $slider->post_title );?>
 	</h3><!-- .galeria-title -->
+	<div class="social-icons-post" data-share="<?php echo get_permalink( $slider->ID );?>">
+		<?php eol_share_overlay( get_permalink( $slider->ID ) );?>
+	</div><!-- .col-md-12 social-icons-post -->
 <?php endif;?>
-<div class="social-icons-post" data-share="<?php echo get_permalink( $slider->ID );?>">
-	<?php eol_share_overlay( get_permalink( $slider->ID ) );?>
-</div><!-- .col-md-12 social-icons-post -->
 <div class="each-galeria-brasa">
 <div id="main-slide" class=" first-slider galeria-eol">
 	<div class="loader"></div>
