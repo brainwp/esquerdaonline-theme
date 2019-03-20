@@ -25,6 +25,7 @@ jQuery(document).ready(function($) {
 			}
 			var url = $(this).attr('data-src');
 			if (url.includes("youtube")){
+				$('#modal-content').addClass('youtube-video');
 				var urlFinal = "https://www.youtube.com/embed/"+ youtube_parser(url) +"?rel=0&showinfo=0&autoplay=1";
 
 				var iframe = document.createElement( "iframe" );
@@ -155,6 +156,7 @@ jQuery(document).ready(function($) {
 				$('#modal-content').html(" ");
 				$( '#modal' ).removeClass( 'data-image' );
 				$('#modal').removeClass('aberto');
+				$('#modal-content').removeClass('youtube-video');
 			});
 		});
 		$( '#modal' ).on( 'click', function(e) {
