@@ -149,12 +149,20 @@ function eol_single_thumbnail($size='full', $post_id = null, $meta = null) {
 	}
 	// se é widget e é thumb-widget com imagem destacada
 	elseif (isset($size_thumb[1] )&& $single_thumbnail_img = get_the_post_thumbnail( $post_id , 'full' )) {
-		echo $single_thumbnail_img;
+		if ( wp_is_mobile() && ( is_front_page() || is_page_template( 'page-sidebar-home.php' ) ) ) {
+			echo get_the_post_thumbnail( $post_id, 'retangular-p' );
+		} else {
+			echo $single_thumbnail_img;
+		}
 		$single_thumbnail = get_post_thumbnail_id( $post_id );
 	}
 	// se é widget e é thumb-tamanho com imagem destacada
 	elseif($single_thumbnail_img = get_the_post_thumbnail( $post_id , $size )) {
-		echo $single_thumbnail_img;
+		if ( wp_is_mobile() && ( is_front_page() || is_page_template( 'page-sidebar-home.php' ) ) ) {
+			echo get_the_post_thumbnail( $post_id, 'retangular-p' );
+		} else {
+			echo $single_thumbnail_img;
+		}
 		$single_thumbnail = get_post_thumbnail_id( $post_id );
 	}
 	else{
@@ -171,7 +179,7 @@ function eol_single_thumbnail($size='full', $post_id = null, $meta = null) {
 				$size = "-".$size;
 			}
 			?>
-				<img class="attachment-post-default-thumbnail size-post-default-thumbnail wp-post-image" src="<?php echo get_template_directory_uri() ?>/assets/images/img-default<?php echo $size; ?>.jpg" alt="">
+				<img class="attachment-post-default-thumbnail size-post-default-thumbnail wp-post-image" src="<?php echo get_template_directory_uri() ?>/assets/images/img-default-quadrada-p.png" alt="">
 			<?php
 		}
 	}

@@ -110,9 +110,21 @@ class EOL_Posts_Widget extends WP_Widget {
 			}
 			// coloca o widget atual numa variavel global para
 			$GLOBALS[ 'current_widget' ] = $instance;
-			echo '<div class="background">';
+			$i = 0;
 			while( $query->have_posts() ) {
 				$query->the_post();
+				if ( $i === 0 ) {
+					if ( in_array( 'foto-meio', explode( ' ', $classes_posts ) ) ) : ?>
+						<figure class=" post-thumbnail social-foto-meio">
+							<i class="fas fa-share-alt"></i>
+							<div class="col-md-12 social-icons-post">
+								<?php eol_share_overlay();?>
+							</div>
+						</figure>
+					<?php endif;
+					echo '<div class="background">';
+				}
+				$i++;
 				get_template_part( 'content/post' );
 			}
 			echo '</div>';

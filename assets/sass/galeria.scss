@@ -72,6 +72,10 @@
 	.galeria-title {
 		display: inline-block;
 		width: 68%;
+		@media screen and ( max-width: 900px ) {
+			padding-top: 20px;
+			width: 100%;
+		}
 	}
 	.post-link-widget-text{
 		background-repeat: no-repeat, repeat;
