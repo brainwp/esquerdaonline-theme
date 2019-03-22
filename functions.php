@@ -287,6 +287,18 @@ function odin_widgets_init() {
 		)
 	);
 
+	register_sidebar(
+		array(
+			'name' => __( 'Area - Single noticias interno', 'odin' ),
+			'id' => 'single-interno-widgets',
+			'description' => __( 'Area - Topo single noticias', 'odin' ),
+			'before_widget' => '',
+			'after_widget' => '',
+			'before_title' => '<h3 class="widgettitle widget-title">',
+			'after_title' => '</h3>',
+		)
+	);
+
 }
 
 add_action( 'widgets_init', 'odin_widgets_init' );
@@ -783,6 +795,43 @@ function get_video() {
 }
 add_action( 'wp_ajax_nopriv_get_video', 'get_video' );
 add_action( 'wp_ajax_get_video', 'get_video' );
+
+
+function eol_filter_post_type_by_taxonomies( $post_type, $which ) {
+
+	// Apply this only on a specific post type
+	if ( 'post' !== $post_type )
+		return;
+
+	// A list of taxonomy slugs to filter by
+	$taxonomies = array( 'editorias' );
+
+	foreach ( $taxonomies as $taxonomy_slug ) {
+
+		// Retrieve taxonomy data
+		$taxonomy_obj = get_taxonomy( $taxonomy_slug );
+		$taxonomy_name = $taxonomy_obj->labels->name;
+
+		// Retrieve taxonomy terms
+		$terms = get_terms( $taxonomy_slug );
+
+		// Display filter HTML
+		echo "<select name='{$taxonomy_slug}' id='{$taxonomy_slug}' class='postform'>";
+		echo '<option value="">' . sprintf( esc_html__( 'Show All %s', 'text_domain' ), $taxonomy_name ) . '</option>';
+		foreach ( $terms as $term ) {
+			printf(
+				'<option value="%1$s" %2$s>%3$s (%4$s)</option>',
+				$term->slug,
+				( ( isset( $_GET[$taxonomy_slug] ) && ( $_GET[$taxonomy_slug] == $term->slug ) ) ? ' selected="selected"' : '' ),
+				$term->name,
+				$term->count
+			);
+		}
+		echo '</select>';
+	}
+
+}
+add_action( 'restrict_manage_posts', 'eol_filter_post_type_by_taxonomies' , 10, 2);
 
 // adiciona o duplicador revolucionario
 require_once get_template_directory() . '/inc/class-duplicador.php';

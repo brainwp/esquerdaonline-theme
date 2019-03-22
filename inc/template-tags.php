@@ -210,27 +210,30 @@ function eol_share_overlay( $link = false ) {
 	if ( ! $link && get_the_permalink( get_the_ID() ) ) {
 		$link = get_the_permalink( get_the_ID() );
 	}
+	if( ! $link ) {
+		$link = '';
+	}
 	$link_text = esc_attr( __( 'Copiar link', 'eol' ) );
 	$text_copy_success = esc_attr( __( 'Link copiado com sucesso!', 'eol' ) );
 	echo '
 	<div class="icon-itself">
 		<a href="#">
-			<i class="fab fa-facebook-f"></i>
+			<i class="fab fa-facebook-f" data-href="'.$link.'"></i>
 		</a>
 	</div>
 	<div class="icon-itself">
 		<a href="#">
-			<i class="fab fa-twitter"></i>
+			<i class="fab fa-twitter" data-href="'.$link.'"></i>
 		</a>
 	</div>
 	<div class="icon-itself">
 		<a href="#">
-			<i class="fab fa-whatsapp"></i>
+			<i class="fab fa-whatsapp" data-href="'.$link.'"></i>
 		</a>
 	</div>
 	<div class="icon-itself">
 		<a href="#">
-			<i class="fab fa-telegram"></i>
+			<i class="fab fa-telegram" data-href="'.$link.'"></i>
 		</a>
 	</div>
 	<div class="icon-itself">
@@ -238,7 +241,6 @@ function eol_share_overlay( $link = false ) {
 			<i class="fas fa-link" data-href="'.$link.'" data-text-success="'.$text_copy_success.'"></i>
 		</a>
 	</div>
-
 	';
 }
 function eol_socials(){

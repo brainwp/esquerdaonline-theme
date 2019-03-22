@@ -8,6 +8,9 @@
 
 get_header('large');
 ?>
+	<div class="sem-especial single-interno-widgets">
+		<?php dynamic_sidebar( 'single-interno-widgets' ); ?>
+	</div><!-- .sem-especial single-interno-widgets -->
 	<?php if ( ! wp_is_mobile() ) : ?>
 	<div class="col-md-12 no-padding">
 		<?php eol_header_especiais();?>
@@ -29,7 +32,11 @@ get_header('large');
 					 * use this in a child theme, then include a file called called content-___.php
 					 * (where ___ is the post format) and that will be used instead.
 					 */
-					get_template_part( '/content/content', 'single' );
+					get_template_part( '/content/content', 'single' ); ?>
+					<div class="com-especial single-interno-widgets" style="display:none;">
+						<?php dynamic_sidebar( 'single-interno-widgets' ); ?>
+					</div><!-- .sem-especial single-interno-widgets -->
+					<?php
 
 					// Social area (share button, comments, etc )
 					get_template_part( '/parts/social-area' );

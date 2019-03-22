@@ -108,9 +108,14 @@ jQuery(document).ready(function($) {
 		if ( ! url ) {
 			var url = $( this ).parent().parent().parent().parent().find( '.post-thumbnail-link' ).attr( 'href' );
 			if ( ! url ) {
+				//console.log( 'chegou aqui?' );
 				var url = $( this ).parent().parent().parent().attr( 'data-share' );
+				if ( ! url ) {
+					var url = $( this ).attr( 'data-href' );
+				}
 			}
 		}
+		console.log( url )
 		if ( $( this ).hasClass( 'fa-facebook-f' ) ) {
 			eol_fb_share( url );
 			return;

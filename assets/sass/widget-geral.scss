@@ -70,3 +70,14 @@
 	float:left;
 	padding-left: 15px !important;
 }
+
+@media screen and ( min-width: 900px ) {
+	.esconder-desktop {
+		display: none !important;
+	}
+}
+@media screen and ( max-width: 900px ) {
+	.esconder-mobile {
+		display: none;
+	}
+}

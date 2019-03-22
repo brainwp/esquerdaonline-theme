@@ -226,3 +226,11 @@
   }
 
 }
+body.single-post.especial {
+	.com-especial {
+		display: block !important;
+	}
+	.sem-especial {
+		display: none;
+	}
+}

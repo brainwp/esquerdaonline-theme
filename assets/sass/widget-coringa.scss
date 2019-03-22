@@ -722,6 +722,9 @@
 		}
 	}
 }
+.esconder-titulo .social-foto-meio {
+	display: none !important;
+}
 
 @media screen and (max-width: 900px ) {
 	.widget-eol-posts article.foto-meio:first-child figure .social-icons-post{
