@@ -175,6 +175,9 @@ jQuery(document).ready(function($) {
 				$( '#modal' ).removeClass( 'data-image' );
 			});
 		});
+		$( '#modal iframe' ).on( 'load', function() {
+			$( '#modal .lds-ellipsis' ).fadeOut( 'slow' );
+		});
 
 	});
 });
