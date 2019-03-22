@@ -1,5 +1,7 @@
 <?php
 global $post;
+$post_id = $post->ID;
+$content = $post->post_content;
 if ($term_list = wp_get_post_terms($post->ID, 'colunistas_tax', array("fields" => "slugs"))) {
 	$the_slug = $term_list[0];
 	$args = array(
@@ -9,14 +11,24 @@ if ($term_list = wp_get_post_terms($post->ID, 'colunistas_tax', array("fields" =
 	);
 	$my_posts = get_posts($args);
 	if( $my_posts ) :
-	  $post_id = $my_posts[0]->ID;
+		$post_id = $my_posts[0]->ID;
 		$content = $my_posts[0]->post_content;
-
+	else :
+		if ( isset( $term_list[1] ) ) {
+			$the_slug = $term_list[1];
+			$args = array(
+				'name'        => $the_slug,
+				'post_type'   => 'colunistas',
+				'numberposts' => 1
+			);
+			$my_posts = get_posts($args);
+			if ( $my_posts ) {
+				$post_id = $my_posts[0]->ID;
+				$content = $my_posts[0]->post_content;
+			}
+		}
 	endif;
-} else{
-	$post_id = $post->ID;
-	$content = $post->post_content;
-}
+} 
 $content = apply_filters('the_content', $content);
 	?>
 <header id="header-colunista" class="no-padding">
