@@ -108,6 +108,9 @@
 			}
 			$html .= '<div class="col-md-12 eol_related_articles">';
 			foreach ( $posts as $related_id ) {
+				if ( ! get_permalink( $related_id ) ) {
+					continue;
+				}
 				$html .= '<a class="each-related-article" href="' . get_permalink( $related_id ) . '">';
 				$html .= '<i class="fas fa-angle-right"></i>'.get_the_title( $related_id );
 				$html .= '</a>';
