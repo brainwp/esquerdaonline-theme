@@ -276,7 +276,7 @@ function eol_header_especiais(){
 		$term = wp_get_post_terms( get_the_ID(), 'especiais' );
 		$especial = get_page_by_title( $term[0]->name, $output = OBJECT, $post_type = 'especiais' );
 	?>
-	<?php if ( $image_id = get_post_meta( $especial->ID, 'thumbnail_single', true ) ) : ?>
+	<?php if ( $image_id = get_post_meta( $especial->ID, 'thumbnail_single', true ) && ! wp_is_mobile() ) : ?>
 	<div id="header-especiais" class="">
 		 <figure class=" post-thumbnail">
 			 <a href="<?php echo get_the_permalink( $especial->ID ); ?>">
