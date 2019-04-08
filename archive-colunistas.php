@@ -49,13 +49,22 @@ get_header('large'); ?>
 			?>
 
 	</main><!-- #main -->
+
+	<?php
+		$args = array(
+		  'post_type'   => 'colunistas',
+		  'orderby'=> 'title',
+		  'order' => 'ASC',
+		  'posts_per_page' => -1
+		);
+		$colunistas = get_posts( $args );
+		 ?>
 	<aside id="sidebar-colunistas" class="<?php echo odin_classes_page_sidebar_aside(); ?>" role="complementary">
 		<h3 class="widgettitle widget-title" ><?php _e( 'acesso <span>rápido</span>', 'eol' );?></h3>
-		<?php
-		// print_r($colunistas_array);
-		ksort($colunistas_array);?>
 		<ul class="posts-widget-list-tx">
-			<?php foreach ($colunistas_array as $nome => $link) :
+			<?php foreach ($colunistas as $colunista ) :
+				$link = get_post_permalink( $colunista->ID);
+				$nome = $colunista->post_title;
 				?>
 				<li class="post-widget-li">
 					<a class="post-link-widget-li" href="<?php echo $link?>"><?php echo $nome; ?>
