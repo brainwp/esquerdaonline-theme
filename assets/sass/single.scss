@@ -769,3 +769,11 @@ span.tag-links a {
 		font-size: 24px;
 	}
 }
+@media screen and (max-width:720px ) {
+	.content-it-self{
+		figure{
+			float:none!important;
+			clear: both;		
+		}
+	}
+}

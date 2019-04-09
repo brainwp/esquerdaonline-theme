@@ -732,17 +732,22 @@ add_filter('pre_get_posts','eol_exclude_destaques');
 function eol_exclude_destaques( $query ) {
 
     if ( $query->is_tax( 'editorias' ) && $query->is_main_query() ) {
-        $query->set( 'tax_query', array(
-            'relation' => 'AND',
-            array(
-                'taxonomy' => '_featured_eo',
-                'field' => 'slug',
-                'terms' => 'destaque',
-                'operator' => 'NOT IN'
-            )
-        ) );
+        $query_not_args = array(
+			'tax_query' => array(
+	            array(
+	                'taxonomy' 		 => '_featured_eo',
+	                'field' 		 => 'slug',
+	                'terms' 		 => 'destaque',
+	            )
+	        ),
+			'no_found_rows'       => true,
+			'post_status'         => 'publish',
+			'posts_per_page' => 5
+	 	);
     }
-
+	$query_not = new WP_Query( $query_not_args);
+	$post_ids = wp_list_pluck($query_not->posts , 'ID' );
+	$query->set_query_var('post__not_in', $post_ids);
     return $query;
 }
 
