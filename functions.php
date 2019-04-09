@@ -501,13 +501,13 @@ function check_sidebar_params( $params ) {
     return $new_params;
 }
 function atualiza_data_colunista( $post_id ) {
-	if ( wp_is_post_revision( $post_id ) || get_post_type($post_id) != 'post' || !$colunista = wp_get_post_terms($post_id,'colunistas')){
+	if ( wp_is_post_revision( $post_id ) || get_post_type($post_id) != 'post' || !$colunista = wp_get_post_terms($post_id,'colunistas_tax')){
 		return;
 	}
 	remove_action( 'save_post', 'atualiza_data_colunista' );
 	$colunista_obj = get_page_by_path($colunista[0]->slug, OBJECT,'colunistas');
 	$colunista_id = $colunista_obj->ID;
-	// print_r($colunista_id );
+	// print_r($colunista );
 	// wp_die();
 
 
@@ -516,6 +516,7 @@ function atualiza_data_colunista( $post_id ) {
 	$post_date = get_the_date('Y-m-d H:i:s', $post_id);
 	// echo "<br>post_date2<br>".$post_date."<br><br>";
 	// wp_die();
+
 	$args = array(
                'ID' => $colunista_id,
 							 'post_date' => $post_date
@@ -523,7 +524,7 @@ function atualiza_data_colunista( $post_id ) {
  	wp_update_post( $args );
 	add_action( 'save_post', 'atualiza_data_colunista' );
 }
-//add_action( 'save_post', 'atualiza_data_colunista' );
+add_action( 'save_post', 'atualiza_data_colunista' );
 
 function wpb_add_google_fonts() {
 
