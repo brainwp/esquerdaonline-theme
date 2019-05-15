@@ -848,3 +848,9 @@ require_once get_template_directory() . '/inc/class-yt-thumbnail.php';
 
 //adiciona "fork" do brasa slider para servir como CPT de galeria
 require_once get_template_directory() . '/inc/galeria/brasa-slider.php';
+
+function my_increase_oembed_timeout($args) {
+	$args["timeout"] = 30;
+	return $args;
+}
+add_filter( 'oembed_remote_get_args', 'my_increase_oembed_timeout');
